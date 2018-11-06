@@ -4,19 +4,21 @@
 //
 //  Created by Eason on 2018/11/2.
 //  Copyright © 2018 Eason. All rights reserved.
-//  上傳衝突解決方案
-//  Xcode衝突測試
 
 import UIKit
+import Firebase  // 1.Firebase 初始化
+
+let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 180/255, alpha: 1)
+let secondaryColor = UIColor(red: 52/255, green: 148/255, blue: 230/255, alpha: 1)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure() // 2.Firebase 初始化
         return true
     }
 

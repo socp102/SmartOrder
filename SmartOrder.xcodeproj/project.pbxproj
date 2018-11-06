@@ -17,6 +17,11 @@
 		9BD1EF12218CAE6C004AB970 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF11218CAE6C004AB970 /* Order.storyboard */; };
 		9BD1EF14218CAEFB004AB970 /* Reservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */; };
 		9BD1EF17218CAF30004AB970 /* Menber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF15218CAF30004AB970 /* Menber.storyboard */; };
+		9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF18218ECF89004AB970 /* MainViewController.swift */; };
+		9BD1EF1B218EF349004AB970 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1A218EF349004AB970 /* Common.swift */; };
+		9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
+		9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1E2191441A004AB970 /* MenberViewController.swift */; };
+		9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF2021916F83004AB970 /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		9BD1EF11218CAE6C004AB970 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reservation.storyboard; sourceTree = "<group>"; };
 		9BD1EF16218CAF30004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartOrder/Base.lproj/Menber.storyboard; sourceTree = "<group>"; };
+		9BD1EF18218ECF89004AB970 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9BD1EF1A218EF349004AB970 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		9BD1EF1E2191441A004AB970 /* MenberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenberViewController.swift; sourceTree = "<group>"; };
+		9BD1EF2021916F83004AB970 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +78,6 @@
 		9BD1EEE8218CA3C9004AB970 = {
 			isa = PBXGroup;
 			children = (
-				9BD1EF15218CAF30004AB970 /* Menber.storyboard */,
 				9BD1EEF3218CA3C9004AB970 /* SmartOrder */,
 				9BD1EEF2218CA3C9004AB970 /* Products */,
 				84E2BC7FF43EC17075F7E22F /* Pods */,
@@ -100,11 +109,12 @@
 		9BD1EF08218CA431004AB970 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
 				9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
 				9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */,
 				9BD1EF11218CAE6C004AB970 /* Order.storyboard */,
 				9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
-				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
+				9BD1EF15218CAF30004AB970 /* Menber.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -120,6 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
+				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
+				9BD1EF1A218EF349004AB970 /* Common.swift */,
+				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
+				9BD1EF2021916F83004AB970 /* AdminViewController.swift */,
+				9BD1EF1E2191441A004AB970 /* MenberViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,7 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
+				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
+				9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */,
+				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
+				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
