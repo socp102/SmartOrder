@@ -86,7 +86,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYW-kt-4zB">
                                 <rect key="frame" x="172" y="318.5" width="31" height="30"/>
-                                <state key="normal" title="登入"/>
+                                <state key="normal" title="登入">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="BtnPressedSignin:" destination="Xw6-v3-JoE" eventType="touchUpInside" id="3tb-ff-bwZ"/>
                                 </connections>
@@ -111,16 +113,29 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edV-id-GRm">
                                 <rect key="frame" x="20" y="318.5" width="62" height="30"/>
-                                <state key="normal" title="店長登入"/>
+                                <state key="normal" title="店長登入">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="signInAdmin:" destination="Xw6-v3-JoE" eventType="touchUpInside" id="UVK-AC-adp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eck-Gv-uzE">
                                 <rect key="frame" x="293" y="318.5" width="62" height="30"/>
-                                <state key="normal" title="會員登入"/>
+                                <state key="normal" title="會員登入">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="signInUser:" destination="Xw6-v3-JoE" eventType="touchUpInside" id="fkR-he-bn2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjz-f9-LPo">
+                                <rect key="frame" x="149" y="388.5" width="77" height="30"/>
+                                <state key="normal" title="測試用按鈕">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="test:" destination="Xw6-v3-JoE" eventType="touchUpInside" id="twc-qa-sGl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -132,10 +147,12 @@
                             <constraint firstItem="uYW-kt-4zB" firstAttribute="top" secondItem="q1F-f0-Cb3" secondAttribute="bottom" constant="30" id="8I2-Qt-FCJ"/>
                             <constraint firstItem="edV-id-GRm" firstAttribute="top" secondItem="q1F-f0-Cb3" secondAttribute="bottom" constant="30" id="Cy3-qG-7Kn"/>
                             <constraint firstItem="uYW-kt-4zB" firstAttribute="centerY" secondItem="T5V-uI-Jy6" secondAttribute="centerY" id="J1K-fG-tl3"/>
+                            <constraint firstItem="Kjz-f9-LPo" firstAttribute="top" secondItem="uYW-kt-4zB" secondAttribute="bottom" constant="40" id="JJz-KZ-gu2"/>
                             <constraint firstItem="jUd-xf-b9D" firstAttribute="centerX" secondItem="T5V-uI-Jy6" secondAttribute="centerX" id="KOx-4p-YoZ"/>
                             <constraint firstItem="WUH-GZ-4jx" firstAttribute="trailing" secondItem="8kg-qP-ktl" secondAttribute="trailing" constant="30" id="T1e-Fe-PAc"/>
                             <constraint firstItem="8kg-qP-ktl" firstAttribute="top" secondItem="jUd-xf-b9D" secondAttribute="bottom" constant="50" id="Tcu-h3-6jm"/>
                             <constraint firstItem="eck-Gv-uzE" firstAttribute="top" secondItem="q1F-f0-Cb3" secondAttribute="bottom" constant="30" id="Yma-uk-ma9"/>
+                            <constraint firstItem="Kjz-f9-LPo" firstAttribute="centerX" secondItem="T5V-uI-Jy6" secondAttribute="centerX" id="bU7-xc-OWL"/>
                             <constraint firstItem="uYW-kt-4zB" firstAttribute="centerX" secondItem="T5V-uI-Jy6" secondAttribute="centerX" id="eLC-WP-l0k"/>
                             <constraint firstItem="q1F-f0-Cb3" firstAttribute="top" secondItem="8kg-qP-ktl" secondAttribute="bottom" constant="30" id="fl0-ko-2SL"/>
                             <constraint firstItem="WUH-GZ-4jx" firstAttribute="trailing" secondItem="q1F-f0-Cb3" secondAttribute="trailing" constant="30" id="llN-jE-IkL"/>
