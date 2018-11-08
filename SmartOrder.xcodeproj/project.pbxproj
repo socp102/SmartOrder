@@ -22,6 +22,7 @@
 		9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
 		9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1E2191441A004AB970 /* MenberViewController.swift */; };
 		9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF2021916F83004AB970 /* AdminViewController.swift */; };
+		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		9BD1EF1E2191441A004AB970 /* MenberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenberViewController.swift; sourceTree = "<group>"; };
 		9BD1EF2021916F83004AB970 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
 				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
+				A19727272193E7A600068B18 /* CouponViewController.swift */,
 				9BD1EF2021916F83004AB970 /* AdminViewController.swift */,
 				9BD1EF1E2191441A004AB970 /* MenberViewController.swift */,
 			);
@@ -336,6 +339,7 @@
 				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
 				9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
+				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
