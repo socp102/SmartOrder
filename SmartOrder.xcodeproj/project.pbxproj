@@ -22,7 +22,9 @@
 		9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
 		9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1E2191441A004AB970 /* MenberViewController.swift */; };
 		9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF2021916F83004AB970 /* AdminViewController.swift */; };
+		A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
+		A1D61DAE2193ED38008D35C2 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D61DAD2193ED38008D35C2 /* CouponCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,9 @@
 		9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		9BD1EF1E2191441A004AB970 /* MenberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenberViewController.swift; sourceTree = "<group>"; };
 		9BD1EF2021916F83004AB970 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCommunicator.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		A1D61DAD2193ED38008D35C2 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,7 @@
 			children = (
 				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
 				9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
-				9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */,
+				A1D61DAF2193ED69008D35C2 /* Coupon */,
 				9BD1EF11218CAE6C004AB970 /* Order.storyboard */,
 				9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
 				9BD1EF15218CAF30004AB970 /* Menber.storyboard */,
@@ -124,6 +128,7 @@
 		9BD1EF09218CA4A3004AB970 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,14 +137,31 @@
 			isa = PBXGroup;
 			children = (
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
-				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
+				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
-				A19727272193E7A600068B18 /* CouponViewController.swift */,
+				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EF2021916F83004AB970 /* AdminViewController.swift */,
 				9BD1EF1E2191441A004AB970 /* MenberViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		A11BE7AB219D045C00C5A86F /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				A19727272193E7A600068B18 /* CouponViewController.swift */,
+			);
+			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A1D61DAF2193ED69008D35C2 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */,
+				A1D61DAD2193ED38008D35C2 /* CouponCollectionViewCell.swift */,
+			);
+			name = Coupon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +360,8 @@
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
 				9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */,
+				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
+				A1D61DAE2193ED38008D35C2 /* CouponCollectionViewCell.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
@@ -496,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = 23SHCYU3ZR;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = 23SHCYU3ZR;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

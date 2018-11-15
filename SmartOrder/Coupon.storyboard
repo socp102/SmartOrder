@@ -16,14 +16,52 @@
                     <view key="view" contentMode="scaleToFill" id="KSc-jl-rzx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1dI-pd-ija">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uOb-7n-kzx">
+                                    <size key="itemSize" width="375" height="104"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="VHm-7s-OSl" customClass="CouponCollectionViewCell" customModule="SmartOrder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-wd-9XU">
+                                                    <rect key="frame" x="20" y="0.0" width="335" height="104"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vEb-BU-9Al" firstAttribute="bottom" secondItem="1dI-pd-ija" secondAttribute="bottom" id="5sd-k9-5Vh"/>
+                            <constraint firstItem="1dI-pd-ija" firstAttribute="top" secondItem="vEb-BU-9Al" secondAttribute="top" id="DiA-lf-ZqM"/>
+                            <constraint firstItem="1dI-pd-ija" firstAttribute="leading" secondItem="vEb-BU-9Al" secondAttribute="leading" id="b6k-bv-Yew"/>
+                            <constraint firstItem="vEb-BU-9Al" firstAttribute="trailing" secondItem="1dI-pd-ija" secondAttribute="trailing" id="dUw-rT-0jY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vEb-BU-9Al"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="8Ea-AY-5P0"/>
+                    <connections>
+                        <outlet property="cvCouponList" destination="1dI-pd-ija" id="96e-zk-FVy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1Y-Lf-YWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="645"/>
+            <point key="canvasLocation" x="144.80000000000001" y="644.52773613193403"/>
         </scene>
     </scenes>
 </document>

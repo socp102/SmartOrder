@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Common {
     static func showAlert(on: UIViewController, style: UIAlertController.Style, title: String?, message: String?, actions: [UIAlertAction] = [UIAlertAction(title: "OK", style: .default, handler: nil)], completion: (() -> Swift.Void)? = nil) {
