@@ -64,6 +64,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AF4F56F219EC112005AC6DC /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF11218CAE6C004AB970 /* Order.storyboard */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		0AF4F570219EC171005AC6DC /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
+			);
+			name = Reservation;
+			sourceTree = "<group>";
+		};
+		0AF4F571219EC17E005AC6DC /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF15218CAF30004AB970 /* Menber.storyboard */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
+		0AF4F572219EC218005AC6DC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
+				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		697AD2051AA5818613594518 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,12 +148,11 @@
 		9BD1EF08218CA431004AB970 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
-				9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
+				0AF4F572219EC218005AC6DC /* Main */,
 				A1D61DAF2193ED69008D35C2 /* Coupon */,
-				9BD1EF11218CAE6C004AB970 /* Order.storyboard */,
-				9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
-				9BD1EF15218CAF30004AB970 /* Menber.storyboard */,
+				0AF4F56F219EC112005AC6DC /* Order */,
+				0AF4F570219EC171005AC6DC /* Reservation */,
+				0AF4F571219EC17E005AC6DC /* Member */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -136,11 +168,11 @@
 		9BD1EF0A218CA4AC004AB970 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
 				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
-				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EF2021916F83004AB970 /* AdminViewController.swift */,
 				9BD1EF1E2191441A004AB970 /* MenberViewController.swift */,
 			);
