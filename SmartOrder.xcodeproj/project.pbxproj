@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
+		0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */; };
+		0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
+		0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
+		0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450221A7966F00571E17 /* DetailTableViewController.swift */; };
+		0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */; };
+		0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450421A7966F00571E17 /* MenuViewController.swift */; };
 		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
 		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
 		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
@@ -14,7 +21,6 @@
 		9BD1EEFF218CA3CA004AB970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */; };
 		9BD1EF07218CA426004AB970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */; };
 		9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */; };
-		9BD1EF12218CAE6C004AB970 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF11218CAE6C004AB970 /* Order.storyboard */; };
 		9BD1EF14218CAEFB004AB970 /* Reservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */; };
 		9BD1EF17218CAF30004AB970 /* Menber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF15218CAF30004AB970 /* Menber.storyboard */; };
 		9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF18218ECF89004AB970 /* MainViewController.swift */; };
@@ -28,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AE4441D21A2598800571E17 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
+		0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
+		0AE4450021A7966F00571E17 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		0AE4450221A7966F00571E17 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		0AE4450421A7966F00571E17 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +52,6 @@
 		9BD1EF00218CA3CA004AB970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
-		9BD1EF11218CAE6C004AB970 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reservation.storyboard; sourceTree = "<group>"; };
 		9BD1EF16218CAF30004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartOrder/Base.lproj/Menber.storyboard; sourceTree = "<group>"; };
 		9BD1EF18218ECF89004AB970 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -64,10 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AE4441C21A2590F00571E17 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				0AE4450221A7966F00571E17 /* DetailTableViewController.swift */,
+				0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */,
+				0AE4450021A7966F00571E17 /* FoodViewController.swift */,
+				0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */,
+				0AE4450421A7966F00571E17 /* MenuViewController.swift */,
+				0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */,
+			);
+			name = Order;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		0AF4F56F219EC112005AC6DC /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				9BD1EF11218CAE6C004AB970 /* Order.storyboard */,
+				0AE4441D21A2598800571E17 /* Order.storyboard */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -168,6 +194,7 @@
 		9BD1EF0A218CA4AC004AB970 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
@@ -260,11 +287,11 @@
 				9BD1EF14218CAEFB004AB970 /* Reservation.storyboard in Resources */,
 				9BD1EF17218CAF30004AB970 /* Menber.storyboard in Resources */,
 				9BD1EEFF218CA3CA004AB970 /* LaunchScreen.storyboard in Resources */,
+				0AE4441E21A2598800571E17 /* Order.storyboard in Resources */,
 				9BD1EF07218CA426004AB970 /* GoogleService-Info.plist in Resources */,
 				9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */,
 				9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */,
 				9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */,
-				9BD1EF12218CAE6C004AB970 /* Order.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,12 +415,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */,
+				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
+				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
+				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
+				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
 				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
 				9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */,
 				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
 				A1D61DAE2193ED38008D35C2 /* CouponCollectionViewCell.swift in Sources */,
+				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
