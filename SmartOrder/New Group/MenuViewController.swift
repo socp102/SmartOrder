@@ -16,19 +16,8 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
    
     @IBAction func unwindSegueToMenu(segue:UIStoryboardSegue) {
         
-        let sourceDetail = segue.source as? DetailTableViewController
-        let sourceResult = segue.source as? ResultTableViewController
-        
-        sourceResult?.item = [(sourceDetail?.resultItem)!]
-        sourceResult?.count = [(sourceDetail?.resultCount)!]
-        sourceResult?.price = [(sourceDetail?.resultPrice)!]
-        
     
     }
-    
-    
-    
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

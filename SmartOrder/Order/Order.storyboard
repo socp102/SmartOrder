@@ -197,30 +197,30 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Yne-SH-R8z">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" rowHeight="80" id="Yne-SH-R8z" customClass="ResultTableViewCell" customModule="SmartOrder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yne-SH-R8z" id="zxS-cK-YLy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="9Z8-fV-Aen">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="9Z8-fV-Aen">
                                             <rect key="frame" x="5" y="0.0" width="365" height="79.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-b6-ddG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="79.5"/>
+                                                    <rect key="frame" x="0.0" y="28" width="55" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gly-4a-Oti">
-                                                    <rect key="frame" x="155" y="0.0" width="55" height="79.5"/>
+                                                    <rect key="frame" x="155" y="28" width="55" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="價錢" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-kU-OS8">
-                                                    <rect key="frame" x="310" y="0.0" width="55" height="79.5"/>
+                                                    <rect key="frame" x="310" y="28" width="55" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -235,6 +235,11 @@
                                         <constraint firstItem="9Z8-fV-Aen" firstAttribute="leading" secondItem="zxS-cK-YLy" secondAttribute="leading" constant="5" id="vxu-2D-2MG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="resultCount" destination="Gly-4a-Oti" id="Tyk-Od-6Ak"/>
+                                    <outlet property="resultName" destination="gZG-b6-ddG" id="3rt-IG-5M0"/>
+                                    <outlet property="resultSubtotal" destination="t7d-kU-OS8" id="iXC-Td-qT0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

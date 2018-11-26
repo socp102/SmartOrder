@@ -58,17 +58,24 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
                 resultItem = hamburgerName[detailImageNumber]
+                resultPrice = hamburgurPrice[detailImageNumber]
+                
+                
             case 1:
                 detailImage.image = UIImage(named: hamburgerImages[detailImageNumber])
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
                 resultItem = hamburgerName[detailImageNumber]
+                resultPrice = hamburgurPrice[detailImageNumber]
+
 
             case 2:
                 detailImage.image = UIImage(named: hamburgerImages[detailImageNumber])
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
                 resultItem = hamburgerName[detailImageNumber]
+                resultPrice = hamburgurPrice[detailImageNumber]
+
 
             default:
                 break
@@ -84,6 +91,7 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
                 resultItem = spaghettiName[detailImageNumber]
+                resultPrice = spaghettiPrice[detailImageNumber]
 
 
             case 1:
@@ -91,6 +99,8 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
                 resultItem = spaghettiName[detailImageNumber]
+                resultPrice = spaghettiPrice[detailImageNumber]
+
 
 
             case 2:
@@ -98,6 +108,8 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
                 resultItem = spaghettiName[detailImageNumber]
+                resultPrice = spaghettiPrice[detailImageNumber]
+
 
             default:
                 break
@@ -112,18 +124,24 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
                 resultItem = pizzaName[detailImageNumber]
+                resultPrice = pizzaPrice[detailImageNumber]
+
 
             case 1:
                 detailImage.image = UIImage(named: pizzaImages[detailImageNumber])
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
                 resultItem = pizzaName[detailImageNumber]
+                resultPrice = pizzaPrice[detailImageNumber]
+
                 
             case 2:
                 detailImage.image = UIImage(named: pizzaImages[detailImageNumber])
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
                 resultItem = pizzaName[detailImageNumber]
+                resultPrice = pizzaPrice[detailImageNumber]
+
 
             default:
                 break
@@ -138,6 +156,7 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
                 resultItem = steakName[detailImageNumber]
+                resultPrice = steakPrice[detailImageNumber]
 
 
             case 1:
@@ -145,6 +164,8 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
                 resultItem = steakName[detailImageNumber]
+                resultPrice = steakPrice[detailImageNumber]
+
 
 
             case 2:
@@ -152,6 +173,8 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
                 resultItem = steakName[detailImageNumber]
+                resultPrice = steakPrice[detailImageNumber]
+
                 
             default:
                 break
@@ -166,18 +189,24 @@ class DetailTableViewController: UITableViewController {
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
                 resultItem = dessertName[detailImageNumber]
+                resultPrice = dessertPrice[detailImageNumber]
+
 
             case 1:
                 detailImage.image = UIImage(named: dessertImages[detailImageNumber])
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
                 resultItem = dessertName[detailImageNumber]
+                resultPrice = dessertPrice[detailImageNumber]
+
 
             case 2:
                 detailImage.image = UIImage(named: dessertImages[detailImageNumber])
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
                 resultItem = dessertName[detailImageNumber]
+                resultPrice = dessertPrice[detailImageNumber]
+
 
 
             default:
@@ -191,32 +220,48 @@ class DetailTableViewController: UITableViewController {
     }
     
     @IBOutlet weak var stepperCount: UILabel!
+    
     var resultPrice = ""
-    var resultCount = ""
+    var resultCount = "1"
     var resultItem = ""
-    @IBAction func stepper(_ sender: UIStepper) {
+    
+    @IBAction func stepper(_ sender: UIStepper)  {
     
         let count = Int(sender.value)
         resultCount = String(count)
         
         stepperCount.text = String(count)
-        let price = Int(currentPrice)!
         
+        let price = Int(currentPrice)!
         resultPrice = String(price * count)
         detailPrice?.text = resultPrice
         
     }
     
-    @IBAction func addToOrder(_ sender: Any) {
-        
-    
-        
-    }
-    
-    
    
     
-    
-    
-    
+    @IBAction func addToOrder(_ sender: Any) {
+        
+    var db :SQLiteConnect?
+    let url  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let sqlitePath = url[url.count-1].absoluteString + "sqlite3.db"
+    db = SQLiteConnect(path: sqlitePath)
+    print(sqlitePath)
+
+
+    if let mydb = db {
+
+        let _ = mydb.createTable("userAdd", columnsInfo: ["id integer primary key autoincrement","item text","count text","price text"])
+        let _ = mydb.insert("userAdd", rowInfo: ["item":"'\(resultItem)'","count":"'\(resultCount)'","price":"'\(resultPrice)'"])
+        
+        
+        print(resultCount)
+        print(resultPrice)
+        print(resultItem)
+        
+        
+        
+        }
+    }
+
 }
