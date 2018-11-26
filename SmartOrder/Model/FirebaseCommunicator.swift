@@ -12,8 +12,8 @@ import Firebase
 class FirebaseCommunicator {
     static let shared = FirebaseCommunicator()
     let db: Firestore!
-    
     let storage: Storage!
+    let storageRef: StorageReference!
     
     private init() {
         db = Firestore.firestore()
@@ -21,6 +21,7 @@ class FirebaseCommunicator {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         storage = Storage.storage()
+        storageRef = storage.reference(forURL: "gs://smartorder-ios.appspot.com/")
     }
     
     
@@ -209,6 +210,41 @@ class FirebaseCommunicator {
                         results.updateValue(document.data(), forKey: document.documentID)
                     }
                     completion(results, nil)
+                }
+            }
+        }
+    }
+    
+    // 下載圖片.
+    func downloadImage(url: String, fileName: String, competion: @escaping DoneHandler) {
+        let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let imageURL = url + fileName
+        let localImageURL = cacheURL.appendingPathComponent(imageURL)
+        print("localImageURL: \(localImageURL)")
+        
+        // 從本機Cache取得圖片.
+        if let data = try? Data(contentsOf: localImageURL) {
+            print("getData from local successful.")
+            let image = UIImage(data: data)
+            competion(image, nil)
+        } else {    // 本機無資料, 網路下載.
+            print("readData from local fail.")
+            
+            let islandRef = storageRef.child(imageURL)
+            
+            islandRef.write(toFile: localImageURL) { (url, error) in
+                if let error = error {
+                    print("getData error: \(error)")
+                    competion(nil, error)
+                } else {
+                    print("getData from internet successful.")
+                    if let data = try? Data(contentsOf: url!) {
+                        let image = UIImage(data: data)
+                        competion(image, nil)
+                    } else {
+                        print("readData from local error.")
+                    }
+                    
                 }
             }
         }

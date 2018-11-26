@@ -19,6 +19,7 @@ class CouponViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var cvCouponList: UICollectionView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         cvCouponList.delegate = self
         cvCouponList.dataSource = self
@@ -149,6 +150,15 @@ class CouponViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CouponCollectionViewCell
+        
+        firebaseCommunicator.downloadImage(url: "couponImages/", fileName: "info1.png") { (result, error) in
+            if let error = error {
+                print("downloadImage error: \(error)")
+            } else {
+                cell.test.image = (result as! UIImage)
+            }
+        }
+        
         return cell
     }
 }

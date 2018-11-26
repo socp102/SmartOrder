@@ -9,5 +9,6 @@
 import UIKit
 
 class CouponCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var test: UIImageView!
     
 }
