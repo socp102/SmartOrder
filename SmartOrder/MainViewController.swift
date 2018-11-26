@@ -33,12 +33,13 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        checkSignInState()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //監聽登入狀態
-        checkSignInState()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,13 +67,18 @@ class MainViewController: UIViewController {
             guard let user = user else { return }
             print("Success signIn: \(user)")
 //            self.performSegue(withIdentifier: "segueToUser", sender: self)
-            self.checkSignInState()
+//            self.checkSignInState()
         }
     }
     
     // Check SignIn State
     
     func checkSignInState() {
+        
+        if authHandle != nil {
+            Auth.auth().removeStateDidChangeListener(authHandle!)
+        }
+        
         authHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let email = user?.email {
                 if email == "admin@test.com" {
