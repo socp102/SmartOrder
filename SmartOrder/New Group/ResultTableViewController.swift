@@ -10,9 +10,6 @@ import UIKit
 
 class ResultTableViewController: UITableViewController {
     
-    var item:[String] = []
-    var count:[String] = []
-    var price:[String] = []
 
     @IBAction func resultCloseBtn(_ sender: Any) {
         
@@ -30,31 +27,32 @@ class ResultTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cellIdentifier = "ResultCell"
 
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
+        
+        cell.resultName =
+        cell.resultCount =
+        cell.resultSubtotal =
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
