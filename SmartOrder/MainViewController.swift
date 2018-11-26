@@ -67,7 +67,6 @@ class MainViewController: UIViewController {
             guard let user = user else { return }
             print("Success signIn: \(user)")
 //            self.performSegue(withIdentifier: "segueToUser", sender: self)
-//            self.checkSignInState()
         }
     }
     
