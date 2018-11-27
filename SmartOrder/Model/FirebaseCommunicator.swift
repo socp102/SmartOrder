@@ -12,9 +12,16 @@ import Firebase
 class FirebaseCommunicator {
     static let shared = FirebaseCommunicator()
     let db: Firestore!
+    let storage: Storage!
+    let storageRef: StorageReference!
     
     private init() {
         db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        storage = Storage.storage()
+        storageRef = storage.reference(forURL: "gs://smartorder-ios.appspot.com/")
     }
     
     
@@ -28,7 +35,7 @@ class FirebaseCommunicator {
                  completion: @escaping DoneHandler) {
         var finalData = data
         finalData.updateValue(FieldValue.serverTimestamp(), forKey: "timestamp")
-        db.collection(collectionName).document(documentName).setData(data) { error in
+        db.collection(collectionName).document(documentName).setData(finalData) { error in
             if let  error = error {
                 print("Add data error: \(error).")
                 completion(nil, error)
@@ -40,8 +47,8 @@ class FirebaseCommunicator {
     
     // 刪除documentName的Data.
     func deleteData(collectionName: String,
-                   documentName: String,
-                   completion: @escaping DoneHandler) {
+                    documentName: String,
+                    completion: @escaping DoneHandler) {
         db.collection(collectionName).document(documentName).delete() { error in
             if let  error = error {
                 print("Delete data error: \(error).")
@@ -110,9 +117,8 @@ class FirebaseCommunicator {
                   completion: @escaping DoneHandler) {
         db.collection(collectionName).document(documentName).getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Load data successful.")
-                completion(dataDescription, nil)
+                print("Load data: \(document.data()!)")
+                completion(document.data(), nil)
             } else {
                 print("Load data error: \(error!).")
                 completion(nil, error)
@@ -128,15 +134,119 @@ class FirebaseCommunicator {
         db.collection(collectionName).whereField(field, isEqualTo: condition).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Load data error: \(error).")
+                completion(nil, error)
             } else {
                 print("Load data successful.")
                 var results: [String: Any] = [:]
                 for document in querySnapshot!.documents {
                     results.updateValue(document.data(), forKey: document.documentID)
                 }
-                completion(results, error)
+                completion(results, nil)
             }
         }
     }
     
+    // 查詢collectionName內所有符合時間範圍內之data.
+    func loadData(collectionName: String,
+                  greaterThanOrEqualTo start: String? = nil,
+                  lessThanOrEqualTo end: String? = nil,
+                  completion: @escaping DoneHandler) {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateformatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        
+        if let startTime = start, let endTime = end {
+            let startDate = dateformatter.date(from: startTime)
+            let startTimestamp = Timestamp(date: startDate!)
+            let endDate = dateformatter.date(from: endTime)
+            let endTimestamp = Timestamp(date: endDate!)
+            
+            db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Load data error: \(error).")
+                    completion(nil, error)
+                } else {
+                    print("Load data successful.")
+                    var results: [String: Any] = [:]
+                    for document in querySnapshot!.documents {
+                        results.updateValue(document.data(), forKey: document.documentID)
+                    }
+                    completion(results, nil)
+                }
+            }
+        }
+        
+        if let startTime = start, end == nil {
+            let startDate = dateformatter.date(from: startTime)
+            let startTimestamp = Timestamp(date: startDate!)
+            
+            db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Load data error: \(error).")
+                    completion(nil, error)
+                } else {
+                    print("Load data successful.")
+                    var results: [String: Any] = [:]
+                    for document in querySnapshot!.documents {
+                        results.updateValue(document.data(), forKey: document.documentID)
+                    }
+                    completion(results, nil)
+                }
+            }
+        }
+        
+        if start == nil, let endTime = end {
+            let endDate = dateformatter.date(from: endTime)
+            let endTimestamp = Timestamp(date: endDate!)
+            
+            db.collection(collectionName).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Load data error: \(error).")
+                    completion(nil, error)
+                } else {
+                    print("Load data successful.")
+                    var results: [String: Any] = [:]
+                    for document in querySnapshot!.documents {
+                        results.updateValue(document.data(), forKey: document.documentID)
+                    }
+                    completion(results, nil)
+                }
+            }
+        }
+    }
+    
+    // 下載圖片.
+    func downloadImage(url: String, fileName: String, competion: @escaping DoneHandler) {
+        let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let imageURL = url + fileName
+        let localImageURL = cacheURL.appendingPathComponent(imageURL)
+        print("localImageURL: \(localImageURL)")
+        
+        // 從本機Cache取得圖片.
+        if let data = try? Data(contentsOf: localImageURL) {
+            print("getData from local successful.")
+            let image = UIImage(data: data)
+            competion(image, nil)
+        } else {    // 本機無資料, 網路下載.
+            print("readData from local fail.")
+            
+            let islandRef = storageRef.child(imageURL)
+            
+            islandRef.write(toFile: localImageURL) { (url, error) in
+                if let error = error {
+                    print("getData error: \(error)")
+                    competion(nil, error)
+                } else {
+                    print("getData from internet successful.")
+                    if let data = try? Data(contentsOf: url!) {
+                        let image = UIImage(data: data)
+                        competion(image, nil)
+                    } else {
+                        print("readData from local error.")
+                    }
+                    
+                }
+            }
+        }
+    }
 }
