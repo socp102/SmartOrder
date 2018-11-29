@@ -111,13 +111,13 @@ class MainViewController: UIViewController {
     // Firestore 測試與範例 ============================================================================
     
     @IBAction func test(_ sender: Any) {
-        loadDocumentEqualTo()
+        addNewDocumentGeneratedID()
     }
     
     // 新增資料到 測試用集合 檔名自動生成
     func addNewDocumentGeneratedID() {
         var ref: DocumentReference? = nil
-        ref = db.collection("測試用集合").addDocument(data: [
+        ref = db.collection("測試用集合").document("1").collection("2").addDocument(data: [
             "key": "值",
             "name": "eason",
             "born": 12345

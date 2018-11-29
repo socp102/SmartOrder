@@ -18,6 +18,7 @@
 		0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
 		0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
 		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
+		9BAC4FB621AE2D4900514C86 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC4FB521AE2D4900514C86 /* ReservationViewController.swift */; };
 		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
 		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
 		9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */; };
@@ -51,6 +52,8 @@
 		436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BAC4FB521AE2D4900514C86 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		9BAC4FB721AF740100514C86 /* SmartOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartOrder.entitlements; sourceTree = "<group>"; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +153,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B66C16821AD0434006370FB /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				9BAC4FB521AE2D4900514C86 /* ReservationViewController.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
 		9BD1EEE8218CA3C9004AB970 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +182,7 @@
 		9BD1EEF3218CA3C9004AB970 /* SmartOrder */ = {
 			isa = PBXGroup;
 			children = (
+				9BAC4FB721AF740100514C86 /* SmartOrder.entitlements */,
 				9BD1EF09218CA4A3004AB970 /* Model */,
 				9BD1EF08218CA431004AB970 /* View */,
 				9BD1EF0A218CA4AC004AB970 /* Controller */,
@@ -208,6 +220,7 @@
 			children = (
 				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
+				9B66C16821AD0434006370FB /* Reservation */,
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
 				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
@@ -270,6 +283,14 @@
 				TargetAttributes = {
 					9BD1EEF0218CA3C9004AB970 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -438,6 +459,7 @@
 				9BD1EF1F2191441A004AB970 /* MenberViewController.swift in Sources */,
 				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
 				0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
+				9BAC4FB621AE2D4900514C86 /* ReservationViewController.swift in Sources */,
 				A1D61DAE2193ED38008D35C2 /* CouponCollectionViewCell.swift in Sources */,
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
@@ -598,8 +620,9 @@
 			baseConfigurationReference = 436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XQ7KA9M78C;
+				DEVELOPMENT_TEAM = 68M4BPMVT8;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,8 +641,9 @@
 			baseConfigurationReference = 446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XQ7KA9M78C;
+				DEVELOPMENT_TEAM = 68M4BPMVT8;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
