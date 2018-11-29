@@ -9,46 +9,66 @@
 import UIKit
 
 class ResultTableViewController: UITableViewController {
+    let myUserDefaults = UserDefaults.standard
+    var addDict =  [String: [String]]()
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
-
     @IBAction func resultCloseBtn(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    @IBAction func sendOrderToFirebase(_ sender: Any) {
+        
+        myUserDefaults.removeObject(forKey: "resultDict")
+        
     }
     
-
-    // MARK: - Table view data source
-
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        // 如果使用者預設有資料的話，就把資料匯入到addDict字典
+        if myUserDefaults.value(forKey: "resultDict") != nil {
+        
+        addDict = (myUserDefaults.object(forKey: "resultDict") as? [String: [String]])!
+            
+        }
+        
+        
+        let dictValues = addDict.values
+        let subtotalString = dictValues.map { $0[1] }
+        let subtotalInt = subtotalString.compactMap { Int($0) }
+        let sum = subtotalInt.reduce(0, +)
+        totalPriceLabel.text = String(sum)
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       
+    }
+    
+   
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        
+       
+        return addDict.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ResultCell"
-
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
         
-        cell.resultName =
-        cell.resultCount =
-        cell.resultSubtotal =
+        cell.resultName?.text = Array(addDict.keys)[indexPath.row]
+        cell.resultCount?.text =  Array(addDict.values)[indexPath.row][0]
+        cell.resultSubtotal?.text = Array(addDict.values)[indexPath.row][1]
         
         return cell
     }
