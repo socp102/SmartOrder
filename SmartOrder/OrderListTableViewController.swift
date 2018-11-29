@@ -1,78 +1,46 @@
 //
-//  ResultTableViewController.swift
+//  OrderListTableViewController.swift
 //  SmartOrder
 //
-//  Created by Lu Kevin on 2018/11/20.
-//  Copyright © 2018年 Eason. All rights reserved.
+//  Created by kimbely on 2018/11/28.
+//  Copyright © 2018 Eason. All rights reserved.
 //
 
 import UIKit
 
-class ResultTableViewController: UITableViewController {
-    let myUserDefaults = UserDefaults.standard
-    var addDict =  [String: [String]]()
-    @IBOutlet weak var totalPriceLabel: UILabel!
-    
-    @IBAction func resultCloseBtn(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func sendOrderToFirebase(_ sender: Any) {
-        
-        myUserDefaults.removeObject(forKey: "resultDict")
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-        // 如果使用者預設有資料的話，就把資料匯入到addDict字典
-        if myUserDefaults.value(forKey: "resultDict") != nil {
-        
-        addDict = (myUserDefaults.object(forKey: "resultDict") as? [String: [String]])!
-            
-        }
-        
-        
-        let dictValues = addDict.values
-        let subtotalString = dictValues.map { $0[1] }
-        let subtotalInt = subtotalString.compactMap { Int($0) }
-        let sum = subtotalInt.reduce(0, +)
-        totalPriceLabel.text = String(sum)
-        
-    }
-    
+class OrderListTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-   
+
+    // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-       
-        return addDict.count
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "ResultCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
-        
-        cell.resultName?.text = Array(addDict.keys)[indexPath.row]
-        cell.resultCount?.text =  Array(addDict.values)[indexPath.row][0]
-        cell.resultSubtotal?.text = Array(addDict.values)[indexPath.row][1]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
