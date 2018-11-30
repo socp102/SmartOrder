@@ -8,11 +8,16 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKLoginKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
+    
+    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var faceBookLoginButton: FBSDKLoginButton!
     
     var authHandle: AuthStateDidChangeListenerHandle?
     var db: Firestore!
@@ -26,15 +31,87 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // Add the background gradient  背景調成漸層色
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        view.addVerticalGradientLayer(topColor: secondaryColor , bottomColor: primaryColor)
         db = Firestore.firestore()
+        // Google SignIn
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        // FaceBook Login
+        faceBookLoginButton.delegate = self
+        checkSignInState()
+    }
+    
+    // GIDSignInDelegate Sign後要做的事
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
+            print("Fail to SignInFor Google (登入失敗)\(error)")
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,accessToken: authentication.accessToken)
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if let error = error {
+                print("Fail to SignInFor Firebase(Google) (登入失敗)\(error)")
+                return
+            }
+            if let user = authResult?.user{
+                print("SignInFor Firebase(Google) (登入成功)")
+                print(user.uid)
+                self.checkSignInState()
+            }
+        }
+    }
+    
+    
+    
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // 當Google用戶在此處與應用程序斷開連接時執行任何操作。
+    }
+    
+    func loginout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("success to loginout(成功登出)")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    // FBSDKLoginButtonDelegate
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print("Fail to FBLogin(FB登入失敗)：\(error.localizedDescription)")
+            return
+        }
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if let error = error {
+                print("Fail to SignInFor Firebase(FaceBook) (登入失敗)\(error)")
+                return
+            }
+            if let user = authResult?.user{
+                print("SignInFor Firebase(FaceBook) (登入成功)")
+                print(user.uid)
+                self.checkSignInState()
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("logout(登出)")
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Fail to logOut FB (FB登出失敗)\(error.localizedDescription)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        checkSignInState()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +121,6 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        Auth.auth().removeStateDidChangeListener(authHandle!)
         
     }
     
@@ -55,6 +131,7 @@ class MainViewController: UIViewController {
                 print("Fail to signUp: \(error.localizedDescription)")
             }
             print("Success signUp : \(String(describing: result?.user))")
+            
         }
     }
     
@@ -66,6 +143,7 @@ class MainViewController: UIViewController {
             }
             guard let user = user else { return }
             print("Success signIn: \(user)")
+            self.checkSignInState()
 //            self.performSegue(withIdentifier: "segueToUser", sender: self)
         }
     }
@@ -74,19 +152,26 @@ class MainViewController: UIViewController {
     
     func checkSignInState() {
         
-        if authHandle != nil {
-            Auth.auth().removeStateDidChangeListener(authHandle!)
+        guard let currentUser = Auth.auth().currentUser else { return }
+        if currentUser.uid == "EFkyc32aNSb8BKHxZX1boudlgEH3" {
+            self.performSegue(withIdentifier: "segueToAdmin", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "segueToUser", sender: self)
         }
         
-        authHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let email = user?.email {
-                if email == "admin@test.com" {
-                    self.performSegue(withIdentifier: "segueToAdmin", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "segueToUser", sender: self)
-                }
-            }
-        }
+//        if authHandle != nil {
+//            Auth.auth().removeStateDidChangeListener(authHandle!)
+//        }
+//
+//        authHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if let email = user?.email {
+//                if email == "admin@test.com" {
+//                    self.performSegue(withIdentifier: "segueToAdmin", sender: self)
+//                } else {
+//                    self.performSegue(withIdentifier: "segueToUser", sender: self)
+//                }
+//            }
+//        }
     }
     
 

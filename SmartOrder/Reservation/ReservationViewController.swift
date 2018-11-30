@@ -70,7 +70,9 @@ class ReservationViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         // 取消監聽器
-        listener.remove()
+        if let listener = listener {
+            listener.remove()
+        }
     }
     
     @IBAction func getNumber(_ sender: Any) {
