@@ -32,6 +32,8 @@ class ResultTableViewController: UITableViewController {
             }
         }
         
+        
+        
         myUserDefaults.removeObject(forKey: "resultDict")
         
     }
@@ -117,9 +119,7 @@ class ResultTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 getTotal()
                 
-               print(addDict)
-               print(myUserDefaults.object(forKey: "resultDict"))
-                
+               
             }
             
             }
