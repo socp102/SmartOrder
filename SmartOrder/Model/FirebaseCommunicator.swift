@@ -225,6 +225,7 @@ class FirebaseCommunicator {
             }
         }
     }
+    
     //上傳大頭照
     func sendPhoto(selectedImageFromPicker: UIImage?, uniqueString: String){
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名

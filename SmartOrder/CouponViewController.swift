@@ -58,10 +58,6 @@ class CouponViewController: UIViewController {
         showCouponDetail(senderTag: sender.tag)
     }
     
-//    @IBAction func moreBtnPressed(_ sender: UIButton) {
-//        showCouponDetail(senderTag: sender.tag)
-//    }
-    
     var detailView: UIView?
     
     func showCouponDetail(senderTag: Int) {
