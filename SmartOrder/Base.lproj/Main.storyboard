@@ -218,7 +218,7 @@
         <scene sceneID="wfg-Ip-g8x">
             <objects>
                 <viewControllerPlaceholder storyboardName="Coupon" id="xWs-l4-bJj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OTI-JO-BP1"/>
+                    <tabBarItem key="tabBarItem" title="優惠" id="OTI-JO-BP1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XT0-XZ-ni6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

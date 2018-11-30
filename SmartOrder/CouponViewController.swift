@@ -150,46 +150,6 @@ class CouponViewController: UIViewController {
     }
 }
 
-// Handle table view.
-//extension CouponViewController: UITableViewDelegate, UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-//
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//        case 0:
-//            return "熱門主打"
-//        default:
-//            return "優惠資訊"
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch indexPath.section {
-//        case 0: // HotNews
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "hotNewsCell", for: indexPath) as! HotNewsListTableViewCell
-//            cell.hotNewsListCollectionView.delegate = self
-//            cell.hotNewsListCollectionView.dataSource = self
-//            cell.hotNewsListCollectionView.tag = 0
-//            cell.hotNewsListCollectionView.reloadData()
-//            return cell
-//        default:    // Coupons
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "couponCell", for: indexPath) as! CouponListTableViewCell
-//            cell.couponListCollectionView.delegate = self
-//            cell.couponListCollectionView.dataSource = self
-//            cell.couponListCollectionView.tag = 1
-//            cell.couponListCollectionView.reloadData()
-//            return cell
-//        }
-//    }
-//}
-
-
 // Handle collection view.
 extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -223,6 +183,11 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as! HotNewsCollectionViewCell
+//            cell.hotNewsListCollectionView.delegate = self
+//            cell.hotNewsListCollectionView.dataSource = self
+//            cell.hotNewsListCollectionView.tag = 999
+            cell.hotNewsInfo = couponInfos
+            cell.hotNewsListCollectionView.reloadData()
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as! CouponCollectionViewCell
