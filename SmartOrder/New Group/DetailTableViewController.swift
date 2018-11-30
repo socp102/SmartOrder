@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DetailTableViewController: UITableViewController {
 
     @IBOutlet weak var detailPrice: UILabel!
@@ -42,7 +43,6 @@ class DetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     
@@ -220,7 +220,6 @@ class DetailTableViewController: UITableViewController {
     }
     
     @IBOutlet weak var stepperCount: UILabel!
-    
     var resultPrice = ""
     var resultCount = "1"
     var resultItem = ""
@@ -235,33 +234,27 @@ class DetailTableViewController: UITableViewController {
         let price = Int(currentPrice)!
         resultPrice = String(price * count)
         detailPrice?.text = resultPrice
-        
+    
     }
     
-   
+    
+    var addDict =  [String: [String]]()
+    let myUserDefaults = UserDefaults.standard
     
     @IBAction func addToOrder(_ sender: Any) {
         
-    var db :SQLiteConnect?
-    let url  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let sqlitePath = url[url.count-1].absoluteString + "sqlite3.db"
-    db = SQLiteConnect(path: sqlitePath)
-    print(sqlitePath)
-
-
-    if let mydb = db {
-
-        let _ = mydb.createTable("userAdd", columnsInfo: ["id integer primary key autoincrement","item text","count text","price text"])
-        let _ = mydb.insert("userAdd", rowInfo: ["item":"'\(resultItem)'","count":"'\(resultCount)'","price":"'\(resultPrice)'"])
+        if myUserDefaults.value(forKey: "resultDict") != nil {
+            
+            addDict = myUserDefaults.value(forKey: "resultDict") as! [String : [String]]
+            
+        }  
         
-        
-        print(resultCount)
-        print(resultPrice)
-        print(resultItem)
-        
-        
+        addDict.updateValue([resultCount,resultPrice], forKey: resultItem)
+        myUserDefaults.setValue(addDict, forKey: "resultDict")
+        print(addDict)
         
         }
+    
     }
 
-}
+
