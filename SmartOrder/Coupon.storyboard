@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 1-->
+        <!--優惠-->
         <scene sceneID="TsF-Rz-u41">
             <objects>
                 <viewController id="vPg-9a-qcV" customClass="CouponViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,7 +149,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vEb-BU-9Al"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="8Ea-AY-5P0"/>
+                    <tabBarItem key="tabBarItem" title="優惠" id="8Ea-AY-5P0"/>
                     <connections>
                         <outlet property="couponListCollectionView" destination="l4r-N6-x5f" id="YZx-nH-7pf"/>
                     </connections>
