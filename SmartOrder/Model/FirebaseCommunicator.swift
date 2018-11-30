@@ -29,12 +29,24 @@ class FirebaseCommunicator {
     
     // 新增data.
     func addData(collectionName: String,
-                 documentName: String,
+                 documentName: String?,
                  data: [String: Any],
                  overwrite: Bool = true,
                  completion: @escaping DoneHandler) {
         var finalData = data
         finalData.updateValue(FieldValue.serverTimestamp(), forKey: "timestamp")
+        
+        guard let documentName = documentName else {
+            db.collection(collectionName).addDocument(data: data) { (error) in
+                if let  error = error {
+                    print("Add data error: \(error).")
+                    completion(nil, error)
+                } else {
+                    print("Add data successful.")
+                }
+            }
+            return
+        }
         db.collection(collectionName).document(documentName).setData(finalData) { error in
             if let  error = error {
                 print("Add data error: \(error).")
@@ -179,7 +191,6 @@ class FirebaseCommunicator {
         if let startTime = start, end == nil {
             let startDate = dateformatter.date(from: startTime)
             let startTimestamp = Timestamp(date: startDate!)
-            
             db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).getDocuments { (querySnapshot, error) in
                 if let error = error {
                     print("Load data error: \(error).")
@@ -214,9 +225,42 @@ class FirebaseCommunicator {
             }
         }
     }
+    //上傳大頭照
+    func sendPhoto(selectedImageFromPicker: UIImage?, uniqueString: String){
+        // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
+        //let uniqueString = NSUUID().uuidString
+        
+        // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
+        if let selectedImage = selectedImageFromPicker {
+            
+            let storage = Storage.storage()
+            let storageRef = storage.reference().child("AppCodaFireUpload").child("\(uniqueString).jpeg")
+            
+            if let uploadData = selectedImage.jpegData(compressionQuality: 1.0) {
+                // 這行就是 FirebaseStorage 關鍵的存取方法。
+                storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
+                    
+                    if error != nil {
+                        // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
+                        print("Error: \(error!.localizedDescription)")
+                        return
+                    }
+                    
+                    storageRef.downloadURL { url, error in
+                        print("Photo Url: \(url!)")
+                    }
+                    
+                    
+                })
+            }
+        }
+    }
+    
     
     // 下載圖片.
-    func downloadImage(url: String, fileName: String, competion: @escaping DoneHandler) {
+    func downloadImage(url: String,
+                       fileName: String,
+                       competion: @escaping DoneHandler) {
         let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let imageURL = url + fileName
         let localImageURL = cacheURL.appendingPathComponent(imageURL)
