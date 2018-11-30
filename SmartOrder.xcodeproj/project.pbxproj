@@ -18,6 +18,7 @@
 		0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
 		0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
 		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
+		9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */; };
 		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
 		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
 		9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationViewController.swift; path = SmartOrder/Reservation/ReservationViewController.swift; sourceTree = SOURCE_ROOT; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B4F86D221B1224D0079C7C9 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */,
+			);
+			name = Reservation;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		9BD1EEE8218CA3C9004AB970 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +237,7 @@
 		9BD1EF0A218CA4AC004AB970 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9B4F86D221B1224D0079C7C9 /* Reservation */,
 				EB6F822C21B1144800092C91 /* Member */,
 				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
@@ -542,6 +554,7 @@
 				A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
+				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 			);
