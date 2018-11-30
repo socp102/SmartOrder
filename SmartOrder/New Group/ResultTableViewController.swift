@@ -46,9 +46,9 @@ class ResultTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
         
-        cell.resultName =
-        cell.resultCount =
-        cell.resultSubtotal =
+//        cell.resultName =
+//        cell.resultCount =
+//        cell.resultSubtotal =
         
         return cell
     }
