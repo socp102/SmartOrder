@@ -7,6 +7,7 @@
     objects = {
 
 /* Begin PBXBuildFile section */
+        0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
         0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
         0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
         0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
@@ -16,7 +17,6 @@
         0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */; };
         0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
         0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
-        0AF3954321AF8FF600434D3E /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
         0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
         9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */; };
         9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
@@ -176,7 +176,6 @@
                 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */,
             );
             name = Reservation;
-            path = "New Group1";
             sourceTree = "<group>";
         };
         9BD1EEE8218CA3C9004AB970 = {
@@ -533,7 +532,6 @@
             files = (
                 EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
                 A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
-                0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */,
                 0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
                 9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
                 EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
@@ -548,7 +546,8 @@
                 A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
                 EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */,
                 0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
-				A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
+                0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */,
+                A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
                 0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
                 0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
                 A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
