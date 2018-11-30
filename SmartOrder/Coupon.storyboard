@@ -28,39 +28,62 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hotNewsInfoCell" id="PHe-S9-tur" customClass="HotNewsCollectionViewCell" customModule="SmartOrder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="183"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1W2-r1-nDH">
-                                                    <rect key="frame" x="20" y="20" width="335" height="143"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1W2-r1-nDH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a1J-sK-SI0">
-                                                        <size key="itemSize" width="330" height="140"/>
+                                                        <size key="itemSize" width="371" height="116"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Xsn-4Q-3wU">
-                                                            <rect key="frame" x="0.0" y="1.5" width="330" height="140"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hotNewsCell" id="Xsn-4Q-3wU" customClass="HotNewsCell" customModule="SmartOrder" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="140"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-Bz-z0q">
+                                                                        <rect key="frame" x="20" y="5" width="335" height="90"/>
+                                                                    </imageView>
+                                                                </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstItem="uBx-Bz-z0q" firstAttribute="top" secondItem="Xsn-4Q-3wU" secondAttribute="top" constant="5" id="GCR-WZ-3NS"/>
+                                                                <constraint firstAttribute="trailing" secondItem="uBx-Bz-z0q" secondAttribute="trailing" constant="20" id="K2T-1A-Wae"/>
+                                                                <constraint firstItem="uBx-Bz-z0q" firstAttribute="leading" secondItem="Xsn-4Q-3wU" secondAttribute="leading" constant="20" id="baa-iZ-DOr"/>
+                                                                <constraint firstAttribute="bottom" secondItem="uBx-Bz-z0q" secondAttribute="bottom" constant="5" id="rgS-zO-3u0"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="375" height="100"/>
+                                                            <connections>
+                                                                <outlet property="hotNewsImage" destination="uBx-Bz-z0q" id="qLT-EM-9uV"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="375" height="183"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="1W2-r1-nDH" secondAttribute="trailing" id="NOO-vb-MJx"/>
+                                            <constraint firstAttribute="bottom" secondItem="1W2-r1-nDH" secondAttribute="bottom" id="TOq-K4-VP7"/>
+                                            <constraint firstItem="1W2-r1-nDH" firstAttribute="leading" secondItem="PHe-S9-tur" secondAttribute="leading" id="gK8-fy-DYf"/>
+                                            <constraint firstItem="1W2-r1-nDH" firstAttribute="top" secondItem="PHe-S9-tur" secondAttribute="top" id="scO-2N-b6j"/>
+                                        </constraints>
+                                        <size key="customSize" width="375" height="100"/>
+                                        <connections>
+                                            <outlet property="hotNewsListCollectionView" destination="1W2-r1-nDH" id="WT2-Du-gv0"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="couponInfoCell" id="1ud-UQ-q2d" customClass="CouponCollectionViewCell" customModule="SmartOrder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="243" width="375" height="174"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="174"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
