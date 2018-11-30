@@ -19,26 +19,26 @@ class DetailTableViewController: UITableViewController {
     
     
     var hamburgerImages = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
-    var hamburgerName = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
+    var hamburgerName = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
     var hamburgurPrice = ["70","80","90"]
     
     var spaghettiImages = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
-    var spaghettiName = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
+    var spaghettiName = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
     var spaghettiPrice = ["70","80","90"]
     
     
     var pizzaImages = ["起司披薩","番茄披薩","橄欖披薩"]
-    var pizzaName = ["起司披薩","番茄披薩","橄欖披薩"]
+    var pizzaName = ["CheesePizza","TomatoPizza","OlivaPizza"]
     var pizzaPrice = ["70","80","90"]
     
     
     var steakImages = ["牛菲力","牛肋排","炙燒牛排"]
-    var steakName = ["牛菲力","牛肋排","炙燒牛排"]
+    var steakName = ["FiletMigon","RibeyeSteak","GrilledSteak"]
     var steakPrice = ["70","80","90"]
     
     
     var dessertImages = ["馬卡龍","巧克力蛋糕","聖代"]
-    var dessertName = ["馬卡龍","巧克力蛋糕","聖代"]
+    var dessertName = ["Macaron","ChocolateCake","Sundae"]
     var dessertPrice = ["70","80","90"]
     
     override func viewDidLoad() {
@@ -238,18 +238,18 @@ class DetailTableViewController: UITableViewController {
     }
     
     
-    var addDict =  [String: [String]]()
+    var addDict =  [String: [String:String]]()
     let myUserDefaults = UserDefaults.standard
     
     @IBAction func addToOrder(_ sender: Any) {
         
         if myUserDefaults.value(forKey: "resultDict") != nil {
             
-            addDict = myUserDefaults.value(forKey: "resultDict") as! [String : [String]]
+            addDict = myUserDefaults.value(forKey: "resultDict") as! [String : [String:String]]
             
         }  
         
-        addDict.updateValue([resultCount,resultPrice], forKey: resultItem)
+        addDict.updateValue(["count":resultCount,"subtotal":resultPrice], forKey: resultItem)
         myUserDefaults.setValue(addDict, forKey: "resultDict")
         print(addDict)
         

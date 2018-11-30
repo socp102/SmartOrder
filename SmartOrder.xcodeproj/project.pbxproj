@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
-		0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */; };
 		0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
 		0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
 		0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450221A7966F00571E17 /* DetailTableViewController.swift */; };
@@ -17,6 +16,7 @@
 		0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */; };
 		0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
 		0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
+		0AF3954321AF8FF600434D3E /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
 		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
 		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
 		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		0AE4441D21A2598800571E17 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		0AE4450021A7966F00571E17 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		0AE4450221A7966F00571E17 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		0AE4451321ABB2D400571E17 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0AE4451521ABB2FB00571E17 /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +98,8 @@
 				0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */,
 				0AE4450021A7966F00571E17 /* FoodViewController.swift */,
 				0AE4450221A7966F00571E17 /* DetailTableViewController.swift */,
-				0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */,
 				0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */,
+				0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */,
 			);
 			name = Order;
 			path = "New Group";
@@ -444,7 +444,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
@@ -457,6 +456,7 @@
 				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
 				0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
 				A1D61DAE2193ED38008D35C2 /* CouponCollectionViewCell.swift in Sources */,
+				0AF3954321AF8FF600434D3E /* ResultTableViewController.swift in Sources */,
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,

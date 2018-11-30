@@ -73,6 +73,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuTableView" destination="xNg-eM-Ba3" id="Rfv-5x-dgn"/>
+                        <outlet property="showBillBtn" destination="eFn-oP-kBV" id="pJt-0U-ZcJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7H-TK-Kuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
