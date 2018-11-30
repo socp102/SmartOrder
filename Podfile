@@ -17,6 +17,8 @@ target 'SmartOrder' do
   pod 'Firebase/DynamicLinks'   #動態鏈接
   pod 'Firebase/RemoteConfig'   #遠程配置
   pod 'Firebase/Auth'           #認證
+  pod 'GoogleSignIn'            #google登入
+  pod 'FBSDKLoginKit'           #FB登入
   pod 'FirebaseUI'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Facebook'
