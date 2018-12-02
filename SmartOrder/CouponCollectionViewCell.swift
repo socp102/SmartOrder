@@ -18,6 +18,10 @@ class CouponCollectionViewCell: UICollectionViewCell {
         cardViewInit()
     }
     
+    deinit {
+        print("CouponCollectionViewCell deinit.")
+    }
+    
     func cardViewInit() {
         // 圓角設定
         cardView.layer.cornerRadius = 5

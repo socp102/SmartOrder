@@ -43,6 +43,7 @@ class FirebaseCommunicator {
                     completion(nil, error)
                 } else {
                     print("Add data successful.")
+                    completion(true, nil)
                 }
             }
             return
@@ -53,6 +54,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Add data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -67,6 +69,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Delete data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -82,6 +85,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Delete data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -101,6 +105,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Update data successful.")
+                completion(true, nil)
             }
         }
     }
