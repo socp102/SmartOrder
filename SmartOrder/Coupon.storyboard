@@ -34,10 +34,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1W2-r1-nDH">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1W2-r1-nDH">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a1J-sK-SI0">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a1J-sK-SI0">
                                                         <size key="itemSize" width="371" height="116"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -51,16 +51,30 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-Bz-z0q">
-                                                                        <rect key="frame" x="20" y="5" width="335" height="90"/>
-                                                                    </imageView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-LB-Kan">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                                        <subviews>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-Bz-z0q">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="100" id="6M4-2H-XKn"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="uBx-Bz-z0q" firstAttribute="top" secondItem="GUy-LB-Kan" secondAttribute="top" id="Xeg-L6-ouy"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="uBx-Bz-z0q" secondAttribute="trailing" id="fHz-aB-uJg"/>
+                                                                            <constraint firstItem="uBx-Bz-z0q" firstAttribute="leading" secondItem="GUy-LB-Kan" secondAttribute="leading" id="vp9-kd-bzM"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="uBx-Bz-z0q" firstAttribute="top" secondItem="Xsn-4Q-3wU" secondAttribute="top" constant="5" id="GCR-WZ-3NS"/>
-                                                                <constraint firstAttribute="trailing" secondItem="uBx-Bz-z0q" secondAttribute="trailing" constant="20" id="K2T-1A-Wae"/>
-                                                                <constraint firstItem="uBx-Bz-z0q" firstAttribute="leading" secondItem="Xsn-4Q-3wU" secondAttribute="leading" constant="20" id="baa-iZ-DOr"/>
-                                                                <constraint firstAttribute="bottom" secondItem="uBx-Bz-z0q" secondAttribute="bottom" constant="5" id="rgS-zO-3u0"/>
+                                                                <constraint firstAttribute="bottom" secondItem="GUy-LB-Kan" secondAttribute="bottom" id="3nq-SH-zkQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="GUy-LB-Kan" secondAttribute="trailing" id="emO-I7-vlT"/>
+                                                                <constraint firstItem="GUy-LB-Kan" firstAttribute="leading" secondItem="Xsn-4Q-3wU" secondAttribute="leading" id="iQO-M5-xxT"/>
+                                                                <constraint firstItem="GUy-LB-Kan" firstAttribute="top" secondItem="Xsn-4Q-3wU" secondAttribute="top" id="smY-E4-cf9"/>
                                                             </constraints>
                                                             <size key="customSize" width="375" height="100"/>
                                                             <connections>

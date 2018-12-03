@@ -49,12 +49,15 @@ class CouponDetailViewController: UIViewController {
         guard let couponID = couponInfo?.couponID else {
             return
         }
-        firebaseCommunicator.loadData(collectionName: "couponInfo", documentName: couponID) { (info, error) in
+        firebaseCommunicator.loadData(collectionName: "couponInfo", documentName: couponID) {[weak self] (info, error) in
+            guard let strongSelf = self else {
+                return
+            }
             if let error = error {
                 print("load couponID error: \(error)")
             } else {
                 let coupon = info as! [String: Any]
-                self.updateCouponQty(coupon: coupon)
+                strongSelf.updateCouponQty(coupon: coupon)
             }
         }
     }
@@ -82,11 +85,17 @@ class CouponDetailViewController: UIViewController {
         let updateCouponQty = couponQty - 1
         let data = ["couponQty": updateCouponQty, "owner": updateOwner] as [String : Any]
         let couponID = couponInfo?.couponID
-        firebaseCommunicator.updateData(collectionName: "couponInfo", documentName: couponID!, data: data) { (result, error) in
+        firebaseCommunicator.updateData(collectionName: "couponInfo", documentName: couponID!, data: data) {[weak self] (result, error) in
+            guard let strongSelf = self else {
+                return
+            }
             if let error = error {
                 print("updata error: \(error)")
             } else {
-                self.couponQty.text = "優惠券剩餘 \(updateCouponQty) 張"
+                strongSelf.couponQty.text = "優惠券剩餘 \(updateCouponQty) 張"
+                if updateCouponQty == 0 {
+                    strongSelf.receiveBtn.isEnabled = false
+                }
             }
         }
     }

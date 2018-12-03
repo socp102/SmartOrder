@@ -14,13 +14,11 @@ class CouponViewController: UIViewController {
     
     var firebaseCommunicator = FirebaseCommunicator.shared
     var couponInfos = [CouponInfo]()
+    var hotNewsInfos = [UIImage]()
     var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        couponListCollectionView.delegate = self
-        couponListCollectionView.dataSource = self
-        
         downloadCouponInfo()
     }
     
@@ -54,10 +52,40 @@ class CouponViewController: UIViewController {
                 strongSelf.couponInfos = strongSelf.couponInfos.sorted(by: { (first, second) -> Bool in
                     return first.couponImageName < second.couponImageName
                 })
+                print("couponInfos: \(strongSelf.couponInfos)")
+                strongSelf.downloadHotNewsInfo(competion: { (isCompetion) in
+                    if isCompetion != nil {
+                        strongSelf.couponListCollectionView.delegate = self
+                        strongSelf.couponListCollectionView.dataSource = self
+                        strongSelf.couponListCollectionView.reloadData()
+                    }
+                })
             }
-            print("couponInfos: \(strongSelf.couponInfos)")
-            strongSelf.couponListCollectionView.reloadData()
         })
+    }
+    
+    typealias downloadImageHandler = (_ competion: Bool?) -> Void
+    func downloadHotNewsInfo(competion: @escaping downloadImageHandler) {
+        hotNewsInfos.removeAll()
+        var count = 0
+        for index in couponInfos {
+            print("imgage: \(index.couponImageName)")
+            firebaseCommunicator.downloadImage(url: "couponImages/", fileName: index.couponImageName) {[weak self] (image, error) in
+                guard let strongSelf = self else {
+                    return
+                }
+                if let error = error {
+                    print("download image error: \(error)")
+                } else {
+                    count += 1
+                    let image = image as! UIImage
+                    strongSelf.hotNewsInfos.append(image)
+                    if strongSelf.couponInfos.count == count {
+                        competion(true)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Page changed.
@@ -111,8 +139,19 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as! HotNewsCollectionViewCell
-            cell.hotNewsInfos = couponInfos // DataSource
+            cell.hotNewsInfos = hotNewsInfos // DataSource
+            let screenWidth = UIScreen.main.bounds.width
+            let pageControl = UIPageControl(frame: CGRect(x: screenWidth - 60, y: 120, width: 0, height: 0))
+            print("hotNewsInfos.count: \(hotNewsInfos.count)")
+            pageControl.numberOfPages = hotNewsInfos.count
+            pageControl.currentPage = 0
+            pageControl.tintColor = UIColor.black
+            pageControl.pageIndicatorTintColor = UIColor.gray
+            cell.addSubview(pageControl)
             cell.hotNewsListCollectionView.reloadData()
+            cell.hotNewsListCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at:.left, animated: false)
+            cell.pageControl = pageControl
+            
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as! CouponCollectionViewCell
