@@ -21,13 +21,10 @@ class HotNewsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         hotNewsListCollectionView.delegate = self
         hotNewsListCollectionView.dataSource = self
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeHotNewsInfos), userInfo: nil, repeats: true)
-        }
+        enableTimer()
     }
     
     deinit {
-        timer = nil
         print("HotNewsCollectionViewCell deinit.")
     }
     
@@ -43,6 +40,13 @@ class HotNewsCollectionViewCell: UICollectionViewCell {
         hotNewsListCollectionView.selectItem(at: indexPath, animated: isAnimatedEnable, scrollPosition: .centeredHorizontally)
         if !isAnimatedEnable {
             changeHotNewsInfos()
+        }
+    }
+    
+    // MARK: - Methods.
+    func enableTimer() {
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeHotNewsInfos), userInfo: nil, repeats: true)
         }
     }
 }
@@ -79,11 +83,14 @@ extension HotNewsCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
         if scrollView.contentOffset.x == 0 {
             scrollView.contentOffset = CGPoint(x: CGFloat(hotNewsInfos.count) * screenWidth, y: 0)
             pageControl.currentPage = hotNewsInfos.count
+            imageIndex = hotNewsInfos.count
         } else if (scrollView.contentOffset.x == CGFloat(hotNewsInfos.count + 1) * screenWidth) {
             scrollView.contentOffset = CGPoint(x: screenWidth, y: 0)
             pageControl.currentPage = 0
+            imageIndex = 1
         } else {
             pageControl.currentPage = Int(scrollView.contentOffset.x / screenWidth) - 1
+            imageIndex = Int(scrollView.contentOffset.x / screenWidth)
         }
     }
 }

@@ -15,11 +15,23 @@ class CouponViewController: UIViewController {
     var firebaseCommunicator = FirebaseCommunicator.shared
     var couponInfos = [CouponInfo]()
     var hotNewsInfos = [UIImage]()
-    var count = 0
+    let screenWidth = UIScreen.main.bounds.width
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCouponInfo()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear")
+        guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
+            return
+        }
+        if cell.timer != nil {
+            cell.timer!.invalidate()
+            cell.timer = nil
+        }
     }
     
     deinit {
@@ -39,6 +51,11 @@ class CouponViewController: UIViewController {
                 print("results: \(results!)")
                 let resultsDictionary = results as! [String: Any]
                 strongSelf.couponInfos.removeAll()
+                let currentDate = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+                
                 resultsDictionary.forEach({ (key, value) in
                     var result = value as! [String: Any]
                     result.removeValue(forKey: "timestamp")
@@ -46,7 +63,10 @@ class CouponViewController: UIViewController {
                     let jsonData = try! JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                     let decoder = JSONDecoder()
                     if let couponInfo = try? decoder.decode(CouponInfo.self, from: jsonData) {
-                        strongSelf.couponInfos.append(couponInfo)
+                        let validDate = dateFormatter.date(from: couponInfo.couponValidDate)
+                        if currentDate < validDate! {
+                            strongSelf.couponInfos.append(couponInfo)
+                        }
                     }
                 })
                 strongSelf.couponInfos = strongSelf.couponInfos.sorted(by: { (first, second) -> Bool in
@@ -101,13 +121,18 @@ class CouponViewController: UIViewController {
     
     @IBAction func unwindToCouponPage(_ unwindSegue: UIStoryboardSegue) {
         downloadCouponInfo()
-        
+        guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
+            return
+        }
+        if cell.timer == nil {
+            cell.timer = Timer.scheduledTimer(timeInterval: 2, target: cell, selector: #selector(cell.changeHotNewsInfos), userInfo: nil, repeats: true)
+        }
     }
 }
 
 
 // MARK: - Handle collection view.
-extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -139,19 +164,13 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as! HotNewsCollectionViewCell
+            cell.tag = 1000
             cell.hotNewsInfos = hotNewsInfos // DataSource
-            let screenWidth = UIScreen.main.bounds.width
-            let pageControl = UIPageControl(frame: CGRect(x: screenWidth - 60, y: 120, width: 0, height: 0))
-            print("hotNewsInfos.count: \(hotNewsInfos.count)")
-            pageControl.numberOfPages = hotNewsInfos.count
-            pageControl.currentPage = 0
-            pageControl.tintColor = UIColor.black
-            pageControl.pageIndicatorTintColor = UIColor.gray
+            let pageControl = generatePageControl()
             cell.addSubview(pageControl)
             cell.hotNewsListCollectionView.reloadData()
             cell.hotNewsListCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at:.left, animated: false)
             cell.pageControl = pageControl
-            
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as! CouponCollectionViewCell
@@ -167,6 +186,25 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.moreBtn.tag = indexPath.row
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        if indexPath.section == 0 {
+            return CGSize(width: screenWidth, height: 100)
+        } else {
+        return CGSize(width: screenWidth, height: 160)
+        }
+    }
+    
+    // Generate PgaeControl.
+    func generatePageControl() -> UIPageControl {
+        let pageControl = UIPageControl(frame: CGRect(x: screenWidth - 40, y: 90, width: 0, height: 0))
+        pageControl.numberOfPages = hotNewsInfos.count
+        pageControl.currentPage = 0
+        pageControl.tintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        return pageControl
     }
 }
 

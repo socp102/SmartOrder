@@ -168,14 +168,14 @@ class FirebaseCommunicator {
                   greaterThanOrEqualTo start: String? = nil,
                   lessThanOrEqualTo end: String? = nil,
                   completion: @escaping DoneHandler) {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateformatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
         
         if let startTime = start, let endTime = end {
-            let startDate = dateformatter.date(from: startTime)
+            let startDate = dateFormatter.date(from: startTime)
             let startTimestamp = Timestamp(date: startDate!)
-            let endDate = dateformatter.date(from: endTime)
+            let endDate = dateFormatter.date(from: endTime)
             let endTimestamp = Timestamp(date: endDate!)
             
             db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
@@ -194,7 +194,7 @@ class FirebaseCommunicator {
         }
         
         if let startTime = start, end == nil {
-            let startDate = dateformatter.date(from: startTime)
+            let startDate = dateFormatter.date(from: startTime)
             let startTimestamp = Timestamp(date: startDate!)
             db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -212,7 +212,7 @@ class FirebaseCommunicator {
         }
         
         if start == nil, let endTime = end {
-            let endDate = dateformatter.date(from: endTime)
+            let endDate = dateFormatter.date(from: endTime)
             let endTimestamp = Timestamp(date: endDate!)
             
             db.collection(collectionName).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
