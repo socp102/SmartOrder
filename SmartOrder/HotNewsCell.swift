@@ -10,4 +10,8 @@ import UIKit
 
 class HotNewsCell: UICollectionViewCell {
     @IBOutlet weak var hotNewsImage: UIImageView!
+    
+    deinit {
+        print("HotNewsCell deinit.")
+    }
 }

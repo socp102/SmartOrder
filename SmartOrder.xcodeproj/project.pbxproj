@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
 		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
-		0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */; };
 		0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
 		0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
 		0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450221A7966F00571E17 /* DetailTableViewController.swift */; };
@@ -35,6 +35,7 @@
 		A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */; };
 		A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */; };
 		A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717DE21AE70D900EA6BFD /* CouponInfo.swift */; };
+		A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */; };
 		A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
 		EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */; };
@@ -47,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		0AE4441D21A2598800571E17 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		0AE4450021A7966F00571E17 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		0AE4450221A7966F00571E17 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +57,7 @@
 		0AE4451321ABB2D400571E17 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0AE4451521ABB2FB00571E17 /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 		A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11717DE21AE70D900EA6BFD /* CouponInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfo.swift; sourceTree = "<group>"; };
+		A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
 		A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCommunicator.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +115,8 @@
 				0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */,
 				0AE4450021A7966F00571E17 /* FoodViewController.swift */,
 				0AE4450221A7966F00571E17 /* DetailTableViewController.swift */,
-				0AE4445521A3FB4800571E17 /* ResultTableViewController.swift */,
 				0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */,
+				0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */,
 			);
 			name = Order;
 			path = "New Group";
@@ -177,7 +179,6 @@
 				9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */,
 			);
 			name = Reservation;
-			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		9BD1EEE8218CA3C9004AB970 = {
@@ -281,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				A19727272193E7A600068B18 /* CouponViewController.swift */,
+				A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */,
 			);
 			name = Coupon;
 			sourceTree = "<group>";
@@ -538,9 +540,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
-				0AE4445621A3FB4800571E17 /* ResultTableViewController.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
@@ -555,6 +557,7 @@
 				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
 				EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */,
 				0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
+				0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */,
 				A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,

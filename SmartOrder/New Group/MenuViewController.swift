@@ -15,9 +15,10 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var menuTableView: UITableView!
    
     @IBAction func unwindSegueToMenu(segue:UIStoryboardSegue) {
-        
-    
     }
+    
+    @IBOutlet weak var showBillBtn: UIBarButtonItem!
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +36,8 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
 
 
