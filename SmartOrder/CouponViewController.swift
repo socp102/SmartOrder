@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import Firebase
 
 class CouponViewController: UIViewController {
     @IBOutlet weak var couponListCollectionView: UICollectionView!
     
-    var firebaseCommunicator = FirebaseCommunicator.shared
+    let firebaseCommunicator = FirebaseCommunicator.shared
     var couponInfos = [CouponInfo]()
     var hotNewsInfos = [UIImage]()
     let screenWidth = UIScreen.main.bounds.width
@@ -40,7 +39,7 @@ class CouponViewController: UIViewController {
     
     // MARK: - Methods.
     func downloadCouponInfo() {
-        firebaseCommunicator.loadData(collectionName: "couponInfo", completion: {[weak self] (results, error) in
+        firebaseCommunicator.loadData(collectionName: "couponInfo", completion: { [weak self] (results, error) in
             guard let strongSelf = self else {
                 return
             }
@@ -138,7 +137,6 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionTitleCell", for: indexPath) as? SectionTitleCollectionReusableView else {
             return UICollectionReusableView()
         }
@@ -163,7 +161,9 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as! HotNewsCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as? HotNewsCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             cell.tag = 1000
             cell.hotNewsInfos = hotNewsInfos // DataSource
             let pageControl = generatePageControl()
@@ -173,7 +173,9 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.pageControl = pageControl
             return cell
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as! CouponCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as? CouponCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             firebaseCommunicator.downloadImage(url: "couponImages/", fileName: couponInfos[indexPath.row].couponImageName) {(image, error) in
                 if let error = error {
                     print("download image error: \(error)")
