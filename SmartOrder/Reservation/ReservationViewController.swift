@@ -42,36 +42,23 @@ class ReservationViewController: UIViewController {
         }
         userEmail = email
         
-        // 監聽目前號碼
-        listener = ref.document("Number").addSnapshotListener(includeMetadataChanges: true) { (snapshot, err) in
-            if let err = err {
-                print("Fail to addSnapshotListener (監聽號碼失敗)\(err)")
-            }
-            guard let snapshot = snapshot else {
-                print("snapshot is nil")
-                return
-            }
-            guard let dict = snapshot.data() else {
-                print("snapshot.data() is nil")
-                return
-            }
-            self.displayNumber.text = dict["Number"] as? String
-            print(dict["Number"] as! String)
-        }
-        
-        // 檢查是否已經取號
-        if userDefaults.string(forKey: "documentID") == nil {
-            changeButton(getNumber: true)
-            myNumber.text = userDefaults.string(forKey: "MyNumber")
-        } else {
-            changeButton(getNumber: false)
-        }
+        listenNumber() // 監聽跳號
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         // 取消監聽器
         if let listener = listener {
             listener.remove()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 檢查是否已經取號
+        if userDefaults.string(forKey: "documentID") == nil {
+            changeButton(getNumber: true)
+        } else {
+            changeButton(getNumber: false)
+            myNumber.text = userDefaults.string(forKey: "MyNumber")
         }
     }
     
@@ -84,7 +71,38 @@ class ReservationViewController: UIViewController {
     @IBAction func testNumber(_ sender: Any) {
         cancelWaiting()
     }
+    // 監聽目前號碼
+    func listenNumber() {
+        
+        listener = ref.document("Number").addSnapshotListener(includeMetadataChanges: true) { (snapshot, err) in
+            if let err = err {
+                print("Fail to addSnapshotListener (監聽號碼失敗)\(err)")
+            }
+            guard let snapshot = snapshot else {
+                print("snapshot is nil")
+                self.setNumber()
+                return
+            }
+            guard let dict = snapshot.data() else {
+                print("snapshot.data() is nil")
+                self.setNumber()
+                return
+            }
+            self.displayNumber.text = dict["Number"] as? String
+            print(dict["Number"] as! String)
+        }
+    }
     
+    // 監聽號碼為空時設定為將號碼設定為0，並重新啟動監聽
+    func setNumber() {
+        ref.document("Number").setData(["Number" : "0"], merge: true) { (error) in
+            if let error = error {
+                print("Fail to setNumber(號碼設0失敗)\(error)")
+                return
+            }
+            self.listenNumber()
+        }
+    }
     
     // 登記準備取號碼牌
     func registration() {
@@ -149,6 +167,7 @@ class ReservationViewController: UIViewController {
                 } else {
                     self.changeButton(getNumber: false)
                     self.userDefaults.set(number, forKey: "MyNumber")
+                    print("保存userDefaults  Number  = \(number)")
                 }
             }
         }
