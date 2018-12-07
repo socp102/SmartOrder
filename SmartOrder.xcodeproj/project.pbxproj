@@ -379,6 +379,9 @@
 					9BD1EEF0218CA3C9004AB970 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

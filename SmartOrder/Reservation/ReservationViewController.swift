@@ -8,14 +8,20 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+import UserNotifications
 
-class ReservationViewController: UIViewController {
+class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     @IBOutlet weak var getNumberButton: UIButton!
     @IBOutlet weak var cancelNumberBtuuon: UIButton!
     
     @IBOutlet weak var displayNumber: UILabel!
     @IBOutlet weak var myNumber: UILabel!
     
+//    let beaconUUID0 = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") // 預設備用
+    let beaconUUID1 = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF055555")
+    let manager = CLLocationManager()
+    var beaconRegion: CLBeaconRegion!
     
     let userDefaults = UserDefaults.standard
     var db: Firestore!
@@ -44,6 +50,14 @@ class ReservationViewController: UIViewController {
         
         listenNumber() // 監聽跳號
         
+        // ibbeacon
+        manager.requestAlwaysAuthorization()
+        manager.delegate = self
+        
+        beaconRegion = CLBeaconRegion(proximityUUID: beaconUUID1!, identifier: "SmartOrder")
+        beaconRegion.notifyOnEntry = true
+        beaconRegion.notifyOnExit = true
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         // 取消監聽器
@@ -66,10 +80,13 @@ class ReservationViewController: UIViewController {
         getNumberButton.isUserInteractionEnabled = false
         getNumberButton.alpha = 0.3
         registration()
+        manager.startMonitoring(for: beaconRegion)
     }
     
-    @IBAction func testNumber(_ sender: Any) {
+    @IBAction func testNumber(_ sender: Any) { // 取消候位按鈕
         cancelWaiting()
+        manager.stopMonitoring(for: beaconRegion)
+        manager.stopRangingBeacons(in: beaconRegion)
     }
     // 監聽目前號碼
     func listenNumber() {
@@ -108,6 +125,7 @@ class ReservationViewController: UIViewController {
     func registration() {
         let data = ["User": userEmail,
                     "Status": true,
+                    "LocationState" : "inside",
                     "Timestamp":FieldValue.serverTimestamp()] as [String : Any]
         var docRef: DocumentReference? = nil
         docRef = ref.addDocument(data: data) { (err) in
@@ -173,6 +191,19 @@ class ReservationViewController: UIViewController {
         }
     }
     
+    func saveLocation(state: String) {
+        if let documentID = userDefaults.string(forKey: "documentID") {
+            ref.document(documentID).setData(["LocationState" : state], merge: true) { (err) in
+                if let err = err {
+                    print("Fail to saveNumber (保存位置狀態失敗)\(err)")
+                } else {
+                    self.changeButton(getNumber: false)
+                    print("Change Location state to firebase= \(state)")
+                }
+            }
+        }
+    }
+    
     // 取消候位
     func cancelWaiting() {
         if let documentID = userDefaults.string(forKey: "documentID") {
@@ -211,7 +242,67 @@ class ReservationViewController: UIViewController {
         print("時間戳＝\(timeStamp)")
         return timeStamp
     }
-
     
+    // 推播提醒
+    func showNotification(_ message: String) {
+        if UIApplication.shared.applicationState == .active {
+            
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            present(alert, animated: true)
+            
+        } else { // Background
+            
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = "iBeacon state changed."
+            content.body = message
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: "Alert", content: content, trigger: trigger)
+            center.add(request) { (error) in
+                // Add OK or error? ...
+            }
+            
+        }
+    }
+    
+    // MARK: - CLLocationManagerDelegate menthods.
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        manager.requestState(for: beaconRegion)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        if state == .inside {
+            showNotification("目前在現場候位中!")
+            self.saveLocation(state: "inside")
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
+            
+        } else { // .outside
+            showNotification("已離開現場等候，到號時將自動過號!")
+            self.saveLocation(state: "outside")
+            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
+            
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        for beacon in beacons {
+            let proximity: String
+            switch beacon.proximity {
+            case .unknown:
+                proximity = "Unknown"
+            case .immediate:
+                proximity = "Immediate"
+            case .near:
+                proximity = "Near"
+            case .far:
+                proximity = "Far"
+            }
+            // infoLabel.text = "\(region.identifier),\(proximity),\(beacon.rssi),\(beacon.accuracy)"
+        }
+    }
 
 }
