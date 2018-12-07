@@ -43,6 +43,7 @@ class FirebaseCommunicator {
                     completion(nil, error)
                 } else {
                     print("Add data successful.")
+                    completion(true, nil)
                 }
             }
             return
@@ -53,6 +54,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Add data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -67,6 +69,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Delete data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -82,6 +85,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Delete data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -101,6 +105,7 @@ class FirebaseCommunicator {
                 completion(nil, error)
             } else {
                 print("Update data successful.")
+                completion(true, nil)
             }
         }
     }
@@ -163,14 +168,14 @@ class FirebaseCommunicator {
                   greaterThanOrEqualTo start: String? = nil,
                   lessThanOrEqualTo end: String? = nil,
                   completion: @escaping DoneHandler) {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateformatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
         
         if let startTime = start, let endTime = end {
-            let startDate = dateformatter.date(from: startTime)
+            let startDate = dateFormatter.date(from: startTime)
             let startTimestamp = Timestamp(date: startDate!)
-            let endDate = dateformatter.date(from: endTime)
+            let endDate = dateFormatter.date(from: endTime)
             let endTimestamp = Timestamp(date: endDate!)
             
             db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
@@ -189,7 +194,7 @@ class FirebaseCommunicator {
         }
         
         if let startTime = start, end == nil {
-            let startDate = dateformatter.date(from: startTime)
+            let startDate = dateFormatter.date(from: startTime)
             let startTimestamp = Timestamp(date: startDate!)
             db.collection(collectionName).whereField("timestamp", isGreaterThanOrEqualTo: startTimestamp).getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -207,7 +212,7 @@ class FirebaseCommunicator {
         }
         
         if start == nil, let endTime = end {
-            let endDate = dateformatter.date(from: endTime)
+            let endDate = dateFormatter.date(from: endTime)
             let endTimestamp = Timestamp(date: endDate!)
             
             db.collection(collectionName).whereField("timestamp", isLessThanOrEqualTo: endTimestamp).getDocuments { (querySnapshot, error) in
@@ -225,6 +230,7 @@ class FirebaseCommunicator {
             }
         }
     }
+    
     //上傳大頭照
     func sendPhoto(selectedImageFromPicker: UIImage?, uniqueString: String){
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
