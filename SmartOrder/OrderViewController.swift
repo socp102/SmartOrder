@@ -13,6 +13,7 @@ class OrderViewController: UIViewController {
     @IBOutlet weak var orderCollectionView: UICollectionView!
     
     let firebaseCommunicator = FirebaseCommunicator.shared
+    var listener: ListenerRegistration?
     let FIREBASE_COLLECTION_NAME = "orderTest"
     
     var orders = [OrderListForWaiter]()
@@ -20,7 +21,29 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let db = firebaseCommunicator.db, listener == nil {
+            listener = db.collection(FIREBASE_COLLECTION_NAME).addSnapshotListener { [weak self] querySnapshot, error in
+                guard let strongSelf = self else {
+                    return
+                }
+                if let error = error {
+                    print("AddSnapshotListener error: \(error)")
+                } else {
+                    print("AddSnapshotListener")
+                    strongSelf.downloadOrderInfo()
+                }
+            }
+        }
+
         downloadOrderInfo()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if listener != nil {
+            listener!.remove()
+            listener = nil
+        }
     }
     
     deinit {
@@ -84,8 +107,6 @@ class OrderViewController: UIViewController {
         func handleData(orderID: String, tableID: String, commodity: [String: Any], setupTime: Timestamp) {
             var items = [String]()
             var itemsQty = [Int]()
-//            var dictionary: [String: String] = [:]
-//            var qty = 0
             
             commodity.forEach { (key, value) in
                 let dictionary = value as! [String: String]
