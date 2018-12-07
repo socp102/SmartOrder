@@ -7,17 +7,29 @@
 //
 
 import UIKit
+import Firebase
+
+struct coupon {
+    var title = ""
+    var imagename = ""
+    var couponQty = 0
+    var couponValidDate = ""
+    var couponDiscount = 0.0
+    var couponDetilContent = ""
+}
 
 class CouponListTableViewController: UITableViewController {
 
+    var coupons = coupon.init(title: "", imagename: "", couponQty: 0, couponValidDate: "", couponDiscount: 0.0, couponDetilContent: "")
+    var firebase = FirebaseCommunicator.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        search(currentUser:currentUser)
     }
 
     // MARK: - Table view data source
@@ -29,7 +41,28 @@ class CouponListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
+    }
+    
+    //cell 資料設定
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "couponlist", for: indexPath) as! CouponListTableViewController
+        
+        //cell.title =
+    }
+    
+    func search(currentUser:User){
+        
+        firebase.loadData(collectionName: "couponInfo",documentName: "001") { (results, error) in
+                if let error = error {
+                    print("error:\(error)")
+                } else {
+                    let result = results as! [String:Any]
+                    result.
+                    print("results is: \(results)")
+                }
+        }
+        
     }
 
     /*

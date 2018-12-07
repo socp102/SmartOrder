@@ -29,10 +29,10 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization:\(status.rawValue)")
         }
-        guard let currentUserUid = Auth.auth().currentUser?.uid else {
+        guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        update(currentUserUid: currentUserUid)
+        update(currentUserUid: currentUser)
     }
     
     @IBOutlet weak var Photo: UIButton!
@@ -90,10 +90,14 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
             guard let currentUserUid = Auth.auth().currentUser?.uid else {
                 return
             }
+            
+            guard let currentUser = Auth.auth().currentUser else {
+                return
+            }
             // 取得從 UIImagePickerController 選擇的檔案
             communicator.sendPhoto(selectedImageFromPicker: resizedImage, uniqueString: currentUserUid )
             
-            update(currentUserUid: currentUserUid)
+            update(currentUserUid: currentUser)
             
             
             
@@ -103,18 +107,28 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
         picker.dismiss(animated: true)//不加picker會凍結
     }
     
-    func update(currentUserUid: String){
+    func update(currentUserUid: User){
+        print("mail: \(currentUserUid.email)")
+        print("name: \(currentUserUid.displayName)")
+        print("phone: \(currentUserUid.phoneNumber)")
+        print("providerData: \(currentUserUid.providerData)")
+        print("providerData: \(currentUserUid.providerID)")
         //下載照片
-        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid).jpeg") { (result, error) in
+        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid.uid).jpeg") { (result, error) in
             if let error = error {
                 self.Photo.setImage(UIImage(named: "camera"), for: .normal)
                 print("download photo error:\(error)")
                 
             } else {
                 self.Photo.setImage((result as! UIImage), for: .normal)
+                print("mail: \(currentUserUid.email)")
+                print("name: \(currentUserUid.displayName)")
+                print("phone: \(currentUserUid.phoneNumber)")
+                print("providerData: \(currentUserUid.providerData)")
+                print("providerData: \(currentUserUid.providerID)")
             }
         }
-        
+        /*
         //下載資料
         communicator.loadData(collectionName: "account", documentName: currentUserUid) { (results, error) in
             if let error = error {
@@ -124,6 +138,7 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
                 print("results:\(results)")
             }
         }
+    */
     }
 
     
