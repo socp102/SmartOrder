@@ -53,10 +53,20 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>大頭貼啟用您的相機</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>分享位置確認是否在店內候位</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>分享位置確認是否在店內候位</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>分享位置確認是否在店內候位</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>存取大頭貼照</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>大頭貼啟用您的相簿</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
