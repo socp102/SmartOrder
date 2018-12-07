@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CouponDetailViewController: UIViewController {
     @IBOutlet weak var couponImage: UIImageView!
@@ -16,7 +17,7 @@ class CouponDetailViewController: UIViewController {
     @IBOutlet weak var couponQty: UILabel!
     @IBOutlet weak var receiveBtn: UIButton!
     
-    var firebaseCommunicator = FirebaseCommunicator.shared
+    let firebaseCommunicator = FirebaseCommunicator.shared
     var couponInfo: CouponInfo?
     
     override func viewDidLoad() {
@@ -66,12 +67,12 @@ class CouponDetailViewController: UIViewController {
     func updateCouponQty(coupon: [String: Any]) {
         // Check coupon Qty from firebase.
         let couponQty = coupon["couponQty"] as! Int
-        guard couponQty > 0 else {
+        guard let user = Auth.auth().currentUser?.uid, couponQty > 0 else {
             return
         }
         
         // Check user has this coupon or not.
-        if let owner = coupon["owner"] as? [String: Any], owner["Boris"] != nil {  // * userID
+        if let owner = coupon["owner"] as? [String: Any], owner[user] != nil {
             showAlert()
             return
         }
@@ -79,8 +80,7 @@ class CouponDetailViewController: UIViewController {
         if let owner = coupon["owner"] as? [String: Any] {
             updateOwner = owner
         }
-        updateOwner.updateValue(false, forKey: "Boris") // * userID
-        
+        updateOwner.updateValue(false, forKey: user)
         // Update data to firebase.
         let updateCouponQty = couponQty - 1
         let data = ["couponQty": updateCouponQty, "owner": updateOwner] as [String : Any]

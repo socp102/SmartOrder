@@ -37,6 +37,12 @@
 		A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717DE21AE70D900EA6BFD /* CouponInfo.swift */; };
 		A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */; };
 		A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
+		A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11CDB2021B8C599008756DF /* Waiter.storyboard */; };
+		A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2521B8D70C008756DF /* OrderViewController.swift */; };
+		A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2721B8D726008756DF /* SeatViewController.swift */; };
+		A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */; };
+		A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */; };
+		A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
 		EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */; };
 		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
@@ -83,6 +89,12 @@
 		A11717DE21AE70D900EA6BFD /* CouponInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfo.swift; sourceTree = "<group>"; };
 		A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
 		A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCommunicator.swift; sourceTree = "<group>"; };
+		A11CDB2021B8C599008756DF /* Waiter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Waiter.storyboard; sourceTree = "<group>"; };
+		A11CDB2521B8D70C008756DF /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		A11CDB2721B8D726008756DF /* SeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
+		A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListForWaiter.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
 		EB6F821021AE7A2100092C91 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +230,7 @@
 		9BD1EF08218CA431004AB970 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A11CDB1921B8BD17008756DF /* Waiter */,
 				0AF4F572219EC218005AC6DC /* Main */,
 				A1D61DAF2193ED69008D35C2 /* Coupon */,
 				0AF4F56F219EC112005AC6DC /* Order */,
@@ -233,6 +246,7 @@
 				0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */,
 				A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
 				A11717E021AE70DE00EA6BFD /* Coupon */,
+				A11CDB2F21B8F5B9008756DF /* Waiter */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +259,7 @@
 				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
+				A11CDB2421B8C817008756DF /* Waiter */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
 				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
@@ -285,6 +300,33 @@
 				A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */,
 			);
 			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A11CDB1921B8BD17008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2021B8C599008756DF /* Waiter.storyboard */,
+				A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */,
+				A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */,
+			);
+			path = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2421B8C817008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2521B8D70C008756DF /* OrderViewController.swift */,
+				A11CDB2721B8D726008756DF /* SeatViewController.swift */,
+			);
+			name = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2F21B8F5B9008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
+			);
+			name = Waiter;
 			sourceTree = "<group>";
 		};
 		A1D61DAF2193ED69008D35C2 /* Coupon */ = {
@@ -419,6 +461,7 @@
 				EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */,
 				9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */,
 				9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */,
+				A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */,
 				9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,8 +587,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
+				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
+				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
+				A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
@@ -565,10 +611,12 @@
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
+				A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
 				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
+				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

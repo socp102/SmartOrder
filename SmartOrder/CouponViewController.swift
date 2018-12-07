@@ -7,24 +7,36 @@
 //
 
 import UIKit
-import Firebase
 
 class CouponViewController: UIViewController {
     @IBOutlet weak var couponListCollectionView: UICollectionView!
     
-    var firebaseCommunicator = FirebaseCommunicator.shared
+    let firebaseCommunicator = FirebaseCommunicator.shared
     var couponInfos = [CouponInfo]()
     var hotNewsInfos = [UIImage]()
     let screenWidth = UIScreen.main.bounds.width
+    var animateDelay: Double = 0.0
+    var animateEnable = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCouponInfo()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        downloadCouponInfo()
+        guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
+            return
+        }
+        if cell.timer == nil {
+            cell.enableTimer()
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("viewWillDisappear")
+        animateEnable = false
         guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
             return
         }
@@ -40,7 +52,8 @@ class CouponViewController: UIViewController {
     
     // MARK: - Methods.
     func downloadCouponInfo() {
-        firebaseCommunicator.loadData(collectionName: "couponInfo", completion: {[weak self] (results, error) in
+        animateDelay = 0.0
+        firebaseCommunicator.loadData(collectionName: "couponInfo", completion: { [weak self] (results, error) in
             guard let strongSelf = self else {
                 return
             }
@@ -138,7 +151,6 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionTitleCell", for: indexPath) as? SectionTitleCollectionReusableView else {
             return UICollectionReusableView()
         }
@@ -163,7 +175,9 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as! HotNewsCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsInfoCell", for: indexPath) as? HotNewsCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             cell.tag = 1000
             cell.hotNewsInfos = hotNewsInfos // DataSource
             let pageControl = generatePageControl()
@@ -173,7 +187,9 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.pageControl = pageControl
             return cell
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as! CouponCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponInfoCell", for: indexPath) as? CouponCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             firebaseCommunicator.downloadImage(url: "couponImages/", fileName: couponInfos[indexPath.row].couponImageName) {(image, error) in
                 if let error = error {
                     print("download image error: \(error)")
@@ -186,6 +202,22 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.moreBtn.tag = indexPath.row
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard animateEnable, indexPath.section > 0 else {
+            return
+        }
+        
+        cell.alpha = 0
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.1 * animateDelay,
+            animations: {
+                cell.alpha = 1
+        })
+        animateDelay += 1.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

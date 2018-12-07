@@ -91,7 +91,7 @@
                                 </state>
                                 <connections>
                                     <action selector="BtnPressedSignin:" destination="Xw6-v3-JoE" eventType="touchUpInside" id="3tb-ff-bwZ"/>
-                                    <segue destination="Idy-5s-JKw" kind="presentation" identifier="segueToWaiter" id="kZq-lg-TL6"/>
+                                    <segue destination="yGU-fa-osY" kind="presentation" id="WVf-G8-q9R"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smart Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUd-xf-b9D">
@@ -195,6 +195,21 @@
             </objects>
             <point key="canvasLocation" x="-359.19999999999999" y="-1114.0929535232385"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="wVf-aJ-49D">
+            <objects>
+                <viewController id="yGU-fa-osY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E9T-5c-dEz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CWB-mt-p54"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flW-hn-7Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382" y="-1114"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="JNP-iL-pMh">
             <objects>
@@ -254,14 +269,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDU-5f-mOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="509" y="175"/>
-        </scene>
-        <!--Waiter-->
-        <scene sceneID="xqr-JX-1pZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Waiter" id="Idy-5s-JKw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-wz-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="358" y="-1114"/>
         </scene>
     </scenes>
 </document>
