@@ -15,15 +15,28 @@ class CouponViewController: UIViewController {
     var couponInfos = [CouponInfo]()
     var hotNewsInfos = [UIImage]()
     let screenWidth = UIScreen.main.bounds.width
+    var animateDelay: Double = 0.0
+    var animateEnable = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCouponInfo()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        downloadCouponInfo()
+        guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
+            return
+        }
+        if cell.timer == nil {
+            cell.enableTimer()
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("viewWillDisappear")
+        animateEnable = false
         guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
             return
         }
@@ -39,6 +52,7 @@ class CouponViewController: UIViewController {
     
     // MARK: - Methods.
     func downloadCouponInfo() {
+        animateDelay = 0.0
         firebaseCommunicator.loadData(collectionName: "couponInfo", completion: { [weak self] (results, error) in
             guard let strongSelf = self else {
                 return
@@ -188,6 +202,22 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.moreBtn.tag = indexPath.row
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard animateEnable, indexPath.section > 0 else {
+            return
+        }
+        
+        cell.alpha = 0
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.1 * animateDelay,
+            animations: {
+                cell.alpha = 1
+        })
+        animateDelay += 1.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

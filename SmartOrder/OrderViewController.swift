@@ -18,23 +18,17 @@ class OrderViewController: UIViewController {
     
     var orders = [OrderListForWaiter]()
     var originalCommodities = [String: Any]()
+    var animateDelay: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let db = firebaseCommunicator.db, listener == nil {
-            listener = db.collection(FIREBASE_COLLECTION_NAME).addSnapshotListener { [weak self] querySnapshot, error in
-                guard let strongSelf = self else {
-                    return
-                }
-                if let error = error {
-                    print("AddSnapshotListener error: \(error)")
-                } else {
-                    print("AddSnapshotListener")
-                    strongSelf.downloadOrderInfo()
-                }
-            }
-        }
-
+        addListener()
+        downloadOrderInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addListener()
         downloadOrderInfo()
     }
     
@@ -52,6 +46,7 @@ class OrderViewController: UIViewController {
     
     // MARK: - Methods.
     func downloadOrderInfo() {
+        animateDelay = 0.0
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
@@ -161,6 +156,27 @@ class OrderViewController: UIViewController {
             }
         }
     }
+    
+    func addListener() {
+        if let db = firebaseCommunicator.db, listener == nil {
+            listener = db.collection(FIREBASE_COLLECTION_NAME).addSnapshotListener { [weak self] querySnapshot, error in
+                guard let strongSelf = self else {
+                    return
+                }
+                if let error = error {
+                    print("AddSnapshotListener error: \(error)")
+                } else {
+                    print("AddSnapshotListener successful.")
+                    strongSelf.downloadOrderInfo()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Handle button.
+    @IBAction func refreshBtnPressed(_ sender: UIBarButtonItem) {
+        downloadOrderInfo()
+    }
 }
 
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -220,6 +236,18 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             orders.remove(at: indexPath.section)
         }
         collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.1 * animateDelay,
+            animations: {
+                cell.alpha = 1
+        })
+        animateDelay += 1.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
