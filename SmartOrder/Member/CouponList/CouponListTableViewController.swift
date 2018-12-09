@@ -16,12 +16,14 @@ struct coupon {
     var couponValidDate = ""
     var couponDiscount = 0.0
     var couponDetilContent = ""
+
 }
 
 class CouponListTableViewController: UITableViewController {
 
-    var coupons = coupon.init(title: "", imagename: "", couponQty: 0, couponValidDate: "", couponDiscount: 0.0, couponDetilContent: "")
-    var firebase = FirebaseCommunicator.shared
+    
+    var firebaseCommunicator = FirebaseCommunicator.shared
+    var couponInfo : [String:[String:Any]] = ["":["":0]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +31,14 @@ class CouponListTableViewController: UITableViewController {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        search(currentUser:currentUser)
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,23 +48,61 @@ class CouponListTableViewController: UITableViewController {
     
     //cell 資料設定
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "couponlist", for: indexPath) as! CouponListTableViewController
         
-        //cell.title =
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+            "couponlist", for: indexPath)
+        
+        cell.textLabel?.text = title
+        return cell
     }
     
-    func search(currentUser:User){
-        
-        firebase.loadData(collectionName: "couponInfo",documentName: "001") { (results, error) in
-                if let error = error {
-                    print("error:\(error)")
-                } else {
-                    let result = results as! [String:Any]
-                    result.
-                    print("results is: \(results)")
+    func getCouponInfo() {
+        //抓優惠卷資料
+        firebaseCommunicator.loadData(collectionName: "couponInfo") { (result, error) in
+            if let error = error {
+                print("error:\(error)")
+            } else {
+                
+                self.couponInfo = result as! [String:[String:Any]]
+                
+                let couponCollection = ["001","002","003"]
+                
+                for reviewCoupon in  couponCollection {
+                    
+                    var couponReview = self.couponInfo["\(reviewCoupon)"]
+                    let couponOwner = couponReview?["owner"]
+                    let couponOwnerNSDictionary = couponOwner as? NSDictionary
+                    let couponDictionaryOptional = couponOwnerNSDictionary as? Dictionary<String, Any>
+                    let couponOwnerDictionary = couponDictionaryOptional!
+                    
+                    let hasCoupon = couponOwnerDictionary.keys.contains(self.user!)
+                    
+                    //使用者有在該優惠卷裡面
+                    if hasCoupon == true   {
+                        
+                        let userCouponValueAny = couponOwnerDictionary[self.user!]
+                        let userCouponValueInt = userCouponValueAny as! Int
+                        
+                        //領取但還沒用過
+                        if userCouponValueInt == 0 {
+                            
+                            
+                            //領取但已使用過
+                        }else if userCouponValueInt == 1 {
+                            
+                            self.couponInfo.removeValue(forKey: "\(reviewCoupon)")
+                            
+                        }
+                        
+                    } else if hasCoupon == false  {
+                        
+                        self.couponInfo.removeValue(forKey: "\(reviewCoupon)")
+                        
+                    }
                 }
+                
+            }
         }
-        
     }
 
     /*
