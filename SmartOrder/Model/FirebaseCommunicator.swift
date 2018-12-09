@@ -133,12 +133,12 @@ class FirebaseCommunicator {
                   documentName: String,
                   completion: @escaping DoneHandler) {
         db.collection(collectionName).document(documentName).getDocument { (document, error) in
-            if let document = document, document.exists {
+            if let error = error {
+                print("Load data error: \(error).")
+                completion(nil, error)
+            } else if let document = document, document.exists {
                 print("Load data: \(document.data()!)")
                 completion(document.data(), nil)
-            } else {
-                print("Load data error: \(error!).")
-                completion(nil, error)
             }
         }
     }

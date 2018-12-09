@@ -22,8 +22,8 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addListener()
-        downloadOrderInfo()
+//        addListener()
+//        downloadOrderInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,8 +92,8 @@ class OrderViewController: UIViewController {
                     })
                     strongSelf.originalCommodities.updateValue(commodity, forKey: orderIDKey)
                     handleData(orderID: orderID, tableID: tableID, commodity: commodity, setupTime: setupTime)
-                    strongSelf.orderCollectionView.delegate = self
-                    strongSelf.orderCollectionView.dataSource = self
+                    strongSelf.orderCollectionView.delegate = strongSelf
+                    strongSelf.orderCollectionView.dataSource = strongSelf
                     strongSelf.orderCollectionView.reloadData()
                 })
             }
