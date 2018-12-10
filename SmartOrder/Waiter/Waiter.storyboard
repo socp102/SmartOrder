@@ -189,7 +189,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw2-sZ-Nag">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="跳號"/>
                                                 <connections>
                                                     <action selector="passBtnPressed:" destination="Ctn-90-brg" eventType="touchUpInside" id="fSo-gt-jhF"/>
                                                 </connections>
@@ -325,7 +325,11 @@
                         <viewLayoutGuide key="safeArea" id="dhn-BT-7o6"/>
                     </view>
                     <navigationItem key="navigationItem" title="座位狀況" id="aeI-Yu-8WQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="7Ko-uQ-gQj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="7Ko-uQ-gQj">
+                            <connections>
+                                <action selector="refreshBtnPressed:" destination="Ctn-90-brg" id="Pnn-nI-CjI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="MDQ-w3-Wfo">
                             <connections>
                                 <segue destination="r0c-RG-LLt" kind="unwind" unwindAction="unwindSegue:" id="6vz-0e-D1P"/>

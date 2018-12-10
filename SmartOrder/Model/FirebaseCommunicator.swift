@@ -37,7 +37,7 @@ class FirebaseCommunicator {
         finalData.updateValue(FieldValue.serverTimestamp(), forKey: "timestamp")
         
         guard let documentName = documentName else {
-            db.collection(collectionName).addDocument(data: data) { (error) in
+            db.collection(collectionName).addDocument(data: finalData) { (error) in
                 if let  error = error {
                     print("Add data error: \(error).")
                     completion(nil, error)
