@@ -113,6 +113,7 @@ class CoponViewTableViewController: UITableViewController {
             let couponCollection = Array(self.couponInfo.keys)
             print("couponCollection: \(couponCollection)")
             self.objects = self.object(couponCollection: couponCollection,user: user)
+            
             print("objectitem1: \(self.objects)")
             self.tableView.reloadData()
         }
@@ -152,35 +153,36 @@ class CoponViewTableViewController: UITableViewController {
             let couponOwnerDictionary = couponDictionaryOptional!
             let hasCoupon = couponOwnerDictionary.keys.contains(user)
             
-            //使用者有在該優惠卷裡面
-            guard hasCoupon == true else {
+            if hasCoupon == true {
+                
+                let userCouponValueAny = couponOwnerDictionary[user]
+                let userCouponValueInt = userCouponValueAny as! Bool
+                
+                
+                switch userCouponValueInt {
+                //領取但還沒用過
+                case false:
+                    self.currentItem.title = (couponReview?["couponTitle"])! as! String
+                    self.currentItem.imagename = (couponReview?["couponImageName"])! as! String
+                    self.currentItem.couponDiscount = (couponReview?["couponDiscount"])! as! Double
+                    self.currentItem.couponDetilContent = (couponReview?["couponDetilContent"])! as! String
+                    self.currentItem.couponValidDate = (couponReview?["couponValidDate"])! as! String
+                    object.append(self.currentItem)
+                    
+                    break
+                    
+                //領取但已使用過
+                case true:
+                    self.couponInfo.removeValue(forKey: "\(reviewCoupon)")
+                    break
+                    
+                }
+            } else {
+                print("hasCoupon == true")
                 self.couponInfo.removeValue(forKey: "\(reviewCoupon)")
-                return []
-                
+               
             }
-            let userCouponValueAny = couponOwnerDictionary[user]
-            let userCouponValueInt = userCouponValueAny as! Int
-            
-            switch userCouponValueInt {
-            //領取但還沒用過
-            case 0:
-                self.currentItem.title = (couponReview?["couponTitle"])! as! String
-                self.currentItem.imagename = (couponReview?["couponImageName"])! as! String
-                self.currentItem.couponDiscount = (couponReview?["couponDiscount"])! as! Double
-                self.currentItem.couponDetilContent = (couponReview?["couponDetilContent"])! as! String
-                self.currentItem.couponValidDate = (couponReview?["couponValidDate"])! as! String
-                object.append(self.currentItem)
-                
-                break
-                
-            //領取但已使用過
-            case 1:
-                self.couponInfo.removeValue(forKey: "\(reviewCoupon)")
-                break
-                
-            default: break
-                
-            }
+        
         }
         print("object4: \(object)")
         return object

@@ -54,6 +54,7 @@
 		EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */; };
 		EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823121B117E700092C91 /* InformationViewController.swift */; };
 		EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823221B117E800092C91 /* UIImage + Resize.swift */; };
+		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderListTableViewController.swift; path = SmartOrder/Member/OrderList/OrderListTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		EB6F823121B117E700092C91 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EB6F823221B117E800092C91 /* UIImage + Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + Resize.swift"; sourceTree = "<group>"; };
+		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
+				EB73349A21BEF38400B431D7 /* Orderlist.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
+				EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
