@@ -47,6 +47,8 @@
 		A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
 		A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
+		EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */; };
+		EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779B21BE9E2900210B15 /* Coupon.swift */; };
 		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
 		EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6F821721AE7A4900092C91 /* Member.storyboard */; };
 		EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */; };
@@ -101,6 +103,8 @@
 		A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCollectionViewCell.swift; sourceTree = "<group>"; };
 		A13B05A621BA411E001ADE36 /* SeatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatStatus.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoponViewTableViewController.swift; sourceTree = "<group>"; };
+		EB52779B21BE9E2900210B15 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		EB6F821021AE7A2100092C91 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		EB6F821121AE7A2400092C91 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EB6F821221AE7A2A00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 		EB6F822421B1130800092C91 /* CouponList */ = {
 			isa = PBXGroup;
 			children = (
+				EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */,
+				EB52779B21BE9E2900210B15 /* Coupon.swift */,
 			);
 			path = CouponList;
 			sourceTree = "<group>";
@@ -595,7 +601,9 @@
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
+				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
 				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
+				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
 				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
 				A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
