@@ -103,6 +103,10 @@ class SeatViewController: UIViewController {
     @IBAction func passBtnPressed(_ sender: UIButton) {
         
     }
+    
+    @IBAction func refreshBtnPressed(_ sender: UIBarButtonItem) {
+        downloadSeatStatus()
+    }
 }
 
 extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -152,29 +156,19 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        orders[indexPath.section].itemsQty[indexPath.row] -= 1
-        //
-        //        let item = orders[indexPath.section].items[indexPath.row]
-        //        let value = orders[indexPath.section].itemsQty[indexPath.row]
-        //
-        //        var commodity = originalCommodities[orders[indexPath.section].orderID] as! [String: Any]
-        //        var itemContent = commodity[itemEncoder(input: item)] as! [String: String]
-        //        itemContent["notReady"] = String(value)
-        //        commodity[itemEncoder(input: item)] = itemContent
-        //        originalCommodities[orders[indexPath.section].orderID] = commodity
-        //        let data = ["commodity": commodity]
-        //
-        //        updateOrderStatus(collectionView: collectionView, orderID: orders[indexPath.section].orderID, data: data)
-        //
-        //        if orders[indexPath.section].itemsQty[indexPath.row] == 0 {
-        //            orders[indexPath.section].items.remove(at: indexPath.row)
-        //            orders[indexPath.section].itemsQty.remove(at: indexPath.row)
-        //        }
-        //
-        //        if orders[indexPath.section].items.count == 0 {
-        //            orders.remove(at: indexPath.section)
-        //        }
-        //        collectionView.reloadData()
+        let tableID = seatsStatus[indexPath.row].tableID
+        let timestamp = FieldValue.serverTimestamp()
+        let data = [tableID: ["isUsed": false, "timestamp": timestamp]]
+        firebaseCommunicator.updateData(collectionName: FIREBASE_COLLECTION_NAME, documentName: FIREBASE_DOCUMENT_NAME, data: data) { [weak self] (isFinished, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let error = error {
+                print("Updated error: \(error)")
+            } else {
+                strongSelf.downloadSeatStatus()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
