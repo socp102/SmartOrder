@@ -97,7 +97,7 @@ class CoponViewTableViewController: UITableViewController {
         return cell
     }
     //下載
-    func getCouponInfo(user: String?) {
+    func getCouponInfo(user: String) {
         
         //抓優惠卷資料
         firebaseCommunicator.loadData(collectionName: "couponInfo") { (result, error) in
@@ -110,7 +110,8 @@ class CoponViewTableViewController: UITableViewController {
             }
             self.couponInfo = result as! [String:[String:Any]]
             
-            let couponCollection = ["001","002","003"]
+            let couponCollection = Array(self.couponInfo.keys)
+            print("couponCollection: \(couponCollection)")
             self.objects = self.object(couponCollection: couponCollection,user: user)
             print("objectitem1: \(self.objects)")
             self.tableView.reloadData()
@@ -141,7 +142,7 @@ class CoponViewTableViewController: UITableViewController {
     
     
     //查詢
-    func object(couponCollection: [String],user: String?) -> [Coupon] {
+    func object(couponCollection: [String],user: String) -> [Coupon] {
         var object = [Coupon]()
         for reviewCoupon in  couponCollection {
             var couponReview = self.couponInfo["\(reviewCoupon)"]
@@ -149,7 +150,7 @@ class CoponViewTableViewController: UITableViewController {
             let couponOwnerNSDictionary = couponOwner as? NSDictionary
             let couponDictionaryOptional = couponOwnerNSDictionary as? Dictionary<String, Any>
             let couponOwnerDictionary = couponDictionaryOptional!
-            var hasCoupon = couponOwnerDictionary.keys.contains(user!)
+            let hasCoupon = couponOwnerDictionary.keys.contains(user)
             
             //使用者有在該優惠卷裡面
             guard hasCoupon == true else {
@@ -157,7 +158,7 @@ class CoponViewTableViewController: UITableViewController {
                 return []
                 
             }
-            let userCouponValueAny = couponOwnerDictionary[user!]
+            let userCouponValueAny = couponOwnerDictionary[user]
             let userCouponValueInt = userCouponValueAny as! Int
             
             switch userCouponValueInt {
