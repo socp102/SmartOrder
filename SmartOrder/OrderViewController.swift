@@ -20,12 +20,6 @@ class OrderViewController: UIViewController {
     var originalCommodities = [String: Any]()
     var animateDelay: Double = 0.0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        addListener()
-//        downloadOrderInfo()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addListener()

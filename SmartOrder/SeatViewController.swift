@@ -15,9 +15,12 @@ class SeatViewController: UIViewController {
     @IBOutlet weak var number: UILabel!
     
     let firebaseCommunicator = FirebaseCommunicator.shared
-    var listener: ListenerRegistration?
-    let FIREBASE_COLLECTION_NAME = "seat"
-    let FIREBASE_DOCUMENT_NAME = "status"
+    var seatListener: ListenerRegistration?
+    var waitingListener: ListenerRegistration?
+    let SEAT_COLLECTION_NAME = "seat"
+    let SEAT_DOCUMENT_NAME = "status"
+    let WAITING_COLLECTION_NAME = "Reservation"
+    let WAITING_DOCUMENT_NAME = "Waiting"
     
     var seatsStatus = [SeatStatus]()
     var idleTable = [SeatStatus]()
@@ -29,16 +32,21 @@ class SeatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("adfg: viewWillAppear")
+        print("SeatViewController: viewWillAppear")
         addListener()
         downloadSeatStatus()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if listener != nil {
-            listener!.remove()
-            listener = nil
+        if seatListener != nil {
+            seatListener!.remove()
+            seatListener = nil
+        }
+        
+        if waitingListener != nil {
+            waitingListener!.remove()
+            waitingListener = nil
         }
     }
     
@@ -48,7 +56,8 @@ class SeatViewController: UIViewController {
     
     // MARK: - Methods.
     func downloadSeatStatus() {
-        firebaseCommunicator.loadData(collectionName: FIREBASE_COLLECTION_NAME, documentName: FIREBASE_DOCUMENT_NAME) { [weak self] (results, error) in
+        // Get table status.
+        firebaseCommunicator.loadData(collectionName: SEAT_COLLECTION_NAME, documentName: SEAT_DOCUMENT_NAME) { [weak self] (results, error) in
             guard let strongSelf = self else {
                 return
             }
@@ -81,18 +90,79 @@ class SeatViewController: UIViewController {
                 strongSelf.seatCollectionView.reloadData()
             }
         }
+        
+        // Get waiting status.
+        let db = firebaseCommunicator.db
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        let date = dateFormatter.string(from: Date())
+        db!.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).getDocuments { [weak self] (querySnapshot, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if let error = error {
+                print("Load data error: \(error).")
+            } else {
+                print("Load data successful.")
+                var results: [String: Any] = [:]
+                for document in querySnapshot!.documents {
+                    results.updateValue(document.data(), forKey: document.documentID)
+                }
+                print("waiting: \(results)")
+                strongSelf.showWaitingStatus(input: results)
+            }
+        }
+    }
+    
+    func showWaitingStatus(input: [String: Any]) {
+        var insideCount = 0
+        input.forEach { (key, value) in
+            switch key {
+            case "Number":
+                let waitingNumber = (value as! [String: String])
+                number.text = "目前號碼: \(waitingNumber["Number"]!)"
+            default:
+                let waitingStatus = (value as! [String: Any])
+                waitingStatus.forEach({ (key, value) in
+                    if let inside = value as? String, inside == "inside" {
+                        insideCount += 1
+                    }
+                })
+            }
+        }
+        underWaiting.text = "現場組數: \(insideCount)"
     }
     
     func addListener() {
-        if let db = firebaseCommunicator.db, listener == nil {
-            listener = db.collection(FIREBASE_COLLECTION_NAME).addSnapshotListener { [weak self] querySnapshot, error in
+        if let db = firebaseCommunicator.db, seatListener == nil {
+            seatListener = db.collection(SEAT_COLLECTION_NAME).addSnapshotListener { [weak self] querySnapshot, error in
                 guard let strongSelf = self else {
                     return
                 }
                 if let error = error {
-                    print("AddSnapshotListener error: \(error)")
+                    print("AddSeatListener error: \(error)")
                 } else {
-                    print("AddSnapshotListener successful.")
+                    print("AddSeatListener successful.")
+                    strongSelf.downloadSeatStatus()
+                }
+            }
+        }
+        
+        if let db = firebaseCommunicator.db, waitingListener == nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+            let date = dateFormatter.string(from: Date())
+            waitingListener = db.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).addSnapshotListener { [weak self] querySnapshot, error in
+                guard let strongSelf = self else {
+                    return
+                }
+                if let error = error {
+                    print("AddWaitingListener error: \(error)")
+                } else {
+                    print("AddWaitingListener successful.")
                     strongSelf.downloadSeatStatus()
                 }
             }
@@ -159,7 +229,7 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let tableID = seatsStatus[indexPath.row].tableID
         let timestamp = FieldValue.serverTimestamp()
         let data = [tableID: ["isUsed": false, "timestamp": timestamp]]
-        firebaseCommunicator.updateData(collectionName: FIREBASE_COLLECTION_NAME, documentName: FIREBASE_DOCUMENT_NAME, data: data) { [weak self] (isFinished, error) in
+        firebaseCommunicator.updateData(collectionName: SEAT_COLLECTION_NAME, documentName: SEAT_DOCUMENT_NAME, data: data) { [weak self] (isFinished, error) in
             guard let strongSelf = self else {
                 return
             }
