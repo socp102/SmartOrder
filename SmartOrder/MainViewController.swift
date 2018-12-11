@@ -155,7 +155,7 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         guard let currentUser = Auth.auth().currentUser else { return }
         if currentUser.uid == "EFkyc32aNSb8BKHxZX1boudlgEH3" {
             self.performSegue(withIdentifier: "segueToAdmin", sender: self)
-        } else if currentUser.uid == "8mFOnxLri9aW7m9SmQDOcVnqazm1" {
+        } else if currentUser.uid == " 8mFOnxLri9aW7m9SmQDOcVnqazm1" {
             self.performSegue(withIdentifier: "segueToWaiter", sender: self)
         } else {
             self.performSegue(withIdentifier: "segueToUser", sender: self)
