@@ -22,6 +22,7 @@ class OrderListTableViewController: UITableViewController {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
+        tableView.tableFooterView = UIView()
         getCouponInfo(user: currentUser.uid)
     }
 
@@ -51,14 +52,15 @@ class OrderListTableViewController: UITableViewController {
     //下載資料
     
     func getCouponInfo(user: String) {
-        firebaseCommunicator.loadData(collectionName: "order", documentName: "0001") { (result, error) in
+        firebaseCommunicator.loadData(collectionName: "order", field: "userID", condition: user) { (result, error) in
             
             if let error = error {
                 print("error:\(error)")
             }
             
-            self.orderinfo = result as! [String:Any]
-            self.object.userid = (self.orderinfo["userID"])! as! String
+            var info = result as! [String:Any]
+            self.orderinfo = info["0001"] as! [String : Any]
+            //總額
             self.object.total = (self.orderinfo["total"])! as! String
             //date
             let FIRServerValue = (self.orderinfo["timestamp"])! as! Timestamp
@@ -68,12 +70,30 @@ class OrderListTableViewController: UITableViewController {
             dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
             let orderTime = Double(FIRServerValue.seconds)
             let date = dateFormatter.string(from: Date(timeIntervalSince1970: orderTime))
-            //let time = NSDate(timeIntervalSince1970:FIRServerValue.timestamp)
-            print("datetime: \(date)")
             self.object.time = date
             
-            //明細
+            //第三層
             let orderitem = (self.orderinfo["allOrder"])! as! [String:[String:Any]]
+            
+            //如果不使用優惠券
+            guard self.orderinfo["coupon"] != nil else {
+                
+                self.object.itemName.detialitem.subtotle = self.object.total
+                
+                for item in orderitem.keys {
+                    self.object.itemName.name = item
+                    let detialitem = orderitem[item]
+                    self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
+                }
+                
+                self.objects.append(self.object)
+                print("objects: \(self.objects)")
+                self.tableView.reloadData()
+                return
+            }
+            self.object.coupon = (self.orderinfo["coupon"])! as! String
+            
+            //明細
             
             for item in orderitem.keys {
                 self.object.itemName.name = item
@@ -82,12 +102,23 @@ class OrderListTableViewController: UITableViewController {
                 self.object.itemName.detialitem.subtotle = (detialitem!["subtotal"]!) as! String
             }
             
-            
+            //上傳
             self.objects.append(self.object)
             print("objects: \(self.objects)")
            self.tableView.reloadData()
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is OrderListDetialTableViewController {
+            let controller = segue.destination as! OrderListDetialTableViewController
+//            let detialobject = self.objects
+//            controller.detialobject = detialobject
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let courseSelect = objects[indexPath!.row]
+            controller.detialobject = courseSelect
+        }
     }
     
     

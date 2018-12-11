@@ -33,6 +33,7 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         update(currentUserUid: currentUser)
+        
     }
     
     @IBOutlet weak var Photo: UIButton!
@@ -108,11 +109,7 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func update(currentUserUid: User){
-        print("mail: \(currentUserUid.email)")
-        print("name: \(currentUserUid.displayName)")
-        print("phone: \(currentUserUid.phoneNumber)")
-        print("providerData: \(currentUserUid.providerData)")
-        print("providerData: \(currentUserUid.providerID)")
+        var pho:UIImage? = nil
         //下載照片
         communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid.uid).jpeg") { (result, error) in
             if let error = error {
@@ -121,12 +118,14 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
                 
             } else {
                 self.Photo.setImage((result as! UIImage), for: .normal)
-                print("mail: \(currentUserUid.email)")
-                print("name: \(currentUserUid.displayName)")
-                print("phone: \(currentUserUid.phoneNumber)")
-                print("providerData: \(currentUserUid.providerData)")
-                print("providerData: \(currentUserUid.providerID)")
+                
+//                print("mail: \(currentUserUid.email)")
+//                print("name: \(currentUserUid.displayName)")
+//                print("phone: \(currentUserUid.phoneNumber)")
+//                print("providerData: \(currentUserUid.providerData)")
+//                print("providerData: \(currentUserUid.providerID)")
             }
+            
         }
         /*
         //下載資料
@@ -159,14 +158,11 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
     func numberOfSections(in tableView: UITableView) -> Int {
         return 0
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

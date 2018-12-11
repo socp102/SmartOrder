@@ -12,7 +12,9 @@ struct Order {
     var itemName = Items.init(name: "", detialitem: detial.init())
     var time = ""
     var total:String = ""
-    var userid:String = ""
+    var coupon = ""
+    
+    
 }
 
 struct Items {

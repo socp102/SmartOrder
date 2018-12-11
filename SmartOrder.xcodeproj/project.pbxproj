@@ -55,6 +55,7 @@
 		EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823121B117E700092C91 /* InformationViewController.swift */; };
 		EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823221B117E800092C91 /* UIImage + Resize.swift */; };
 		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
+		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		EB6F823121B117E700092C91 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EB6F823221B117E800092C91 /* UIImage + Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + Resize.swift"; sourceTree = "<group>"; };
 		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
+		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +378,7 @@
 			children = (
 				EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
 				EB73349A21BEF38400B431D7 /* Orderlist.swift */,
+				EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 				EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
+				EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
