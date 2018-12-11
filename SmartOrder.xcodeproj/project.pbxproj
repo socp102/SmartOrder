@@ -43,6 +43,9 @@
 		A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */; };
 		A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */; };
 		A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */; };
+		A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */; };
+		A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
+		A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
 		EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */; };
 		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
@@ -95,6 +98,9 @@
 		A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSectionCollectionReusableView.swift; sourceTree = "<group>"; };
 		A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListForWaiter.swift; sourceTree = "<group>"; };
+		A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCollectionViewCell.swift; sourceTree = "<group>"; };
+		A13B05A621BA411E001ADE36 /* SeatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatStatus.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
 		EB6F821021AE7A2100092C91 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +314,8 @@
 				A11CDB2021B8C599008756DF /* Waiter.storyboard */,
 				A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */,
 				A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */,
+				A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */,
+				A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */,
 			);
 			path = Waiter;
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
+				A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
 			);
 			name = Waiter;
 			sourceTree = "<group>";
@@ -589,10 +598,13 @@
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
+				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
 				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
+				A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
 				A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
+				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
@@ -766,8 +778,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -775,7 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = SmartOrder;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -789,8 +801,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -798,7 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = SmartOrder;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

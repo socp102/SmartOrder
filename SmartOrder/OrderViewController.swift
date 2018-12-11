@@ -20,12 +20,6 @@ class OrderViewController: UIViewController {
     var originalCommodities = [String: Any]()
     var animateDelay: Double = 0.0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addListener()
-        downloadOrderInfo()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addListener()
@@ -92,8 +86,8 @@ class OrderViewController: UIViewController {
                     })
                     strongSelf.originalCommodities.updateValue(commodity, forKey: orderIDKey)
                     handleData(orderID: orderID, tableID: tableID, commodity: commodity, setupTime: setupTime)
-                    strongSelf.orderCollectionView.delegate = self
-                    strongSelf.orderCollectionView.dataSource = self
+                    strongSelf.orderCollectionView.delegate = strongSelf
+                    strongSelf.orderCollectionView.dataSource = strongSelf
                     strongSelf.orderCollectionView.reloadData()
                 })
             }
