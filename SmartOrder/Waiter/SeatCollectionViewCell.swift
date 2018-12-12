@@ -1,33 +1,29 @@
 //
-//  CouponCollectionViewCell.swift
+//  SeatCollectionViewCell.swift
 //  SmartOrder
 //
-//  Created by BorisChen on 2018/11/28.
+//  Created by BorisChen on 2018/12/7.
 //  Copyright © 2018 Eason. All rights reserved.
 //
 
 import UIKit
 
-class CouponCollectionViewCell: UICollectionViewCell {
+class SeatCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var couponImage: UIImageView!
-    @IBOutlet weak var couponTitle: UILabel!
-    @IBOutlet weak var moreBtn: UIButton!
+    @IBOutlet weak var tableID: UILabel!
+    @IBOutlet weak var useTime: UILabel!
     
     override func awakeFromNib() {
         cardViewInit()
     }
     
     deinit {
-        print("CouponCollectionViewCell deinit.")
+        print("SeatCollectionViewCell deinit.")
     }
     
     func cardViewInit() {
         // CornerRadius Setting.
         cardView.layer.cornerRadius = 5
-        couponImage.layer.cornerRadius = 5
-        couponImage.clipsToBounds = true
-        couponImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         // Shadow setting.
         cardView.layer.shadowOffset = CGSize(width: 5, height: 5)

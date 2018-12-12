@@ -35,7 +35,17 @@
 		A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */; };
 		A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */; };
 		A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717DE21AE70D900EA6BFD /* CouponInfo.swift */; };
+		A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */; };
 		A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
+		A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11CDB2021B8C599008756DF /* Waiter.storyboard */; };
+		A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2521B8D70C008756DF /* OrderViewController.swift */; };
+		A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2721B8D726008756DF /* SeatViewController.swift */; };
+		A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */; };
+		A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */; };
+		A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */; };
+		A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */; };
+		A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
+		A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
 		EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */; };
 		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
@@ -61,6 +71,7 @@
 		446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartOrder/Pods-SmartOrder.release.xcconfig"; sourceTree = "<group>"; };
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationViewController.swift; path = SmartOrder/Reservation/ReservationViewController.swift; sourceTree = SOURCE_ROOT; };
+		9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartOrder.entitlements; sourceTree = "<group>"; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,7 +90,17 @@
 		A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11717DE21AE70D900EA6BFD /* CouponInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfo.swift; sourceTree = "<group>"; };
+		A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
 		A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCommunicator.swift; sourceTree = "<group>"; };
+		A11CDB2021B8C599008756DF /* Waiter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Waiter.storyboard; sourceTree = "<group>"; };
+		A11CDB2521B8D70C008756DF /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		A11CDB2721B8D726008756DF /* SeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
+		A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListForWaiter.swift; sourceTree = "<group>"; };
+		A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCollectionViewCell.swift; sourceTree = "<group>"; };
+		A13B05A621BA411E001ADE36 /* SeatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatStatus.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
 		EB6F821021AE7A2100092C91 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +221,7 @@
 		9BD1EEF3218CA3C9004AB970 /* SmartOrder */ = {
 			isa = PBXGroup;
 			children = (
+				9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */,
 				9BD1EF09218CA4A3004AB970 /* Model */,
 				9BD1EF08218CA431004AB970 /* View */,
 				9BD1EF0A218CA4AC004AB970 /* Controller */,
@@ -214,6 +236,7 @@
 		9BD1EF08218CA431004AB970 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A11CDB1921B8BD17008756DF /* Waiter */,
 				0AF4F572219EC218005AC6DC /* Main */,
 				A1D61DAF2193ED69008D35C2 /* Coupon */,
 				0AF4F56F219EC112005AC6DC /* Order */,
@@ -229,6 +252,7 @@
 				0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */,
 				A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
 				A11717E021AE70DE00EA6BFD /* Coupon */,
+				A11CDB2F21B8F5B9008756DF /* Waiter */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +265,7 @@
 				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
 				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
+				A11CDB2421B8C817008756DF /* Waiter */,
 				9BD1EF1A218EF349004AB970 /* Common.swift */,
 				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
@@ -278,8 +303,39 @@
 			isa = PBXGroup;
 			children = (
 				A19727272193E7A600068B18 /* CouponViewController.swift */,
+				A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */,
 			);
 			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A11CDB1921B8BD17008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2021B8C599008756DF /* Waiter.storyboard */,
+				A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */,
+				A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */,
+				A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */,
+				A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */,
+			);
+			path = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2421B8C817008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2521B8D70C008756DF /* OrderViewController.swift */,
+				A11CDB2721B8D726008756DF /* SeatViewController.swift */,
+			);
+			name = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2F21B8F5B9008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
+				A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
+			);
+			name = Waiter;
 			sourceTree = "<group>";
 		};
 		A1D61DAF2193ED69008D35C2 /* Coupon */ = {
@@ -373,6 +429,14 @@
 				TargetAttributes = {
 					9BD1EEF0218CA3C9004AB970 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -406,6 +470,7 @@
 				EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */,
 				9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */,
 				9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */,
+				A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */,
 				9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,9 +595,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
+				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
+				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
+				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
+				A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
+				A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
+				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
@@ -551,10 +623,12 @@
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
+				A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
 				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
+				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,8 +776,10 @@
 			baseConfigurationReference = 436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -711,6 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -722,8 +799,10 @@
 			baseConfigurationReference = 446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -731,6 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
