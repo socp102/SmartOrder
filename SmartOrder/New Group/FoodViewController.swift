@@ -12,30 +12,30 @@ class FoodViewController: UIViewController,UITableViewDataSource,UITableViewDele
     var menuSelectedNumber:Int = 0
     @IBOutlet weak var foodTableView: UITableView!
     
-    var hamburgerImages = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
+    var hamburgerImages = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
     var hamburgerName = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
     var hamburgurPrice = ["70","80","90"]
     var hamburgurNumber = 0
     
-    var spaghettiImages = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
+    var spaghettiImages = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
     var spaghettiName = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
     var spaghettiPrice = ["70","80","90"]
     var spaghettiNumber = 0
 
     
-    var pizzaImages = ["起司披薩","番茄披薩","橄欖披薩"]
+    var pizzaImages = ["CheesePizza","TomatoPizza","OlivaPizza"]
     var pizzaName = ["起司披薩","番茄披薩","橄欖披薩"]
     var pizzaPrice = ["70","80","90"]
     var pizzaNumber = 0
 
     
-    var steakImages = ["牛菲力","牛肋排","炙燒牛排"]
+    var steakImages = ["FiletMigon","RibeyeSteak","GrilledSteak"]
     var steakName = ["牛菲力","牛肋排","炙燒牛排"]
     var steakPrice = ["70","80","90"]
     var steakNumber = 0
 
     
-    var dessertImages = ["馬卡龍","巧克力蛋糕","聖代"]
+    var dessertImages = ["Macaron","ChocolateCake","Sundae"]
     var dessertName = ["馬卡龍","巧克力蛋糕","聖代"]
     var dessertPrice = ["70","80","90"]
     var dessertNumber = 0
