@@ -10,7 +10,10 @@ import UIKit
 import Firebase
 
 class MemberViewController: UIViewController {
-
+    
+    let communicator = FirebaseCommunicator.shared
+    let get = Getphoto()
+    
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -27,9 +30,12 @@ class MemberViewController: UIViewController {
         case 0:
             OrderlistView.isHidden = false
             CouponView.isHidden = true
+            
+            
         case 1:
             OrderlistView.isHidden = true
             CouponView.isHidden = false
+            
         default:
             break
         }
@@ -37,15 +43,16 @@ class MemberViewController: UIViewController {
     @IBOutlet weak var MembersegmentedControl: UISegmentedControl!
     @IBOutlet weak var CouponView: UIView!
     @IBOutlet weak var OrderlistView: UIView!
-    
+    @IBOutlet weak var Photos: UIImageView!
+    @IBOutlet weak var Id: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         OrderlistView.isHidden = false
         CouponView.isHidden = true
-        
+        Photos.image = get.update()
+        Id.text = get.currentUsermail
     }
-
-
+    
 }
 

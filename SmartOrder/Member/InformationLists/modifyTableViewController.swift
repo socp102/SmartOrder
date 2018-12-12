@@ -1,14 +1,14 @@
 //
-//  CouponListTableViewController.swift
+//  modifyTableViewController.swift
 //  SmartOrder
 //
-//  Created by kimbely on 2018/11/28.
+//  Created by kimbely on 2018/12/12.
 //  Copyright © 2018 Eason. All rights reserved.
 //
 
 import UIKit
 
-class CouponListTableViewController: UITableViewController {
+class modifyTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

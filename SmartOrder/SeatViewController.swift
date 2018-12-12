@@ -27,7 +27,6 @@ class SeatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -220,7 +219,7 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.cardView.backgroundColor = UIColor(red: 245/255, green: 150/255, blue: 170/255, alpha: 1.0)
         }
         
-        cell.tableID.text = seatsStatus[indexPath.row].tableID
+        cell.tableID.text = tableDecoder(tableID: seatsStatus[indexPath.row].tableID)
         cell.useTime.text = "用餐時間: \(useTime) 分鐘"
         return cell
     }
@@ -263,5 +262,28 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func tableDecoder(tableID: String) -> String {
+        switch tableID {
+        case "table1":
+            return "第一桌"
+        case "table2":
+            return "第二桌"
+        case "table3":
+            return "第三桌"
+        case "table4":
+            return "第四桌"
+        case "table5":
+            return "第五桌"
+        case "table6":
+            return "第六桌"
+        case "table7":
+            return "第七桌"
+        case "table8":
+            return "第八桌"
+        default:
+            return "Unkown"
+        }
     }
 }

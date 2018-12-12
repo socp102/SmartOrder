@@ -47,12 +47,19 @@
 		A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
 		A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
 		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
-		EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */; };
+		EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */; };
+		EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779B21BE9E2900210B15 /* Coupon.swift */; };
 		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
 		EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6F821721AE7A4900092C91 /* Member.storyboard */; };
 		EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */; };
-		EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823121B117E700092C91 /* InformationViewController.swift */; };
 		EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823221B117E800092C91 /* UIImage + Resize.swift */; };
+		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
+		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
+		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
+		EB7334A521C086C700B431D7 /* InformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A421C086C700B431D7 /* InformationTableViewController.swift */; };
+		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
+		EBC682C721C0A8B300D70A16 /* modifyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C621C0A8B300D70A16 /* modifyTableViewController.swift */; };
+		EBC682C921C0A91200D70A16 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C821C0A91200D70A16 /* Informations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,14 +109,21 @@
 		A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCollectionViewCell.swift; sourceTree = "<group>"; };
 		A13B05A621BA411E001ADE36 /* SeatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatStatus.swift; sourceTree = "<group>"; };
 		A19727272193E7A600068B18 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
-		EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
+		EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoponViewTableViewController.swift; sourceTree = "<group>"; };
+		EB52779B21BE9E2900210B15 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		EB6F821021AE7A2100092C91 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		EB6F821121AE7A2400092C91 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EB6F821221AE7A2A00092C91 /* CouponListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponListTableViewController.swift; sourceTree = "<group>"; };
 		EB6F821721AE7A4900092C91 /* Member.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
 		EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderListTableViewController.swift; path = SmartOrder/Member/OrderList/OrderListTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		EB6F823121B117E700092C91 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EB6F823221B117E800092C91 /* UIImage + Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + Resize.swift"; sourceTree = "<group>"; };
+		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
+		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
+		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
+		EB7334A421C086C700B431D7 /* InformationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewController.swift; sourceTree = "<group>"; };
+		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
+		EBC682C621C0A8B300D70A16 /* modifyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modifyTableViewController.swift; sourceTree = "<group>"; };
+		EBC682C821C0A91200D70A16 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,7 +375,8 @@
 		EB6F822421B1130800092C91 /* CouponList */ = {
 			isa = PBXGroup;
 			children = (
-				EB6F820F21AE7A1E00092C91 /* CouponListTableViewController.swift */,
+				EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */,
+				EB52779B21BE9E2900210B15 /* Coupon.swift */,
 			);
 			path = CouponList;
 			sourceTree = "<group>";
@@ -370,6 +385,8 @@
 			isa = PBXGroup;
 			children = (
 				EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
+				EB73349A21BEF38400B431D7 /* Orderlist.swift */,
+				EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -379,6 +396,7 @@
 			children = (
 				EB6F823521B1181700092C91 /* InformationLists */,
 				EB6F821021AE7A2100092C91 /* MemberViewController.swift */,
+				EB7334A221C07AD000B431D7 /* getPhoto.swift */,
 				EB6F822421B1130800092C91 /* CouponList */,
 				EB6F822A21B1140400092C91 /* OrderList */,
 			);
@@ -388,8 +406,11 @@
 		EB6F823521B1181700092C91 /* InformationLists */ = {
 			isa = PBXGroup;
 			children = (
-				EB6F823121B117E700092C91 /* InformationViewController.swift */,
+				EB7334A421C086C700B431D7 /* InformationTableViewController.swift */,
+				EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */,
 				EB6F823221B117E800092C91 /* UIImage + Resize.swift */,
+				EBC682C621C0A8B300D70A16 /* modifyTableViewController.swift */,
+				EBC682C821C0A91200D70A16 /* Informations.swift */,
 			);
 			path = InformationLists;
 			sourceTree = "<group>";
@@ -597,23 +618,25 @@
 			files = (
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
-				EB6F823321B117E800092C91 /* InformationViewController.swift in Sources */,
+				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
 				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
+				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
 				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
 				A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
 				A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
 				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
 				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
+				EB7334A521C086C700B431D7 /* InformationTableViewController.swift in Sources */,
 				9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
-				EB6F821321AE7A2B00092C91 /* CouponListTableViewController.swift in Sources */,
 				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
 				A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */,
+				EBC682C721C0A8B300D70A16 /* modifyTableViewController.swift in Sources */,
 				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
 				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
 				EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */,
@@ -621,15 +644,20 @@
 				0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */,
 				A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
 				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
+				EBC682C921C0A91200D70A16 /* Informations.swift in Sources */,
 				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
 				A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
+				EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */,
 				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
 				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
 				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
 				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
 				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
+				EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */,
+				EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
+				EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,7 +813,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
@@ -808,7 +836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
