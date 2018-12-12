@@ -111,7 +111,11 @@ class CouponViewController: UIViewController {
         let upperDate = dateFormatter.string(from: Date()) + " 00:00:00"
         let lowerLimmit = dateFormatter.string(from: Date(timeIntervalSinceNow: -(TimeInterval(7 * 24 * 60 * 60)))) + " 00:00:00"
         
-        firebaseCommunicator.loadData(collectionName: ORDER_COLLECTIONNAME, greaterThanOrEqualTo: lowerLimmit, lessThanOrEqualTo: upperDate) { (results, error) in
+        firebaseCommunicator.loadData(collectionName: ORDER_COLLECTIONNAME, greaterThanOrEqualTo: lowerLimmit, lessThanOrEqualTo: upperDate) { [weak self] (results, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
             if let error = error {
                 print("Load hotNews error: \(error)")
             } else if let data = results as? [String: Any] {
@@ -128,17 +132,29 @@ class CouponViewController: UIViewController {
                     })
                 })
                 
-                //competion(true)
+                for (key, value) in strongSelf.itemCounter {
+                    strongSelf.hotNewsInfos.append(HotNewsInfo(item: key, itemQty: value))
+                }
+                
+                strongSelf.hotNewsInfos.sort { (first, second) -> Bool in
+                    return first.itemQty > second.itemQty
+                }
+                
+                while strongSelf.hotNewsInfos.count > 5 {
+                    strongSelf.hotNewsInfos.removeLast()
+                }
+                
+                print("hotNewsInfos: \(strongSelf.hotNewsInfos)")
+                strongSelf.itemCounter.removeAll()
+                competion(true)
             }
         }
         
         func handleOrderItem(orderItem: [String: Any]) {
-            itemCounter.removeAll()
             orderItem.forEach { (orderItemKey, orderItemValue) in
                 let itemInfo = orderItemValue as! [String: Any]
-                print("itemInfo: \(itemInfo)")
                 let isItemCounterContains = itemCounter.contains(where: { (key, value) -> Bool in
-                    return key == orderItemKey
+                    return orderItemKey == key
                 })
                 
                 if isItemCounterContains {
@@ -147,35 +163,7 @@ class CouponViewController: UIViewController {
                     itemCounter.updateValue(Int(itemInfo["count"] as! String)!, forKey: orderItemKey)
                 }
             }
-            for (key, value) in itemCounter {
-                hotNewsInfos.append(HotNewsInfo(item: key, itemQty: value))
-            }
-            hotNewsInfos.sort { (first, second) -> Bool in
-                return first.itemQty > second.itemQty
-            }
-            
-            print("hotNewsInfos: \(hotNewsInfos)")
         }
-        
-//        var count = 0
-//        for index in couponInfos {
-//            print("imgage: \(index.couponImageName)")
-//            firebaseCommunicator.downloadImage(url: "couponImages/", fileName: index.couponImageName) {[weak self] (image, error) in
-//                guard let strongSelf = self else {
-//                    return
-//                }
-//                if let error = error {
-//                    print("download image error: \(error)")
-//                } else {
-//                    count += 1
-//                    let image = image as! UIImage
-//                    strongSelf.hotNewsInfos.append(image)
-//                    if strongSelf.couponInfos.count == count {
-//                        competion(true)
-//                    }
-//                }
-//            }
-//        }
     }
     
     // MARK: - Page changed.
@@ -196,6 +184,11 @@ class CouponViewController: UIViewController {
         if cell.timer == nil {
             cell.timer = Timer.scheduledTimer(timeInterval: 2, target: cell, selector: #selector(cell.changeHotNewsInfos), userInfo: nil, repeats: true)
         }
+    }
+    
+    @IBAction func couponToOrder(_ sender: UIButton) {
+//        let orderVC = storyboard?.instantiateViewController(withIdentifier: "orderVC")
+//        show(orderVC!, sender: self)
     }
 }
 
@@ -235,7 +228,7 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 return UICollectionViewCell()
             }
             cell.tag = 1000
-            //cell.hotNewsInfos = hotNewsInfos // DataSource
+            cell.hotNewsInfos = hotNewsInfos
             let pageControl = generatePageControl()
             cell.addSubview(pageControl)
             cell.hotNewsListCollectionView.reloadData()
@@ -281,7 +274,7 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == 0 {
             return CGSize(width: screenWidth, height: 100)
         } else {
-        return CGSize(width: screenWidth, height: 160)
+            return CGSize(width: screenWidth, height: 160)
         }
     }
     
