@@ -134,7 +134,6 @@ class CouponViewController: UIViewController {
     }
     
     @IBAction func unwindToCouponPage(_ unwindSegue: UIStoryboardSegue) {
-        downloadCouponInfo()
         guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
             return
         }

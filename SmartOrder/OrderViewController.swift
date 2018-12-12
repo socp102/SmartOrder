@@ -14,11 +14,15 @@ class OrderViewController: UIViewController {
     
     let firebaseCommunicator = FirebaseCommunicator.shared
     var listener: ListenerRegistration?
-    let FIREBASE_COLLECTION_NAME = "orderTest"
+    let FIREBASE_COLLECTION_NAME = "order"
     
     var orders = [OrderListForWaiter]()
     var originalCommodities = [String: Any]()
     var animateDelay: Double = 0.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,7 +80,7 @@ class OrderViewController: UIViewController {
                         switch orderContentKey {
                         case "tableID":
                             tableID = orderContentValue as! String
-                        case "commodity":
+                        case "allOrder":
                             commodity = orderContentValue as! [String: Any]
                         case "timestamp":
                             setupTime = orderContentValue as! Timestamp
@@ -217,7 +221,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         itemContent["notReady"] = String(value)
         commodity[itemEncoder(input: item)] = itemContent
         originalCommodities[orders[indexPath.section].orderID] = commodity
-        let data = ["commodity": commodity]
+        let data = ["allOrder": commodity]
         
         updateOrderStatus(collectionView: collectionView, orderID: orders[indexPath.section].orderID, data: data)
         
