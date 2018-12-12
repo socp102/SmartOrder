@@ -111,10 +111,10 @@ class CoponViewTableViewController: UITableViewController {
             self.couponInfo = result as! [String:[String:Any]]
             
             let couponCollection = Array(self.couponInfo.keys)
-            print("couponCollection: \(couponCollection)")
+            //print("couponCollection: \(couponCollection)")
             self.objects = self.object(couponCollection: couponCollection,user: user)
             
-            print("objectitem1: \(self.objects)")
+            //print("objectitem1: \(self.objects)")
             self.tableView.reloadData()
         }
         
@@ -184,7 +184,7 @@ class CoponViewTableViewController: UITableViewController {
             }
         
         }
-        print("object4: \(object)")
+        //print("object4: \(object)")
         return object
     }
  

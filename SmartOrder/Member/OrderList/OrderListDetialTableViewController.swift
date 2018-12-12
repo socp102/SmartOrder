@@ -7,20 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class OrderListDetialTableViewController: UITableViewController {
+    let communicator = FirebaseCommunicator.shared
     var detialobject = Order()
+    let get = Getphoto()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setvalue()
+        Photos.image = get.update()
+        Id.text = get.currentUsermail
     }
     @IBOutlet weak var detialtime: UILabel!
     @IBOutlet weak var detialItem: UITextView!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var couponDetial: UILabel!
     @IBOutlet weak var finialtotal: UILabel!
-
+    @IBOutlet weak var Photos: UIImageView!
+    @IBOutlet weak var Id: UILabel!
     // MARK: - Table view data source
 
     

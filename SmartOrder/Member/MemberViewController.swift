@@ -10,10 +10,9 @@ import UIKit
 import Firebase
 
 class MemberViewController: UIViewController {
-
-    var photo:UIImage? = nil
-    var id = ""
+    
     let communicator = FirebaseCommunicator.shared
+    let get = Getphoto()
     
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -51,43 +50,9 @@ class MemberViewController: UIViewController {
         super.viewDidLoad()
         OrderlistView.isHidden = false
         CouponView.isHidden = true
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        photo = update(currentUserUid: currentUser)
-        id = currentUser.email!
-        Id.text = id
+        Photos.image = get.update()
+        Id.text = get.currentUsermail
     }
     
-    func update(currentUserUid: User)->UIImage{
-        var pho:UIImage? = nil
-        //下載照片
-        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid.uid).jpeg") { (result, error) in
-            if let error = error {
-                print("download photo error:\(error)")
-                
-            } else {
-                self.Photos.image = (result as! UIImage)
-                pho = (result as! UIImage)
-            }
-            
-        }
-        
- 
-        return pho!
-    }
-
-
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is MemberViewController {
-            let controller = segue.destination as! MemberViewController
-            let photo = self.photo
-            let id = self.id
-            controller.photo = photo
-            controller.id = id
-            
-        }
-    }
 }
 

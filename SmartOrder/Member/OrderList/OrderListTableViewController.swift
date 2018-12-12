@@ -57,55 +57,59 @@ class OrderListTableViewController: UITableViewController {
             if let error = error {
                 print("error:\(error)")
             }
-            
+            var keys = ""
             var info = result as! [String:Any]
-            self.orderinfo = info["0001"] as! [String : Any]
-            //總額
-            self.object.total = (self.orderinfo["total"])! as! String
-            //date
-            let FIRServerValue = (self.orderinfo["timestamp"])! as! Timestamp
-            print("FIRServerValue: \(FIRServerValue)")
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
-            let orderTime = Double(FIRServerValue.seconds)
-            let date = dateFormatter.string(from: Date(timeIntervalSince1970: orderTime))
-            self.object.time = date
-            
-            //第三層
-            let orderitem = (self.orderinfo["allOrder"])! as! [String:[String:Any]]
-            
-            //如果不使用優惠券
-            guard self.orderinfo["coupon"] != nil else {
+            info.forEach({ (key, value) in
+                keys = key
+                self.orderinfo = info[keys] as! [String : Any]
+                //總額
+                self.object.total = (self.orderinfo["total"])! as! String
+                //date
+                let FIRServerValue = (self.orderinfo["timestamp"])! as! Timestamp
+                //print("FIRServerValue: \(FIRServerValue)")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+                let orderTime = Double(FIRServerValue.seconds)
+                let date = dateFormatter.string(from: Date(timeIntervalSince1970: orderTime))
+                self.object.time = date
                 
-                self.object.itemName.detialitem.subtotle = self.object.total
+                //第三層
+                let orderitem = (self.orderinfo["allOrder"])! as! [String:[String:Any]]
+                
+                //如果不使用優惠券
+                guard self.orderinfo["coupon"] != nil else {
+                    
+                    self.object.itemName.detialitem.subtotle = self.object.total
+                    
+                    for item in orderitem.keys {
+                        self.object.itemName.name = item
+                        let detialitem = orderitem[item]
+                        self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
+                    }
+                    
+                    self.objects.append(self.object)
+                    print("objects: \(self.objects)")
+                    self.tableView.reloadData()
+                    return
+                }
+                self.object.coupon = (self.orderinfo["coupon"])! as! String
+                
+                //明細
                 
                 for item in orderitem.keys {
                     self.object.itemName.name = item
                     let detialitem = orderitem[item]
                     self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
+                    self.object.itemName.detialitem.subtotle = (detialitem!["subtotal"]!) as! String
                 }
                 
+                //上傳
                 self.objects.append(self.object)
-                print("objects: \(self.objects)")
+                //print("objects: \(self.objects)")
                 self.tableView.reloadData()
-                return
-            }
-            self.object.coupon = (self.orderinfo["coupon"])! as! String
-            
-            //明細
-            
-            for item in orderitem.keys {
-                self.object.itemName.name = item
-                let detialitem = orderitem[item]
-                self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
-                self.object.itemName.detialitem.subtotle = (detialitem!["subtotal"]!) as! String
-            }
-            
-            //上傳
-            self.objects.append(self.object)
-            print("objects: \(self.objects)")
-           self.tableView.reloadData()
+            })
+
         }
         
     }
