@@ -34,6 +34,9 @@ class InformationTableViewController: UITableViewController {
         loadinfonum()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
         
     func loadinfonum() {
@@ -64,6 +67,15 @@ class InformationTableViewController: UITableViewController {
                 
                 }
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is modifyTableViewController {
+            let controller = segue.destination as! modifyTableViewController
+                let detialobject = self.objects
+            controller.objects = detialobject
+            print("o:\(self.objects)")
         }
     }
 
