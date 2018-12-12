@@ -30,14 +30,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mua-Hx-bhv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="269.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="La0-3p-i5Q">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="238.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="228.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqk-mJ-GaD">
-                                                            <rect key="frame" x="0.0" y="243.5" width="375" height="36"/>
+                                                            <rect key="frame" x="0.0" y="233.5" width="375" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -172,82 +172,120 @@
         <scene sceneID="2bb-JT-Udn">
             <objects>
                 <tableViewController title="Result" id="ZVz-dw-noK" customClass="ResultTableViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QLV-V8-wWL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QLV-V8-wWL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="uHe-vM-4av">
-                            <rect key="frame" x="0.0" y="108" width="375" height="75"/>
+                            <rect key="frame" x="0.0" y="98" width="375" height="112"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-Xe-aHQ">
-                                    <rect key="frame" x="5" y="0.0" width="365" height="1"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HL7-rn-lpm">
-                                    <rect key="frame" x="5" y="16" width="365" height="24"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C9z-tJ-52s">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-7d-osC">
-                                            <rect key="frame" x="0.0" y="0.0" width="182.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-9j-aZs">
+                                            <rect key="frame" x="5" y="0.0" width="365" height="1"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="ZWs-le-FaT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-Bb-0pZ">
-                                            <rect key="frame" x="182.5" y="0.0" width="182.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHv-39-CmT">
+                                            <rect key="frame" x="0.0" y="6" width="375" height="30"/>
+                                            <state key="normal" title="選購優惠卷"/>
+                                            <connections>
+                                                <action selector="showCouponBtnAction:" destination="ZVz-dw-noK" eventType="touchUpInside" id="Lxw-Mn-ZBi"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HL7-rn-lpm">
+                                            <rect key="frame" x="5" y="41" width="365" height="24"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-7d-osC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I7p-ep-zQT">
+                                                    <rect key="frame" x="185" y="0.0" width="180" height="24"/>
+                                                    <subviews>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="折扣後" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IR-Nh-CkA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-Bb-0pZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXJ-Na-pMe">
+                                            <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="送出訂單"/>
+                                            <connections>
+                                                <action selector="sendOrderToFirebase:" destination="ZVz-dw-noK" eventType="touchUpInside" id="pTD-69-HAe"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="kXJ-Na-pMe" secondAttribute="trailing" id="1Xg-uq-prT"/>
+                                        <constraint firstAttribute="trailing" secondItem="HL7-rn-lpm" secondAttribute="trailing" constant="5" id="7mX-mS-XtJ"/>
+                                        <constraint firstItem="kXJ-Na-pMe" firstAttribute="top" secondItem="HL7-rn-lpm" secondAttribute="bottom" constant="5" id="GkU-ej-A2n"/>
+                                        <constraint firstItem="HL7-rn-lpm" firstAttribute="top" secondItem="kHv-39-CmT" secondAttribute="bottom" constant="5" id="JPT-Ub-ECS"/>
+                                        <constraint firstItem="kXJ-Na-pMe" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" id="Mci-tB-U2A"/>
+                                        <constraint firstAttribute="bottom" secondItem="kXJ-Na-pMe" secondAttribute="bottom" id="TGC-OC-8Rv"/>
+                                        <constraint firstItem="YLo-9j-aZs" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" constant="5" id="ZJf-5M-AQa"/>
+                                        <constraint firstItem="kHv-39-CmT" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" id="djA-OP-7HH"/>
+                                        <constraint firstAttribute="trailing" secondItem="kHv-39-CmT" secondAttribute="trailing" id="dnT-32-pek"/>
+                                        <constraint firstItem="YLo-9j-aZs" firstAttribute="top" secondItem="C9z-tJ-52s" secondAttribute="top" id="eMo-Mp-tpC"/>
+                                        <constraint firstItem="HL7-rn-lpm" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" constant="5" id="jY6-PE-FLm"/>
+                                        <constraint firstItem="kHv-39-CmT" firstAttribute="top" secondItem="YLo-9j-aZs" secondAttribute="bottom" constant="5" id="pKm-og-wn6"/>
+                                        <constraint firstAttribute="trailing" secondItem="YLo-9j-aZs" secondAttribute="trailing" constant="5" id="sM6-0m-Y55"/>
+                                    </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXJ-Na-pMe">
-                                    <rect key="frame" x="0.0" y="45" width="375" height="30"/>
-                                    <state key="normal" title="送出訂單"/>
-                                    <connections>
-                                        <action selector="sendOrderToFirebase:" destination="ZVz-dw-noK" eventType="touchUpInside" id="pTD-69-HAe"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="HL7-rn-lpm" secondAttribute="trailing" constant="5" id="7fM-Uc-Y2h"/>
-                                <constraint firstItem="TfY-Xe-aHQ" firstAttribute="top" secondItem="uHe-vM-4av" secondAttribute="top" id="8Mb-Zo-kJP"/>
-                                <constraint firstAttribute="trailing" secondItem="TfY-Xe-aHQ" secondAttribute="trailing" constant="5" id="8Zs-nx-Awk"/>
-                                <constraint firstItem="TfY-Xe-aHQ" firstAttribute="leading" secondItem="uHe-vM-4av" secondAttribute="leading" constant="5" id="FbN-GT-EAc"/>
-                                <constraint firstItem="HL7-rn-lpm" firstAttribute="top" secondItem="TfY-Xe-aHQ" secondAttribute="bottom" constant="15" id="ITQ-hY-fcT"/>
-                                <constraint firstItem="kXJ-Na-pMe" firstAttribute="top" secondItem="HL7-rn-lpm" secondAttribute="bottom" constant="5" id="Kpl-aa-oDu"/>
-                                <constraint firstAttribute="bottom" secondItem="kXJ-Na-pMe" secondAttribute="bottom" id="OJp-dd-7Hd"/>
-                                <constraint firstAttribute="trailing" secondItem="kXJ-Na-pMe" secondAttribute="trailing" id="Yy3-yY-F9y"/>
-                                <constraint firstItem="kXJ-Na-pMe" firstAttribute="leading" secondItem="uHe-vM-4av" secondAttribute="leading" id="d6P-WY-Gyk"/>
-                                <constraint firstItem="HL7-rn-lpm" firstAttribute="leading" secondItem="uHe-vM-4av" secondAttribute="leading" constant="5" id="sNP-aW-LjO"/>
+                                <constraint firstAttribute="trailing" secondItem="C9z-tJ-52s" secondAttribute="trailing" id="K22-x3-qcN"/>
+                                <constraint firstItem="C9z-tJ-52s" firstAttribute="top" secondItem="uHe-vM-4av" secondAttribute="top" id="Ujx-Vr-34Q"/>
+                                <constraint firstItem="C9z-tJ-52s" firstAttribute="leading" secondItem="uHe-vM-4av" secondAttribute="leading" id="zZ3-PM-Qfp"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" rowHeight="80" id="Yne-SH-R8z" customClass="ResultTableViewCell" customModule="SmartOrder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="Yne-SH-R8z" customClass="ResultTableViewCell" customModule="SmartOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yne-SH-R8z" id="zxS-cK-YLy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Z8-fV-Aen">
-                                            <rect key="frame" x="5" y="0.0" width="365" height="79.5"/>
+                                            <rect key="frame" x="5" y="0.0" width="365" height="69.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-b6-ddG">
-                                                    <rect key="frame" x="0.0" y="28" width="121.5" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-b6-ddG">
+                                                    <rect key="frame" x="0.0" y="23" width="121.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gly-4a-Oti">
-                                                    <rect key="frame" x="121.5" y="28" width="122" height="24"/>
+                                                    <rect key="frame" x="121.5" y="23" width="122" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="價錢" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-kU-OS8">
-                                                    <rect key="frame" x="243.5" y="28" width="121.5" height="24"/>
+                                                    <rect key="frame" x="243.5" y="23" width="121.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -282,6 +320,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="discountOutlet" destination="9IR-Nh-CkA" id="iJt-ao-DO5"/>
+                        <outlet property="sendToFirebaseOutlet" destination="kXJ-Na-pMe" id="CU2-hq-4tE"/>
+                        <outlet property="showCouponBtnOutlet" destination="kHv-39-CmT" id="sj7-ob-PTh"/>
                         <outlet property="totalPriceLabel" destination="q3c-Bb-0pZ" id="sty-aT-I0T"/>
                     </connections>
                 </tableViewController>
@@ -406,6 +447,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68y-MW-k1b">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                    <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="加入訂單"/>
                                                     <connections>
                                                         <action selector="addToOrder:" destination="nbl-Kw-Csj" eventType="touchUpInside" id="8DI-hl-bXQ"/>

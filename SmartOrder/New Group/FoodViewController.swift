@@ -52,8 +52,6 @@ class FoodViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cellIdentifier = "FoodCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FoodTableViewCell
         
-        
-        
         switch menuSelectedNumber {
             
         case 0:
