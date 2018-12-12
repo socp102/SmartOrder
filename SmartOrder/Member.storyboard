@@ -589,6 +589,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="62" id="XTf-em-LjN">
+                                        <rect key="frame" x="0.0" y="485" width="375" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XTf-em-LjN" id="Xic-Xs-VpV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -597,14 +605,7 @@
                             <outlet property="delegate" destination="UQs-Fo-0MU" id="Mzq-KJ-fVV"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="修改" width="382" id="IX7-gc-3wh">
-                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="by8-jU-Z0l" kind="show" id="lIx-Bk-wW1"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -618,7 +619,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbu-si-Slh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="1098"/>
+            <point key="canvasLocation" x="1822" y="1079"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BYu-Ih-QeU">
@@ -816,9 +817,6 @@
                     <toolbarItems>
                         <barButtonItem title="完成" width="382" id="HnE-3V-mml">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="UQs-Fo-0MU" kind="show" id="ugQ-lK-fUV"/>
-                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
@@ -835,8 +833,6 @@
         <image name="camera" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lIx-Bk-wW1"/>
         <segue reference="EI8-DC-5sy"/>
-        <segue reference="ugQ-lK-fUV"/>
     </inferredMetricsTieBreakers>
 </document>
