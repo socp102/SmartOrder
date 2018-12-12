@@ -34,9 +34,7 @@ class InformationTableViewController: UITableViewController {
         loadinfonum()
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
-    }
+    
     
         
     func loadinfonum() {
@@ -62,9 +60,6 @@ class InformationTableViewController: UITableViewController {
                 self.birthday.text = self.information.birthday
                 self.phone.text = self.information.phoneNum
                 self.objects.append(self.information)
-                
-                
-                
                 }
             
         }
