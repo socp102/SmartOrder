@@ -19,26 +19,31 @@ class DetailTableViewController: UITableViewController {
     
     
     var hamburgerImages = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
-    var hamburgerName = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
+    var hamburgerName = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
+    var hamburgerEngName = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
     var hamburgurPrice = ["70","80","90"]
     
     var spaghettiImages = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
-    var spaghettiName = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
+    var spaghettiName = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
+    var spaghettiEngName = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
     var spaghettiPrice = ["70","80","90"]
     
     
     var pizzaImages = ["起司披薩","番茄披薩","橄欖披薩"]
-    var pizzaName = ["CheesePizza","TomatoPizza","OlivaPizza"]
+    var pizzaName = ["起司披薩","番茄披薩","橄欖披薩"]
+    var pizzaEngName = ["CheesePizza","TomatoPizza","OlivaPizza"]
     var pizzaPrice = ["70","80","90"]
     
     
     var steakImages = ["牛菲力","牛肋排","炙燒牛排"]
-    var steakName = ["FiletMigon","RibeyeSteak","GrilledSteak"]
+    var steakName = ["牛菲力","牛肋排","炙燒牛排"]
+    var steakEngName = ["FiletMigon","RibeyeSteak","GrilledSteak"]
     var steakPrice = ["70","80","90"]
     
     
     var dessertImages = ["馬卡龍","巧克力蛋糕","聖代"]
-    var dessertName = ["Macaron","ChocolateCake","Sundae"]
+    var dessertName = ["馬卡龍","巧克力蛋糕","聖代"]
+    var dessertEngName = ["Macaron","ChocolateCake","Sundae"]
     var dessertPrice = ["70","80","90"]
     
     override func viewDidLoad() {
@@ -57,24 +62,28 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: hamburgerImages[detailImageNumber])
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
-                resultItem = hamburgerName[detailImageNumber]
+                resultItem = hamburgerEngName[detailImageNumber]
                 resultPrice = hamburgurPrice[detailImageNumber]
+                navigationItem.title = "牛肉漢堡"
                 
                 
             case 1:
                 detailImage.image = UIImage(named: hamburgerImages[detailImageNumber])
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
-                resultItem = hamburgerName[detailImageNumber]
+                resultItem = hamburgerEngName[detailImageNumber]
                 resultPrice = hamburgurPrice[detailImageNumber]
+                navigationItem.title = "雞肉漢堡"
+
 
 
             case 2:
                 detailImage.image = UIImage(named: hamburgerImages[detailImageNumber])
                 detailPrice.text? = hamburgurPrice[detailImageNumber]
                 currentPrice = hamburgurPrice[detailImageNumber]
-                resultItem = hamburgerName[detailImageNumber]
+                resultItem = hamburgerEngName[detailImageNumber]
                 resultPrice = hamburgurPrice[detailImageNumber]
+                navigationItem.title = "豬肉漢堡"
 
 
             default:
@@ -90,16 +99,20 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: spaghettiImages[detailImageNumber])
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
-                resultItem = spaghettiName[detailImageNumber]
+                resultItem = spaghettiEngName[detailImageNumber]
                 resultPrice = spaghettiPrice[detailImageNumber]
+                navigationItem.title = "紅醬義大利麵"
+
 
 
             case 1:
                 detailImage.image = UIImage(named: spaghettiImages[detailImageNumber])
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
-                resultItem = spaghettiName[detailImageNumber]
+                resultItem = spaghettiEngName[detailImageNumber]
                 resultPrice = spaghettiPrice[detailImageNumber]
+                navigationItem.title = "青醬義大利麵"
+
 
 
 
@@ -107,8 +120,10 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: spaghettiImages[detailImageNumber])
                 detailPrice.text? = spaghettiPrice[detailImageNumber]
                 currentPrice = spaghettiPrice[detailImageNumber]
-                resultItem = spaghettiName[detailImageNumber]
+                resultItem = spaghettiEngName[detailImageNumber]
                 resultPrice = spaghettiPrice[detailImageNumber]
+                navigationItem.title = "白醬義大利麵"
+
 
 
             default:
@@ -123,24 +138,30 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: pizzaImages[detailImageNumber])
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
-                resultItem = pizzaName[detailImageNumber]
+                resultItem = pizzaEngName[detailImageNumber]
                 resultPrice = pizzaPrice[detailImageNumber]
+                navigationItem.title = "起司披薩"
+
 
 
             case 1:
                 detailImage.image = UIImage(named: pizzaImages[detailImageNumber])
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
-                resultItem = pizzaName[detailImageNumber]
+                resultItem = pizzaEngName[detailImageNumber]
                 resultPrice = pizzaPrice[detailImageNumber]
+                navigationItem.title = "番茄披薩"
+
 
                 
             case 2:
                 detailImage.image = UIImage(named: pizzaImages[detailImageNumber])
                 detailPrice.text? = pizzaPrice[detailImageNumber]
                 currentPrice = pizzaPrice[detailImageNumber]
-                resultItem = pizzaName[detailImageNumber]
+                resultItem = pizzaEngName[detailImageNumber]
                 resultPrice = pizzaPrice[detailImageNumber]
+                navigationItem.title = "橄欖披薩"
+
 
 
             default:
@@ -155,16 +176,20 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: steakImages[detailImageNumber])
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
-                resultItem = steakName[detailImageNumber]
+                resultItem = steakEngName[detailImageNumber]
                 resultPrice = steakPrice[detailImageNumber]
+                navigationItem.title = "牛菲力"
+
 
 
             case 1:
                 detailImage.image = UIImage(named: steakImages[detailImageNumber])
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
-                resultItem = steakName[detailImageNumber]
+                resultItem = steakEngName[detailImageNumber]
                 resultPrice = steakPrice[detailImageNumber]
+                navigationItem.title = "牛肋排"
+
 
 
 
@@ -172,8 +197,10 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: steakImages[detailImageNumber])
                 detailPrice.text? = steakPrice[detailImageNumber]
                 currentPrice = steakPrice[detailImageNumber]
-                resultItem = steakName[detailImageNumber]
+                resultItem = steakEngName[detailImageNumber]
                 resultPrice = steakPrice[detailImageNumber]
+                navigationItem.title = "炙燒牛排"
+
 
                 
             default:
@@ -188,26 +215,30 @@ class DetailTableViewController: UITableViewController {
                 detailImage.image = UIImage(named: dessertImages[detailImageNumber])
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
-                resultItem = dessertName[detailImageNumber]
+                resultItem = dessertEngName[detailImageNumber]
                 resultPrice = dessertPrice[detailImageNumber]
+                navigationItem.title = "馬卡龍"
+
 
 
             case 1:
                 detailImage.image = UIImage(named: dessertImages[detailImageNumber])
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
-                resultItem = dessertName[detailImageNumber]
+                resultItem = dessertEngName[detailImageNumber]
                 resultPrice = dessertPrice[detailImageNumber]
+                navigationItem.title = "巧克力蛋糕"
+
 
 
             case 2:
                 detailImage.image = UIImage(named: dessertImages[detailImageNumber])
                 detailPrice.text? = dessertPrice[detailImageNumber]
                 currentPrice = dessertPrice[detailImageNumber]
-                resultItem = dessertName[detailImageNumber]
+                resultItem = dessertEngName[detailImageNumber]
                 resultPrice = dessertPrice[detailImageNumber]
-
-
+                navigationItem.title = "聖代"
+                
 
             default:
                 break
@@ -247,9 +278,9 @@ class DetailTableViewController: UITableViewController {
             
             addDict = myUserDefaults.value(forKey: "resultDict") as! [String : [String:String]]
             
-        }  
+        }
         
-        addDict.updateValue(["count":resultCount,"subtotal":resultPrice], forKey: resultItem)
+        addDict.updateValue(["count":resultCount,"subtotal":resultPrice,"notReady":resultCount], forKey: resultItem)
         myUserDefaults.setValue(addDict, forKey: "resultDict")
         print(addDict)
         
