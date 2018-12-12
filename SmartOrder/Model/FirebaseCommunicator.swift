@@ -266,6 +266,7 @@ class FirebaseCommunicator {
     // 下載圖片.
     func downloadImage(url: String,
                        fileName: String,
+                       isUpdateToLocal: Bool = false,
                        competion: @escaping DoneHandler) {
         let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let imageURL = url + fileName
@@ -273,7 +274,7 @@ class FirebaseCommunicator {
         print("localImageURL: \(localImageURL)")
         
         // 從本機Cache取得圖片.
-        if let data = try? Data(contentsOf: localImageURL) {
+        if let data = try? Data(contentsOf: localImageURL), !isUpdateToLocal {
             print("getData from local successful.")
             let image = UIImage(data: data)
             competion(image, nil)

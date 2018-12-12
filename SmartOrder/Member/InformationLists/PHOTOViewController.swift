@@ -1,42 +1,34 @@
 //
-//  InformationViewController.swift
-//  SmartOder
+//  PHOTOViewController.swift
+//  SmartOrder
 //
-//  Created by kimbely on 2018/11/27.
-//  Copyright © 2018 kimbely. All rights reserved.
+//  Created by kimbely on 2018/12/12.
+//  Copyright © 2018 Eason. All rights reserved.
 //
 
 import UIKit
-import Photos
 import MobileCoreServices
+import Photos
 import Firebase
 import FirebaseDatabase
 
-class InformationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate ,UITableViewDelegate ,UITableViewDataSource{
-    
+class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+
+    let getphoto = Getphoto()
     let communicator = FirebaseCommunicator.shared
-    
-    
-    @IBOutlet weak var InformationTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        InformationTableView.delegate = self
-        InformationTableView.dataSource = self
-        // Do any additional setup after loading the view.
-        
         // 詢問使用者取用相簿授權
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization:\(status.rawValue)")
         }
-        guard let currentUserUid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        update(currentUserUid: currentUserUid)
+        Photo.setImage(getphoto.update(), for: .normal)
+        
+        
     }
     
-    @IBOutlet weak var Photo: UIButton!
-    @IBAction func takePicture(_ sender: Any) {
+    @IBAction func Picture(_ sender: UIButton) {
         //取得同意授權鈕
         let alert = UIAlertController(title: "Please chouse source:", message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
@@ -51,7 +43,11 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
         alert.addAction(cancel)
         present(alert, animated: true)
         
+        
     }
+    
+    @IBOutlet weak var Photo: UIButton!
+    
     
     //相機
     func launchPicker(sourse: UIImagePickerController.SourceType) {
@@ -67,7 +63,6 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
         picker.allowsEditing = true // 編輯照片
         
         present(picker , animated: true)
-        
     }
     static var selectedImageFromPicker: UIImage?
     //接收照片
@@ -88,62 +83,21 @@ class InformationViewController: UIViewController, UIImagePickerControllerDelega
             //上傳照片
             
             guard let currentUserUid = Auth.auth().currentUser?.uid else {
+                print("uid is nil")
                 return
             }
             // 取得從 UIImagePickerController 選擇的檔案
             communicator.sendPhoto(selectedImageFromPicker: resizedImage, uniqueString: currentUserUid )
-            
-            update(currentUserUid: currentUserUid)
-            
-            
-            
+            print("uid: \(currentUserUid)")
+            self.viewDidLoad()
+            self.viewWillAppear(true)
         } else if type == (kUTTypeMovie as String){
             
         }
         picker.dismiss(animated: true)//不加picker會凍結
     }
     
-    func update(currentUserUid: String){
-        //下載照片
-        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid).jpeg") { (result, error) in
-            if let error = error {
-                self.Photo.setImage(UIImage(named: "camera"), for: .normal)
-                print("download photo error:\(error)")
-                
-            } else {
-                self.Photo.setImage((result as! UIImage), for: .normal)
-            }
-        }
-        
-        //下載資料
-        communicator.loadData(collectionName: "account", documentName: currentUserUid) { (results, error) in
-            if let error = error {
-                print("error: \(error)")
-            } else {
-                let results = results as! [ String : Any ]
-                print("results:\(results)")
-            }
-        }
-    }
-
     
-    //TableView cell
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "InformationCell"
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
     /*
     // MARK: - Navigation
 

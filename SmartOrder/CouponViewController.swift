@@ -20,7 +20,7 @@ class CouponViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadCouponInfo()
+        //downloadCouponInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +64,7 @@ class CouponViewController: UIViewController {
                 print("results: \(results!)")
                 let resultsDictionary = results as! [String: Any]
                 strongSelf.couponInfos.removeAll()
+                strongSelf.hotNewsInfos.removeAll()
                 let currentDate = Date()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -133,7 +134,6 @@ class CouponViewController: UIViewController {
     }
     
     @IBAction func unwindToCouponPage(_ unwindSegue: UIStoryboardSegue) {
-        downloadCouponInfo()
         guard let cell = view.viewWithTag(1000) as? HotNewsCollectionViewCell else {
             return
         }
