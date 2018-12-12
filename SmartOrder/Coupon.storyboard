@@ -54,18 +54,25 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-LB-Kan">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-Bz-z0q">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnb-E5-6Ce">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="100" id="6M4-2H-XKn"/>
-                                                                                </constraints>
-                                                                            </imageView>
+                                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="20"/>
+                                                                                <state key="normal" title="Button">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="couponToOrder:" destination="vPg-9a-qcV" eventType="touchUpInside" id="KlY-Ih-hAI"/>
+                                                                                </connections>
+                                                                            </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="uBx-Bz-z0q" firstAttribute="top" secondItem="GUy-LB-Kan" secondAttribute="top" id="Xeg-L6-ouy"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="uBx-Bz-z0q" secondAttribute="trailing" id="fHz-aB-uJg"/>
-                                                                            <constraint firstItem="uBx-Bz-z0q" firstAttribute="leading" secondItem="GUy-LB-Kan" secondAttribute="leading" id="vp9-kd-bzM"/>
+                                                                            <constraint firstItem="cnb-E5-6Ce" firstAttribute="leading" secondItem="GUy-LB-Kan" secondAttribute="leading" id="SHc-EL-UOy"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="cnb-E5-6Ce" secondAttribute="bottom" id="Xd4-1l-FEe"/>
+                                                                            <constraint firstItem="cnb-E5-6Ce" firstAttribute="top" secondItem="GUy-LB-Kan" secondAttribute="top" id="jQt-9E-fe6"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="cnb-E5-6Ce" secondAttribute="trailing" id="mtg-oA-ves"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -78,7 +85,7 @@
                                                             </constraints>
                                                             <size key="customSize" width="375" height="100"/>
                                                             <connections>
-                                                                <outlet property="hotNewsImage" destination="uBx-Bz-z0q" id="qLT-EM-9uV"/>
+                                                                <outlet property="hotNewsBtn" destination="cnb-E5-6Ce" id="7T4-mV-eNy"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>

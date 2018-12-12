@@ -518,7 +518,7 @@
         <!--Order-->
         <scene sceneID="JDn-5q-LIu">
             <objects>
-                <navigationController title="Order" automaticallyAdjustsScrollViewInsets="NO" id="IDf-r2-AV3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="orderVC" title="Order" automaticallyAdjustsScrollViewInsets="NO" id="IDf-r2-AV3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="菜單" id="gpN-cG-ELD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h5M-RR-Co8">

@@ -13,7 +13,7 @@ import UIKit
 class HotNewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var hotNewsListCollectionView: UICollectionView!
     
-    var hotNewsInfos = [UIImage]()
+    var hotNewsInfos = [HotNewsInfo]()
     var pageControl = UIPageControl()
     var imageIndex = 1
     var timer: Timer?
@@ -63,13 +63,17 @@ extension HotNewsCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsCell", for: indexPath) as! HotNewsCell
+
         switch indexPath.row {
         case 0:
-            cell.hotNewsImage.image = hotNewsInfos.last
+            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos.last!.item).jpg"), for: .normal)
+            cell.hotNewsBtn.setTitle(hotNewsInfos.last!.item, for: .normal)
         case self.hotNewsInfos.count + 1:
-            cell.hotNewsImage.image = hotNewsInfos.first
+            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos.first!.item).jpg"), for: .normal)
+            cell.hotNewsBtn.setTitle(hotNewsInfos.first!.item, for: .normal)
         default:
-            cell.hotNewsImage.image = hotNewsInfos[indexPath.row - 1]
+            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos[indexPath.row - 1].item).jpg"), for: .normal)
+            cell.hotNewsBtn.setTitle(hotNewsInfos[indexPath.row - 1].item, for: .normal)
         }
         return cell
     }
