@@ -19,6 +19,7 @@
 		0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
 		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
 		9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */; };
+		9BC5560821C0FB3C0034A90B /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC5560721C0FB3C0034A90B /* Admin.storyboard */; };
 		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
 		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
 		9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationViewController.swift; path = SmartOrder/Reservation/ReservationViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartOrder.entitlements; sourceTree = "<group>"; };
+		9BC5560721C0FB3C0034A90B /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +201,14 @@
 			name = Reservation;
 			sourceTree = "<group>";
 		};
+		9BC5560021C0F9A60034A90B /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				9BC5560721C0FB3C0034A90B /* Admin.storyboard */,
+			);
+			name = Admin;
+			sourceTree = "<group>";
+		};
 		9BD1EEE8218CA3C9004AB970 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +246,7 @@
 		9BD1EF08218CA431004AB970 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BC5560021C0F9A60034A90B /* Admin */,
 				A11CDB1921B8BD17008756DF /* Waiter */,
 				0AF4F572219EC218005AC6DC /* Main */,
 				A1D61DAF2193ED69008D35C2 /* Coupon */,
@@ -469,6 +480,7 @@
 				9BD1EF07218CA426004AB970 /* GoogleService-Info.plist in Resources */,
 				EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */,
 				9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */,
+				9BC5560821C0FB3C0034A90B /* Admin.storyboard in Resources */,
 				9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */,
 				A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */,
 				9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */,
@@ -779,7 +791,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 68M4BPMVT8;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -802,7 +814,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 68M4BPMVT8;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

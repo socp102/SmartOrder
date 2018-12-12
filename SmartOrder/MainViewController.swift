@@ -39,6 +39,8 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         // FaceBook Login
         faceBookLoginButton.delegate = self
         checkSignInState()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     // GIDSignInDelegate Sign後要做的事
@@ -140,6 +142,8 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print("Fail to signIn: \(error)")
+                Common.showAlert(on: self, style: .alert, title: "登入失敗", message: "\(error.localizedDescription)")
+                return
             }
             guard let user = user else { return }
             print("Success signIn: \(user)")
@@ -155,25 +159,11 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         guard let currentUser = Auth.auth().currentUser else { return }
         if currentUser.uid == "EFkyc32aNSb8BKHxZX1boudlgEH3" {
             self.performSegue(withIdentifier: "segueToAdmin", sender: self)
-        } else if currentUser.uid == " 8mFOnxLri9aW7m9SmQDOcVnqazm1" {
+        } else if currentUser.uid == "8mFOnxLri9aW7m9SmQDOcVnqazm1" {
             self.performSegue(withIdentifier: "segueToWaiter", sender: self)
         } else {
             self.performSegue(withIdentifier: "segueToUser", sender: self)
         }
-        
-//        if authHandle != nil {
-//            Auth.auth().removeStateDidChangeListener(authHandle!)
-//        }
-//
-//        authHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if let email = user?.email {
-//                if email == "admin@test.com" {
-//                    self.performSegue(withIdentifier: "segueToAdmin", sender: self)
-//                } else {
-//                    self.performSegue(withIdentifier: "segueToUser", sender: self)
-//                }
-//            }
-//        }
     }
     
 
@@ -186,20 +176,73 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         
     }
     
-    // 測試用快速登入店長或會員帳號
-    @IBAction func signInAdmin(_ sender: Any) {
-        signIn(email: "admin@test.com", password: "123456")
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "密碼重設！", message: "請確認電子信箱", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let SendAction = UIAlertAction(title: "發送", style: .default) { (action) in
+            guard let email = alert.textFields![0].text else { return }
+            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+                if let error = error {
+                    Common.showAlert(on: self, style: .alert, title: "發送錯誤", message: "\(error.localizedDescription)")
+                } else {
+                    Common.showAlert(on: self, style: .alert, title: "發送成功", message: "請至信箱檢查重設密碼郵件")
+                }
+            }
+        }
+        alert.addTextField { (textField) in
+            textField.text = self.textFieldEmail.text
+            textField.placeholder = "email"
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(SendAction)
+        present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func signInUser(_ sender: Any) {
-        signIn(email: "user@test.com", password: "123456")
+    
+    // 測試用快速登入店長或會員帳號
+    
+    @IBAction func quickLoginUp(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .up:
+            textFieldEmail.text = ""
+            textFieldPassword.text = ""
+        default:
+            break
+        }
     }
+    @IBAction func quicLogunDown(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .down:
+            textFieldEmail.text = "user@test.com"
+            textFieldPassword.text = "123456"
+        default:
+            break
+        }
+    }
+    @IBAction func quickLoginLeft(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .left:
+            textFieldEmail.text = "admin@test.com"
+            textFieldPassword.text = "123456"
+        default:
+            break
+        }
+    }
+    @IBAction func quickLoginRight(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .right:
+            textFieldEmail.text = "waiter@test.com"
+            textFieldPassword.text = "123456"
+        default:
+            break
+        }
+    }
+    
     
     // Firestore 測試與範例 ============================================================================
     
-    @IBAction func test(_ sender: Any) {
-        addNewDocumentGeneratedID()
-    }
+   
     
     // 新增資料到 測試用集合 檔名自動生成
     func addNewDocumentGeneratedID() {
@@ -284,4 +327,18 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         }
     }
     
+}
+
+
+//關閉鍵盤
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
