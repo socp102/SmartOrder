@@ -165,14 +165,24 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             checkAddDict()
 
             }
-        
-        
-        
-        
-        
-        
-        
         }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let index = indexPath.row
+        let addDictKey = Array(addDict.keys)
+        let key  = addDictKey[index]
+        let idx = addDict.index(forKey: key)
+        
+        
+        
+        print("\(addDict)")
+        print("\(indexPath.row)")
+        
+        
+    }
+    
+    
     
     func getTotal () -> String {
         
@@ -271,6 +281,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     @IBOutlet weak var showCouponBtnOutlet: UIButton!
     @IBOutlet weak var discountOutlet: UILabel!
     
+    
     @IBAction func showCouponBtnAction(_ sender: Any) {
         
         let alert = UIAlertController(title: "請選擇優惠卷", message: "基於使用期限，請儘速使用完畢", preferredStyle: .alert)
@@ -301,20 +312,21 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         let containerViewWidth = 250
         let containerViewHeight = 120
         let containerFrame = CGRect(x:10, y: 70, width: CGFloat(containerViewWidth), height: CGFloat(containerViewHeight))
-        let containerView: UIPickerView = UIPickerView(frame: containerFrame)
-        containerView.delegate = self
-        containerView.dataSource = self
+        let couponPickerView: UIPickerView = UIPickerView(frame: containerFrame)
         
-        containerView.selectRow(0, inComponent: 0, animated: true)
-        pickerView(containerView, didSelectRow: 0, inComponent: 0)
-        alert.view.addSubview(containerView)
+        couponPickerView.delegate = self
+        couponPickerView.dataSource = self
+        
+        couponPickerView.selectRow(0, inComponent: 0, animated: true)
+        pickerView(couponPickerView, didSelectRow: 0, inComponent: 0)
+        alert.view.addSubview(couponPickerView)
         
         // now add some constraints to make sure that the alert resizes itself
-        let cons:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: containerView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1.00, constant: 130)
+        let cons:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: couponPickerView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1.00, constant: 130)
         
         alert.view.addConstraint(cons)
         
-        let cons2:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: containerView, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1.00, constant: 20)
+        let cons2:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: couponPickerView, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1.00, constant: 20)
         
         alert.view.addConstraint(cons2)
         
@@ -330,6 +342,9 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        
+        
         return couponInfo.count
     }
     

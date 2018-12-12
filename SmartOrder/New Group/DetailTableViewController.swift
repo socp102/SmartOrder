@@ -18,30 +18,30 @@ class DetailTableViewController: UITableViewController {
     var currentPrice = ""
     
     
-    var hamburgerImages = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
+    var hamburgerImages = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
     var hamburgerName = ["牛肉漢堡","雞肉漢堡","豬肉漢堡"]
     var hamburgerEngName = ["BeefHamburger","ChickenHamburger","PorkHamburger"]
     var hamburgurPrice = ["70","80","90"]
     
-    var spaghettiImages = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
+    var spaghettiImages = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
     var spaghettiName = ["紅醬義大利麵","青醬義大利麵","白醬義大利麵"]
     var spaghettiEngName = ["TomatoSpaghetti","PestoSpaghetti","CarbonaraSpaghetti"]
     var spaghettiPrice = ["70","80","90"]
     
     
-    var pizzaImages = ["起司披薩","番茄披薩","橄欖披薩"]
+    var pizzaImages = ["CheesePizza","TomatoPizza","OlivaPizza"]
     var pizzaName = ["起司披薩","番茄披薩","橄欖披薩"]
     var pizzaEngName = ["CheesePizza","TomatoPizza","OlivaPizza"]
     var pizzaPrice = ["70","80","90"]
     
     
-    var steakImages = ["牛菲力","牛肋排","炙燒牛排"]
+    var steakImages = ["FiletMigon","RibeyeSteak","GrilledSteak"]
     var steakName = ["牛菲力","牛肋排","炙燒牛排"]
     var steakEngName = ["FiletMigon","RibeyeSteak","GrilledSteak"]
     var steakPrice = ["70","80","90"]
     
     
-    var dessertImages = ["馬卡龍","巧克力蛋糕","聖代"]
+    var dessertImages = ["Macaron","ChocolateCake","Sundae"]
     var dessertName = ["馬卡龍","巧克力蛋糕","聖代"]
     var dessertEngName = ["Macaron","ChocolateCake","Sundae"]
     var dessertPrice = ["70","80","90"]
