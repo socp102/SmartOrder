@@ -675,15 +675,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.89298161860000003" blue="0.66354587389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="74" id="XTf-em-LjN">
-                                        <rect key="frame" x="0.0" y="485" width="375" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="58" id="XTf-em-LjN">
+                                        <rect key="frame" x="0.0" y="485" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XTf-em-LjN" id="Xic-Xs-VpV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4a-bd-ZjE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4a-bd-ZjE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                                     <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="修改">
@@ -716,6 +716,7 @@
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="birthday" destination="Ibs-ju-5kA" id="w3g-XY-aEr"/>
+                        <outlet property="btn" destination="k4a-bd-ZjE" id="bIX-vX-ZjP"/>
                         <outlet property="email" destination="LTQ-9f-ADG" id="ki3-0y-kCe"/>
                         <outlet property="gender" destination="7Gm-Iv-pYX" id="7Kt-0n-rZu"/>
                         <outlet property="name" destination="Cgj-n1-JHG" id="lT0-TC-bzM"/>
@@ -724,7 +725,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbu-si-Slh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="1150"/>
+            <point key="canvasLocation" x="1965.5999999999999" y="1149.1754122938532"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BYu-Ih-QeU">
@@ -816,6 +817,10 @@
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textField:" destination="B2R-Qd-YVX" eventType="editingDidEnd" id="WVG-XE-JgX"/>
+                                                                <action selector="touch:" destination="B2R-Qd-YVX" eventType="editingDidEnd" id="8F0-iN-JaW"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -856,6 +861,9 @@
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="nameTextField:" destination="B2R-Qd-YVX" eventType="editingDidEnd" id="j5g-D2-kmy"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -896,6 +904,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfX-9q-PXD">
                                                     <rect key="frame" x="310" y="16" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="Gender:" destination="B2R-Qd-YVX" eventType="valueChanged" id="YBe-rT-ZRB"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -931,6 +942,9 @@
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                            <connections>
+                                                                <action selector="phoneTextField:" destination="B2R-Qd-YVX" eventType="editingDidEnd" id="0cD-31-g9Q"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -972,6 +986,9 @@
                                                             <date key="date" timeIntervalSinceReferenceDate="566281996.97283602">
                                                                 <!--2018-12-12 04:33:16 +0000-->
                                                             </date>
+                                                            <connections>
+                                                                <action selector="datePicker:" destination="B2R-Qd-YVX" eventType="valueChanged" id="O8g-Hr-bSX"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                     <constraints>
@@ -1003,6 +1020,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="finalBtn:" destination="B2R-Qd-YVX" eventType="touchUpInside" id="5xt-7F-Unb"/>
                                                         <segue destination="UQs-Fo-0MU" kind="show" id="taz-BM-SzE"/>
                                                     </connections>
                                                 </button>
@@ -1027,6 +1045,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="phoneTextField" destination="H13-Ja-wBV" id="7Xs-jW-nX8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnn-JM-Tq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
