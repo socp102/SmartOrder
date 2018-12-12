@@ -274,7 +274,7 @@ class FirebaseCommunicator {
         print("localImageURL: \(localImageURL)")
         
         // 從本機Cache取得圖片.
-        if let data = try? Data(contentsOf: localImageURL), isUpdateToLocal {
+        if let data = try? Data(contentsOf: localImageURL), !isUpdateToLocal {
             print("getData from local successful.")
             let image = UIImage(data: data)
             competion(image, nil)
