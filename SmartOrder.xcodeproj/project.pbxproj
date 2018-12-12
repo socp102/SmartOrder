@@ -819,8 +819,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=*]" = 6UH7D68N7N;
+				DEVELOPMENT_TEAM = XQ7KA9M78C;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -843,7 +842,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XQ7KA9M78C;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
