@@ -52,7 +52,6 @@ class OrderViewController: UIViewController {
         let reStrLower = currentTime.index(currentTime.startIndex, offsetBy: 0)
         let reStrUpper = currentTime.index(reStrLower, offsetBy: 9)
         let lowerLimmit = String(currentTime[reStrLower...reStrUpper]) + " 00:00:00"
-        print("lowerLimmit: \(lowerLimmit)")
         
         firebaseCommunicator.loadData(collectionName: FIREBASE_COLLECTION_NAME, greaterThanOrEqualTo: lowerLimmit, lessThanOrEqualTo: currentTime) { [weak self] (results, error) in
             guard let strongSelf = self else {

@@ -65,11 +65,11 @@ extension HotNewsCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsCell", for: indexPath) as! HotNewsCell
         switch indexPath.row {
         case 0:
-            cell.hotNewsImage.image = hotNewsInfos.last
+            cell.hotNewsBtn.setBackgroundImage(hotNewsInfos.last, for: .normal)
         case self.hotNewsInfos.count + 1:
-            cell.hotNewsImage.image = hotNewsInfos.first
+            cell.hotNewsBtn.setBackgroundImage(hotNewsInfos.first, for: .normal)
         default:
-            cell.hotNewsImage.image = hotNewsInfos[indexPath.row - 1]
+            cell.hotNewsBtn.setBackgroundImage(hotNewsInfos[indexPath.row - 1], for: .normal)
         }
         return cell
     }
