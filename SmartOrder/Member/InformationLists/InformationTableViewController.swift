@@ -17,6 +17,7 @@ class InformationTableViewController: UITableViewController {
     var type = LoadData()
     
     
+    
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var gender: UILabel!
@@ -28,12 +29,12 @@ class InformationTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        load()
     }
     
         
     func load() {
-        objects = type.load() as! [Information]
+        object = type.load() as! Information
         email.text = object.email
         name.text = object.name
         birthday.text = object.birthday

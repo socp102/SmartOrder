@@ -23,8 +23,9 @@ class LoadData {
     var information = Information()
     var object = [Information]()
     
-    func load() -> [Any] {
+    func load() -> Any {
         guard let currentUserUid = Auth.auth().currentUser?.uid else {
+            print("uid fail")
             return []
         }
         fireBase.loadData(collectionName: "account", documentName: currentUserUid) { (result, error) in
@@ -44,7 +45,8 @@ class LoadData {
             }
             
         }
-        return [self.object]
+        print("informations: \(self.object)")
+        return self.object
     }
     
 }
