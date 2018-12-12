@@ -278,28 +278,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MFh-Q8-g1G">
-                                                    <rect key="frame" x="182.5" y="20.5" width="182.5" height="29"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MFh-Q8-g1G">
+                                                    <rect key="frame" x="182.5" y="23" width="182.5" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gly-4a-Oti">
-                                                            <rect key="frame" x="0.0" y="2.5" width="37.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="91.5" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="leading" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-MX-aKU">
-                                                            <rect key="frame" x="37.5" y="0.0" width="94" height="29"/>
-                                                        </stepper>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="價錢" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-kU-OS8">
-                                                            <rect key="frame" x="131.5" y="2.5" width="51" height="24"/>
+                                                            <rect key="frame" x="91.5" y="0.0" width="91" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Gly-4a-Oti" firstAttribute="width" relation="lessThanOrEqual" secondItem="nhh-MX-aKU" secondAttribute="width" multiplier="1:2.5" id="EdC-JT-kn4"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </stackView>

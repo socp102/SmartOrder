@@ -260,8 +260,6 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     @IBOutlet weak var showCouponBtnOutlet: UIButton!
     @IBOutlet weak var discountOutlet: UILabel!
     var couponPickerView: UIPickerView = UIPickerView()
-    var itemCountPickerView:UIPickerView = UIPickerView()
-    
     
     @IBAction func showCouponBtnAction(_ sender: Any) {
         
@@ -317,75 +315,27 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        var number : Int = 0
-        
-        if pickerView == couponPickerView {
-        
-            number = 1
-            
-        }
-        
-        if pickerView == itemCountPickerView {
-            
-            number = 1
-            
-        }
-        
-        
-        return number
+        return 1
     }
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-         var number : Int = 0
-        
-        if pickerView == couponPickerView {
-            
-            number = couponInfo.count
-            
-        }
-        
-        if pickerView == itemCountPickerView {
-            
-            number = 9
-            
-        }
-        
-        return number
+        return couponInfo.count
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        var result = ""
-        
-        if pickerView == couponPickerView {
-            
             let index =  row
             var couponInfoValue = Array(couponInfo.values)
             let key  = couponInfoValue[index]
-            result = key["couponTitle"] as! String
-            
-            
-        }
-        
-        if pickerView == itemCountPickerView {
-            
-           let index = row
-           let number = ["1","2","3","4","5","6","7","8","9","10"]
-           result = number[index]
-            
-        }
-        
-        return result
+            let result = key["couponTitle"] as! String
+            return result
         
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if pickerView == couponPickerView {
             
             let index =  row
             var couponInfoValue = Array(couponInfo.values)
@@ -402,18 +352,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 couponUserSelectDiscount = resultDiscount
                 couponUserCombo = [resultTitle:couponUserSelectDiscount]
             }
-            
-        }
-        
-        if pickerView == itemCountPickerView {
-            
-            
-            
-            
-        }
-        
     }
-    
     
     func checkAddDict() {
         
@@ -426,5 +365,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         }
         
     }
+    
+    
     
 }
