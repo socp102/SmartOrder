@@ -57,10 +57,11 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnb-E5-6Ce">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="20"/>
+                                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                                                                                <size key="titleShadowOffset" width="2" height="-1"/>
                                                                                 <state key="normal" title="Button">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="couponToOrder:" destination="vPg-9a-qcV" eventType="touchUpInside" id="KlY-Ih-hAI"/>

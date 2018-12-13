@@ -165,7 +165,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="JNP-iL-pMh">
             <objects>
-                <tabBarController id="2tv-iz-FXw" customClass="UITabBarViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="userVC" id="2tv-iz-FXw" customClass="UITabBarViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eIF-WE-8bl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -195,7 +195,7 @@
         <!--Order-->
         <scene sceneID="ik8-Yq-Qn1">
             <objects>
-                <viewControllerPlaceholder storyboardName="Order" id="fsj-9j-1pb" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="orderVC" storyboardName="Order" id="fsj-9j-1pb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LZo-9p-3g3"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oL3-68-HCF" userLabel="First Responder" sceneMemberID="firstResponder"/>

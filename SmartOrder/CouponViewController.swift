@@ -187,8 +187,9 @@ class CouponViewController: UIViewController {
     }
     
     @IBAction func couponToOrder(_ sender: UIButton) {
-//        let orderVC = storyboard?.instantiateViewController(withIdentifier: "orderVC")
-//        show(orderVC!, sender: self)
+        let orderVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "userVC") as! UITabBarController
+        orderVC.selectedIndex = 1
+        show(orderVC, sender: self)
     }
 }
 
