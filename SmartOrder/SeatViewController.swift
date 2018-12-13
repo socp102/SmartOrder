@@ -23,17 +23,20 @@ class SeatViewController: UIViewController {
     let WAITING_DOCUMENT_NAME = "Waiting"
     
     var seatsStatus = [SeatStatus]()
-    var idleTable = [SeatStatus]()
+    var idleTables = [SeatStatus]()
+    var waitingStatuses = [WaitingStatus]()
+    var lastTableID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        seatCollectionView.delegate = self
+        seatCollectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("SeatViewController: viewWillAppear")
         addListener()
-        downloadSeatStatus()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,11 +44,6 @@ class SeatViewController: UIViewController {
         if seatListener != nil {
             seatListener!.remove()
             seatListener = nil
-        }
-        
-        if waitingListener != nil {
-            waitingListener!.remove()
-            waitingListener = nil
         }
     }
     
@@ -60,11 +58,12 @@ class SeatViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
+            
             if let error = error {
                 print("Download error: \(error)")
             } else if let results = results as? [String: Any] {
                 print("results: \(results)")
-                strongSelf.idleTable.removeAll()
+                strongSelf.idleTables.removeAll()
                 strongSelf.seatsStatus.removeAll()
                 results.forEach({ (tableID, info) in
                     guard let info = info as? [String: Any] else {
@@ -75,63 +74,159 @@ class SeatViewController: UIViewController {
                     if isUsed {
                         strongSelf.seatsStatus.append(SeatStatus(tableID: tableID, isUsed: isUsed, timestamp: timestamp))
                     } else {
-                        strongSelf.idleTable.append(SeatStatus(tableID: tableID, isUsed: isUsed, timestamp: timestamp))
+                        strongSelf.idleTables.append(SeatStatus(tableID: tableID, isUsed: isUsed, timestamp: timestamp))
                     }
                 })
+                
                 strongSelf.seatsStatus.sort(by: { (first, second) -> Bool in
                     return first.timestamp.seconds < second.timestamp.seconds
                 })
-                strongSelf.idleTable.sort(by: { (first, second) -> Bool in
+                
+                strongSelf.idleTables.sort(by: { (first, second) -> Bool in
                     return first.tableID < second.tableID
                 })
-                strongSelf.seatCollectionView.delegate = strongSelf
-                strongSelf.seatCollectionView.dataSource = strongSelf
-                strongSelf.seatCollectionView.reloadData()
-            }
-        }
-        
-        // Get waiting status.
-        let db = firebaseCommunicator.db
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
-        let date = dateFormatter.string(from: Date())
-        db!.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).getDocuments { [weak self] (querySnapshot, error) in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            if let error = error {
-                print("Load data error: \(error).")
-            } else {
-                print("Load data successful.")
-                var results: [String: Any] = [:]
-                for document in querySnapshot!.documents {
-                    results.updateValue(document.data(), forKey: document.documentID)
+                
+                // Get waiting data.
+                let db = strongSelf.firebaseCommunicator.db
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+                let date = dateFormatter.string(from: Date())
+                db!.collection(strongSelf.WAITING_COLLECTION_NAME).document(strongSelf.WAITING_DOCUMENT_NAME).collection(date).getDocuments { [weak self] (querySnapshot, error) in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    
+                    if let error = error {
+                        print("Load data error: \(error).")
+                    } else {
+                        print("Load data successful.")
+                        var results: [String: Any] = [:]
+                        for document in querySnapshot!.documents {
+                            results.updateValue(document.data(), forKey: document.documentID)
+                        }
+                        print("waiting: \(results)")
+                        
+                        strongSelf.showWaitingStatus(input: results)
+                    }
                 }
-                print("waiting: \(results)")
-                strongSelf.showWaitingStatus(input: results)
             }
         }
     }
     
     func showWaitingStatus(input: [String: Any]) {
-        var insideCount = 0
+        waitingStatuses.removeAll()
+        var serialID = ""
+        var myNumber = 0
+        var status = true
+        var locationState = ""
+        
         input.forEach { (key, value) in
             switch key {
             case "Number":
-                let waitingNumber = (value as! [String: String])
+                let waitingNumber = (value as! [String: Int])
                 number.text = "目前號碼: \(waitingNumber["Number"]!)"
             default:
+                serialID = key
                 let waitingStatus = (value as! [String: Any])
                 waitingStatus.forEach({ (key, value) in
-                    if let inside = value as? String, inside == "inside" {
-                        insideCount += 1
+                    switch key {
+                    case "MyNumber":
+                        myNumber = value as! Int
+                    case "Status":
+                        status = value as! Bool
+                    case "LocationState":
+                        locationState = value as! String
+                    default:
+                        break
                     }
                 })
+                if status {
+                    waitingStatuses.append(WaitingStatus(serialID: serialID, myNumber: myNumber, status: status, locationState: locationState))
+                }
+            }
+        }
+        
+        waitingStatuses.sort { (first, second) -> Bool in
+            return first.myNumber < second.myNumber
+        }
+        
+        arrangSeats()
+    }
+    
+    func arrangSeats() {
+        print("idleTables: \(idleTables)")
+        print("WaitingStatuses: \(waitingStatuses)")
+        
+        // Count waiting number.
+        var insideCount = 0
+        waitingStatuses.forEach { (waitingStatus) in
+            if waitingStatus.locationState == "inside" {
+                insideCount += 1
             }
         }
         underWaiting.text = "現場組數: \(insideCount)"
+        
+        guard idleTables.count > 0, waitingStatuses.count > 0, let waitingStatus = waitingStatuses.first else {
+            seatCollectionView.reloadData()
+            return
+        }
+        
+        let db = firebaseCommunicator.db
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        let date = dateFormatter.string(from: Date())
+        
+        let tableID = idleTables.first!.tableID
+        let timestamp = FieldValue.serverTimestamp()
+        
+        let serialID = waitingStatus.serialID
+        let number = waitingStatus.myNumber
+        let waitingData = ["tableID": tableID, "Status": false, "Timestamp": timestamp] as [String : Any]
+    
+        let targetSerialID = db!.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).document(serialID)
+        
+        db!.runTransaction({ (transaction, error) -> Any? in
+            transaction.updateData(waitingData, forDocument: targetSerialID)
+            return nil
+        }) { [weak self] (results, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if let error = error {
+                print("Update data error: \(error).")
+            } else {
+                print("Update data successful.")
+                
+                // Updated Number.
+                let targetNumber = db!.collection(strongSelf.WAITING_COLLECTION_NAME).document(strongSelf.WAITING_DOCUMENT_NAME).collection(date).document("Number")
+                db!.runTransaction({ (transaction, error) -> Any? in
+                    transaction.updateData(["Number": number], forDocument: targetNumber)
+                    return nil
+                }) { (results, error) in
+                    if let error = error {
+                        print("Update data error: \(error).")
+                    } else {
+                        print("Update data successful.")
+                        strongSelf.number.text = "目前號碼: \(number)"
+                        
+                        // Updated table status.
+                        let data = [tableID: ["isUsed": true, "timestamp": timestamp]]
+                        strongSelf.lastTableID = tableID
+                        strongSelf.firebaseCommunicator.updateData(collectionName: strongSelf.SEAT_COLLECTION_NAME, documentName: strongSelf.SEAT_DOCUMENT_NAME, data: data) { (isFinished, error) in
+                            if let error = error {
+                                print("Updated error: \(error)")
+                            } else {
+                                print("Updated successful.")
+                                strongSelf.seatCollectionView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func addListener() {
@@ -148,29 +243,25 @@ class SeatViewController: UIViewController {
                 }
             }
         }
-        
-        if let db = firebaseCommunicator.db, waitingListener == nil {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
-            let date = dateFormatter.string(from: Date())
-            waitingListener = db.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).addSnapshotListener { [weak self] querySnapshot, error in
-                guard let strongSelf = self else {
-                    return
-                }
-                if let error = error {
-                    print("AddWaitingListener error: \(error)")
-                } else {
-                    print("AddWaitingListener successful.")
-                    strongSelf.downloadSeatStatus()
-                }
-            }
-        }
     }
     
     // MARK: - Button pressed.
-    @IBAction func passBtnPressed(_ sender: UIButton) {
-        
+    @IBAction func bypassBtnPressed(_ sender: UIButton) {
+        guard let lastTableID = lastTableID else {
+            return
+        }
+        let timestamp = FieldValue.serverTimestamp()
+        let data = [lastTableID: ["isUsed": false, "timestamp": timestamp]]
+        firebaseCommunicator.updateData(collectionName: SEAT_COLLECTION_NAME, documentName: SEAT_DOCUMENT_NAME, data: data) { [weak self] (isFinished, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let error = error {
+                print("Updated error: \(error)")
+            } else {
+                strongSelf.downloadSeatStatus()
+            }
+        }
     }
     
     @IBAction func refreshBtnPressed(_ sender: UIBarButtonItem) {
@@ -188,11 +279,11 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionReusableView()
         }
         var tableID = ""
-        idleTable.forEach { (table) in
+        idleTables.forEach { (table) in
             let table = table.tableID
             tableID.append(String(table[table.index(table.startIndex, offsetBy: 5)]) + ", ")
         }
-        sectionTitle.seatSummary.text = "空桌: \(idleTable.count) 桌 -> \(tableID) \n使用中: \(seatsStatus.count) 桌"
+        sectionTitle.seatSummary.text = "空桌: \(idleTables.count) 桌 -> \(tableID) \n使用中: \(seatsStatus.count) 桌"
         return sectionTitle
     }
     
