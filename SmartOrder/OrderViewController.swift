@@ -116,7 +116,7 @@ class OrderViewController: UIViewController {
             })
         }
         
-        func itemDecoder(input: String) -> String{
+        func itemDecoder(input: String) -> String {
             switch input {
             case "BeefHamburger":
                 return "牛肉漢堡"

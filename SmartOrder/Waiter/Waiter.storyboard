@@ -191,7 +191,7 @@
                                                 <rect key="frame" x="250" y="0.0" width="125" height="60"/>
                                                 <state key="normal" title="跳號"/>
                                                 <connections>
-                                                    <action selector="passBtnPressed:" destination="Ctn-90-brg" eventType="touchUpInside" id="fSo-gt-jhF"/>
+                                                    <action selector="bypassBtnPressed:" destination="Ctn-90-brg" eventType="touchUpInside" id="FED-NA-kY2"/>
                                                 </connections>
                                             </button>
                                         </subviews>

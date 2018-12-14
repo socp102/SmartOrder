@@ -63,17 +63,22 @@ extension HotNewsCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotNewsCell", for: indexPath) as! HotNewsCell
-
+        var image = UIImage()
+        var str = ""
         switch indexPath.row {
         case 0:
-            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos.last!.item).jpg"), for: .normal)
-            cell.hotNewsBtn.setTitle(hotNewsInfos.last!.item, for: .normal)
-        case self.hotNewsInfos.count + 1:
-            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos.first!.item).jpg"), for: .normal)
-            cell.hotNewsBtn.setTitle(hotNewsInfos.first!.item, for: .normal)
+            image = (UIImage(named: "\(hotNewsInfos.last!.item).jpg")?.resize(maxEdge: UIScreen.main.bounds.width))!
+            cell.hotNewsBtn.setBackgroundImage(image, for: .normal)
+            cell.hotNewsBtn.setTitle(str + itemDecoder(input: hotNewsInfos.last!.item), for: .normal)
+        case hotNewsInfos.count + 1:
+            image = (UIImage(named: "\(hotNewsInfos.first!.item).jpg")?.resize(maxEdge: UIScreen.main.bounds.width))!
+            cell.hotNewsBtn.setBackgroundImage(image, for: .normal)
+            cell.hotNewsBtn.setTitle(str + itemDecoder(input: hotNewsInfos.first!.item), for: .normal)
         default:
-            cell.hotNewsBtn.setBackgroundImage(UIImage(named: "\(hotNewsInfos[indexPath.row - 1].item).jpg"), for: .normal)
-            cell.hotNewsBtn.setTitle(hotNewsInfos[indexPath.row - 1].item, for: .normal)
+            str = "銷售第 \(indexPath.row) 名 : "
+            image = (UIImage(named: "\(hotNewsInfos[indexPath.row - 1].item).jpg")?.resize(maxEdge: UIScreen.main.bounds.width))!
+            cell.hotNewsBtn.setBackgroundImage(image, for: .normal)
+            cell.hotNewsBtn.setTitle(str + itemDecoder(input: hotNewsInfos[indexPath.row - 1].item), for: .normal)
         }
         return cell
     }
@@ -95,6 +100,43 @@ extension HotNewsCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
         } else {
             pageControl.currentPage = Int(scrollView.contentOffset.x / screenWidth) - 1
             imageIndex = Int(scrollView.contentOffset.x / screenWidth)
+        }
+    }
+    
+    func itemDecoder(input: String) -> String {
+        switch input {
+        case "BeefHamburger":
+            return "牛肉漢堡"
+        case "ChickenHamburger":
+            return "雞肉漢堡"
+        case "PorkHamburger":
+            return "豬肉漢堡"
+        case "TomatoSpaghetti":
+            return "紅醬義大利麵"
+        case "PestoSpaghetti":
+            return "青醬義大利麵"
+        case "CarbonaraSpaghetti":
+            return "白醬義大利麵"
+        case "CheesePizza":
+            return "起司披薩"
+        case "TomatoPizza":
+            return "番茄披薩"
+        case "OlivaPizza":
+            return "橄欖披薩"
+        case "FiletMigon":
+            return "牛菲力"
+        case "RibeyeSteak":
+            return "牛肋排"
+        case "GrilledSteak":
+            return "炙燒牛排"
+        case "Macaron":
+            return "馬卡龍"
+        case "ChocolateCake":
+            return "巧克力蛋糕"
+        case "Sundae":
+            return "聖代"
+        default:
+            return "unknown"
         }
     }
 }
