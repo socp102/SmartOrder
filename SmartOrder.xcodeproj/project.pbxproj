@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A01BB4B21C3502D0023E8F3 /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4A21C3502D0023E8F3 /* WaitingStatus.swift */; };
 		0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */; };
 		0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
 		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A01BB4A21C3502D0023E8F3 /* WaitingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingStatus.swift; sourceTree = "<group>"; };
 		0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsInfo.swift; sourceTree = "<group>"; };
 		0AE4441D21A2598800571E17 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		0AE4450021A7966F00571E17 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			children = (
 				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
 				A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
+				0A01BB4A21C3502D0023E8F3 /* WaitingStatus.swift */,
 			);
 			name = Waiter;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
+				0A01BB4B21C3502D0023E8F3 /* WaitingStatus.swift in Sources */,
 				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
