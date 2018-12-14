@@ -16,7 +16,6 @@ class SeatViewController: UIViewController {
     
     let firebaseCommunicator = FirebaseCommunicator.shared
     var seatListener: ListenerRegistration?
-    var waitingListener: ListenerRegistration?
     let SEAT_COLLECTION_NAME = "seat"
     let SEAT_DOCUMENT_NAME = "status"
     let WAITING_COLLECTION_NAME = "Reservation"
@@ -184,7 +183,7 @@ class SeatViewController: UIViewController {
         let serialID = waitingStatus.serialID
         let number = waitingStatus.myNumber
         let waitingData = ["tableID": tableID, "Status": false, "Timestamp": timestamp] as [String : Any]
-    
+        
         let targetSerialID = db!.collection(WAITING_COLLECTION_NAME).document(WAITING_DOCUMENT_NAME).collection(date).document(serialID)
         
         db!.runTransaction({ (transaction, error) -> Any? in
