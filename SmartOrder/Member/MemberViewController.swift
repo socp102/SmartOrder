@@ -13,6 +13,7 @@ class MemberViewController: UIViewController {
     
     let communicator = FirebaseCommunicator.shared
     let get = Getphoto()
+    let newaccount = New()
     
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -51,7 +52,8 @@ class MemberViewController: UIViewController {
         OrderlistView.isHidden = false
         CouponView.isHidden = true
         Photos.image = get.update()
-        Id.text = get.currentUsermail
+        newaccount.new()
+        Id.text = get.showname()
     }
     
 }
