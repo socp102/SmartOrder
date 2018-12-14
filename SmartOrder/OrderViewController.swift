@@ -22,12 +22,13 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        orderCollectionView.delegate = self
+        orderCollectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addListener()
-        downloadOrderInfo()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,10 +90,8 @@ class OrderViewController: UIViewController {
                     })
                     strongSelf.originalCommodities.updateValue(commodity, forKey: orderIDKey)
                     handleData(orderID: orderID, tableID: tableID, commodity: commodity, setupTime: setupTime)
-                    strongSelf.orderCollectionView.delegate = strongSelf
-                    strongSelf.orderCollectionView.dataSource = strongSelf
-                    strongSelf.orderCollectionView.reloadData()
                 })
+                strongSelf.orderCollectionView.reloadData()
             }
         }
         
@@ -214,7 +213,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         let item = orders[indexPath.section].items[indexPath.row]
         let value = orders[indexPath.section].itemsQty[indexPath.row]
-
+        
         var commodity = originalCommodities[orders[indexPath.section].orderID] as! [String: Any]
         var itemContent = commodity[itemEncoder(input: item)] as! [String: String]
         itemContent["notReady"] = String(value)
@@ -232,7 +231,6 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if orders[indexPath.section].items.count == 0 {
             orders.remove(at: indexPath.section)
         }
-        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -262,14 +260,11 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     // MARK: - Methods.
     func updateOrderStatus(collectionView: UICollectionView, orderID: String, data: [String: Any]) {
-        firebaseCommunicator.updateData(collectionName: FIREBASE_COLLECTION_NAME, documentName: orderID, data: data) { [weak self] (result, error) in
-            guard let strongSelf = self else {
-                return
-            }
+        firebaseCommunicator.updateData(collectionName: FIREBASE_COLLECTION_NAME, documentName: orderID, data: data) { (result, error) in
             if let error = error {
                 print("update error: \(error)")
             } else {
-                strongSelf.downloadOrderInfo()
+                print("update successful.")
             }
         }
     }
