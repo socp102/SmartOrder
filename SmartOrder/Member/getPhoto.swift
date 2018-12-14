@@ -19,6 +19,7 @@ class Getphoto {
         if currentUserUid?.displayName != "" {
             currentUsername = currentUserUid?.displayName
         }
+        
         return currentUsername!
     }
     

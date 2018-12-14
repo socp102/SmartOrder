@@ -12,15 +12,18 @@ class CouponViewController: UIViewController {
     @IBOutlet weak var couponListCollectionView: UICollectionView!
     
     let firebaseCommunicator = FirebaseCommunicator.shared
+    let ORDER_COLLECTIONNAME = "order"
+    
     var couponInfos = [CouponInfo]()
-    var hotNewsInfos = [UIImage]()
+    var hotNewsInfos = [HotNewsInfo]()
+    var itemCounter = [String: Int]()
+    
     let screenWidth = UIScreen.main.bounds.width
     var animateDelay: Double = 0.0
     var animateEnable = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //downloadCouponInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +67,7 @@ class CouponViewController: UIViewController {
                 print("results: \(results!)")
                 let resultsDictionary = results as! [String: Any]
                 strongSelf.couponInfos.removeAll()
-                strongSelf.hotNewsInfos.removeAll()
+                //strongSelf.hotNewsInfos.removeAll()
                 let currentDate = Date()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -101,22 +104,63 @@ class CouponViewController: UIViewController {
     typealias downloadImageHandler = (_ competion: Bool?) -> Void
     func downloadHotNewsInfo(competion: @escaping downloadImageHandler) {
         hotNewsInfos.removeAll()
-        var count = 0
-        for index in couponInfos {
-            print("imgage: \(index.couponImageName)")
-            firebaseCommunicator.downloadImage(url: "couponImages/", fileName: index.couponImageName) {[weak self] (image, error) in
-                guard let strongSelf = self else {
-                    return
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
+        let upperDate = dateFormatter.string(from: Date()) + " 00:00:00"
+        let lowerLimmit = dateFormatter.string(from: Date(timeIntervalSinceNow: -(TimeInterval(7 * 24 * 60 * 60)))) + " 00:00:00"
+        
+        firebaseCommunicator.loadData(collectionName: ORDER_COLLECTIONNAME, greaterThanOrEqualTo: lowerLimmit, lessThanOrEqualTo: upperDate) { [weak self] (results, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if let error = error {
+                print("Load hotNews error: \(error)")
+            } else if let data = results as? [String: Any] {
+                print("HotNews data: \(data)")
+                data.forEach({ (key, value) in
+                    let orderDetail = value as! [String: Any]
+                    print("orderDetail: \(orderDetail)")
+                    orderDetail.forEach({ (key, value) in
+                        if key == "allOrder" {
+                            let orderItems = value as! [String: Any]
+                            print("orderItems: \(orderItems)")
+                            handleOrderItem(orderItem: orderItems)
+                        }
+                    })
+                })
+                
+                for (key, value) in strongSelf.itemCounter {
+                    strongSelf.hotNewsInfos.append(HotNewsInfo(item: key, itemQty: value))
                 }
-                if let error = error {
-                    print("download image error: \(error)")
+                
+                strongSelf.hotNewsInfos.sort { (first, second) -> Bool in
+                    return first.itemQty > second.itemQty
+                }
+                
+                while strongSelf.hotNewsInfos.count > 5 {
+                    strongSelf.hotNewsInfos.removeLast()
+                }
+                
+                print("hotNewsInfos: \(strongSelf.hotNewsInfos)")
+                strongSelf.itemCounter.removeAll()
+                competion(true)
+            }
+        }
+        
+        func handleOrderItem(orderItem: [String: Any]) {
+            orderItem.forEach { (orderItemKey, orderItemValue) in
+                let itemInfo = orderItemValue as! [String: Any]
+                let isItemCounterContains = itemCounter.contains(where: { (key, value) -> Bool in
+                    return orderItemKey == key
+                })
+                
+                if isItemCounterContains {
+                    itemCounter[orderItemKey] = itemCounter[orderItemKey]! + Int(itemInfo["count"] as! String)!
                 } else {
-                    count += 1
-                    let image = image as! UIImage
-                    strongSelf.hotNewsInfos.append(image)
-                    if strongSelf.couponInfos.count == count {
-                        competion(true)
-                    }
+                    itemCounter.updateValue(Int(itemInfo["count"] as! String)!, forKey: orderItemKey)
                 }
             }
         }
@@ -140,6 +184,12 @@ class CouponViewController: UIViewController {
         if cell.timer == nil {
             cell.timer = Timer.scheduledTimer(timeInterval: 2, target: cell, selector: #selector(cell.changeHotNewsInfos), userInfo: nil, repeats: true)
         }
+    }
+    
+    @IBAction func couponToOrder(_ sender: UIButton) {
+        let orderVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "userVC") as! UITabBarController
+        orderVC.selectedIndex = 1
+        show(orderVC, sender: self)
     }
 }
 
@@ -179,7 +229,7 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 return UICollectionViewCell()
             }
             cell.tag = 1000
-            cell.hotNewsInfos = hotNewsInfos // DataSource
+            cell.hotNewsInfos = hotNewsInfos
             let pageControl = generatePageControl()
             cell.addSubview(pageControl)
             cell.hotNewsListCollectionView.reloadData()
@@ -225,7 +275,7 @@ extension CouponViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == 0 {
             return CGSize(width: screenWidth, height: 100)
         } else {
-        return CGSize(width: screenWidth, height: 160)
+            return CGSize(width: screenWidth, height: 160)
         }
     }
     

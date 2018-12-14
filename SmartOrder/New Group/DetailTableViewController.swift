@@ -52,6 +52,8 @@ class DetailTableViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        
         switch menuSelectedNumber {
             
         case 0:
@@ -255,6 +257,8 @@ class DetailTableViewController: UITableViewController {
     var resultCount = "1"
     var resultItem = ""
     
+    
+    
     @IBAction func stepper(_ sender: UIStepper)  {
     
         let count = Int(sender.value)
@@ -282,7 +286,6 @@ class DetailTableViewController: UITableViewController {
         
         addDict.updateValue(["count":resultCount,"subtotal":resultPrice,"notReady":resultCount], forKey: resultItem)
         myUserDefaults.setValue(addDict, forKey: "resultDict")
-        print(addDict)
         
         }
     

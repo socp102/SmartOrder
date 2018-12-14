@@ -15,7 +15,6 @@ struct Coupon {
     var couponDiscount:Double
     var couponDetilContent:String
     var ower:String
-    
 }
 
 

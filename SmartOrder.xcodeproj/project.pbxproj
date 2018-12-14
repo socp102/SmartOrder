@@ -57,6 +57,8 @@
 		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
 		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
 		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
+		EBB59E0C21C39BF3004B833C /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0B21C39BF3004B833C /* HotNewsInfo.swift */; };
+		EBB59E0E21C39C34004B833C /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0D21C39C33004B833C /* WaitingStatus.swift */; };
 		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
 		EBC682C921C0A91200D70A16 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C821C0A91200D70A16 /* Informations.swift */; };
 		EBE7196521C256F600A6F2C6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7196421C256F600A6F2C6 /* InformationViewController.swift */; };
@@ -122,6 +124,8 @@
 		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
 		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
 		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
+		EBB59E0B21C39BF3004B833C /* HotNewsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsInfo.swift; sourceTree = "<group>"; };
+		EBB59E0D21C39C33004B833C /* WaitingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingStatus.swift; sourceTree = "<group>"; };
 		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
 		EBC682C821C0A91200D70A16 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
 		EBE7196421C256F600A6F2C6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */,
 				A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
+				EBB59E0D21C39C33004B833C /* WaitingStatus.swift */,
 				A11717E021AE70DE00EA6BFD /* Coupon */,
 				A11CDB2F21B8F5B9008756DF /* Waiter */,
 			);
@@ -303,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				A11717DE21AE70D900EA6BFD /* CouponInfo.swift */,
+				EBB59E0B21C39BF3004B833C /* HotNewsInfo.swift */,
 			);
 			path = Coupon;
 			sourceTree = "<group>";
@@ -631,6 +637,7 @@
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
+				EBB59E0C21C39BF3004B833C /* HotNewsInfo.swift in Sources */,
 				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
 				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
@@ -644,6 +651,7 @@
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
 				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
+				EBB59E0E21C39C34004B833C /* WaitingStatus.swift in Sources */,
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
 				A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */,

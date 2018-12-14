@@ -19,11 +19,13 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     @IBAction func resultCloseBtn(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
         
+        self.dismiss(animated: true, completion: nil)
+
     }
     
     @IBOutlet weak var sendToFirebaseOutlet: UIButton!
+    
     @IBAction func sendOrderToFirebase(_ sender: Any) {
         
         let alert = UIAlertController(title: "確認", message: "送出後可在會員頁面查看", preferredStyle: .alert)
@@ -85,14 +87,14 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         if myUserDefaults.value(forKey: "resultDict") != nil {
         
             addDict = (myUserDefaults.object(forKey: "resultDict") as? [String: [String:String]])!
-            print("\(addDict)")
-            
             
         }
         
-       checkAddDict()
-       totalPriceLabel.text = getTotal()
-       getCouponInfo()
+
+        checkAddDict()  //addDict 沒資料的話按鍵設為false
+        totalPriceLabel.text = getTotal()
+        getCouponInfo()
+        
     }
     
     override func viewDidLoad() {
@@ -100,21 +102,26 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         super.viewDidLoad()
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+       
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-       
+
         return addDict.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cellIdentifier = "ResultCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
         
+
         let userAddedItem = Array(addDict.keys)
         
         let dictEngAndChinese = ["BeefHamburger": "牛肉漢堡", "ChickenHamburger": "雞肉漢堡", "PorkHamburger": "豬肉漢堡",
@@ -132,7 +139,6 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         cell.resultName?.text =  result[indexPath.row]
         cell.resultCount?.text =  Array(addDict.values)[indexPath.row]["count"]
         cell.resultSubtotal?.text = Array(addDict.values)[indexPath.row]["subtotal"]
-        
         return cell
     }
 
@@ -167,25 +173,8 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             }
         }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let index = indexPath.row
-        let addDictKey = Array(addDict.keys)
-        let key  = addDictKey[index]
-        let idx = addDict.index(forKey: key)
-        
-        
-        
-        print("\(addDict)")
-        print("\(indexPath.row)")
-        
-        
-    }
-    
-    
     
     func getTotal () -> String {
-        
         
         let dictValues = addDict.values
         let subtotalString = dictValues.map { $0["subtotal"] }
@@ -280,7 +269,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     @IBOutlet weak var showCouponBtnOutlet: UIButton!
     @IBOutlet weak var discountOutlet: UILabel!
-    
+    var couponPickerView: UIPickerView = UIPickerView()
     
     @IBAction func showCouponBtnAction(_ sender: Any) {
         
@@ -293,6 +282,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.withCouponResultPrice = String(removeFloating)
             self.totalPriceLabel.text = self.withCouponResultPrice
             self.discountOutlet.isHidden = false
+        
         }
         
         let cancelAction = UIAlertAction(title: "取消", style:.cancel) {
@@ -302,6 +292,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.showCouponBtnOutlet.setTitle("選購優惠卷", for: .normal)
             self.totalPriceLabel.text = self.getTotal()
             self.discountOutlet.isHidden = true
+            
 
         }
         
@@ -312,13 +303,13 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         let containerViewWidth = 250
         let containerViewHeight = 120
         let containerFrame = CGRect(x:10, y: 70, width: CGFloat(containerViewWidth), height: CGFloat(containerViewHeight))
-        let couponPickerView: UIPickerView = UIPickerView(frame: containerFrame)
-        
+        couponPickerView = UIPickerView(frame: containerFrame)
         couponPickerView.delegate = self
         couponPickerView.dataSource = self
         
         couponPickerView.selectRow(0, inComponent: 0, animated: true)
         pickerView(couponPickerView, didSelectRow: 0, inComponent: 0)
+        
         alert.view.addSubview(couponPickerView)
         
         // now add some constraints to make sure that the alert resizes itself
@@ -343,30 +334,28 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        
-        
         return couponInfo.count
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-    
-        let index =  row
-        var couponInfoValue = Array(couponInfo.values)
-        let key  = couponInfoValue[index]
-        let result = key["couponTitle"] as! String
-        return result
+            let index =  row
+            var couponInfoValue = Array(couponInfo.values)
+            let key  = couponInfoValue[index]
+            let result = key["couponTitle"] as! String
+            return result
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+            
             let index =  row
             var couponInfoValue = Array(couponInfo.values)
-        
+            
             if couponInfo.count == 0 {
                 
-            
+                
             } else {
                 
                 let key  = couponInfoValue[index]
@@ -375,9 +364,9 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 let resultDiscount = key["couponDiscount"] as! Double
                 couponUserSelectDiscount = resultDiscount
                 couponUserCombo = [resultTitle:couponUserSelectDiscount]
+                
             }
     }
-    
     
     func checkAddDict() {
         
@@ -389,6 +378,87 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
 
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        if segue.identifier == "orderToDetail"{
+        
+            if let tableViewIndex = tableView.indexPathForSelectedRow {
+                
+               let detailController = segue.destination as! DetailTableViewController
+               let itemName = Array(addDict.keys)
+               let result = itemName[tableViewIndex.row]
+                
+                switch result {
+                    
+                case "BeefHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 0
+                    
+                case "ChickenHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 1
+                    
+                case "PorkHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 2
+                    
+                case "TomatoSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 0
+                    
+                case "PestoSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 1
+                    
+                case "CarbonaraSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 2
+                    
+                case "CheesePizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 0
+                    
+                case "TomatoPizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 1
+                    
+                case "OlivaPizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 2
+                    
+                case "FiletMigon":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 0
+                    
+                case "RibeyeSteak":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 1
+                    
+                case "GrilledSteak":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 2
+                    
+                case "Macaron":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 0
+                    
+                case "ChocolateCake":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 1
+                    
+                case "Sundae":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 2
+                    
+                default:
+                    break
+                }
+                
+            }
+            
+       }
     }
     
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuX-1c-zVF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuX-1c-zVF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reservation View Controller-->
+        <!--候位-->
         <scene sceneID="Lds-os-I5X">
             <objects>
                 <viewController id="DuX-1c-zVF" customClass="ReservationViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,6 +75,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p0Q-uZ-sfB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="候位" image="Reservation" id="h2j-r5-wtS"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelNumberBtuuon" destination="sMr-NE-6Mo" id="cD7-pa-HXm"/>
                         <outlet property="displayNumber" destination="fE5-Gn-6NW" id="BY6-LU-vfh"/>
@@ -87,4 +89,7 @@
             <point key="canvasLocation" x="2516" y="632"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Reservation" width="32" height="32"/>
+    </resources>
 </document>

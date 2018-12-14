@@ -9,7 +9,7 @@
 import UIKit
 
 class HotNewsCell: UICollectionViewCell {
-    @IBOutlet weak var hotNewsImage: UIImageView!
+    @IBOutlet weak var hotNewsBtn: UIButton!
     
     deinit {
         print("HotNewsCell deinit.")

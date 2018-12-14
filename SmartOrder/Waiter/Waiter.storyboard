@@ -146,7 +146,7 @@
                                 <action selector="refreshBtnPressed:" destination="UcU-3r-XOs" id="7Q7-7W-vvO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hZI-pw-nqI">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" image="Logout" id="hZI-pw-nqI">
                             <connections>
                                 <segue destination="hLF-q1-Am0" kind="unwind" unwindAction="unwindSegue:" id="Iev-sg-n2Z"/>
                             </connections>
@@ -191,7 +191,7 @@
                                                 <rect key="frame" x="250" y="0.0" width="125" height="60"/>
                                                 <state key="normal" title="跳號"/>
                                                 <connections>
-                                                    <action selector="passBtnPressed:" destination="Ctn-90-brg" eventType="touchUpInside" id="fSo-gt-jhF"/>
+                                                    <action selector="bypassBtnPressed:" destination="Ctn-90-brg" eventType="touchUpInside" id="FED-NA-kY2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -331,7 +331,7 @@
                                 <action selector="refreshBtnPressed:" destination="Ctn-90-brg" id="Pnn-nI-CjI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="MDQ-w3-Wfo">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" image="Logout" id="MDQ-w3-Wfo">
                             <connections>
                                 <segue destination="r0c-RG-LLt" kind="unwind" unwindAction="unwindSegue:" id="6vz-0e-D1P"/>
                             </connections>
@@ -371,7 +371,7 @@
         <scene sceneID="qQT-cZ-YAO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGk-GC-dUL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="出餐狀況" id="Jzs-fs-3Rj"/>
+                    <tabBarItem key="tabBarItem" title="出餐狀況" image="OrderSituation" id="Jzs-fs-3Rj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bUt-HJ-0B2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -390,7 +390,7 @@
         <scene sceneID="efQ-bd-LBR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CSo-fC-fZ5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="座位狀況" id="7pU-PT-3Ke"/>
+                    <tabBarItem key="tabBarItem" title="座位狀況" image="TableSituation" id="7pU-PT-3Ke"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nV1-dv-JGQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -406,4 +406,9 @@
             <point key="canvasLocation" x="1296.8" y="-342.27886056971516"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logout" width="32" height="32"/>
+        <image name="OrderSituation" width="48" height="48"/>
+        <image name="TableSituation" width="48" height="48"/>
+    </resources>
 </document>
