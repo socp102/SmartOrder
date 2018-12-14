@@ -309,6 +309,7 @@
                                     <outlet property="resultCount" destination="Gly-4a-Oti" id="Tyk-Od-6Ak"/>
                                     <outlet property="resultName" destination="gZG-b6-ddG" id="3rt-IG-5M0"/>
                                     <outlet property="resultSubtotal" destination="t7d-kU-OS8" id="iXC-Td-qT0"/>
+                                    <segue destination="nbl-Kw-Csj" kind="show" identifier="orderToDetail" id="6in-41-lId"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -535,4 +536,7 @@
             <point key="canvasLocation" x="885.60000000000002" y="645.42728635682158"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6in-41-lId"/>
+    </inferredMetricsTieBreakers>
 </document>

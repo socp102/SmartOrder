@@ -19,11 +19,13 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     @IBAction func resultCloseBtn(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
         
+        self.dismiss(animated: true, completion: nil)
+
     }
     
     @IBOutlet weak var sendToFirebaseOutlet: UIButton!
+    
     @IBAction func sendOrderToFirebase(_ sender: Any) {
         
         let alert = UIAlertController(title: "確認", message: "送出後可在會員頁面查看", preferredStyle: .alert)
@@ -85,19 +87,24 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         if myUserDefaults.value(forKey: "resultDict") != nil {
         
             addDict = (myUserDefaults.object(forKey: "resultDict") as? [String: [String:String]])!
-            print("\(addDict)")
             
         }
         
-       checkAddDict()
-       totalPriceLabel.text = getTotal()
-       getCouponInfo()
+
+        checkAddDict()  //addDict 沒資料的話按鍵設為false
+        totalPriceLabel.text = getTotal()
+        getCouponInfo()
+        
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+       
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,9 +117,11 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cellIdentifier = "ResultCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultTableViewCell
         
+
         let userAddedItem = Array(addDict.keys)
         
         let dictEngAndChinese = ["BeefHamburger": "牛肉漢堡", "ChickenHamburger": "雞肉漢堡", "PorkHamburger": "豬肉漢堡",
@@ -163,6 +172,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
 
             }
         }
+    
     
     func getTotal () -> String {
         
@@ -272,6 +282,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.withCouponResultPrice = String(removeFloating)
             self.totalPriceLabel.text = self.withCouponResultPrice
             self.discountOutlet.isHidden = false
+        
         }
         
         let cancelAction = UIAlertAction(title: "取消", style:.cancel) {
@@ -281,6 +292,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.showCouponBtnOutlet.setTitle("選購優惠卷", for: .normal)
             self.totalPriceLabel.text = self.getTotal()
             self.discountOutlet.isHidden = true
+            
 
         }
         
@@ -294,6 +306,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         couponPickerView = UIPickerView(frame: containerFrame)
         couponPickerView.delegate = self
         couponPickerView.dataSource = self
+        
         couponPickerView.selectRow(0, inComponent: 0, animated: true)
         pickerView(couponPickerView, didSelectRow: 0, inComponent: 0)
         
@@ -351,6 +364,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 let resultDiscount = key["couponDiscount"] as! Double
                 couponUserSelectDiscount = resultDiscount
                 couponUserCombo = [resultTitle:couponUserSelectDiscount]
+                
             }
     }
     
@@ -366,6 +380,85 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
+        if segue.identifier == "orderToDetail"{
+        
+            if let tableViewIndex = tableView.indexPathForSelectedRow {
+                
+               let detailController = segue.destination as! DetailTableViewController
+               let itemName = Array(addDict.keys)
+               let result = itemName[tableViewIndex.row]
+                
+                switch result {
+                    
+                case "BeefHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 0
+                    
+                case "ChickenHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 1
+                    
+                case "PorkHamburger":
+                    detailController.menuSelectedNumber = 0
+                    detailController.detailImageNumber = 2
+                    
+                case "TomatoSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 0
+                    
+                case "PestoSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 1
+                    
+                case "CarbonaraSpaghetti":
+                    detailController.menuSelectedNumber = 1
+                    detailController.detailImageNumber = 2
+                    
+                case "CheesePizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 0
+                    
+                case "TomatoPizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 1
+                    
+                case "OlivaPizza":
+                    detailController.menuSelectedNumber = 2
+                    detailController.detailImageNumber = 2
+                    
+                case "FiletMigon":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 0
+                    
+                case "RibeyeSteak":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 1
+                    
+                case "GrilledSteak":
+                    detailController.menuSelectedNumber = 3
+                    detailController.detailImageNumber = 2
+                    
+                case "Macaron":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 0
+                    
+                case "ChocolateCake":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 1
+                    
+                case "Sundae":
+                    detailController.menuSelectedNumber = 4
+                    detailController.detailImageNumber = 2
+                    
+                default:
+                    break
+                }
+                
+            }
+            
+       }
+    }
     
 }

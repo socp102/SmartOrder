@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */; };
 		0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
 		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
 		0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsInfo.swift; sourceTree = "<group>"; };
 		0AE4441D21A2598800571E17 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		0AE4450021A7966F00571E17 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				A11717DE21AE70D900EA6BFD /* CouponInfo.swift */,
+				0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */,
 			);
 			path = Coupon;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
+				0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */,
 				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
 				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
 				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,

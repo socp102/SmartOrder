@@ -20,7 +20,6 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var showBillBtn: UIBarButtonItem!
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menu.count
     }
@@ -39,7 +38,6 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
         
         
     }
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -86,7 +84,4 @@ class MenuViewController: UIViewController ,UITableViewDataSource,UITableViewDel
             }
         }
     }
-    
-  
-
 }
