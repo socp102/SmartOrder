@@ -146,7 +146,7 @@
                                 <action selector="refreshBtnPressed:" destination="UcU-3r-XOs" id="7Q7-7W-vvO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hZI-pw-nqI">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" image="Logout" id="hZI-pw-nqI">
                             <connections>
                                 <segue destination="hLF-q1-Am0" kind="unwind" unwindAction="unwindSegue:" id="Iev-sg-n2Z"/>
                             </connections>
@@ -331,7 +331,7 @@
                                 <action selector="refreshBtnPressed:" destination="Ctn-90-brg" id="Pnn-nI-CjI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="MDQ-w3-Wfo">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" image="Logout" id="MDQ-w3-Wfo">
                             <connections>
                                 <segue destination="r0c-RG-LLt" kind="unwind" unwindAction="unwindSegue:" id="6vz-0e-D1P"/>
                             </connections>
@@ -406,4 +406,7 @@
             <point key="canvasLocation" x="1296.8" y="-342.27886056971516"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logout" width="32" height="32"/>
+    </resources>
 </document>

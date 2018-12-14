@@ -32,6 +32,7 @@
 		9BD1EF1B218EF349004AB970 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1A218EF349004AB970 /* Common.swift */; };
 		9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
 		9BD1EF2121916F83004AB970 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF2021916F83004AB970 /* AdminViewController.swift */; };
+		A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */; };
 		A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D74021B10AA400A3F290 /* HotNewsCell.swift */; };
 		A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */; };
 		A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */; };
@@ -96,6 +97,7 @@
 		9BD1EF1A218EF349004AB970 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		9BD1EF2021916F83004AB970 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingStatus.swift; sourceTree = "<group>"; };
 		A108D74021B10AA400A3F290 /* HotNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsCell.swift; sourceTree = "<group>"; };
 		A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleCollectionReusableView.swift; sourceTree = "<group>"; };
 		A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
+				A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */,
 				A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
 			);
 			name = Waiter;
@@ -648,6 +651,7 @@
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
+				A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */,
 				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
 				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
 				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
