@@ -90,6 +90,20 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             
         }
         
+        
+        
+        if myUserDefaults.value(forKey: "resultTitle") != nil {
+            
+            resultTitle = myUserDefaults.object(forKey: "resultTitle") as! String
+            showCouponBtnOutlet.setTitle(resultTitle, for: .normal)
+            discountOutlet.isHidden = false
+        }
+        
+        if myUserDefaults.value(forKey: "couponUserSelectDiscount") != nil {
+            
+            couponUserSelectDiscount = myUserDefaults.object(forKey: "couponUserSelectDiscount") as! Double
+
+        }
 
         checkAddDict()  //addDict 沒資料的話按鍵設為false
         totalPriceLabel.text = getTotal()
@@ -282,6 +296,9 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.withCouponResultPrice = String(removeFloating)
             self.totalPriceLabel.text = self.withCouponResultPrice
             self.discountOutlet.isHidden = false
+            
+            self.myUserDefaults.setValue(self.resultTitle, forKey: "resultTitle")
+            self.myUserDefaults.setValue(self.couponUserSelectDiscount, forKey: "couponUserSelectDiscount")
         
         }
         
@@ -292,6 +309,10 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             self.showCouponBtnOutlet.setTitle("選購優惠卷", for: .normal)
             self.totalPriceLabel.text = self.getTotal()
             self.discountOutlet.isHidden = true
+            
+            self.myUserDefaults.removeObject(forKey: "resultTitle")
+            self.myUserDefaults.removeObject(forKey: "couponUserSelectDiscount")
+
             
 
         }
@@ -361,6 +382,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 let key  = couponInfoValue[index]
                 resultTitle = key["couponTitle"] as! String
                 showCouponBtnOutlet.setTitle(resultTitle, for: .normal)
+                
                 let resultDiscount = key["couponDiscount"] as! Double
                 couponUserSelectDiscount = resultDiscount
                 couponUserCombo = [resultTitle:couponUserSelectDiscount]

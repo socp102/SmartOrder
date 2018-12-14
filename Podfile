@@ -27,6 +27,7 @@ target 'SmartOrder' do
   pod 'Firebase/Performance'	  #性能監控
   pod 'Firebase/Firestore'     	#雲Firestore
   pod 'Firebase/Functions'    	#Firebase Client SDK的雲功能
+  pod 'Charts'                    #繪圖
 
 
 end
