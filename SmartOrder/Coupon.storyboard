@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sWx-52-Cia">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sWx-52-Cia">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -360,11 +360,11 @@
             </objects>
             <point key="canvasLocation" x="1868" y="644.52773613193403"/>
         </scene>
-        <!--優惠卷-->
+        <!--優惠-->
         <scene sceneID="3mk-RB-NY7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sWx-52-Cia" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="優惠卷" image="Coupon" id="8Ea-AY-5P0">
+                    <tabBarItem key="tabBarItem" title="優惠" image="Coupon" id="8Ea-AY-5P0">
                         <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -383,7 +383,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Coupon" width="30" height="30"/>
+        <image name="Coupon" width="48" height="48"/>
         <image name="cancel" width="128" height="128"/>
     </resources>
 </document>
