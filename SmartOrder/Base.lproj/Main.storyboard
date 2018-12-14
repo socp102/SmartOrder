@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="761" y="-591"/>
         </scene>
-        <!--Admin-->
+        <!--AdminChartLogin-->
         <scene sceneID="Yeu-Ay-fYL">
             <objects>
-                <viewControllerPlaceholder storyboardName="Admin" id="Efj-3u-lTz" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AdminChart" referencedIdentifier="AdminChartLogin" id="Efj-3u-lTz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvd-nv-Ma0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-788" y="-287"/>
