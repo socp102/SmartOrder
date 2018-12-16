@@ -23,21 +23,37 @@ class ModifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if sex.isOn {
             sextext.text = "Male"
         } else {
             sextext.text = "Female"
         }
-       loadinfonum()
-        mail.delegate = self as! UITextFieldDelegate
-        name.delegate = self as! UITextFieldDelegate
-        phone.delegate = self as! UITextFieldDelegate
+        loadinfonum()
+        mail.delegate = self as UITextFieldDelegate
+        name.delegate = self as UITextFieldDelegate
+        phone.delegate = self as UITextFieldDelegate
         
-      registerNotification()
-      self.hideKeyboardWhenTappedAround()
+        registerNotification()
+        self.hideKeyboardWhenTappedAround()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if sex.isOn {
+            sextext.text = "Male"
+        } else {
+            sextext.text = "Female"
+        }
+        loadinfonum()
+        mail.delegate = self as UITextFieldDelegate
+        name.delegate = self as UITextFieldDelegate
+        phone.delegate = self as UITextFieldDelegate
+        
+        registerNotification()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    //鍵盤
     func registerNotification(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -54,7 +70,9 @@ class ModifyViewController: UIViewController {
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            guard let frame = selectedTextField?.frame else { return }
+            guard let frame = selectedTextField?.frame else {
+                print("frame is nil")
+                return }
             let offset = frame.origin.y + stackView.frame.origin.y + containtView.frame.origin.y + 36 - (self.view.frame.size.height - keyboardFrame.height)
             let duration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
             

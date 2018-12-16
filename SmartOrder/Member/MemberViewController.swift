@@ -16,13 +16,23 @@ class MemberViewController: UIViewController {
     let newaccount = New()
     
     @IBAction func signOut(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            performSegue(withIdentifier: "signOutSegue", sender: nil)
-        } catch let signOutErroe as NSError {
-            print("Error signing out: %$", signOutErroe)
+        
+        let alert = UIAlertController(title: "確定要登出？", message: "確定要登出此帳號？", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK!", style: .default) { action in
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                self.performSegue(withIdentifier: "signOutSegue", sender: nil)
+                
+            } catch let signOutErroe as NSError {
+                print("Error signing out: %$", signOutErroe)
+            }
         }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+       
     
     }
     

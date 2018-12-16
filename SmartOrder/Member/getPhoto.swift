@@ -12,15 +12,17 @@ import Firebase
 class Getphoto {
     let communicator = FirebaseCommunicator.shared
     
-    let currentUserUid = Auth.auth().currentUser
-    
     func showname()->String{
-        var currentUsername = Auth.auth().currentUser?.email
-        if currentUserUid?.displayName != "" {
-            currentUsername = currentUserUid?.displayName
+        guard let currentUserUid = Auth.auth().currentUser else {
+            return ""
         }
         
-        return currentUsername!
+        guard let currentUsername = currentUserUid.displayName else {
+            return ""
+        }
+        
+        
+        return currentUsername
     }
     
     func update() -> UIImage{
