@@ -65,6 +65,8 @@
 		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
 		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
 		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
+		EBB59E1021C3C1EA004B833C /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */; };
+		EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */; };
 		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
 		EBC682C921C0A91200D70A16 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C821C0A91200D70A16 /* Informations.swift */; };
 		EBE7196521C256F600A6F2C6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -97,7 +99,7 @@
 		9B70435721C7474300077FB0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		9B70435821C7474400077FB0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Main/AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD1EEFE218CA3CA004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
 		9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reservation.storyboard; sourceTree = "<group>"; };
-		9BD1EF18218ECF89004AB970 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9BD1EF18218ECF89004AB970 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Main/MainViewController.swift; sourceTree = "<group>"; };
 		9BD1EF1A218EF349004AB970 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingStatus.swift; sourceTree = "<group>"; };
@@ -137,6 +139,8 @@
 		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
 		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
 		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
+		EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
 		EBC682C821C0A91200D70A16 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,8 +247,6 @@
 		9B70435621C7465400077FB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
-				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
 				9B70435721C7474300077FB0 /* DatePickerViewController.swift */,
 				9B70435821C7474400077FB0 /* SignUpViewController.swift */,
 			);
@@ -322,15 +324,17 @@
 		9BD1EF0A218CA4AC004AB970 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9BD1EF1A218EF349004AB970 /* Common.swift */,
-				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
 				9B70435621C7465400077FB0 /* Main */,
 				0A01BB4C21C3959E0023E8F3 /* Admin */,
 				9B4F86D221B1224D0079C7C9 /* Reservation */,
 				EB6F822C21B1144800092C91 /* Member */,
 				0AE4441C21A2590F00571E17 /* Order */,
 				A11BE7AB219D045C00C5A86F /* Coupon */,
+				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
 				A11CDB2421B8C817008756DF /* Waiter */,
+				9BD1EF1A218EF349004AB970 /* Common.swift */,
+				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
+				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -455,8 +459,10 @@
 		EB6F823521B1181700092C91 /* InformationLists */ = {
 			isa = PBXGroup;
 			children = (
+				EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */,
 				EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */,
 				EB6F823221B117E800092C91 /* UIImage + Resize.swift */,
+				EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */,
 				EBC682C821C0A91200D70A16 /* Informations.swift */,
 			);
 			path = InformationLists;
@@ -680,6 +686,7 @@
 				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
 				0A01BB5421C397590023E8F3 /* AdminPieChartViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
+				EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
 				A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */,
@@ -715,6 +722,7 @@
 				EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */,
 				EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
 				EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */,
+				EBB59E1021C3C1EA004B833C /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

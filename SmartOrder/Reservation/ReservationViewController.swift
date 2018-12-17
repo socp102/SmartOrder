@@ -27,9 +27,10 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     var db: Firestore!
     var ref: CollectionReference!
     var listener: ListenerRegistration!
+    var firbase = FirebaseCommunicator.shared
     
     var today = ""
-    var userEmail = ""
+    var userUid = ""
     var documentID = ""
     
     override func viewDidLoad() {
@@ -43,10 +44,10 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         // 存取路徑定義
         ref = db.collection("Reservation").document("Waiting").collection(today)
         // 取得登入帳號
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        userEmail = email
+        userUid = uid
         
         listenNumber() // 監聽跳號
         
@@ -107,6 +108,8 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             }
             self.displayNumber.text = "\(dict["Number"] ?? "N")"
             print(dict["Number"] as! Int)
+            let number = (dict["Number"] as! Int)
+            self.checkNumber(number: number)
         }
     }
     
@@ -123,7 +126,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     
     // 登記準備取號碼牌
     func registration() {
-        let data = ["User": userEmail,
+        let data = ["User": userUid,
                     "Status": true,
                     "LocationState" : "inside",
                     "Timestamp":FieldValue.serverTimestamp()] as [String : Any]
@@ -158,6 +161,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         }
     }
     
+    
     // 顯示號碼(目前號碼，取得號碼)
     func getMyNumber(myTimestamp: Any) {
         let responds = ref.whereField("Timestamp", isLessThanOrEqualTo: myTimestamp)
@@ -183,6 +187,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 if let err = err {
                     print("Fail to saveNumber (保存號碼失敗)\(err)")
                 } else {
+                    self.addNumber()
                     self.changeButton(getNumber: false)
                     self.userDefaults.set(number, forKey: "MyNumber")
                     print("保存userDefaults  Number  = \(number)")
@@ -190,6 +195,56 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             }
         }
     }
+    
+    // 檢查是否到號 並顯示桌號
+    func checkNumber(number: Int) {
+        if number == userDefaults.integer(forKey: "MyNumber") {
+            getTableID()
+        }
+    }
+    
+    // 取得桌號
+    func getTableID() {
+        if let documentID = userDefaults.string(forKey: "documentID") {
+            ref.document(documentID).getDocument { (document, err) in
+                if let tableID = document?.data()?["tableID"], document!.exists {
+                    print("tableID:(取得桌號) \(tableID)")
+                    self.userDefaults.set(tableID, forKey: "tableID")
+                    Common.showAlert(on: self, style: .alert, title: "桌號", message: "\(tableID)")
+                    self.saveTable(tableID: tableID)
+                } else {
+                    print("Document does not exist(無法取得桌號)")
+                }
+            }
+        }
+    }
+    
+    func saveTable(tableID: Any) {
+        let data = ["UserUid": userUid ]
+        firbase.addData(collectionName: "seat", documentName: "\(tableID)", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to saveTable \(err)")
+            }
+        }
+    }
+    
+    func addNumber() {
+        let data = ["Number": myNumber] as [String: Any]
+        firbase.addData(collectionName: "seat", documentName: "Number", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
+            }
+        }
+    }
+    
+//    func add() {
+//        let data = ["Number": myNumber] as [String: Any]
+//        firbase.addData(collectionName: "seat", documentName: "Number", data: data) { (result, error) in
+//            if let err = error {
+//                print("Fail to addNumber \(err)")
+//            }
+//        }
+//    }
     
     func saveLocation(state: String) {
         if let documentID = userDefaults.string(forKey: "documentID") {

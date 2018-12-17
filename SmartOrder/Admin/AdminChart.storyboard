@@ -82,34 +82,34 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dia-nE-KjR">
-                                <rect key="frame" x="8" y="450" width="359" height="29"/>
+                                <rect key="frame" x="8" y="410" width="359" height="29"/>
                                 <segments>
-                                    <segment title="Line Chart"/>
-                                    <segment title="Bar Chart"/>
-                                    <segment title="Pie Chart"/>
+                                    <segment title="折線圖"/>
+                                    <segment title="長條圖"/>
+                                    <segment title="圓餅 &amp; 長條圖"/>
                                 </segments>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HTC-Qz-shd">
-                                <rect key="frame" x="8" y="494" width="359" height="104"/>
+                                <rect key="frame" x="8" y="454" width="359" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-6n-03Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeStart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPw-HZ-yU1">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起始時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPw-HZ-yU1">
+                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-j2-8mV">
-                                                <rect key="frame" x="119.5" y="0.0" width="120" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-j2-8mV">
+                                                <rect key="frame" x="119.5" y="0.0" width="120" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sns-Cq-5Vz">
-                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
-                                                <state key="normal" title="Set"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="50"/>
+                                                <state key="normal" title="設定"/>
                                                 <connections>
                                                     <action selector="startTimeSetBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="zvV-up-kRT"/>
                                                 </connections>
@@ -117,23 +117,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nWs-AR-Txb">
-                                        <rect key="frame" x="0.0" y="38" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="58" width="359" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeEnd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-Pd-cLN">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結束時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-Pd-cLN">
+                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y5-Oj-dzC">
-                                                <rect key="frame" x="119.5" y="0.0" width="120" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y5-Oj-dzC">
+                                                <rect key="frame" x="119.5" y="0.0" width="120" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-Pj-iK7">
-                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
-                                                <state key="normal" title="Set"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="50"/>
+                                                <state key="normal" title="設定"/>
                                                 <connections>
                                                     <action selector="endTimeSetBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="4rM-TF-ZNg"/>
                                                 </connections>
@@ -141,7 +141,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-nr-IgA">
-                                        <rect key="frame" x="0.0" y="76" width="359" height="28"/>
+                                        <rect key="frame" x="0.0" y="116" width="359" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定項" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-k5-Iq7">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="28"/>
@@ -195,17 +195,17 @@
                                     <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signOut:" destination="d8d-XG-UlA" eventType="touchUpInside" id="Uth-9d-aDZ"/>
+                                    <segue destination="rmZ-UA-PWF" kind="unwind" unwindAction="unwindSegue:" id="ouE-CI-LDD"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="3Dv-9B-y41">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRy-Sj-qCE">
-                                <rect key="frame" x="304" y="4" width="55" height="36"/>
+                                <rect key="frame" x="277" y="4" width="82" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Chart!">
-                                    <color key="titleColor" red="1" green="0.19121669159999999" blue="0.1243797896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="查看圖表">
+                                    <color key="titleColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="chartStartBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="0nh-aj-ZJ3"/>
@@ -229,6 +229,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKC-UT-DZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rmZ-UA-PWF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="-238.83058470764618"/>
         </scene>
@@ -280,7 +281,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpI-xo-Dsp" customClass="PieChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpI-xo-Dsp" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="8" y="72" width="359" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>

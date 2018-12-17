@@ -11,6 +11,7 @@ import GoogleSignIn
 import FBSDKLoginKit
 import UserNotifications
 
+
 let primaryColor = UIColor(red: 119/255, green: 204/255, blue: 218/255, alpha: 1)
 let secondaryColor = UIColor(red: 84/255, green: 193/255, blue: 244/255, alpha: 1)
 
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         FirebaseApp.configure() // 2.Firebase 初始化
         
