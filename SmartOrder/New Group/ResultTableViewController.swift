@@ -104,6 +104,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             couponUserSelectDiscount = myUserDefaults.object(forKey: "couponUserSelectDiscount") as! Double
 
         }
+        
 
         checkAddDict()  //addDict 沒資料的話按鍵設為false
         totalPriceLabel.text = getTotal()

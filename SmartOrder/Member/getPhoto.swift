@@ -11,8 +11,19 @@ import Firebase
 
 class Getphoto {
     let communicator = FirebaseCommunicator.shared
-    let currentUsermail = Auth.auth().currentUser?.email
-    let currentUserUid = Auth.auth().currentUser
+    
+    func showname()->String{
+        guard let currentUserUid = Auth.auth().currentUser else {
+            return ""
+        }
+        
+        guard let currentUsername = currentUserUid.displayName else {
+            return ""
+        }
+        
+        
+        return currentUsername
+    }
     
     func update() -> UIImage{
         var pho = UIImage(named: "camera")
