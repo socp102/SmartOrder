@@ -54,7 +54,7 @@ class OrderListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "$ \(item.total) 元"
         return cell
     }
-    
+    /*
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "删除") {
             action, index in
@@ -65,6 +65,7 @@ class OrderListTableViewController: UITableViewController {
         delete.backgroundColor = UIColor.red
         return [delete]
     }
+ */
     //下載資料
     
     func getCouponInfo(user: String) {
