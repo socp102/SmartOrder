@@ -107,6 +107,8 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             }
             self.displayNumber.text = "\(dict["Number"] ?? "N")"
             print(dict["Number"] as! Int)
+            let number = (dict["Number"] as! Int)
+            self.checkNumber(number: number)
         }
     }
     
@@ -188,6 +190,13 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                     print("保存userDefaults  Number  = \(number)")
                 }
             }
+        }
+    }
+    
+    // 檢查是否到號
+    func checkNumber(number: Int) {
+        if number == userDefaults.integer(forKey: "MyNumber") {
+            Common.showAlert(on: self, style: .alert, title: "桌號", message: "22")
         }
     }
     
