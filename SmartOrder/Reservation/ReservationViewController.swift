@@ -105,14 +105,14 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 self.setNumber()
                 return
             }
-            self.displayNumber.text = dict["Number"] as? String
-            print(dict["Number"] as! String)
+            self.displayNumber.text = "\(dict["Number"] ?? "N")"
+            print(dict["Number"] as! Int)
         }
     }
     
     // 監聽號碼為空時設定為將號碼設定為0，並重新啟動監聽
     func setNumber() {
-        ref.document("Number").setData(["Number" : "0"], merge: true) { (error) in
+        ref.document("Number").setData(["Number" : 1], merge: true) { (error) in
             if let error = error {
                 print("Fail to setNumber(號碼設0失敗)\(error)")
                 return
