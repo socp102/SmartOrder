@@ -34,7 +34,8 @@ class OrderListTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let item = objects[section]
-        return item.time
+        let result = item.time
+        return result
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
