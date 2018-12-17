@@ -29,6 +29,10 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mark" translatesAutoresizingMaskIntoConstraints="NO" id="LGg-SK-hxl">
                                 <rect key="frame" x="83" y="225.5" width="209" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="qAs-Or-xN4"/>
+                                    <constraint firstAttribute="width" constant="209" id="qhG-TC-dNo"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 APP SmartOrder SmartOrderTeam " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5j-n9-97f">
                                 <rect key="frame" x="33" y="626" width="309" height="21"/>

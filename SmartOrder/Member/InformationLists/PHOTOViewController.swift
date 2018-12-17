@@ -23,6 +23,8 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization:\(status.rawValue)")
         }
+        Photo.layer.masksToBounds = true
+        Photo.layer.cornerRadius = Photo.frame.width/2
         Photo.setImage(getphoto.update(), for: .normal)
         
         
