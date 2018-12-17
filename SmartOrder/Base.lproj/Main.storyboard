@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xw6-v3-JoE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DjI-16-zEW">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,6 +43,9 @@
                                 <state key="normal" title="註    冊">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="kYz-VC-oxA" kind="show" id="pIX-kc-D0g"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L9K-UD-RyV">
                                 <rect key="frame" x="82.666666666666671" y="418" width="248.66666666666663" height="100"/>
@@ -78,10 +81,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XK-B6-0s3">
-                                <rect key="frame" x="0.0" y="20" width="414" height="188"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="144"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mark" translatesAutoresizingMaskIntoConstraints="NO" id="RDZ-e0-KWF">
-                                        <rect key="frame" x="140.66666666666666" y="29" width="132.99999999999997" height="130"/>
+                                        <rect key="frame" x="140.66666666666666" y="7" width="132.99999999999997" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="133" id="AUh-Ve-9xm"/>
                                             <constraint firstAttribute="height" constant="130" id="cLt-UP-pj4"/>
@@ -133,13 +136,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUH-GZ-4jx"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Q0H-82-iXy"/>
                     <connections>
                         <outlet property="faceBookLoginButton" destination="rkz-KM-gVO" id="9Cy-3W-u8D"/>
                         <outlet property="textFieldEmail" destination="8kg-qP-ktl" id="jaG-Wh-Pbq"/>
                         <outlet property="textFieldPassword" destination="q1F-f0-Cb3" id="2EU-cY-Pk3"/>
-                        <segue destination="2tv-iz-FXw" kind="show" identifier="segueToUser" id="qNS-H9-wRr"/>
-                        <segue destination="Efj-3u-lTz" kind="show" identifier="segueToAdmin" id="laG-4b-JNO"/>
-                        <segue destination="Idy-5s-JKw" kind="show" identifier="segueToWaiter" id="bcR-Eu-eYH"/>
+                        <segue destination="2tv-iz-FXw" kind="showDetail" identifier="segueToUser" id="qNS-H9-wRr"/>
+                        <segue destination="Efj-3u-lTz" kind="showDetail" identifier="segueToAdmin" id="laG-4b-JNO"/>
+                        <segue destination="Idy-5s-JKw" kind="showDetail" identifier="segueToWaiter" id="bcR-Eu-eYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vtv-mp-PWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,7 +168,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-359.4202898550725" y="-1114.4021739130435"/>
+            <point key="canvasLocation" x="547.82608695652175" y="-1114.4021739130435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JNP-iL-pMh">
@@ -185,7 +189,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSW-ch-vVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="-286"/>
+            <point key="canvasLocation" x="548" y="-277"/>
         </scene>
         <!--Coupon-->
         <scene sceneID="wfg-Ip-g8x">
@@ -195,7 +199,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XT0-XZ-ni6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="175"/>
+            <point key="canvasLocation" x="128" y="174"/>
         </scene>
         <!--Order-->
         <scene sceneID="ik8-Yq-Qn1">
@@ -205,7 +209,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oL3-68-HCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="175"/>
+            <point key="canvasLocation" x="412" y="174"/>
         </scene>
         <!--Reservation-->
         <scene sceneID="DAI-cp-1I8">
@@ -215,7 +219,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwF-wo-OZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="250" y="175"/>
+            <point key="canvasLocation" x="710" y="174"/>
         </scene>
         <!--Member-->
         <scene sceneID="ueM-I6-rzr">
@@ -225,7 +229,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDU-5f-mOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="175"/>
+            <point key="canvasLocation" x="1059" y="174"/>
         </scene>
         <!--Waiter-->
         <scene sceneID="xqr-JX-1pZ">
@@ -233,7 +237,7 @@
                 <viewControllerPlaceholder storyboardName="Waiter" id="Idy-5s-JKw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-wz-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="-591"/>
+            <point key="canvasLocation" x="-171" y="-591"/>
         </scene>
         <!--AdminChartLogin-->
         <scene sceneID="Yeu-Ay-fYL">
@@ -241,10 +245,179 @@
                 <viewControllerPlaceholder storyboardName="AdminChart" referencedIdentifier="AdminChartLogin" id="Efj-3u-lTz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvd-nv-Ma0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-788" y="-287"/>
+            <point key="canvasLocation" x="-678" y="-591"/>
+        </scene>
+        <!--會員註冊-->
+        <scene sceneID="dUL-kX-uV1">
+            <objects>
+                <viewController id="kYz-VC-oxA" customClass="SignUpViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubZ-OF-0Yh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="s7v-1m-0BO">
+                                <rect key="frame" x="62" y="99.333333333333314" width="290" height="537.33333333333348"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsB-VK-oUl">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="42.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電子信箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xo2-K8-4YD">
+                                        <rect key="frame" x="0.0" y="54.666666666666671" width="290" height="43"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsY-Hp-t9L">
+                                        <rect key="frame" x="0.0" y="109.66666666666669" width="290" height="43"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密碼確認" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRm-1d-AVv">
+                                        <rect key="frame" x="0.0" y="164.66666666666669" width="290" height="43"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-yM-qUC">
+                                        <rect key="frame" x="0.0" y="219.66666666666669" width="290" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-tk-3Pb">
+                                        <rect key="frame" x="0.0" y="274.66666666666669" width="290" height="43"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYC-UR-DtM">
+                                        <rect key="frame" x="0.0" y="329.66666666666669" width="290" height="43"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1b-Nv-gzK">
+                                        <rect key="frame" x="0.0" y="384.66666666666669" width="290" height="43"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                        <state key="normal" title="生日">
+                                            <color key="titleColor" red="0.80377191309999996" green="0.80360192060000002" blue="0.82422465089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="L5t-ei-R2F" kind="popoverPresentation" identifier="ShowDatePicker" popoverAnchorView="N1b-Nv-gzK" id="Ywx-DX-r1A">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-Zi-eWY">
+                                        <rect key="frame" x="0.0" y="439.66666666666669" width="290" height="44"/>
+                                        <segments>
+                                            <segment title="性別"/>
+                                            <segment title="男"/>
+                                            <segment title="女"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="genderSegmented:" destination="kYz-VC-oxA" eventType="valueChanged" id="2LY-7x-6jA"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PE7-Hz-mFD">
+                                        <rect key="frame" x="0.0" y="494.66666666666669" width="290" height="42.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="註    冊"/>
+                                        <connections>
+                                            <action selector="signUpButton:" destination="kYz-VC-oxA" eventType="touchUpInside" id="mdl-Pd-4ga"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s7v-1m-0BO" firstAttribute="centerY" secondItem="ubZ-OF-0Yh" secondAttribute="centerY" id="Cwo-YF-g5K"/>
+                            <constraint firstItem="s7v-1m-0BO" firstAttribute="width" secondItem="uqm-Nb-kiF" secondAttribute="width" multiplier="7:10" id="gOy-F5-9UC"/>
+                            <constraint firstItem="s7v-1m-0BO" firstAttribute="centerX" secondItem="ubZ-OF-0Yh" secondAttribute="centerX" id="n7e-gC-NNO"/>
+                            <constraint firstItem="s7v-1m-0BO" firstAttribute="height" secondItem="uqm-Nb-kiF" secondAttribute="height" multiplier="8:10" id="zk8-mp-FV6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uqm-Nb-kiF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="會員註冊" id="mZd-g7-eWK"/>
+                    <connections>
+                        <outlet property="birthdayButton" destination="N1b-Nv-gzK" id="SW0-Ge-xjp"/>
+                        <outlet property="emailTextField" destination="xo2-K8-4YD" id="tWl-cy-UDu"/>
+                        <outlet property="nameTextField" destination="0mo-tk-3Pb" id="lsp-GX-U5r"/>
+                        <outlet property="passwordCheackTextField" destination="gRm-1d-AVv" id="LFA-N7-oex"/>
+                        <outlet property="passwordTextField" destination="HsY-Hp-t9L" id="Pgp-hW-C5U"/>
+                        <outlet property="phoneTextField" destination="HYC-UR-DtM" id="YZV-KV-cO2"/>
+                        <outlet property="stackView" destination="s7v-1m-0BO" id="0RJ-3W-uLj"/>
+                        <segue destination="2tv-iz-FXw" kind="showDetail" identifier="segueToUser" id="PeN-Oa-3Rq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siJ-Pf-0f0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528.985507246377" y="-1114.4021739130435"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="Yhl-kd-p1K">
+            <objects>
+                <viewController id="L5t-ei-R2F" customClass="DatePickerViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UI8-KG-oMu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-Wj-3eK">
+                                <rect key="frame" x="0.0" y="27" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="566377177.55945206">
+                                    <!--2018-12-13 06:59:37 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="zh_TW"/>
+                                <connections>
+                                    <action selector="datePickerValueChange:" destination="L5t-ei-R2F" eventType="valueChanged" id="xRM-TQ-TF2"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bWh-Wj-3eK" firstAttribute="centerX" secondItem="UI8-KG-oMu" secondAttribute="centerX" id="AVa-nR-hZA"/>
+                            <constraint firstItem="bWh-Wj-3eK" firstAttribute="centerY" secondItem="UI8-KG-oMu" secondAttribute="centerY" id="gS9-I7-ad2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rXI-n7-bt6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bvn-Xb-GfU"/>
+                    <size key="freeformSize" width="320" height="216"/>
+                    <connections>
+                        <outlet property="birthdayDatePicker" destination="bWh-Wj-3eK" id="N9E-Nt-zp0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5b-9c-3KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2215.9420289855075" y="-1114.4021739130435"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vfi-Dc-7GM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DjI-16-zEW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MU7-s4-YIP">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xw6-v3-JoE" kind="relationship" relationship="rootViewController" id="bPi-0F-yvf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6p-Uu-etz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-359.4202898550725" y="-1114.4021739130435"/>
         </scene>
     </scenes>
     <resources>
         <image name="Mark" width="209" height="216"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PeN-Oa-3Rq"/>
+    </inferredMetricsTieBreakers>
 </document>
