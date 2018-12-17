@@ -11,8 +11,8 @@ import GoogleSignIn
 import FBSDKLoginKit
 import UserNotifications
 
-let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 180/255, alpha: 1)
-let secondaryColor = UIColor(red: 52/255, green: 148/255, blue: 230/255, alpha: 1)
+let primaryColor = UIColor(red: 119/255, green: 204/255, blue: 218/255, alpha: 1)
+let secondaryColor = UIColor(red: 84/255, green: 193/255, blue: 244/255, alpha: 1)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {

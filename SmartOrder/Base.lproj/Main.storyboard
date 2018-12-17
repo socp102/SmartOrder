@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DjI-16-zEW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xw6-v3-JoE">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,10 +81,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XK-B6-0s3">
-                                <rect key="frame" x="0.0" y="64" width="414" height="144"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="188"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mark" translatesAutoresizingMaskIntoConstraints="NO" id="RDZ-e0-KWF">
-                                        <rect key="frame" x="140.66666666666666" y="7" width="132.99999999999997" height="130"/>
+                                        <rect key="frame" x="140.66666666666666" y="29" width="132.99999999999997" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="133" id="AUh-Ve-9xm"/>
                                             <constraint firstAttribute="height" constant="130" id="cLt-UP-pj4"/>
@@ -256,52 +256,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="s7v-1m-0BO">
-                                <rect key="frame" x="62" y="99.333333333333314" width="290" height="537.33333333333348"/>
+                                <rect key="frame" x="62" y="81.666666666666686" width="290" height="572.66666666666652"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsB-VK-oUl">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="42.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="46.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電子信箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xo2-K8-4YD">
-                                        <rect key="frame" x="0.0" y="54.666666666666671" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="58.333333333333329" width="290" height="46.666666666666671"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsY-Hp-t9L">
-                                        <rect key="frame" x="0.0" y="109.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="116.99999999999999" width="290" height="46.333333333333329"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密碼確認" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRm-1d-AVv">
-                                        <rect key="frame" x="0.0" y="164.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="175.33333333333331" width="290" height="46.666666666666657"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-yM-qUC">
-                                        <rect key="frame" x="0.0" y="219.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="234.00000000000003" width="290" height="46.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-tk-3Pb">
-                                        <rect key="frame" x="0.0" y="274.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="292.33333333333331" width="290" height="46.333333333333314"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYC-UR-DtM">
-                                        <rect key="frame" x="0.0" y="329.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="350.66666666666663" width="290" height="46.666666666666686"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1b-Nv-gzK">
-                                        <rect key="frame" x="0.0" y="384.66666666666669" width="290" height="43"/>
+                                        <rect key="frame" x="0.0" y="409.33333333333331" width="290" height="46.333333333333314"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                         <state key="normal" title="生日">
                                             <color key="titleColor" red="0.80377191309999996" green="0.80360192060000002" blue="0.82422465089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -313,7 +313,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-Zi-eWY">
-                                        <rect key="frame" x="0.0" y="439.66666666666669" width="290" height="44"/>
+                                        <rect key="frame" x="0.0" y="467.66666666666669" width="290" height="47.666666666666686"/>
                                         <segments>
                                             <segment title="性別"/>
                                             <segment title="男"/>
@@ -324,7 +324,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PE7-Hz-mFD">
-                                        <rect key="frame" x="0.0" y="494.66666666666669" width="290" height="42.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="526.33333333333337" width="290" height="46.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="註    冊"/>
                                         <connections>
@@ -333,6 +333,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phd-jA-wXK">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="註冊" id="3Kv-ns-2Jn">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="PJU-Om-9Vb">
+                                            <connections>
+                                                <segue destination="gMp-8Q-4UP" kind="unwind" unwindAction="unwindSegue:" id="HBB-tc-bWH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -356,6 +369,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siJ-Pf-0f0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gMp-8Q-4UP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1528.985507246377" y="-1114.4021739130435"/>
         </scene>
@@ -395,29 +409,11 @@
             </objects>
             <point key="canvasLocation" x="2215.9420289855075" y="-1114.4021739130435"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Vfi-Dc-7GM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DjI-16-zEW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MU7-s4-YIP">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Xw6-v3-JoE" kind="relationship" relationship="rootViewController" id="bPi-0F-yvf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m6p-Uu-etz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-359.4202898550725" y="-1114.4021739130435"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Mark" width="209" height="216"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PeN-Oa-3Rq"/>
+        <segue reference="qNS-H9-wRr"/>
     </inferredMetricsTieBreakers>
 </document>
