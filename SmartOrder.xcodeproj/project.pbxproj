@@ -7,68 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-        0A01BB5121C397590023E8F3 /* AdminBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4D21C397580023E8F3 /* AdminBarChartViewController.swift */; };
-        0A01BB5221C397590023E8F3 /* AdminLineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4E21C397590023E8F3 /* AdminLineChartViewController.swift */; };
-        0A01BB5321C397590023E8F3 /* AdminSelectChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4F21C397590023E8F3 /* AdminSelectChartViewController.swift */; };
-        0A01BB5421C397590023E8F3 /* AdminPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB5021C397590023E8F3 /* AdminPieChartViewController.swift */; };
-        0A01BB5A21C398480023E8F3 /* AdminChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A01BB5921C398480023E8F3 /* AdminChart.storyboard */; };
-        0A01BB5C21C399490023E8F3 /* AdminCommodityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB5B21C399480023E8F3 /* AdminCommodityModel.swift */; };
-        0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */; };
-        0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
-        0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
-        0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
-        0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
-        0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450221A7966F00571E17 /* DetailTableViewController.swift */; };
-        0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */; };
-        0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450421A7966F00571E17 /* MenuViewController.swift */; };
-        0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */; };
-        0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
-        0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
-        0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
-        9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */; };
-        9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
-        9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
-        9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */; };
-        9BD1EEFF218CA3CA004AB970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */; };
-        9BD1EF07218CA426004AB970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */; };
-        9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */; };
-        9BD1EF14218CAEFB004AB970 /* Reservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */; };
-        9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF18218ECF89004AB970 /* MainViewController.swift */; };
-        9BD1EF1B218EF349004AB970 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1A218EF349004AB970 /* Common.swift */; };
-        9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
-        A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */; };
-        A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D74021B10AA400A3F290 /* HotNewsCell.swift */; };
-        A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */; };
-        A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */; };
-        A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */; };
-        A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717DE21AE70D900EA6BFD /* CouponInfo.swift */; };
-        A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */; };
-        A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
-        A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11CDB2021B8C599008756DF /* Waiter.storyboard */; };
-        A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2521B8D70C008756DF /* OrderViewController.swift */; };
-        A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2721B8D726008756DF /* SeatViewController.swift */; };
-        A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */; };
-        A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */; };
-        A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */; };
-        A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */; };
-        A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
-        A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
-        A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
-        EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */; };
-        EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779B21BE9E2900210B15 /* Coupon.swift */; };
-        EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
-        EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6F821721AE7A4900092C91 /* Member.storyboard */; };
-        EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */; };
-        EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823221B117E800092C91 /* UIImage + Resize.swift */; };
-        EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
-        EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
-        EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
-        EBB59E0C21C39BF3004B833C /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0B21C39BF3004B833C /* HotNewsInfo.swift */; };
-        EBB59E0E21C39C34004B833C /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0D21C39C33004B833C /* WaitingStatus.swift */; };
-        EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
-        EBC682C921C0A91200D70A16 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C821C0A91200D70A16 /* Informations.swift */; };
-        EBE7196521C256F600A6F2C6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7196421C256F600A6F2C6 /* InformationViewController.swift */; };
-        EBE7196721C26EC800A6F2C6 /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7196621C26EC800A6F2C6 /* ModifyViewController.swift */; };
+		0A01BB5121C397590023E8F3 /* AdminBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4D21C397580023E8F3 /* AdminBarChartViewController.swift */; };
+		0A01BB5221C397590023E8F3 /* AdminLineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4E21C397590023E8F3 /* AdminLineChartViewController.swift */; };
+		0A01BB5321C397590023E8F3 /* AdminSelectChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB4F21C397590023E8F3 /* AdminSelectChartViewController.swift */; };
+		0A01BB5421C397590023E8F3 /* AdminPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB5021C397590023E8F3 /* AdminPieChartViewController.swift */; };
+		0A01BB5A21C398480023E8F3 /* AdminChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A01BB5921C398480023E8F3 /* AdminChart.storyboard */; };
+		0A01BB5C21C399490023E8F3 /* AdminCommodityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01BB5B21C399480023E8F3 /* AdminCommodityModel.swift */; };
+		0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */; };
+		0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */; };
+		0AE4441E21A2598800571E17 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4441D21A2598800571E17 /* Order.storyboard */; };
+		0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450021A7966F00571E17 /* FoodViewController.swift */; };
+		0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */; };
+		0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450221A7966F00571E17 /* DetailTableViewController.swift */; };
+		0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */; };
+		0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450421A7966F00571E17 /* MenuViewController.swift */; };
+		0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */; };
+		0AE4451421ABB2D400571E17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4451321ABB2D400571E17 /* libsqlite3.tbd */; };
+		0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */; };
+		0AF4336E38AD67EF88D2C75C /* Pods_SmartOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */; };
+		9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */; };
+		9B70435921C7474400077FB0 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70435721C7474300077FB0 /* DatePickerViewController.swift */; };
+		9B70435A21C7474400077FB0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70435821C7474400077FB0 /* SignUpViewController.swift */; };
+		9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */; };
+		9BD1EEFA218CA3C9004AB970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEF8218CA3C9004AB970 /* Main.storyboard */; };
+		9BD1EEFC218CA3CA004AB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */; };
+		9BD1EEFF218CA3CA004AB970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */; };
+		9BD1EF07218CA426004AB970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */; };
+		9BD1EF10218CAD15004AB970 /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */; };
+		9BD1EF14218CAEFB004AB970 /* Reservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */; };
+		9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF18218ECF89004AB970 /* MainViewController.swift */; };
+		9BD1EF1B218EF349004AB970 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1A218EF349004AB970 /* Common.swift */; };
+		9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */; };
+		A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */; };
+		A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D74021B10AA400A3F290 /* HotNewsCell.swift */; };
+		A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */; };
+		A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */; };
+		A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */; };
+		A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11717DE21AE70D900EA6BFD /* CouponInfo.swift */; };
+		A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */; };
+		A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */; };
+		A11CDB2121B8C599008756DF /* Waiter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11CDB2021B8C599008756DF /* Waiter.storyboard */; };
+		A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2521B8D70C008756DF /* OrderViewController.swift */; };
+		A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2721B8D726008756DF /* SeatViewController.swift */; };
+		A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */; };
+		A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */; };
+		A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */; };
+		A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */; };
+		A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */; };
+		A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B05A621BA411E001ADE36 /* SeatStatus.swift */; };
+		A19727282193E7A600068B18 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19727272193E7A600068B18 /* CouponViewController.swift */; };
+		EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */; };
+		EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB52779B21BE9E2900210B15 /* Coupon.swift */; };
+		EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F821021AE7A2100092C91 /* MemberViewController.swift */; };
+		EB6F821821AE7A4A00092C91 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6F821721AE7A4900092C91 /* Member.storyboard */; };
+		EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */; };
+		EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F823221B117E800092C91 /* UIImage + Resize.swift */; };
+		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
+		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
+		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
+		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
+		EBC682C921C0A91200D70A16 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C821C0A91200D70A16 /* Informations.swift */; };
+		EBE7196521C256F600A6F2C6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +94,8 @@
 		7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationViewController.swift; path = SmartOrder/Reservation/ReservationViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartOrder.entitlements; sourceTree = "<group>"; };
+		9B70435721C7474300077FB0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		9B70435821C7474400077FB0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD1EEF9218CA3C9004AB970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,9 +137,7 @@
 		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
 		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
 		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
-		EB7334A421C086C700B431D7 /* InformationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewController.swift; sourceTree = "<group>"; };
 		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
-		EBC682C621C0A8B300D70A16 /* modifyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modifyTableViewController.swift; sourceTree = "<group>"; };
 		EBC682C821C0A91200D70A16 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,307 +154,314 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        0A01BB4C21C3959E0023E8F3 /* Admin */ = {
-            isa = PBXGroup;
-            children = (
-                0A01BB4D21C397580023E8F3 /* AdminBarChartViewController.swift */,
-                0A01BB4E21C397590023E8F3 /* AdminLineChartViewController.swift */,
-                0A01BB5021C397590023E8F3 /* AdminPieChartViewController.swift */,
-                0A01BB4F21C397590023E8F3 /* AdminSelectChartViewController.swift */,
-            );
-            name = Admin;
-            path = "New Group1";
-            sourceTree = "<group>";
-        };
-        0AE4441C21A2590F00571E17 /* Order */ = {
-            isa = PBXGroup;
-            children = (
-                0AE4450421A7966F00571E17 /* MenuViewController.swift */,
-                0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */,
-                0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */,
-                0AE4450021A7966F00571E17 /* FoodViewController.swift */,
-                0AE4450221A7966F00571E17 /* DetailTableViewController.swift */,
-                0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */,
-                0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */,
-            );
-            name = Order;
-            path = "New Group";
-            sourceTree = "<group>";
-        };
-        0AF4F56F219EC112005AC6DC /* Order */ = {
-            isa = PBXGroup;
-            children = (
-                0AE4441D21A2598800571E17 /* Order.storyboard */,
-            );
-            path = Order;
-            sourceTree = "<group>";
-        };
-        0AF4F570219EC171005AC6DC /* Reservation */ = {
-            isa = PBXGroup;
-            children = (
-                9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
-            );
-            name = Reservation;
-            sourceTree = "<group>";
-        };
-        0AF4F571219EC17E005AC6DC /* Member */ = {
-            isa = PBXGroup;
-            children = (
-                EB6F821721AE7A4900092C91 /* Member.storyboard */,
-            );
-            name = Member;
-            sourceTree = "<group>";
-        };
-        0AF4F572219EC218005AC6DC /* Main */ = {
-            isa = PBXGroup;
-            children = (
-                9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
-                9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
-            );
-            name = Main;
-            sourceTree = "<group>";
-        };
-        697AD2051AA5818613594518 /* Frameworks */ = {
-            isa = PBXGroup;
-            children = (
-                0AE4451321ABB2D400571E17 /* libsqlite3.tbd */,
-                7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */,
-            );
-            name = Frameworks;
-            sourceTree = "<group>";
-        };
-        84E2BC7FF43EC17075F7E22F /* Pods */ = {
-            isa = PBXGroup;
-            children = (
-                436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */,
-                446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */,
-            );
-            name = Pods;
-            sourceTree = "<group>";
-        };
-        9B4F86D221B1224D0079C7C9 /* Reservation */ = {
-            isa = PBXGroup;
-            children = (
-                9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */,
-            );
-            name = Reservation;
-            sourceTree = "<group>";
-        };
-        9BC5560021C0F9A60034A90B /* Admin */ = {
-            isa = PBXGroup;
-            children = (
-                0A01BB5921C398480023E8F3 /* AdminChart.storyboard */,
-            );
-            name = Admin;
-            sourceTree = "<group>";
-        };
-        9BD1EEE8218CA3C9004AB970 = {
-            isa = PBXGroup;
-            children = (
-                9BD1EEF3218CA3C9004AB970 /* SmartOrder */,
-                9BD1EEF2218CA3C9004AB970 /* Products */,
-                84E2BC7FF43EC17075F7E22F /* Pods */,
-                697AD2051AA5818613594518 /* Frameworks */,
-                A1ECC06B21B11BB900D41852 /* Recovered References */,
-            );
-            sourceTree = "<group>";
-        };
-        9BD1EEF2218CA3C9004AB970 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        9BD1EEF3218CA3C9004AB970 /* SmartOrder */ = {
-            isa = PBXGroup;
-            children = (
-                9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */,
-                9BD1EF09218CA4A3004AB970 /* Model */,
-                9BD1EF08218CA431004AB970 /* View */,
-                9BD1EF0A218CA4AC004AB970 /* Controller */,
-                9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */,
-                0AE4451521ABB2FB00571E17 /* BridgeHeader.h */,
-                9BD1EF00218CA3CA004AB970 /* Info.plist */,
-                9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */,
-            );
-            path = SmartOrder;
-            sourceTree = "<group>";
-        };
-        9BD1EF08218CA431004AB970 /* View */ = {
-            isa = PBXGroup;
-            children = (
-                9BC5560021C0F9A60034A90B /* Admin */,
-                A11CDB1921B8BD17008756DF /* Waiter */,
-                0AF4F572219EC218005AC6DC /* Main */,
-                A1D61DAF2193ED69008D35C2 /* Coupon */,
-                0AF4F56F219EC112005AC6DC /* Order */,
-                0AF4F570219EC171005AC6DC /* Reservation */,
-                0AF4F571219EC17E005AC6DC /* Member */,
-            );
-            name = View;
-            sourceTree = "<group>";
-        };
-        9BD1EF09218CA4A3004AB970 /* Model */ = {
-            isa = PBXGroup;
-            children = (
-                0A01BB5B21C399480023E8F3 /* AdminCommodityModel.swift */,
-                0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */,
-                A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
-                EBB59E0D21C39C33004B833C /* WaitingStatus.swift */,
-                A11717E021AE70DE00EA6BFD /* Coupon */,
-                A11CDB2F21B8F5B9008756DF /* Waiter */,
-            );
-            path = Model;
-            sourceTree = "<group>";
-        };
-        9BD1EF0A218CA4AC004AB970 /* Controller */ = {
-            isa = PBXGroup;
-            children = (
-                0A01BB4C21C3959E0023E8F3 /* Admin */,
-                9B4F86D221B1224D0079C7C9 /* Reservation */,
-                EB6F822C21B1144800092C91 /* Member */,
-                0AE4441C21A2590F00571E17 /* Order */,
-                A11BE7AB219D045C00C5A86F /* Coupon */,
-                9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
-                A11CDB2421B8C817008756DF /* Waiter */,
-                9BD1EF1A218EF349004AB970 /* Common.swift */,
-                9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
-                9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
-            );
-            name = Controller;
-            sourceTree = "<group>";
-        };
-        A11717E021AE70DE00EA6BFD /* Coupon */ = {
-            isa = PBXGroup;
-            children = (
-                A11717DE21AE70D900EA6BFD /* CouponInfo.swift */,
+		0A01BB4C21C3959E0023E8F3 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				0A01BB4D21C397580023E8F3 /* AdminBarChartViewController.swift */,
+				0A01BB4E21C397590023E8F3 /* AdminLineChartViewController.swift */,
+				0A01BB5021C397590023E8F3 /* AdminPieChartViewController.swift */,
+				0A01BB4F21C397590023E8F3 /* AdminSelectChartViewController.swift */,
+			);
+			name = Admin;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		0AE4441C21A2590F00571E17 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				0AE4450421A7966F00571E17 /* MenuViewController.swift */,
+				0AE4450121A7966F00571E17 /* MenuTableViewCell.swift */,
+				0AE4450321A7966F00571E17 /* FoodTableViewCell.swift */,
+				0AE4450021A7966F00571E17 /* FoodViewController.swift */,
+				0AE4450221A7966F00571E17 /* DetailTableViewController.swift */,
+				0AE4451821ABD8FA00571E17 /* ResultTableViewCell.swift */,
+				0AF3954221AF8FF600434D3E /* ResultTableViewController.swift */,
+			);
+			name = Order;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0AF4F56F219EC112005AC6DC /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				0AE4441D21A2598800571E17 /* Order.storyboard */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		0AF4F570219EC171005AC6DC /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF13218CAEFB004AB970 /* Reservation.storyboard */,
+			);
+			name = Reservation;
+			sourceTree = "<group>";
+		};
+		0AF4F571219EC17E005AC6DC /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				EB6F821721AE7A4900092C91 /* Member.storyboard */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
+		0AF4F572219EC218005AC6DC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EEF8218CA3C9004AB970 /* Main.storyboard */,
+				9BD1EEFD218CA3CA004AB970 /* LaunchScreen.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		697AD2051AA5818613594518 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AE4451321ABB2D400571E17 /* libsqlite3.tbd */,
+				7039097D73F9A718EA36E5D5 /* Pods_SmartOrder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84E2BC7FF43EC17075F7E22F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				436BE46A013B8DA53395D0D0 /* Pods-SmartOrder.debug.xcconfig */,
+				446FB7B5994FBD40D3F53D30 /* Pods-SmartOrder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9B4F86D221B1224D0079C7C9 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				9B4F86D321B1227B0079C7C9 /* ReservationViewController.swift */,
+			);
+			name = Reservation;
+			sourceTree = "<group>";
+		};
+		9B70435621C7465400077FB0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF18218ECF89004AB970 /* MainViewController.swift */,
+				9BD1EEF4218CA3C9004AB970 /* AppDelegate.swift */,
+				9B70435721C7474300077FB0 /* DatePickerViewController.swift */,
+				9B70435821C7474400077FB0 /* SignUpViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9BC5560021C0F9A60034A90B /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				0A01BB5921C398480023E8F3 /* AdminChart.storyboard */,
+			);
+			name = Admin;
+			sourceTree = "<group>";
+		};
+		9BD1EEE8218CA3C9004AB970 = {
+			isa = PBXGroup;
+			children = (
+				9BD1EEF3218CA3C9004AB970 /* SmartOrder */,
+				9BD1EEF2218CA3C9004AB970 /* Products */,
+				84E2BC7FF43EC17075F7E22F /* Pods */,
+				697AD2051AA5818613594518 /* Frameworks */,
+				A1ECC06B21B11BB900D41852 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		9BD1EEF2218CA3C9004AB970 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EEF1218CA3C9004AB970 /* SmartOrder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BD1EEF3218CA3C9004AB970 /* SmartOrder */ = {
+			isa = PBXGroup;
+			children = (
+				9B4F86D521B13F130079C7C9 /* SmartOrder.entitlements */,
+				9BD1EF09218CA4A3004AB970 /* Model */,
+				9BD1EF08218CA431004AB970 /* View */,
+				9BD1EF0A218CA4AC004AB970 /* Controller */,
+				9BD1EEFB218CA3CA004AB970 /* Assets.xcassets */,
+				0AE4451521ABB2FB00571E17 /* BridgeHeader.h */,
+				9BD1EF00218CA3CA004AB970 /* Info.plist */,
+				9BD1EF06218CA426004AB970 /* GoogleService-Info.plist */,
+			);
+			path = SmartOrder;
+			sourceTree = "<group>";
+		};
+		9BD1EF08218CA431004AB970 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BC5560021C0F9A60034A90B /* Admin */,
+				A11CDB1921B8BD17008756DF /* Waiter */,
+				0AF4F572219EC218005AC6DC /* Main */,
+				A1D61DAF2193ED69008D35C2 /* Coupon */,
+				0AF4F56F219EC112005AC6DC /* Order */,
+				0AF4F570219EC171005AC6DC /* Reservation */,
+				0AF4F571219EC17E005AC6DC /* Member */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9BD1EF09218CA4A3004AB970 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A01BB5B21C399480023E8F3 /* AdminCommodityModel.swift */,
+				0AE4450F21A7AF0E00571E17 /* SQLiteConnect.swift */,
+				A11BE7AE219D075000C5A86F /* FirebaseCommunicator.swift */,
+				A11717E021AE70DE00EA6BFD /* Coupon */,
+				A11CDB2F21B8F5B9008756DF /* Waiter */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BD1EF0A218CA4AC004AB970 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF1A218EF349004AB970 /* Common.swift */,
+				9BD1EF1C218F66DC004AB970 /* HelperExtensions.swift */,
+				9B70435621C7465400077FB0 /* Main */,
+				0A01BB4C21C3959E0023E8F3 /* Admin */,
+				9B4F86D221B1224D0079C7C9 /* Reservation */,
+				EB6F822C21B1144800092C91 /* Member */,
+				0AE4441C21A2590F00571E17 /* Order */,
+				A11BE7AB219D045C00C5A86F /* Coupon */,
+				A11CDB2421B8C817008756DF /* Waiter */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A11717E021AE70DE00EA6BFD /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				A11717DE21AE70D900EA6BFD /* CouponInfo.swift */,
 				0A17835A21C1208900D44AA5 /* HotNewsInfo.swift */,
-            );
-            path = Coupon;
-            sourceTree = "<group>";
-        };
-        A11B7DA821AD92800059D89E /* HotNews */ = {
-            isa = PBXGroup;
-            children = (
-                A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */,
-                A108D74021B10AA400A3F290 /* HotNewsCell.swift */,
-            );
-            name = HotNews;
-            sourceTree = "<group>";
-        };
-        A11B7DA921AD92950059D89E /* Coupon */ = {
-            isa = PBXGroup;
-            children = (
-                A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */,
-            );
-            name = Coupon;
-            sourceTree = "<group>";
-        };
-        A11BE7AB219D045C00C5A86F /* Coupon */ = {
-            isa = PBXGroup;
-            children = (
-                A19727272193E7A600068B18 /* CouponViewController.swift */,
-                A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */,
-            );
-            name = Coupon;
-            sourceTree = "<group>";
-        };
-        A11CDB1921B8BD17008756DF /* Waiter */ = {
-            isa = PBXGroup;
-            children = (
-                A11CDB2021B8C599008756DF /* Waiter.storyboard */,
-                A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */,
-                A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */,
-                A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */,
-                A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */,
-            );
-            path = Waiter;
-            sourceTree = "<group>";
-        };
-        A11CDB2421B8C817008756DF /* Waiter */ = {
-            isa = PBXGroup;
-            children = (
-                A11CDB2521B8D70C008756DF /* OrderViewController.swift */,
-                A11CDB2721B8D726008756DF /* SeatViewController.swift */,
-            );
-            name = Waiter;
-            sourceTree = "<group>";
-        };
-        A11CDB2F21B8F5B9008756DF /* Waiter */ = {
-            isa = PBXGroup;
-            children = (
-                A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
-                A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */,
-                A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
-            );
-            name = Waiter;
-            sourceTree = "<group>";
-        };
-        A1D61DAF2193ED69008D35C2 /* Coupon */ = {
-            isa = PBXGroup;
-            children = (
-                9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */,
-                A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */,
-                A11B7DA821AD92800059D89E /* HotNews */,
-                A11B7DA921AD92950059D89E /* Coupon */,
-            );
-            name = Coupon;
-            sourceTree = "<group>";
-        };
-        A1ECC06B21B11BB900D41852 /* Recovered References */ = {
-            isa = PBXGroup;
-            children = (
-                EB6F821221AE7A2A00092C91 /* CouponListTableViewController.swift */,
-                EB6F821121AE7A2400092C91 /* InformationViewController.swift */,
-            );
-            name = "Recovered References";
-            sourceTree = "<group>";
-        };
-        EB6F822421B1130800092C91 /* CouponList */ = {
-            isa = PBXGroup;
-            children = (
-                EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */,
-                EB52779B21BE9E2900210B15 /* Coupon.swift */,
-            );
-            path = CouponList;
-            sourceTree = "<group>";
-        };
-        EB6F822A21B1140400092C91 /* OrderList */ = {
-            isa = PBXGroup;
-            children = (
-                EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
-                EB73349A21BEF38400B431D7 /* Orderlist.swift */,
-                EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
-            );
-            path = OrderList;
-            sourceTree = "<group>";
-        };
-        EB6F822C21B1144800092C91 /* Member */ = {
-            isa = PBXGroup;
-            children = (
-                EB6F823521B1181700092C91 /* InformationLists */,
-                EB6F821021AE7A2100092C91 /* MemberViewController.swift */,
-                EB7334A221C07AD000B431D7 /* getPhoto.swift */,
-                EB6F822421B1130800092C91 /* CouponList */,
-                EB6F822A21B1140400092C91 /* OrderList */,
-            );
-            path = Member;
-            sourceTree = "<group>";
-        };
-        EB6F823521B1181700092C91 /* InformationLists */ = {
-            isa = PBXGroup;
-            children = (
-                EBE7196421C256F600A6F2C6 /* InformationViewController.swift */,
-                EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */,
-                EB6F823221B117E800092C91 /* UIImage + Resize.swift */,
-                EBC682C821C0A91200D70A16 /* Informations.swift */,
-                EBE7196621C26EC800A6F2C6 /* ModifyViewController.swift */,
-            );
-            path = InformationLists;
-            sourceTree = "<group>";
-        };
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		A11B7DA821AD92800059D89E /* HotNews */ = {
+			isa = PBXGroup;
+			children = (
+				A11717D621AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift */,
+				A108D74021B10AA400A3F290 /* HotNewsCell.swift */,
+			);
+			name = HotNews;
+			sourceTree = "<group>";
+		};
+		A11B7DA921AD92950059D89E /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				A11717D821AE4BE000EA6BFD /* CouponCollectionViewCell.swift */,
+			);
+			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A11BE7AB219D045C00C5A86F /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				A19727272193E7A600068B18 /* CouponViewController.swift */,
+				A1180E3C21B3370C0095A140 /* CouponDetailViewController.swift */,
+			);
+			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A11CDB1921B8BD17008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2021B8C599008756DF /* Waiter.storyboard */,
+				A11CDB2921B8DD40008756DF /* OrderCollectionViewCell.swift */,
+				A11CDB2B21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift */,
+				A13B05A421BA3C1B001ADE36 /* SeatCollectionViewCell.swift */,
+				A13B05A221BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift */,
+			);
+			path = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2421B8C817008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB2521B8D70C008756DF /* OrderViewController.swift */,
+				A11CDB2721B8D726008756DF /* SeatViewController.swift */,
+			);
+			name = Waiter;
+			sourceTree = "<group>";
+		};
+		A11CDB2F21B8F5B9008756DF /* Waiter */ = {
+			isa = PBXGroup;
+			children = (
+				A11CDB3021B8F735008756DF /* OrderListForWaiter.swift */,
+				A101E6C621C3669F00B9E4D0 /* WaitingStatus.swift */,
+				A13B05A621BA411E001ADE36 /* SeatStatus.swift */,
+			);
+			name = Waiter;
+			sourceTree = "<group>";
+		};
+		A1D61DAF2193ED69008D35C2 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1EF0F218CAD15004AB970 /* Coupon.storyboard */,
+				A115A26121B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift */,
+				A11B7DA821AD92800059D89E /* HotNews */,
+				A11B7DA921AD92950059D89E /* Coupon */,
+			);
+			name = Coupon;
+			sourceTree = "<group>";
+		};
+		A1ECC06B21B11BB900D41852 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				EB6F821221AE7A2A00092C91 /* CouponListTableViewController.swift */,
+				EB6F821121AE7A2400092C91 /* InformationViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		EB6F822421B1130800092C91 /* CouponList */ = {
+			isa = PBXGroup;
+			children = (
+				EB52779921BE9E0100210B15 /* CoponViewTableViewController.swift */,
+				EB52779B21BE9E2900210B15 /* Coupon.swift */,
+			);
+			path = CouponList;
+			sourceTree = "<group>";
+		};
+		EB6F822A21B1140400092C91 /* OrderList */ = {
+			isa = PBXGroup;
+			children = (
+				EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
+				EB73349A21BEF38400B431D7 /* Orderlist.swift */,
+				EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
+			);
+			path = OrderList;
+			sourceTree = "<group>";
+		};
+		EB6F822C21B1144800092C91 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				EB6F823521B1181700092C91 /* InformationLists */,
+				EB6F821021AE7A2100092C91 /* MemberViewController.swift */,
+				EB7334A221C07AD000B431D7 /* getPhoto.swift */,
+				EB6F822421B1130800092C91 /* CouponList */,
+				EB6F822A21B1140400092C91 /* OrderList */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		EB6F823521B1181700092C91 /* InformationLists */ = {
+			isa = PBXGroup;
+			children = (
+				EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */,
+				EB6F823221B117E800092C91 /* UIImage + Resize.swift */,
+				EBC682C821C0A91200D70A16 /* Informations.swift */,
+			);
+			path = InformationLists;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -656,61 +662,62 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-        9BD1EEED218CA3C9004AB970 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
-                A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
-                EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
+		9BD1EEED218CA3C9004AB970 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
+				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
+				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
 				0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */,
-                A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
-                EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
-                A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
-                A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
-                A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
-                A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
-                0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
-                A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
+				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
+				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
+				A115A26221B0E4DF001C96FF /* SectionTitleCollectionReusableView.swift in Sources */,
+				A11CDB2621B8D70C008756DF /* OrderViewController.swift in Sources */,
+				A13B05A521BA3C1B001ADE36 /* SeatCollectionViewCell.swift in Sources */,
+				A11CDB2C21B8DDB1008756DF /* OrderSectionCollectionReusableView.swift in Sources */,
+				0AE4450921A7967000571E17 /* MenuViewController.swift in Sources */,
+				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
 				0A01BB5421C397590023E8F3 /* AdminPieChartViewController.swift in Sources */,
-				EB7334A521C086C700B431D7 /* InformationTableViewController.swift in Sources */,
-                EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
-                EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
-                0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
-                A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */,
-                0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
+				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
+				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
+				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
+				A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */,
+				0AE4450821A7967000571E17 /* FoodTableViewCell.swift in Sources */,
 				0A01BB5C21C399490023E8F3 /* AdminCommodityModel.swift in Sources */,
-                9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
-                0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
-                A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */,
-                9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
-                A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
-                EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */,
-                0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
-                0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */,
-                A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
-                0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
-                EBC682C921C0A91200D70A16 /* Informations.swift in Sources */,
-                0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
+				9BD1EF1D218F66DC004AB970 /* HelperExtensions.swift in Sources */,
+				9B70435921C7474400077FB0 /* DatePickerViewController.swift in Sources */,
+				0AE4450521A7967000571E17 /* FoodViewController.swift in Sources */,
+				A11717DF21AE70D900EA6BFD /* CouponInfo.swift in Sources */,
+				9BD1EEF5218CA3C9004AB970 /* AppDelegate.swift in Sources */,
+				A11BE7AF219D075000C5A86F /* FirebaseCommunicator.swift in Sources */,
+				EB6F823421B117E800092C91 /* UIImage + Resize.swift in Sources */,
+				0AE4451021A7AF0E00571E17 /* SQLiteConnect.swift in Sources */,
+				0A28439D21B132FD0033D4EB /* ResultTableViewController.swift in Sources */,
+				A11717D921AE4BE000EA6BFD /* CouponCollectionViewCell.swift in Sources */,
+				0AE4451921ABD8FA00571E17 /* ResultTableViewCell.swift in Sources */,
+				EBC682C921C0A91200D70A16 /* Informations.swift in Sources */,
+				0AE4450721A7967000571E17 /* DetailTableViewController.swift in Sources */,
 				0A01BB5321C397590023E8F3 /* AdminSelectChartViewController.swift in Sources */,
-                A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
-                A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */,
-                0A01BB5121C397590023E8F3 /* AdminBarChartViewController.swift in Sources */,
-                9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
-                EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */,
-                0A01BB5221C397590023E8F3 /* AdminLineChartViewController.swift in Sources */,
-                A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
-                9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
-                EBE7196521C256F600A6F2C6 /* InformationViewController.swift in Sources */,
-                A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
-                A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
-                9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
-                EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */,
-                EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
-                EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+				A11717D721AE4BC800EA6BFD /* HotNewsCollectionViewCell.swift in Sources */,
+				A11CDB2821B8D726008756DF /* SeatViewController.swift in Sources */,
+				0A01BB5121C397590023E8F3 /* AdminBarChartViewController.swift in Sources */,
+				9B70435A21C7474400077FB0 /* SignUpViewController.swift in Sources */,
+				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
+				EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */,
+				0A01BB5221C397590023E8F3 /* AdminLineChartViewController.swift in Sources */,
+				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
+				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
+				EBE7196521C256F600A6F2C6 /* (null) in Sources */,
+				A19727282193E7A600068B18 /* CouponViewController.swift in Sources */,
+				A11CDB3121B8F735008756DF /* OrderListForWaiter.swift in Sources */,
+				9BD1EF19218ECF89004AB970 /* MainViewController.swift in Sources */,
+				EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */,
+				EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */,
+				EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
