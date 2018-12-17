@@ -31,9 +31,8 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
     
     
-    
-    
     @IBAction func Picture(_ sender: UIButton) {
+        
         //取得同意授權鈕
         let alert = UIAlertController(title: "Please chouse source:", message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in

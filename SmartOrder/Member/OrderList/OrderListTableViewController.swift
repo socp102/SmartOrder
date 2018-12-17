@@ -25,6 +25,11 @@ class OrderListTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         getCouponInfo(user: currentUser.uid)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -49,7 +54,18 @@ class OrderListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "$ \(item.total) 元"
         return cell
     }
-    
+    /*
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "删除") {
+            action, index in
+            //将对应条目的数据删除
+            //self.items.remove(at: index.row)
+            tableView.reloadData()
+        }
+        delete.backgroundColor = UIColor.red
+        return [delete]
+    }
+ */
     //下載資料
     
     func getCouponInfo(user: String) {
