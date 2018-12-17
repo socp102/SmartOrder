@@ -18,8 +18,8 @@ class MemberViewController: UIViewController {
     
     @IBAction func signout(_ sender: Any) {
         print("signout")
-        let alert = UIAlertController(title: "確定要登出？", message: "確定要登出此帳號？", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK!", style: .default) { action in
+        let alert = UIAlertController(title: "登出", message: "是否登出此帳號？", preferredStyle: .alert)
+        let action = UIAlertAction(title: "確認", style: .default) { action in
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()
@@ -29,7 +29,7 @@ class MemberViewController: UIViewController {
                 print("Error signing out: %$", signOutErroe)
             }
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: "取消", style: .destructive)
         alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
