@@ -584,7 +584,6 @@
                                 <state key="normal" title="Button" image="camera"/>
                                 <connections>
                                     <action selector="Picture:" destination="qFR-W9-geb" eventType="touchUpInside" id="zCO-H9-xfH"/>
-                                    <outletCollection property="gestureRecognizers" destination="NMf-Be-Fxf" appends="YES" id="Aan-sD-IYP"/>
                                 </connections>
                             </button>
                         </subviews>
