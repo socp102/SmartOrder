@@ -24,7 +24,6 @@ class MainViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
-        
     }
     
     override func viewDidLoad() {

@@ -14,7 +14,10 @@ class MemberViewController: UIViewController {
     let communicator = FirebaseCommunicator.shared
     let get = Getphoto()
     let newaccount = New()
-    @IBAction func unwind(segue: UIStoryboardSegue){
+    
+    
+    @IBAction func signout(_ sender: Any) {
+        print("signout")
         let alert = UIAlertController(title: "確定要登出？", message: "確定要登出此帳號？", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK!", style: .default) { action in
             let firebaseAuth = Auth.auth()

@@ -87,7 +87,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="exit" id="Oup-o8-QGt">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="6Fn-cJ-y5f" kind="unwind" unwindAction="unwindSegue:" id="uQW-hA-m9Y"/>
+                                <action selector="signout:" destination="nu1-Wp-6cb" id="EfC-Bz-ULB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -97,6 +97,7 @@
                         <outlet property="MembersegmentedControl" destination="Ey2-NX-Gcc" id="zf5-pz-9TH"/>
                         <outlet property="OrderlistView" destination="ken-Gl-U1o" id="sMk-Qs-Vh8"/>
                         <outlet property="Photos" destination="QbE-zT-RKW" id="NBG-ju-IPF"/>
+                        <segue destination="6Fn-cJ-y5f" kind="unwind" identifier="signOutSegue" unwindAction="unwindSegue:" id="2OE-zb-9Kf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hky-EE-03i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,6 +576,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJu-Qy-HNg">
                                 <rect key="frame" x="127.5" y="40.5" width="120" height="120"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="YSN-VM-yFY"/>
                                     <constraint firstAttribute="height" constant="120" id="cSH-Qb-g9x"/>
@@ -582,6 +584,7 @@
                                 <state key="normal" title="Button" image="camera"/>
                                 <connections>
                                     <action selector="Picture:" destination="qFR-W9-geb" eventType="touchUpInside" id="zCO-H9-xfH"/>
+                                    <outletCollection property="gestureRecognizers" destination="NMf-Be-Fxf" appends="YES" id="Aan-sD-IYP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -596,6 +599,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvM-Lu-ZNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="NMf-Be-Fxf"/>
             </objects>
             <point key="canvasLocation" x="2092" y="1805"/>
         </scene>
