@@ -134,8 +134,8 @@ class ModifyViewController: UIViewController {
             reinformation.gender = "2"
         }
         
-        if reinformation.email.isEmpty || reinformation.name.isEmpty || reinformation.phoneNum.isEmpty {
-            let alert = UIAlertController(title: "資料不能為空", message: "請檢查是否為空", preferredStyle: .alert)
+        if reinformation.email.isEmpty == true {
+            let alert = UIAlertController(title: "資料不能為空", message: "請檢查必填是否為空", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK!", style: .default)
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
@@ -162,7 +162,8 @@ class ModifyViewController: UIViewController {
             
             let data = [["name":datas.name],["PhoneNumber":datas.phoneNum],["Gender":datas.gender],["Birthday":datas.birthday],["email":datas.email]]
             
-            for infos in 1...5 {
+            for infos in 0...4 {
+                print("datainfo: \(data[infos])")
                 fireBase.updateData(collectionName: "account", documentName: currentUserUid, data: data[infos]) { (results, error) in
                     if let error = error {
                         print("error: \(error)")
