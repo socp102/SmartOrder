@@ -12,10 +12,10 @@ import Firebase
 class OrderListDetialTableViewController: UITableViewController {
     let communicator = FirebaseCommunicator.shared
     var detialobject = Order()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setvalue()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,9 +31,13 @@ class OrderListDetialTableViewController: UITableViewController {
 
     
     func setvalue() {
+       
+        for _ in self.detialobject.itemName.name {
+            detialItem.text.append(contentsOf:"\(self.detialobject.itemName.name)  數量：\(self.detialobject.itemName.detialitem.count) 總額：\(self.detialobject.itemName.detialitem.subtotle)" )
+            
+        }
+        
         detialtime.text = self.detialobject.time
-        detialItem.text = "\(self.detialobject.itemName.name)  數量：\(self.detialobject.itemName.detialitem.count)"
-        total.text = self.detialobject.itemName.detialitem.subtotle
         finialtotal.text = "折扣後金額： \(self.detialobject.total) 元"
         couponDetial.text = self.detialobject.coupon
     }

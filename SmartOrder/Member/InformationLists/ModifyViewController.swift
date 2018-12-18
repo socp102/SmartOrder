@@ -23,18 +23,6 @@ class ModifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if sex.isOn {
-            sextext.text = "Male"
-        } else {
-            sextext.text = "Female"
-        }
-        loadinfonum()
-        mail.delegate = self as UITextFieldDelegate
-        name.delegate = self as UITextFieldDelegate
-        phone.delegate = self as UITextFieldDelegate
-        
-        registerNotification()
-        self.hideKeyboardWhenTappedAround()
         
     }
     
@@ -53,6 +41,13 @@ class ModifyViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func gender(_ sender: Any) {
+        if sex.isOn {
+            sextext.text = "Male"
+        } else {
+            sextext.text = "Female"
+        }
+    }
     //鍵盤
     func registerNotification(){
         

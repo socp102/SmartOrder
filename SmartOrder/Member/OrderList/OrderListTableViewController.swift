@@ -19,18 +19,24 @@ class OrderListTableViewController: UITableViewController {
     var firebaseCommunicator = FirebaseCommunicator.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshdata()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
         refreshdata()
         
     }
     
     func refreshdata(){
+        objects.removeAll()
+        object.itemName.name.removeAll()
+        object.itemName.detialitem.count.removeAll()
+        object.itemName.detialitem.subtotle.removeAll()
+        object.total.removeAll()
+        object.coupon.removeAll()
+        object.time.removeAll()
+        
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
@@ -51,6 +57,9 @@ class OrderListTableViewController: UITableViewController {
         
         return result
     }
+    var test:Order? = nil
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -61,6 +70,7 @@ class OrderListTableViewController: UITableViewController {
             "ordercell", for: indexPath)
         let item = objects[indexPath.section]
         cell.detailTextLabel?.text = "$ \(item.total) 元"
+        cell.tag = indexPath.section
         return cell
     }
     /*
@@ -106,13 +116,16 @@ class OrderListTableViewController: UITableViewController {
                 
                 //如果不使用優惠券
                 guard self.orderinfo["coupon"] != nil else {
-                    
-                    self.object.itemName.detialitem.subtotle = self.object.total
+                    self.object.itemName.name.removeAll()
+                    self.object.itemName.detialitem.count.removeAll()
+                    self.object.itemName.detialitem.subtotle.removeAll()
                     
                     for item in orderitem.keys {
-                        self.object.itemName.name = item
+                        self.object.itemName.name.append(item)
                         let detialitem = orderitem[item]
-                        self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
+                        self.object.itemName.detialitem.count.append((detialitem!["count"]!) as! String)
+                        self.object.itemName.detialitem.subtotle.append((detialitem!["subtotal"]!) as! String)
+                        
                     }
                     
                     self.objects.append(self.object)
@@ -123,19 +136,23 @@ class OrderListTableViewController: UITableViewController {
                 self.object.coupon = (self.orderinfo["coupon"])! as! String
                 
                 //明細
+                self.object.itemName.name.removeAll()
+                self.object.itemName.detialitem.count.removeAll()
+                self.object.itemName.detialitem.subtotle.removeAll()
                 
                 for item in orderitem.keys {
-                    self.object.itemName.name = item
+                    
+                    self.object.itemName.name.append(item)
                     let detialitem = orderitem[item]
-                    self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
-                    self.object.itemName.detialitem.subtotle = (detialitem!["subtotal"]!) as! String
+                    self.object.itemName.detialitem.count.append((detialitem!["count"]!) as! String)
+                    self.object.itemName.detialitem.subtotle.append((detialitem!["subtotal"]!) as! String)
+                   
                 }
                 
                 //上傳
-                self.objects.append(self.object)
                 
-                print("sort:\(self.object.time)")
-                //print("objects: \(self.objects)")
+                self.objects.append(self.object)
+                print("object: \(self.objects)")
                 self.tableView.reloadData()
             })
 
@@ -148,8 +165,9 @@ class OrderListTableViewController: UITableViewController {
             let controller = segue.destination as! OrderListDetialTableViewController
 //            let detialobject = self.objects
 //            controller.detialobject = detialobject
-            let indexPath = self.tableView.indexPathForSelectedRow
-            let courseSelect = objects[indexPath!.row]
+            let index = sender as! UITableViewCell
+            let courseSelect = objects[index.tag]
+            print("tag: \(index.tag)")
             controller.detialobject = courseSelect
         }
     }
