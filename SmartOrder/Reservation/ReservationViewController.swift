@@ -72,7 +72,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     override func viewWillAppear(_ animated: Bool) {
         // 檢查是否已經取號
         if userDefaults.string(forKey: "documentID") == nil {
-            changeButton(getNumber: true)
+            manager.startRangingBeacons(in: beaconRegion)
         } else {
             changeButton(getNumber: false)
             myNumber.text = userDefaults.string(forKey: "MyNumber")
@@ -84,12 +84,13 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         getNumberButton.alpha = 0.3
         registration()
         manager.startMonitoring(for: beaconRegion)
+        
     }
     
     @IBAction func testNumber(_ sender: Any) { // 取消候位按鈕
         cancelWaiting()
         manager.stopMonitoring(for: beaconRegion)
-        manager.stopRangingBeacons(in: beaconRegion)
+        manager.startRangingBeacons(in: beaconRegion)
     }
     // 監聽目前號碼
     func listenNumber() {
@@ -288,6 +289,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     
     // 切換Button狀態
     func changeButton(getNumber: Bool) {
+        getNumberButton.setTitle("現場候位取號", for: .normal)
         getNumberButton.isUserInteractionEnabled = getNumber
         cancelNumberBtuuon.isUserInteractionEnabled = !getNumber
         if getNumber {
@@ -351,7 +353,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         } else if state == .unknown { // .outside
             showNotification("如離開現場等候，到號時將自動過號!")
             self.saveLocation(state: "outside")
-            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
         } else if state == .outside { // .outside
             showNotification("目前已經開現場等候，到號時將自動過號!")
@@ -361,19 +363,29 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        for beacon in beacons {
-            let proximity: String
-            switch beacon.proximity {
-            case .unknown:
-                proximity = "Unknown"
-            case .immediate:
-                proximity = "Immediate"
-            case .near:
-                proximity = "Near"
-            case .far:
-                proximity = "Far"
+        if userDefaults.string(forKey: "documentID") == nil {
+            for beacon in beacons {
+                let proximity: String
+                switch beacon.proximity {
+                case .unknown:
+                    proximity = "Unknown"
+                case .immediate:
+                    proximity = "Immediate"
+                    changeButton(getNumber: true)
+                case .near:
+                    proximity = "Near"
+                    changeButton(getNumber: true)
+                case .far:
+                    proximity = "Far"
+                    getNumberButton.isUserInteractionEnabled = false
+                    cancelNumberBtuuon.isUserInteractionEnabled = false
+                    getNumberButton.alpha = 0.3
+                    cancelNumberBtuuon.alpha = 0.3
+                    getNumberButton.setTitle("請靠近號碼機抽取號碼", for: .normal)
+
+                }
+                print("目前位置========================\(proximity)")
             }
-            print("目前位置\(proximity)")
         }
     }
 
