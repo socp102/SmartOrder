@@ -16,6 +16,7 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     var pho = UIImage(named: "camera")
     let getphoto = Getphoto()
     let communicator = FirebaseCommunicator.shared
+    var resizedImage = UIImage(named: "camera")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +29,20 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+//        DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
+//            self.load()
+//        }
         load()
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        resizedImage = UIImage(named: "camera")
+    }
     
+   
+    @IBOutlet weak var image: UIImageView!
     
     @IBAction func Picture(_ sender: UIButton) {
         //取得同意授權鈕
@@ -83,17 +93,18 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 assertionFailure("originalImage is nil")
                 return
             }
-            let resizedImage = originalImage.resize(maxEdge: 1024)!
-            
-            
+            resizedImage = originalImage.resize(maxEdge: 1024)!
             //上傳照片
+            self.image.layer.masksToBounds = true
+            self.image.layer.cornerRadius = self.image.frame.width/2
+            self.image.image = resizedImage
             
             guard let currentUserUid = Auth.auth().currentUser?.uid else {
                 print("uid is nil")
                 return
             }
             // 取得從 UIImagePickerController 選擇的檔案
-            communicator.sendPhoto(selectedImageFromPicker: resizedImage, uniqueString: currentUserUid )
+            updatapic(resizedImage:resizedImage!,currentUserUid:currentUserUid)
             print("uid: \(currentUserUid)")
             
         } else if type == (kUTTypeMovie as String){
@@ -103,21 +114,31 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         picker.dismiss(animated: true)//不加picker會凍結
     }
     
+    func updatapic(resizedImage:UIImage,currentUserUid:String)  {
+        communicator.sendPhoto(selectedImageFromPicker: resizedImage, uniqueString: currentUserUid )
+        print("uid: \(currentUserUid)")
+    }
+    
     func load() {
         guard let currentUserUid = Auth.auth().currentUser?.uid else {
             print("uid is nil")
             return
         }
-        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid).jpeg", isUpdateToLocal: true) {(result, error) in
-            if let error = error {
-                print("download photo error:\(error)")
-            } else {
-                let pho = (result as! UIImage)
-                self.Photo.layer.masksToBounds = true
-                self.Photo.layer.cornerRadius = self.Photo.frame.width/2
-                self.Photo.setImage(pho, for: .normal)
+        if self.resizedImage ==  self.pho {
+            communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid).jpeg", isUpdateToLocal: true) {(result, error) in
+                if let error = error {
+                    print("download photo error:\(error)")
+                } else {
+                    let pho = (result as! UIImage)
+                    self.image.layer.masksToBounds = true
+                    self.image.layer.cornerRadius = self.image.frame.width/2
+                    self.image.image = pho
+                }
             }
+        }else{
+            
         }
+        
     }
     
     

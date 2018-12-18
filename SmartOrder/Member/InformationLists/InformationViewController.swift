@@ -31,8 +31,11 @@ class InformationViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadinfonum()
     }
+   
+    
     func loadinfonum() {
         //下載
         guard let currentUserUid = Auth.auth().currentUser?.uid else {
