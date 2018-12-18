@@ -27,13 +27,15 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     var db: Firestore!
     var ref: CollectionReference!
     var listener: ListenerRegistration!
+    var firbase = FirebaseCommunicator.shared
     
     var today = ""
-    var userEmail = ""
+    var userUid = ""
     var documentID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         db = Firestore.firestore()
         // 取得今天日期轉字串
         let now = Date()
@@ -43,10 +45,10 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         // 存取路徑定義
         ref = db.collection("Reservation").document("Waiting").collection(today)
         // 取得登入帳號
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        userEmail = email
+        userUid = uid
         
         listenNumber() // 監聽跳號
         
@@ -64,12 +66,14 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         if let listener = listener {
             listener.remove()
         }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // 檢查是否已經取號
         if userDefaults.string(forKey: "documentID") == nil {
-            changeButton(getNumber: true)
+            manager.startRangingBeacons(in: beaconRegion)
         } else {
             changeButton(getNumber: false)
             myNumber.text = userDefaults.string(forKey: "MyNumber")
@@ -81,12 +85,13 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         getNumberButton.alpha = 0.3
         registration()
         manager.startMonitoring(for: beaconRegion)
+        
     }
     
     @IBAction func testNumber(_ sender: Any) { // 取消候位按鈕
         cancelWaiting()
         manager.stopMonitoring(for: beaconRegion)
-        manager.stopRangingBeacons(in: beaconRegion)
+        manager.startRangingBeacons(in: beaconRegion)
     }
     // 監聽目前號碼
     func listenNumber() {
@@ -107,6 +112,8 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             }
             self.displayNumber.text = "\(dict["Number"] ?? "N")"
             print(dict["Number"] as! Int)
+            let number = (dict["Number"] as! Int)
+            self.checkNumber(number: number)
         }
     }
     
@@ -123,7 +130,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     
     // 登記準備取號碼牌
     func registration() {
-        let data = ["User": userEmail,
+        let data = ["User": userUid,
                     "Status": true,
                     "LocationState" : "inside",
                     "Timestamp":FieldValue.serverTimestamp()] as [String : Any]
@@ -158,6 +165,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         }
     }
     
+    
     // 顯示號碼(目前號碼，取得號碼)
     func getMyNumber(myTimestamp: Any) {
         let responds = ref.whereField("Timestamp", isLessThanOrEqualTo: myTimestamp)
@@ -186,7 +194,49 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                     self.changeButton(getNumber: false)
                     self.userDefaults.set(number, forKey: "MyNumber")
                     print("保存userDefaults  Number  = \(number)")
+                    self.addNumber(number: number)
                 }
+            }
+        }
+    }
+    
+    // 檢查是否到號 並顯示桌號
+    func checkNumber(number: Int) {
+        if number == userDefaults.integer(forKey: "MyNumber") {
+            getTableID()
+        }
+    }
+    
+    // 取得桌號
+    func getTableID() {
+        if let documentID = userDefaults.string(forKey: "documentID") {
+            ref.document(documentID).getDocument { (document, err) in
+                if let tableID = document?.data()?["tableID"], document!.exists {
+                    print("tableID:(取得桌號) \(tableID)")
+                    self.userDefaults.set(tableID, forKey: "tableID")
+                    Common.showAlert(on: self, style: .alert, title: "桌號", message: "\(tableID)")
+                    self.saveTable(tableID: tableID)
+                } else {
+                    print("Document does not exist(無法取得桌號)")
+                }
+            }
+        }
+    }
+    
+    func saveTable(tableID: Any) {
+        let data = ["UserUid": userUid ]
+        firbase.addData(collectionName: "seat", documentName: "\(tableID)", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to saveTable \(err)")
+            }
+        }
+    }
+    
+    func addNumber(number: Int) {
+        let data = ["Number": number] as [String: Int]
+        firbase.addData(collectionName: "seat", documentName: "Number", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
             }
         }
     }
@@ -199,7 +249,17 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 } else {
                     self.changeButton(getNumber: false)
                     print("Change Location state to firebase= \(state)")
+                    self.addLocation ()
                 }
+            }
+        }
+    }
+    
+    func addLocation () {
+        let data = ["User": userUid]
+        firbase.addData(collectionName: "seat", documentName: "LocationChange", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
             }
         }
     }
@@ -214,12 +274,23 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 if let err = err {
                     print("Fail to cancelWaiting (取消候位失敗)\(err)")
                 }
+                self.cancelAdd()
+            }
+        }
+    }
+    
+    func cancelAdd() {
+        let data = ["User": userUid]
+        firbase.addData(collectionName: "seat", documentName: "CancelWaiting", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
             }
         }
     }
     
     // 切換Button狀態
     func changeButton(getNumber: Bool) {
+        getNumberButton.setTitle("  現場候位取號  ", for: .normal)
         getNumberButton.isUserInteractionEnabled = getNumber
         cancelNumberBtuuon.isUserInteractionEnabled = !getNumber
         if getNumber {
@@ -280,28 +351,42 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             self.saveLocation(state: "inside")
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
-        } else { // .outside
-            showNotification("已離開現場等候，到號時將自動過號!")
+        } else if state == .unknown { // .outside
+            showNotification("如離開現場等候，到號時將自動過號!")
+            self.saveLocation(state: "outside")
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
+            
+        } else if state == .outside { // .outside
+            showNotification("目前已經開現場等候，到號時將自動過號!")
             self.saveLocation(state: "outside")
             manager.stopRangingBeacons(in: region as! CLBeaconRegion)
-            
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        for beacon in beacons {
-            let proximity: String
-            switch beacon.proximity {
-            case .unknown:
-                proximity = "Unknown"
-            case .immediate:
-                proximity = "Immediate"
-            case .near:
-                proximity = "Near"
-            case .far:
-                proximity = "Far"
+        if userDefaults.string(forKey: "documentID") == nil {
+            for beacon in beacons {
+                let proximity: String
+                switch beacon.proximity {
+                case .unknown:
+                    proximity = "Unknown"
+                case .immediate:
+                    proximity = "Immediate"
+                    changeButton(getNumber: true)
+                case .near:
+                    proximity = "Near"
+                    changeButton(getNumber: true)
+                case .far:
+                    proximity = "Far"
+                    getNumberButton.isUserInteractionEnabled = false
+                    cancelNumberBtuuon.isUserInteractionEnabled = false
+                    getNumberButton.alpha = 0.3
+                    cancelNumberBtuuon.alpha = 0.3
+                    getNumberButton.setTitle("  請靠近號碼機抽取號碼  ", for: .normal)
+
+                }
+                print("目前位置========================\(proximity)")
             }
-            // infoLabel.text = "\(region.identifier),\(proximity),\(beacon.rssi),\(beacon.accuracy)"
         }
     }
 

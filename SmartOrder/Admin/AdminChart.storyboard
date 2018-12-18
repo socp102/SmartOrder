@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Select Chart View Controller-->
+        <!--統計圖表-->
         <scene sceneID="3oA-9P-4MS">
             <objects>
                 <viewController id="d8d-XG-UlA" customClass="AdminSelectChartViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,17 +44,28 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvr-vP-OQH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="153.5" height="30"/>
-                                                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" title="Cancel"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="取消 "/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="cancelPickViewBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="ohO-iY-cdk"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-8E-mVf">
                                                                 <rect key="frame" x="173.5" y="0.0" width="153.5" height="30"/>
-                                                                <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" title="Chack"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="確認"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="chackDateTimeBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="UK2-4C-yrt"/>
                                                                 </connections>
@@ -72,7 +83,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.45082405821917809" green="0.78823529411764703" blue="0.92147367294520544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="Bpr-zX-EZp"/>
                                     <constraint firstItem="fn6-Qa-6qG" firstAttribute="top" secondItem="GpX-GP-m9V" secondAttribute="top" constant="8" id="Deo-9o-kNt"/>
@@ -80,36 +91,64 @@
                                     <constraint firstAttribute="bottom" secondItem="fn6-Qa-6qG" secondAttribute="bottom" constant="8" id="SNz-IE-V5I"/>
                                     <constraint firstAttribute="trailing" secondItem="fn6-Qa-6qG" secondAttribute="trailing" constant="8" id="YYz-bl-yAS"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="5" height="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dia-nE-KjR">
-                                <rect key="frame" x="8" y="450" width="359" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="dia-nE-KjR">
+                                <rect key="frame" x="8" y="410" width="359" height="29"/>
+                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
-                                    <segment title="Line Chart"/>
-                                    <segment title="Bar Chart"/>
-                                    <segment title="Pie Chart"/>
+                                    <segment title="折線圖"/>
+                                    <segment title="長條圖"/>
+                                    <segment title="圓餅 &amp; 長條圖"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HTC-Qz-shd">
-                                <rect key="frame" x="8" y="494" width="359" height="104"/>
+                                <rect key="frame" x="8" y="454" width="359" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-6n-03Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeStart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPw-HZ-yU1">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起始時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPw-HZ-yU1">
+                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-j2-8mV">
-                                                <rect key="frame" x="119.5" y="0.0" width="120" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-j2-8mV">
+                                                <rect key="frame" x="119.5" y="0.0" width="120" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sns-Cq-5Vz">
-                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
-                                                <state key="normal" title="Set"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="設定"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="startTimeSetBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="zvV-up-kRT"/>
                                                 </connections>
@@ -117,23 +156,30 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nWs-AR-Txb">
-                                        <rect key="frame" x="0.0" y="38" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="58" width="359" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeEnd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-Pd-cLN">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結束時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-Pd-cLN">
+                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y5-Oj-dzC">
-                                                <rect key="frame" x="119.5" y="0.0" width="120" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y5-Oj-dzC">
+                                                <rect key="frame" x="119.5" y="0.0" width="120" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-Pj-iK7">
-                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
-                                                <state key="normal" title="Set"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="設定"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="endTimeSetBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="4rM-TF-ZNg"/>
                                                 </connections>
@@ -141,21 +187,28 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-nr-IgA">
-                                        <rect key="frame" x="0.0" y="76" width="359" height="28"/>
+                                        <rect key="frame" x="0.0" y="116" width="359" height="28"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定項" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-k5-Iq7">
-                                                <rect key="frame" x="0.0" y="0.0" width="63" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定項：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-k5-Iq7">
+                                                <rect key="frame" x="0.0" y="0.0" width="79.5" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="14x-1E-bB1">
-                                                <rect key="frame" x="63" y="0.0" width="296" height="29"/>
+                                                <rect key="frame" x="79.5" y="0.0" width="279.5" height="29"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <segments>
                                                     <segment title="營收"/>
                                                     <segment title="來客數"/>
                                                     <segment title="商品售出量"/>
                                                 </segments>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="selectTypeBtn:" destination="d8d-XG-UlA" eventType="valueChanged" id="IKE-VW-IDC"/>
                                                 </connections>
@@ -168,44 +221,63 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBo-1G-czn" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="80" width="343" height="267"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mark" translatesAutoresizingMaskIntoConstraints="NO" id="LEh-Si-clt">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="267"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LEh-Si-clt" firstAttribute="width" secondItem="BBo-1G-czn" secondAttribute="width" id="JsI-iv-T3E"/>
+                                    <constraint firstItem="LEh-Si-clt" firstAttribute="leading" secondItem="BBo-1G-czn" secondAttribute="leading" id="QJD-bc-zw1"/>
+                                    <constraint firstAttribute="trailing" secondItem="LEh-Si-clt" secondAttribute="trailing" id="k0K-Yq-NvO"/>
+                                    <constraint firstItem="LEh-Si-clt" firstAttribute="top" secondItem="BBo-1G-czn" secondAttribute="top" id="qjj-4u-9Eh"/>
+                                    <constraint firstItem="LEh-Si-clt" firstAttribute="height" secondItem="BBo-1G-czn" secondAttribute="height" id="w4f-nf-Hn9"/>
+                                    <constraint firstAttribute="bottom" secondItem="LEh-Si-clt" secondAttribute="bottom" id="yUU-N1-9lp"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HTC-Qz-shd" firstAttribute="leading" secondItem="jFA-eE-mCV" secondAttribute="leading" constant="8" id="11W-Re-hrM"/>
                             <constraint firstItem="jFA-eE-mCV" firstAttribute="trailing" secondItem="GpX-GP-m9V" secondAttribute="trailing" constant="16" id="1JV-b7-GFq"/>
                             <constraint firstItem="HTC-Qz-shd" firstAttribute="top" secondItem="dia-nE-KjR" secondAttribute="bottom" constant="16" id="2uU-PP-Z1R"/>
                             <constraint firstItem="GpX-GP-m9V" firstAttribute="leading" secondItem="jFA-eE-mCV" secondAttribute="leading" constant="16" id="CDi-DC-Hdo"/>
+                            <constraint firstItem="BBo-1G-czn" firstAttribute="leading" secondItem="jFA-eE-mCV" secondAttribute="leading" constant="16" id="FHW-X3-WC1"/>
                             <constraint firstItem="TKb-jD-KVR" firstAttribute="centerY" secondItem="lUg-rt-0sC" secondAttribute="centerY" id="Jsc-e9-X2g"/>
                             <constraint firstItem="jFA-eE-mCV" firstAttribute="bottom" secondItem="HTC-Qz-shd" secondAttribute="bottom" constant="20" id="KkK-qH-wNG"/>
+                            <constraint firstItem="BBo-1G-czn" firstAttribute="height" secondItem="lUg-rt-0sC" secondAttribute="height" multiplier="2/5" id="Saa-VV-dsA"/>
+                            <constraint firstItem="BBo-1G-czn" firstAttribute="top" secondItem="jFA-eE-mCV" secondAttribute="top" constant="16" id="YFN-9J-3zB"/>
                             <constraint firstItem="dia-nE-KjR" firstAttribute="leading" secondItem="jFA-eE-mCV" secondAttribute="leading" constant="8" id="ZHw-Se-fb1"/>
                             <constraint firstItem="GpX-GP-m9V" firstAttribute="top" secondItem="jFA-eE-mCV" secondAttribute="top" constant="30" id="jfs-DS-3D7"/>
                             <constraint firstItem="TKb-jD-KVR" firstAttribute="centerX" secondItem="lUg-rt-0sC" secondAttribute="centerX" id="pnB-fi-DGt"/>
                             <constraint firstItem="jFA-eE-mCV" firstAttribute="trailing" secondItem="dia-nE-KjR" secondAttribute="trailing" constant="8" id="rNS-2V-ea4"/>
+                            <constraint firstItem="jFA-eE-mCV" firstAttribute="trailing" secondItem="BBo-1G-czn" secondAttribute="trailing" constant="16" id="u3C-wI-WAt"/>
                             <constraint firstItem="jFA-eE-mCV" firstAttribute="trailing" secondItem="HTC-Qz-shd" secondAttribute="trailing" constant="8" id="w8C-vl-gjZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jFA-eE-mCV"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="VeQ-OZ-t04"/>
-                    <navigationItem key="navigationItem" id="xoU-A4-fsz">
+                    <navigationItem key="navigationItem" title="統計圖表" id="xoU-A4-fsz">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="oHh-VV-qgZ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SLO-dE-FkG">
-                                <rect key="frame" x="16" y="7" width="72" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SLO-dE-FkG">
+                                <rect key="frame" x="16" y="6" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登出">
+                                <state key="normal" image="Logout">
                                     <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signOut:" destination="d8d-XG-UlA" eventType="touchUpInside" id="Uth-9d-aDZ"/>
+                                    <segue destination="rmZ-UA-PWF" kind="unwind" unwindAction="unwindSegue:" id="ouE-CI-LDD"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="3Dv-9B-y41">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRy-Sj-qCE">
-                                <rect key="frame" x="304" y="4" width="55" height="36"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pRy-Sj-qCE">
+                                <rect key="frame" x="311" y="0.0" width="48" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Chart!">
-                                    <color key="titleColor" red="1" green="0.19121669159999999" blue="0.1243797896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="Chart">
+                                    <color key="titleColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="chartStartBtn:" destination="d8d-XG-UlA" eventType="touchUpInside" id="0nh-aj-ZJ3"/>
@@ -215,8 +287,10 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="chartView" destination="BBo-1G-czn" id="Wkc-Ag-fZN"/>
                         <outlet property="datePickerValue" destination="Yt6-Bh-UiG" id="sXy-kJ-FHU"/>
                         <outlet property="endLabel" destination="2y5-Oj-dzC" id="MpD-dP-aUk"/>
+                        <outlet property="imageView" destination="LEh-Si-clt" id="vXe-2g-SHh"/>
                         <outlet property="loadingView" destination="TKb-jD-KVR" id="vNJ-xc-Ax9"/>
                         <outlet property="pickSetView" destination="GpX-GP-m9V" id="WEq-6b-nCd"/>
                         <outlet property="selectChartSegmented" destination="dia-nE-KjR" id="xkS-3E-hFw"/>
@@ -229,6 +303,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKC-UT-DZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rmZ-UA-PWF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="-238.83058470764618"/>
         </scene>
@@ -249,7 +324,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29757183790206909" green="0.76421302556991577" blue="0.95498198270797729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1oE-Ul-fVo" firstAttribute="height" secondItem="K3E-Wh-ku6" secondAttribute="height" id="0Kj-Pq-rvX"/>
                             <constraint firstItem="cXI-nj-dfe" firstAttribute="trailing" secondItem="1oE-Ul-fVo" secondAttribute="trailing" constant="8" id="3Wv-gP-waq"/>
@@ -280,7 +355,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpI-xo-Dsp" customClass="PieChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpI-xo-Dsp" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="8" y="72" width="359" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -289,7 +364,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ffL-tR-1qL" firstAttribute="leading" secondItem="d8s-Um-Hcx" secondAttribute="leading" constant="8" id="6Fp-2J-7Yd"/>
@@ -323,14 +398,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0c-Ka-YAZ" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="8" y="72" width="359" height="263"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.7909086045" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsC-yn-pUk" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="8" y="347" width="359" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i0c-Ka-YAZ" firstAttribute="leading" secondItem="1ca-pk-Zz3" secondAttribute="leading" constant="8" id="4OK-Se-xcy"/>
                             <constraint firstItem="i0c-Ka-YAZ" firstAttribute="height" secondItem="1ca-pk-Zz3" secondAttribute="height" multiplier="19/40" id="600-11-HLT"/>
@@ -362,7 +437,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nhe-dT-T4N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.3529411764705882" green="0.78823529411764703" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -374,4 +449,9 @@
             <point key="canvasLocation" x="-729" y="-239"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Chart" width="35" height="35"/>
+        <image name="Logout" width="32" height="32"/>
+        <image name="Mark" width="209" height="216"/>
+    </resources>
 </document>

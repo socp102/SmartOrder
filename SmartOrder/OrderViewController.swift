@@ -189,7 +189,8 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 8 * 3600)
         let orderTime = Double(orders[indexPath.section].setupTime.seconds)
         let date = dateFormatter.string(from: Date(timeIntervalSince1970: orderTime))
-        sectionTitle.sectionTitle.text = "第 \(orders[indexPath.section].tableID) 桌"
+        let tableID = tableDecoder(tableID: orders[indexPath.section].tableID)
+        sectionTitle.sectionTitle.text = tableID
         sectionTitle.orderTime.text = "點餐時間: \(date)"
         return sectionTitle
     }
@@ -303,6 +304,29 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return "Sundae"
         default:
             return "unknown"
+        }
+    }
+    
+    func tableDecoder(tableID: String) -> String {
+        switch tableID {
+        case "table1":
+            return "第一桌"
+        case "table2":
+            return "第二桌"
+        case "table3":
+            return "第三桌"
+        case "table4":
+            return "第四桌"
+        case "table5":
+            return "第五桌"
+        case "table6":
+            return "第六桌"
+        case "table7":
+            return "第七桌"
+        case "table8":
+            return "第八桌"
+        default:
+            return "Unkown"
         }
     }
 }

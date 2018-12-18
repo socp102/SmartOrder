@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Chart.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "exit-to-app-button.png",
       "scale" : "2x"
     },
     {

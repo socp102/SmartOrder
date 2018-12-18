@@ -29,6 +29,9 @@ class SignUpViewController: UIViewController, UIPopoverPresentationControllerDel
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
+        // Add the background gradient  背景調成漸層色
+        view.addVerticalGradientLayer(topColor: secondaryColor , bottomColor: primaryColor)
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordCheackTextField.delegate = self

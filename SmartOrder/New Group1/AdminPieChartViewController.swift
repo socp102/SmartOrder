@@ -11,54 +11,78 @@ import Charts
 
 class AdminPieChartViewController: UIViewController {
 
-    @IBOutlet weak var chartViewA: PieChartView!
+    @IBOutlet weak var chartViewA: BarChartView!
     @IBOutlet weak var chartViewB: PieChartView!
     
     
     var chartDataA: [String: Int] = [:] // commodityCountData
-    var chartDataB: [String: Int] = [:]
-    
+
     var type: [String] = []
     var timePart: String = ""
     
-    // 餅狀圖
-//    var chartView: PieChartView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        print("xxx \(timePart)")
-        setChart(dataPoints: chartDataA, chartView: chartViewA)
-        setChart(dataPoints: chartDataB, chartView: chartViewB)
-
+        setBarChart(dataPoints: chartDataA, chartView: chartViewA)
+        setPieChart(dataPoints: chartDataA, chartView: chartViewB)
     }
     
-    func setChart (dataPoints: [String: Int], chartView: PieChartView) {
+    // BarChart
+    func setBarChart(dataPoints: [String: Int], chartView: BarChartView) {
         
-        var dataEntries: [PieChartDataEntry] = []
-
+        chartView.noDataText = "無數據提供"
+        var dataEntries: [BarChartDataEntry] = []
+        var tempName:[String] = []
         
-        // 前五排序 使用A資料
-        
-        if chartDataB.count == 0 {
-            let result = chartDataA.sorted { (str1, str2) -> Bool in
-                return str1.1 > str2.1
-            }
-            for (k, v) in result {
-                if chartDataB.count < 5 {
-                    chartDataB[k] = v
-                }
-            }
-            print("xxx \(chartDataB)")
+        var count = 0
+        for (k, v) in dataPoints {
+            let dataEntry = BarChartDataEntry(x: Double(count), y: Double(v))
+            tempName.append(k)
+            dataEntries.append(dataEntry)
+            count += 1
         }
         
+        // 顯示的資料之內容與名稱（左下角所顯示的）
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "\(type[0])")
+        type.remove(at: 0)
+        let chartData = BarChartData(dataSet: chartDataSet)
+        // 數據設定
+        chartView.data = chartData
         
+        // x軸敘述
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: tempName)
+        // chartDataSet為彩色
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        // x軸標籤換到下方
+        chartView.xAxis.labelPosition = .bottom
+        // 一次顯示數據最大量
+        chartView.setVisibleXRangeMaximum(7)
+        // 一個一個延遲顯現的特效
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        // 彈跳特效
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
         
+    }
+    
+    
+    // Pie Chart
+    func setPieChart (dataPoints: [String: Int], chartView: PieChartView) {
         
-        for (k, v) in dataPoints {
-            //設定X.Y座標分別顯示的東西
+        var dataEntries: [PieChartDataEntry] = []
+        var chartDataB: [String: Int] = [:]
+        
+        // 遞減排序
+        let result = dataPoints.sorted { (str1, str2) -> Bool in
+            return str1.1 > str2.1
+        }
+        // 取前五
+        for (k, v) in result {
+            if chartDataB.count < 5 {
+                chartDataB[k] = v
+            }
+        }
+        
+        for (k, v) in chartDataB {
             let dataEntry = PieChartDataEntry(value: Double(v), label: k)
-            //把個別的dataEntry的資料，儲存至dataEntries中
             dataEntries.append(dataEntry)
         }
         
@@ -71,7 +95,6 @@ class AdminPieChartViewController: UIViewController {
             + ChartColorTemplates.liberty()
             + ChartColorTemplates.pastel()
         
-        
         chartView.chartDescription?.text = timePart   //折線圖描述文字(右下文字
         chartView.chartDescription?.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)    // color
         // 折線第一段起始位置（越大離圓越遠
@@ -82,21 +105,13 @@ class AdminPieChartViewController: UIViewController {
         chartDataSet.yValuePosition = .outsideSlice //數字顯示在圓外
         
         let chartData = PieChartData(dataSet: chartDataSet)
-        chartData.setValueTextColor(.black)// 文字黑色
-        
-        //一個一個延遲顯現的特效
+        chartData.setValueTextColor(.black) // 文字黑色
+        // 延遲顯現特效
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        
-        //彈一下特效
+        // 彈跳特效
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
-        
-        if chartView == chartViewB {
-        chartView.maxAngle = 270 //整个扇形占2/3圆
-        chartView.rotationAngle = 135 //旋转角度让扇面左右对称
-        }
         // 設置餅狀圖數據
         chartView.data = chartData
     }
-    
     
 }

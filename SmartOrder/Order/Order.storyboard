@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IDf-r2-AV3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IDf-r2-AV3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -178,11 +178,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="uHe-vM-4av">
-                            <rect key="frame" x="0.0" y="98" width="375" height="112"/>
+                            <rect key="frame" x="0.0" y="98" width="375" height="167"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C9z-tJ-52s">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C9z-tJ-52s">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-9j-aZs">
                                             <rect key="frame" x="5" y="0.0" width="365" height="1"/>
@@ -194,35 +194,46 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHv-39-CmT">
-                                            <rect key="frame" x="0.0" y="6" width="375" height="30"/>
-                                            <state key="normal" title="選購優惠卷"/>
-                                            <connections>
-                                                <action selector="showCouponBtnAction:" destination="ZVz-dw-noK" eventType="touchUpInside" id="Lxw-Mn-ZBi"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ROT-pW-4Mk">
+                                            <rect key="frame" x="5" y="6" width="365" height="38"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="桌號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id1-n9-bKM">
+                                                    <rect key="frame" x="0.0" y="9" width="35" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHv-39-CmT">
+                                                    <rect key="frame" x="40" y="4" width="325" height="30"/>
+                                                    <state key="normal" title="選購優惠卷"/>
+                                                    <connections>
+                                                        <action selector="showCouponBtnAction:" destination="ZVz-dw-noK" eventType="touchUpInside" id="Lxw-Mn-ZBi"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HL7-rn-lpm">
-                                            <rect key="frame" x="5" y="41" width="365" height="24"/>
+                                            <rect key="frame" x="5" y="49" width="365" height="63"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-7d-osC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="63"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I7p-ep-zQT">
-                                                    <rect key="frame" x="185" y="0.0" width="180" height="24"/>
+                                                    <rect key="frame" x="185" y="0.0" width="180" height="63"/>
                                                     <subviews>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="折扣後" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IR-Nh-CkA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="63"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-Bb-0pZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="63"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                            <color key="textColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -230,8 +241,11 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXJ-Na-pMe">
-                                            <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="117" width="375" height="50"/>
                                             <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="nJ1-Sv-Ue8"/>
+                                            </constraints>
                                             <state key="normal" title="送出訂單">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -242,18 +256,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="kXJ-Na-pMe" secondAttribute="trailing" id="1Xg-uq-prT"/>
+                                        <constraint firstAttribute="trailing" secondItem="ROT-pW-4Mk" secondAttribute="trailing" constant="5" id="6xJ-UH-MRj"/>
                                         <constraint firstAttribute="trailing" secondItem="HL7-rn-lpm" secondAttribute="trailing" constant="5" id="7mX-mS-XtJ"/>
-                                        <constraint firstItem="kXJ-Na-pMe" firstAttribute="top" secondItem="HL7-rn-lpm" secondAttribute="bottom" constant="5" id="GkU-ej-A2n"/>
-                                        <constraint firstItem="HL7-rn-lpm" firstAttribute="top" secondItem="kHv-39-CmT" secondAttribute="bottom" constant="5" id="JPT-Ub-ECS"/>
                                         <constraint firstItem="kXJ-Na-pMe" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" id="Mci-tB-U2A"/>
-                                        <constraint firstAttribute="bottom" secondItem="kXJ-Na-pMe" secondAttribute="bottom" id="TGC-OC-8Rv"/>
                                         <constraint firstItem="YLo-9j-aZs" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" constant="5" id="ZJf-5M-AQa"/>
-                                        <constraint firstItem="kHv-39-CmT" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" id="djA-OP-7HH"/>
-                                        <constraint firstAttribute="trailing" secondItem="kHv-39-CmT" secondAttribute="trailing" id="dnT-32-pek"/>
                                         <constraint firstItem="YLo-9j-aZs" firstAttribute="top" secondItem="C9z-tJ-52s" secondAttribute="top" id="eMo-Mp-tpC"/>
                                         <constraint firstItem="HL7-rn-lpm" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" constant="5" id="jY6-PE-FLm"/>
-                                        <constraint firstItem="kHv-39-CmT" firstAttribute="top" secondItem="YLo-9j-aZs" secondAttribute="bottom" constant="5" id="pKm-og-wn6"/>
                                         <constraint firstAttribute="trailing" secondItem="YLo-9j-aZs" secondAttribute="trailing" constant="5" id="sM6-0m-Y55"/>
+                                        <constraint firstItem="ROT-pW-4Mk" firstAttribute="leading" secondItem="C9z-tJ-52s" secondAttribute="leading" constant="5" id="wuh-pX-r8S"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
@@ -261,6 +271,7 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="C9z-tJ-52s" secondAttribute="trailing" id="K22-x3-qcN"/>
                                 <constraint firstItem="C9z-tJ-52s" firstAttribute="top" secondItem="uHe-vM-4av" secondAttribute="top" id="Ujx-Vr-34Q"/>
+                                <constraint firstAttribute="bottom" secondItem="C9z-tJ-52s" secondAttribute="bottom" id="yrS-wL-VJx"/>
                                 <constraint firstItem="C9z-tJ-52s" firstAttribute="leading" secondItem="uHe-vM-4av" secondAttribute="leading" id="zZ3-PM-Qfp"/>
                             </constraints>
                         </view>
@@ -332,6 +343,7 @@
                         <outlet property="discountOutlet" destination="9IR-Nh-CkA" id="iJt-ao-DO5"/>
                         <outlet property="sendToFirebaseOutlet" destination="kXJ-Na-pMe" id="CU2-hq-4tE"/>
                         <outlet property="showCouponBtnOutlet" destination="kHv-39-CmT" id="sj7-ob-PTh"/>
+                        <outlet property="tableNumberOutlet" destination="Id1-n9-bKM" id="U2m-fW-5v6"/>
                         <outlet property="totalPriceLabel" destination="q3c-Bb-0pZ" id="sty-aT-I0T"/>
                     </connections>
                 </tableViewController>
@@ -428,17 +440,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J18-0h-hSc">
-                                                    <rect key="frame" x="5" y="0.0" width="340" height="50"/>
+                                                    <rect key="frame" x="5" y="0.0" width="350" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="小計" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgQ-nl-8UM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="價錢" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gx-oP-ILU">
-                                                            <rect key="frame" x="170" y="0.0" width="170" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="175" y="0.0" width="175" height="50"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                             <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -453,7 +465,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="J18-0h-hSc" firstAttribute="leading" secondItem="RCU-wI-WGG" secondAttribute="leading" constant="5" id="7DH-p8-JcO"/>
-                                                <constraint firstAttribute="trailing" secondItem="J18-0h-hSc" secondAttribute="trailing" constant="30" id="QbE-Kp-7ze"/>
+                                                <constraint firstAttribute="trailing" secondItem="J18-0h-hSc" secondAttribute="trailing" constant="20" id="QbE-Kp-7ze"/>
                                                 <constraint firstAttribute="bottom" secondItem="J18-0h-hSc" secondAttribute="bottom" id="ZD7-y6-uxW"/>
                                                 <constraint firstItem="J18-0h-hSc" firstAttribute="top" secondItem="RCU-wI-WGG" secondAttribute="top" id="sXs-ve-l88"/>
                                             </constraints>
@@ -468,8 +480,14 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68y-MW-k1b">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="加入訂單"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="n5d-Ek-7Gt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <state key="normal" title="加入訂單">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="addToOrder:" destination="nbl-Kw-Csj" eventType="touchUpInside" id="8DI-hl-bXQ"/>
                                                         <segue destination="m2k-NL-1xE" kind="unwind" unwindAction="unwindSegueToMenuWithSegue:" id="qHY-aa-rCc"/>
@@ -478,7 +496,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="68y-MW-k1b" firstAttribute="leading" secondItem="86H-Lp-Ma7" secondAttribute="leading" id="6OH-FY-yNw"/>
-                                                <constraint firstItem="68y-MW-k1b" firstAttribute="top" secondItem="86H-Lp-Ma7" secondAttribute="top" id="9AA-tW-ngB"/>
                                                 <constraint firstAttribute="bottom" secondItem="68y-MW-k1b" secondAttribute="bottom" id="e53-7u-vX9"/>
                                                 <constraint firstAttribute="trailing" secondItem="68y-MW-k1b" secondAttribute="trailing" id="vLn-lK-F9L"/>
                                             </constraints>
@@ -548,8 +565,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Menu" width="48" height="48"/>
-        <image name="shop" width="18" height="18"/>
+        <image name="Menu" width="32" height="32"/>
+        <image name="shop" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6in-41-lId"/>
