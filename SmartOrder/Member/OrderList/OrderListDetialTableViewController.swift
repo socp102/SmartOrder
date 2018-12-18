@@ -33,7 +33,7 @@ class OrderListDetialTableViewController: UITableViewController {
     func setvalue() {
        
         for _ in self.detialobject.itemName.name {
-            detialItem.text.append(contentsOf:"\(self.detialobject.itemName.name)  數量：\(self.detialobject.itemName.detialitem.count) 總額：\(self.detialobject.itemName.detialitem.subtotle)" )
+            detialItem.text = "\(self.detialobject.itemName.name)  數量：\(self.detialobject.itemName.detialitem.count) 總額：\(self.detialobject.itemName.detialitem.subtotle)" 
             
         }
         
