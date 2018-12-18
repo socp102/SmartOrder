@@ -18,7 +18,6 @@ class AdminBarChartViewController: UIViewController {
     var chartDataMonthData: [Int] = []
     
     var type: [String] = []
-    var timePart: String = ""
     
     @IBOutlet weak var chartViewA: BarChartView!
     @IBOutlet weak var chartViewB: BarChartView!
@@ -49,27 +48,28 @@ class AdminBarChartViewController: UIViewController {
         type.remove(at: 0)
         // 把dataSet轉換成可顯示的BarChartData
         let chartData = BarChartData(dataSet: chartDataSet)
+        
         // A chartView有資料就給B顯示
         if chartViewA.data == nil {
             chartViewA.data = chartData
-
+            
         } else {
             chartViewB.data = chartData
         }
 
-        chartView.chartDescription?.text = timePart   //折線圖描述文字(右下文字
-        chartView.chartDescription?.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)    // color
         // x軸敘述
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data)
-        chartDataSet.colors = ChartColorTemplates.colorful()    //改變chartDataSet為彩色
-        chartView.xAxis.labelPosition = .bottom //標籤換到下方
-        chartView.setVisibleXRangeMaximum(6)   // 最大顯示量
-        //改變barChartView的背景顏色
-        chartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        // chartDataSet為彩色
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        // x軸標籤換到下方
+        chartView.xAxis.labelPosition = .bottom
+        // 最大顯示量  Important!  BarChartView 需先有數據
+        chartView.setVisibleXRangeMaximum(7)
         // 延遲顯現
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         // 彈跳特效
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
+        
     }
     
 }

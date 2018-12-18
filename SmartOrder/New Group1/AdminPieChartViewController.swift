@@ -26,6 +26,44 @@ class AdminPieChartViewController: UIViewController {
         setPieChart(dataPoints: chartDataA, chartView: chartViewB)
     }
     
+    // BarChart
+    func setBarChart(dataPoints: [String: Int], chartView: BarChartView) {
+        
+        chartView.noDataText = "無數據提供"
+        var dataEntries: [BarChartDataEntry] = []
+        var tempName:[String] = []
+        
+        var count = 0
+        for (k, v) in dataPoints {
+            let dataEntry = BarChartDataEntry(x: Double(count), y: Double(v))
+            tempName.append(k)
+            dataEntries.append(dataEntry)
+            count += 1
+        }
+        
+        // 顯示的資料之內容與名稱（左下角所顯示的）
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "\(type[0])")
+        type.remove(at: 0)
+        let chartData = BarChartData(dataSet: chartDataSet)
+        // 數據設定
+        chartView.data = chartData
+        
+        // x軸敘述
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: tempName)
+        // chartDataSet為彩色
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        // x軸標籤換到下方
+        chartView.xAxis.labelPosition = .bottom
+        // 一次顯示數據最大量
+        chartView.setVisibleXRangeMaximum(7)
+        // 一個一個延遲顯現的特效
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        // 彈跳特效
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
+        
+    }
+    
+    
     // Pie Chart
     func setPieChart (dataPoints: [String: Int], chartView: PieChartView) {
         
@@ -67,7 +105,7 @@ class AdminPieChartViewController: UIViewController {
         chartDataSet.yValuePosition = .outsideSlice //數字顯示在圓外
         
         let chartData = PieChartData(dataSet: chartDataSet)
-        chartData.setValueTextColor(.black)// 文字黑色
+        chartData.setValueTextColor(.black) // 文字黑色
         // 延遲顯現特效
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         // 彈跳特效
@@ -76,44 +114,4 @@ class AdminPieChartViewController: UIViewController {
         chartView.data = chartData
     }
     
-    
-    // BarChart
-    func setBarChart(dataPoints: [String: Int], chartView: BarChartView) {
-        //若沒有資料，顯示的文字
-        chartView.noDataText = "無數據提供"
-        //存放資料的陣列，型別是BarChartDataEntry.
-        var dataEntries: [BarChartDataEntry] = []
-        var tempName:[String] = []
-        
-        var count = 0
-        for (k, v) in dataPoints {
-            let dataEntry = BarChartDataEntry(x: Double(count), y: Double(v))
-            tempName.append(k)
-            dataEntries.append(dataEntry)
-            count += 1
-        }
-        
-        //顯示的資料之內容與名稱（左下角所顯示的）
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "\(type[0])")
-        type.remove(at: 0)
-        //把dataSet轉換成可顯示的BarChartData
-        let chartData = BarChartData(dataSet: chartDataSet)
-        //指定剛剛連結的myView要顯示的資料為charData
-        chartView.data = chartData
-        chartView.chartDescription?.text = timePart   //折線圖描述文字(右下文字
-        chartView.chartDescription?.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)    // color
-        
-        // x軸敘述
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: tempName)
-        //改變chartDataSet為彩色
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        // x軸標籤換到下方
-        chartView.xAxis.labelPosition = .bottom
-        // 一次顯示數據最大量
-        chartView.setVisibleXRangeMaximum(6)
-        // 一個一個延遲顯現的特效
-        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        // 彈跳特效
-        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
-    }
 }
