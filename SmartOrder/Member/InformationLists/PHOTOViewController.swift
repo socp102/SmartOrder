@@ -23,7 +23,7 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization:\(status.rawValue)")
         }
-        load()
+        
         
         
     }

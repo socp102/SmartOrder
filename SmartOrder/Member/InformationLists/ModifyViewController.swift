@@ -33,7 +33,7 @@ class ModifyViewController: UIViewController {
             sextext.text = "Female"
         }
         loadinfonum()
-        mail.delegate = self as UITextFieldDelegate
+        
         name.delegate = self as UITextFieldDelegate
         phone.delegate = self as UITextFieldDelegate
         
@@ -102,7 +102,7 @@ class ModifyViewController: UIViewController {
     func releaseNotification(){
         NotificationCenter.default.removeObserver(self)
     }
-    @IBOutlet weak var mail: UITextField!
+    
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var date: UIDatePicker!
@@ -112,7 +112,7 @@ class ModifyViewController: UIViewController {
     
     @IBAction func finalBtn(_ sender: UIButton) {
         
-        reinformation.email = mail.text ?? information.email
+        
         reinformation.name = name.text ?? information.name
         reinformation.phoneNum = phone.text ?? information.phoneNum
         print("birdate: \(date.date)")
@@ -128,18 +128,10 @@ class ModifyViewController: UIViewController {
             sextext.text = "FeMale"
             reinformation.gender = "2"
         }
-        
-        if reinformation.email.isEmpty == true {
-            let alert = UIAlertController(title: "資料不能為空", message: "請檢查必填是否為空", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK!", style: .default)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-            print("mail name phone is nil")
-        } else {
             reobjects.append(reinformation)
             print("reobject: \(reobjects)")
             modify()
-        }
+        
         
         
     }
@@ -155,9 +147,9 @@ class ModifyViewController: UIViewController {
         for datas in reobjects{
             print("data: \(datas)")
             
-            let data = [["name":datas.name],["PhoneNumber":datas.phoneNum],["Gender":datas.gender],["Birthday":datas.birthday],["email":datas.email]]
+            let data = [["name":datas.name],["PhoneNumber":datas.phoneNum],["Gender":datas.gender],["Birthday":datas.birthday]]
             
-            for infos in 0...4 {
+            for infos in 0...3 {
                 print("datainfo: \(data[infos])")
                 fireBase.updateData(collectionName: "account", documentName: currentUserUid, data: data[infos]) { (results, error) in
                     if let error = error {
@@ -185,7 +177,7 @@ class ModifyViewController: UIViewController {
                 self.info = result
                 print("loadinfo : \(self.info)")
                 self.information.birthday = self.info["Birthday"] as? String ?? ""
-                self.information.email = self.info["email"] as? String ?? ""
+        //self.information.email = self.info["email"] as? String ?? ""
                 self.information.phoneNum = self.info["PhoneNumber"] as? String ?? ""
                 self.information.gender = self.info["Gender"] as? String ?? ""
                 self.information.name = self.info["name"] as? String ?? ""
@@ -193,7 +185,7 @@ class ModifyViewController: UIViewController {
                 
                 
                 
-                self.mail.text = self.information.email
+               // self.mail.text = self.information.email
                 self.name.text = self.information.name
                 self.phone.text = self.information.phoneNum
                 if self.information.gender == "1" {
