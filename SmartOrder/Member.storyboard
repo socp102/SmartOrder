@@ -353,7 +353,7 @@
             </objects>
             <point key="canvasLocation" x="3025" y="427"/>
         </scene>
-        <!--Information View Controller-->
+        <!--個人資料-->
         <scene sceneID="ELT-1N-26P">
             <objects>
                 <viewController id="WMx-pL-6Bi" customClass="InformationViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -497,6 +497,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N9r-kf-X3O"/>
                     </view>
+                    <navigationItem key="navigationItem" title="個人資料" id="WbP-qw-Qef"/>
                     <connections>
                         <outlet property="birthday" destination="Ibs-ju-5kA" id="a2P-1Y-A4O"/>
                         <outlet property="btn" destination="k4a-bd-ZjE" id="KJv-cf-Dv9"/>
@@ -538,11 +539,11 @@
             <objects>
                 <viewController id="qFR-W9-geb" customClass="PHOTOViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" alpha="0.65000000000000002" contentMode="scaleToFill" id="cs2-Xc-YYk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lt7-Br-SmX">
-                                <rect key="frame" x="121" y="33" width="133" height="133"/>
+                                <rect key="frame" x="121" y="34" width="133" height="133"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="FqY-Lv-KPH"/>
                                     <constraint firstAttribute="height" constant="133" id="Sdc-Dm-hmv"/>
@@ -575,7 +576,7 @@
             </objects>
             <point key="canvasLocation" x="3642" y="939"/>
         </scene>
-        <!--Modify View Controller-->
+        <!--修改-->
         <scene sceneID="5th-Tz-GM9">
             <objects>
                 <viewController id="g0L-Xh-gsS" customClass="ModifyViewController" customModule="SmartOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -711,6 +712,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xlL-Y2-4Tg"/>
                     </view>
+                    <navigationItem key="navigationItem" title="修改" id="jdr-uY-rdQ"/>
                     <connections>
                         <outlet property="containtView" destination="dDv-jA-nQ1" id="ZVy-te-sO0"/>
                         <outlet property="date" destination="Ibv-eY-C5L" id="zVC-Za-rYR"/>
@@ -733,6 +735,6 @@
         <image name="people" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bZ2-bd-j7j"/>
+        <segue reference="NGa-1R-seY"/>
     </inferredMetricsTieBreakers>
 </document>
