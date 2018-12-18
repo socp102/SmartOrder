@@ -19,16 +19,23 @@ class OrderListTableViewController: UITableViewController {
     var firebaseCommunicator = FirebaseCommunicator.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        tableView.tableFooterView = UIView()
-        getCouponInfo(user: currentUser.uid)
+        refreshdata()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+        
+        
+        refreshdata()
+        
+    }
+    
+    func refreshdata(){
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        getCouponInfo(user: currentUser.uid)
+       
     }
 
     // MARK: - Table view data source
@@ -39,7 +46,9 @@ class OrderListTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let item = objects[section]
+        
         let result = item.time
+        
         return result
     }
 
@@ -83,6 +92,7 @@ class OrderListTableViewController: UITableViewController {
                 self.object.total = (self.orderinfo["total"])! as! String
                 //date
                 let FIRServerValue = (self.orderinfo["timestamp"])! as! Timestamp
+                
                 //print("FIRServerValue: \(FIRServerValue)")
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
@@ -123,6 +133,8 @@ class OrderListTableViewController: UITableViewController {
                 
                 //上傳
                 self.objects.append(self.object)
+                
+                print("sort:\(self.object.time)")
                 //print("objects: \(self.objects)")
                 self.tableView.reloadData()
             })
