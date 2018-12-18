@@ -318,6 +318,11 @@ class AdminSelectChartViewController: UIViewController {
             }
             // 跳頁 and 關閉loadinView
             self.loadingView.stopAnimating()
+            if self.selectTypeSegmented.selectedSegmentIndex == -1 {
+                print("no Action")
+            } else {
+                self.chartStart()
+            }
         }
     }
     
@@ -376,7 +381,6 @@ extension AdminSelectChartViewController {
         var tempStringArray = [String]()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.chartStart()
-            self.loadingView.stopAnimating()
             // 遞減排序
             let result = self.commodityCountData.sorted { (str1, str2) -> Bool in
                 return str1.1 > str2.1
