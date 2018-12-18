@@ -65,6 +65,8 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         if let listener = listener {
             listener.remove()
         }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
