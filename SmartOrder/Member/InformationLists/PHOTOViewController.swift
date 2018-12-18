@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 
 class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-
+    var pho = UIImage(named: "camera")
     let getphoto = Getphoto()
     let communicator = FirebaseCommunicator.shared
     override func viewDidLoad() {
@@ -23,16 +23,18 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization:\(status.rawValue)")
         }
-        Photo.layer.masksToBounds = true
-        Photo.layer.cornerRadius = Photo.frame.width/2
-        Photo.setImage(getphoto.update(), for: .normal)
+        load()
         
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        load()
+    }
+    
     
     @IBAction func Picture(_ sender: UIButton) {
-        
         //取得同意授權鈕
         let alert = UIAlertController(title: "Please chouse source:", message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
@@ -46,7 +48,6 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         alert.addAction(library)
         alert.addAction(cancel)
         present(alert, animated: true)
-        
         
     }
     
@@ -84,6 +85,7 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             }
             let resizedImage = originalImage.resize(maxEdge: 1024)!
             
+            
             //上傳照片
             
             guard let currentUserUid = Auth.auth().currentUser?.uid else {
@@ -93,23 +95,30 @@ class PHOTOViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             // 取得從 UIImagePickerController 選擇的檔案
             communicator.sendPhoto(selectedImageFromPicker: resizedImage, uniqueString: currentUserUid )
             print("uid: \(currentUserUid)")
-            self.viewDidLoad()
-            self.viewWillAppear(true)
+            
         } else if type == (kUTTypeMovie as String){
             
         }
+        
         picker.dismiss(animated: true)//不加picker會凍結
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func load() {
+        guard let currentUserUid = Auth.auth().currentUser?.uid else {
+            print("uid is nil")
+            return
+        }
+        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid).jpeg", isUpdateToLocal: true) {(result, error) in
+            if let error = error {
+                print("download photo error:\(error)")
+            } else {
+                let pho = (result as! UIImage)
+                self.Photo.layer.masksToBounds = true
+                self.Photo.layer.cornerRadius = self.Photo.frame.width/2
+                self.Photo.setImage(pho, for: .normal)
+            }
+        }
     }
-    */
-
+    
+    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Order {
-    var itemName = Items.init(name: "", detialitem: detial.init())
+    var itemName = Items.init(name: [""], detialitem: detial.init())
     var time = ""
     var total:String = ""
     var coupon = ""
@@ -18,13 +18,13 @@ struct Order {
 }
 
 struct Items {
-    var name = " "
+    var name = [" "]
     var detialitem = detial.init()
 }
 
 struct detial {
-    var count = ""
-    var subtotle = ""
+    var count = [""]
+    var subtotle = [""]
     
 }
 

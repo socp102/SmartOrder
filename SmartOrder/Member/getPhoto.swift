@@ -27,20 +27,23 @@ class Getphoto {
     
     func update() -> UIImage{
         var pho = UIImage(named: "camera")
+       
         guard let currentUserUid = Auth.auth().currentUser else {
             print("currentUserUid is nil")
             return pho!
         }
         //下載照片
-        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid.uid).jpeg") { (result, error) in
+        communicator.downloadImage(url: "AppCodaFireUpload/", fileName: "\(currentUserUid.uid).jpeg", isUpdateToLocal: false) {(result, error) in
             if let error = error {
                 print("download photo error:\(error)")
-                
             } else {
                 pho = (result as! UIImage)
+                
             }
             
         }
+        
+       
         return pho!
     }
     

@@ -19,16 +19,29 @@ class OrderListTableViewController: UITableViewController {
     var firebaseCommunicator = FirebaseCommunicator.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        tableView.tableFooterView = UIView()
-        getCouponInfo(user: currentUser.uid)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+        refreshdata()
+        
+    }
+    
+    func refreshdata(){
+        objects.removeAll()
+        object.itemName.name.removeAll()
+        object.itemName.detialitem.count.removeAll()
+        object.itemName.detialitem.subtotle.removeAll()
+        object.total.removeAll()
+        object.coupon.removeAll()
+        object.time.removeAll()
+        
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        getCouponInfo(user: currentUser.uid)
+       
     }
 
     // MARK: - Table view data source
@@ -39,9 +52,14 @@ class OrderListTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let item = objects[section]
+        
         let result = item.time
+        
         return result
     }
+    var test:Order? = nil
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -52,6 +70,7 @@ class OrderListTableViewController: UITableViewController {
             "ordercell", for: indexPath)
         let item = objects[indexPath.section]
         cell.detailTextLabel?.text = "$ \(item.total) 元"
+        cell.tag = indexPath.section
         return cell
     }
     /*
@@ -83,6 +102,7 @@ class OrderListTableViewController: UITableViewController {
                 self.object.total = (self.orderinfo["total"])! as! String
                 //date
                 let FIRServerValue = (self.orderinfo["timestamp"])! as! Timestamp
+                
                 //print("FIRServerValue: \(FIRServerValue)")
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
@@ -96,13 +116,16 @@ class OrderListTableViewController: UITableViewController {
                 
                 //如果不使用優惠券
                 guard self.orderinfo["coupon"] != nil else {
-                    
-                    self.object.itemName.detialitem.subtotle = self.object.total
+                    self.object.itemName.name.removeAll()
+                    self.object.itemName.detialitem.count.removeAll()
+                    self.object.itemName.detialitem.subtotle.removeAll()
                     
                     for item in orderitem.keys {
-                        self.object.itemName.name = item
+                        self.object.itemName.name.append(item)
                         let detialitem = orderitem[item]
-                        self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
+                        self.object.itemName.detialitem.count.append((detialitem!["count"]!) as! String)
+                        self.object.itemName.detialitem.subtotle.append((detialitem!["subtotal"]!) as! String)
+                        
                     }
                     
                     self.objects.append(self.object)
@@ -113,17 +136,23 @@ class OrderListTableViewController: UITableViewController {
                 self.object.coupon = (self.orderinfo["coupon"])! as! String
                 
                 //明細
+                self.object.itemName.name.removeAll()
+                self.object.itemName.detialitem.count.removeAll()
+                self.object.itemName.detialitem.subtotle.removeAll()
                 
                 for item in orderitem.keys {
-                    self.object.itemName.name = item
+                    
+                    self.object.itemName.name.append(item)
                     let detialitem = orderitem[item]
-                    self.object.itemName.detialitem.count = (detialitem!["count"]!) as! String
-                    self.object.itemName.detialitem.subtotle = (detialitem!["subtotal"]!) as! String
+                    self.object.itemName.detialitem.count.append((detialitem!["count"]!) as! String)
+                    self.object.itemName.detialitem.subtotle.append((detialitem!["subtotal"]!) as! String)
+                   
                 }
                 
                 //上傳
+                
                 self.objects.append(self.object)
-                //print("objects: \(self.objects)")
+                print("object: \(self.objects)")
                 self.tableView.reloadData()
             })
 
@@ -136,8 +165,9 @@ class OrderListTableViewController: UITableViewController {
             let controller = segue.destination as! OrderListDetialTableViewController
 //            let detialobject = self.objects
 //            controller.detialobject = detialobject
-            let indexPath = self.tableView.indexPathForSelectedRow
-            let courseSelect = objects[indexPath!.row]
+            let index = sender as! UITableViewCell
+            let courseSelect = objects[index.tag]
+            print("tag: \(index.tag)")
             controller.detialobject = courseSelect
         }
     }
