@@ -28,6 +28,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     
     @IBAction func sendOrderToFirebase(_ sender: Any) {
         
+        let table = myUserDefaults.object(forKey: "tableID") as! String
         let alert = UIAlertController(title: "確認", message: "送出後可在會員頁面查看", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "發送", style: .default) {
             UIAlertAction in
@@ -36,12 +37,12 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             var foodData = [ "allOrder" : food] as [String : Any]
             foodData["total"] = self.getTotal()
             foodData["userID"] = self.user
+            foodData["tableID"] = table
             
 
             if self.couponUserSelectDiscount > 0 {
                 
                 foodData["coupon"] = "\(self.resultTitle) , \(self.couponUserSelectDiscount)"
-                foodData["total"] = self.withCouponResultPrice
                 
                 self.firebaseCommunicator.addData(collectionName: "order", documentName: nil, data: foodData) { (result, error) in
                     if let error = error {
@@ -287,6 +288,8 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     var couponPickerView: UIPickerView = UIPickerView()
     
     @IBAction func showCouponBtnAction(_ sender: Any) {
+        
+        
         
         let alert = UIAlertController(title: "請選擇優惠卷", message: "基於使用期限，請儘速使用完畢", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確認", style: .default) {
