@@ -22,6 +22,8 @@ class AdminSelectChartViewController: UIViewController {
     @IBOutlet weak var selectChartSegmented: UISegmentedControl!
     @IBOutlet weak var selectTypeSegmented: UISegmentedControl!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var chartView: BarChartView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var startTime = ""
     var endTime = ""
@@ -48,6 +50,7 @@ class AdminSelectChartViewController: UIViewController {
         super.viewDidLoad()
         // DatePick日期限制
         datePickerValue.maximumDate = Date()
+        todayData()
     }
     
     // 關閉DatePick畫面
@@ -65,7 +68,7 @@ class AdminSelectChartViewController: UIViewController {
         // Title.Lable檢查
         if let timeSetType = timeTypeLabel.text {
             switch timeSetType {
-            case "Start Time Set":
+            case "起始時間":
                 if endTime != "" {
                     if formatter.date(from: endTime)! <
                         formatter.date(from: dateString)! {
@@ -76,7 +79,7 @@ class AdminSelectChartViewController: UIViewController {
                 startLabel.text = dateString // 起始label
                 timeTypeLabel.text = ""      // pickerTital 清空
                 startTime = dateString       // 起始時間
-            case "End Time Set":
+            case "結束時間":
                 if startTime != "" {
                     if formatter.date(from: startTime)! >
                         formatter.date(from: dateString)! {
@@ -90,6 +93,7 @@ class AdminSelectChartViewController: UIViewController {
             default:
                 break
             }
+            // 日期改變 資料清空
             if totalDayDataString.count != 0 {
                 totalDayDataString = []
                 commodityCountData = [:]
@@ -106,6 +110,7 @@ class AdminSelectChartViewController: UIViewController {
                 peopleMonthDataInt = []          // 月來客I
             }
             pickViewChange()    // 關閉PickView
+            chartView.isHidden = false
         }
     }
     
@@ -113,21 +118,16 @@ class AdminSelectChartViewController: UIViewController {
     // StartTime設定Btn
     @IBAction func startTimeSetBtn(_ sender: UIButton) {
         pickViewChange()
-        
-        timeTypeLabel.text = "Start Time Set"
-//        if pickSetView.isHidden == false {
-//            timeTypeLabel.text = ""
-//        }
+        timeTypeLabel.text = "起始時間"
+        chartView.isHidden = true
     }
     
     
     // EndTime設定Btn
     @IBAction func endTimeSetBtn(_ sender: UIButton) {
         pickViewChange()
-        timeTypeLabel.text = "End Time Set"
-//        if pickSetView.isHidden == false {
-//            timeTypeLabel.text = ""
-//        }
+        timeTypeLabel.text = "結束時間"
+        chartView.isHidden = true
     }
     // DatePickView 畫面收放
     func pickViewChange () {
@@ -141,7 +141,7 @@ class AdminSelectChartViewController: UIViewController {
     
     // 繪圖鈕 Chart Button
     @IBAction func chartStartBtn(_ sender: UIButton) {
-        // 設定檢查
+        // 設定檢查 起始時間,結束時間,選項是否被點選
         if startTime == "" || endTime == "" || selectTypeSegmented.selectedSegmentIndex == -1 ||
             selectChartSegmented.selectedSegmentIndex == -1 {
             showAlert(Message: "時間或設定未選取")
@@ -163,12 +163,14 @@ class AdminSelectChartViewController: UIViewController {
         
         var chartType: String = ""
         switch selectChartSegmented.selectedSegmentIndex {
+        case 0:
+            chartType = "LineChartVC"
         case 1:
             chartType = "BarChartVC"
         case 2:
             chartType = "PieChartVC"
         default:
-            chartType = "LineChartVC"
+            print("not Action")
         }
         if chartType != "" {
             performSegue(
@@ -180,17 +182,6 @@ class AdminSelectChartViewController: UIViewController {
     
     // 換頁帶資料
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-//        print("totalDayDataString日營收S \(totalDayDataString)")
-//        print("totalDayDataInt日營收I \(totalDayDataInt)")
-//        print("peopleDayDataInt日來客I \(peopleDayDataInt)")
-//        print("totalMonthDataString月營收S \(totalMonthDataString)")
-//        print("totalMonthDataInt月營收I \(totalMonthDataInt)")
-//        print("peopleMonthDataInt月來客I \(peopleMonthDataInt)")
-//        print("peopleMonthDataInt商品數量S \(commodityCountDataString)")
-//        print("peopleMonthDataInt商品數量I \(commodityCountDataInt)")
-//        print("peopleMonthDataInt商品小記S \(commoditySubtotalDataString)")
-//        print("peopleMonthDataInt商品小記I \(commoditySubtotalDataInt)")
 
         switch segue.identifier {
             
@@ -224,7 +215,6 @@ class AdminSelectChartViewController: UIViewController {
                 controller.chartDataMonthData = totalMonthDataInt
                 controller.title = "收入"
                 controller.type = ["日收入", "月收入"]
-                controller.timePart = "\(startTime) ~ \(endTime)"
             case 1:
                 let controller = segue.destination as! AdminBarChartViewController
                 controller.chartDataDayDetil = totalDayDataString
@@ -233,7 +223,6 @@ class AdminSelectChartViewController: UIViewController {
                 controller.chartDataMonthData = peopleMonthDataInt
                 controller.title = "來客數量"
                 controller.type = ["日來客", "月來客"]
-                controller.timePart = "\(startTime) ~ \(endTime)"
             case 2:
                 let controller = segue.destination as! AdminBarChartViewController
                 controller.chartDataDayDetil = commodityCountDataString
@@ -242,7 +231,6 @@ class AdminSelectChartViewController: UIViewController {
                 controller.chartDataMonthData = commoditySubtotalDataInt
                 controller.title = "商品銷售量"
                 controller.type = ["商品售出量", "商品銷售額"]
-                controller.timePart = "\(startTime) ~ \(endTime)"
             default:
                 print("selectTypeSegmented Error")
                 break
@@ -311,7 +299,6 @@ class AdminSelectChartViewController: UIViewController {
                             }
                         case "timestamp":
                             timestamp = v2 as! Timestamp
-//                            print("tttime \(timestamp)")
                         case "total":
                             total = Int(v2 as! String)!
                         default:
@@ -323,13 +310,13 @@ class AdminSelectChartViewController: UIViewController {
                     
                     tempPack.append(pack)
                 }
+                // 以時間timestamp.seconds排序 降序
                 self.bigPack = tempPack.sorted { (str1, str2) -> Bool in
                     return str1.timestamp.seconds < str2.timestamp.seconds
                 }
                 self.dataOperation(data: self.bigPack)  // 資料處理
             }
             // 跳頁 and 關閉loadinView
-            self.chartStart()
             self.loadingView.stopAnimating()
         }
     }
@@ -373,9 +360,74 @@ class AdminSelectChartViewController: UIViewController {
     
 }
 
+extension AdminSelectChartViewController {
+    
+    func todayData () {
+        // 設定日期顯示格式
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        // 取得現在日期
+        let timeString = dateFormatter.string(from: Date())
+        startTime = timeString
+        endTime = timeString
+        getData()
+        
+        var tempIntArray = [Int]()
+        var tempStringArray = [String]()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.chartStart()
+            self.loadingView.stopAnimating()
+            // 遞減排序
+            let result = self.commodityCountData.sorted { (str1, str2) -> Bool in
+                return str1.1 > str2.1
+            }
+            // 取前五
+            for (k, v) in result {
+                if tempIntArray.count < 5 {
+                    tempIntArray += [v]
+                    tempStringArray += [k]
+                } else {
+                    break
+                }
+            }
+            
+            self.imageView.isHidden = true
+            self.setChart(dataPoints: tempIntArray,
+                          data: tempStringArray,
+                          chartView: self.chartView)
+        }
+    }
+    
+    
+    func setChart(dataPoints: [Int],data: [String], chartView: BarChartView) {
+        
+        chartView.noDataText = "無數據提供"
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(dataPoints[i]))
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "今日熱賣商品")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        chartView.data = chartData
+        chartData.barWidth = 0.5
+        chartDataSet.stackLabels = data
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data)
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        chartView.xAxis.labelPosition = .bottom
+        chartView.setVisibleXRangeMaximum(3)
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
+        
+    }
+}
 
 extension AdminSelectChartViewController {
     
+    // 資料處理
     func dataOperation (data: [FireOrderData]) {
         
         for (i, v) in data.enumerated() {
@@ -447,7 +499,7 @@ extension AdminSelectChartViewController {
         }
     }
     
-    // 時間轉換 Time Change     type: day "MM/dd" or month "yyyy/MM"
+    // 時間轉換 Time Change (timestamp to Date Strint)    type: day "MM/dd" or month "yyyy/MM"
     func timestampInString (timestamp : Timestamp, type: String) -> String {
         
         var tempTime: String = ""
@@ -466,11 +518,12 @@ extension AdminSelectChartViewController {
             dformatter.dateFormat = "MM/dd"
             tempTime = dformatter.string(from: date)
         default:
-            assertionFailure("Strint Type Error")
+            assertionFailure("Date String Type Error")
         }
         return tempTime
     }
     
+    // 商品名轉換
     func itemDecoder(input: String) -> String {
         switch input {
         case "BeefHamburger":

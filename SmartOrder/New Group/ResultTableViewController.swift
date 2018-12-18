@@ -44,10 +44,10 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                         present (alert, animated: true)
             
         }
-        
    
         let alert = UIAlertController(title: "確認", message: "送出後可在會員頁面查看", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "發送", style: .default) {
+            
             UIAlertAction in
             
             let food = self.addDict as [String:Any]
@@ -108,8 +108,6 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             addDict = (myUserDefaults.object(forKey: "resultDict") as? [String: [String:String]])!
             
         }
-        
-        
         
         if myUserDefaults.value(forKey: "resultTitle") != nil {
             
@@ -195,7 +193,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 myUserDefaults.set(storedValue, forKey: "resultDict")
                 myUserDefaults.synchronize()
 
-                let newObject : NSMutableDictionary = myUserDefaults.object(forKey: "resultDict") as! NSMutableDictionary //
+                let newObject : NSMutableDictionary = myUserDefaults.object(forKey: "resultDict") as! NSMutableDictionary
                 print(newObject)
                 
                 tableView.deleteRows(at: [indexPath], with: .fade)
@@ -523,7 +521,6 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             tableID = valueOfTable!
             let table = tableDecoder(tableID: tableID)
             tableNumberOutlet.text = table
-            
             
         }
         

@@ -35,6 +35,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         db = Firestore.firestore()
         // 取得今天日期轉字串
         let now = Date()
@@ -289,7 +290,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     
     // 切換Button狀態
     func changeButton(getNumber: Bool) {
-        getNumberButton.setTitle("現場候位取號", for: .normal)
+        getNumberButton.setTitle("  現場候位取號  ", for: .normal)
         getNumberButton.isUserInteractionEnabled = getNumber
         cancelNumberBtuuon.isUserInteractionEnabled = !getNumber
         if getNumber {
@@ -381,7 +382,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                     cancelNumberBtuuon.isUserInteractionEnabled = false
                     getNumberButton.alpha = 0.3
                     cancelNumberBtuuon.alpha = 0.3
-                    getNumberButton.setTitle("請靠近號碼機抽取號碼", for: .normal)
+                    getNumberButton.setTitle("  請靠近號碼機抽取號碼  ", for: .normal)
 
                 }
                 print("目前位置========================\(proximity)")
