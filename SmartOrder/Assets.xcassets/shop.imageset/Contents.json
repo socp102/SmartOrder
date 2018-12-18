@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "baseline_shopping_cart_black_18pt_1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "shop.png",
       "scale" : "2x"
     },
     {

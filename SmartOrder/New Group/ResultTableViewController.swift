@@ -72,12 +72,12 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style:.cancel) {
+        let cancelAction = UIAlertAction(title: "取消", style:.destructive) {
             UIAlertAction in
             
         }
-        alert.addAction(okAction)
         alert.addAction(cancelAction)
+        alert.addAction(okAction)
         present (alert, animated: true)
     }
     
@@ -303,7 +303,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style:.cancel) {
+        let cancelAction = UIAlertAction(title: "取消", style: .destructive) {
             UIAlertAction in
             
             self.couponUserSelectDiscount = 0
@@ -319,8 +319,9 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         }
         
         // Add the actions
-        alert.addAction(okAction)
         alert.addAction(cancelAction)
+        alert.addAction(okAction)
+
 
         let containerViewWidth = 250
         let containerViewHeight = 120
@@ -394,9 +395,11 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     func checkAddDict() {
         
         if addDict.count == 0 {
+            let color = UIColor(red: 0/255.0, green: 145/255.0, blue: 147/255.0, alpha: 1.0)
             
             sendToFirebaseOutlet.isEnabled = false
             sendToFirebaseOutlet.setTitle("尚未選購", for: .normal)
+            sendToFirebaseOutlet.backgroundColor = color
             sendToFirebaseOutlet.setTitleColor(.white, for: .normal)
 
         }
