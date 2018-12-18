@@ -187,10 +187,10 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 if let err = err {
                     print("Fail to saveNumber (保存號碼失敗)\(err)")
                 } else {
-                    self.addNumber()
                     self.changeButton(getNumber: false)
                     self.userDefaults.set(number, forKey: "MyNumber")
                     print("保存userDefaults  Number  = \(number)")
+                    self.addNumber(number: number)
                 }
             }
         }
@@ -228,23 +228,14 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
         }
     }
     
-    func addNumber() {
-        let data = ["Number": myNumber] as [String: Any]
+    func addNumber(number: Int) {
+        let data = ["Number": number] as [String: Int]
         firbase.addData(collectionName: "seat", documentName: "Number", data: data) { (result, error) in
             if let err = error {
                 print("Fail to addNumber \(err)")
             }
         }
     }
-    
-//    func add() {
-//        let data = ["Number": myNumber] as [String: Any]
-//        firbase.addData(collectionName: "seat", documentName: "Number", data: data) { (result, error) in
-//            if let err = error {
-//                print("Fail to addNumber \(err)")
-//            }
-//        }
-//    }
     
     func saveLocation(state: String) {
         if let documentID = userDefaults.string(forKey: "documentID") {
@@ -254,7 +245,17 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 } else {
                     self.changeButton(getNumber: false)
                     print("Change Location state to firebase= \(state)")
+                    self.addLocation ()
                 }
+            }
+        }
+    }
+    
+    func addLocation () {
+        let data = ["User": userUid]
+        firbase.addData(collectionName: "seat", documentName: "LocationChange", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
             }
         }
     }
@@ -269,6 +270,16 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
                 if let err = err {
                     print("Fail to cancelWaiting (取消候位失敗)\(err)")
                 }
+                self.cancelAdd()
+            }
+        }
+    }
+    
+    func cancelAdd() {
+        let data = ["User": userUid]
+        firbase.addData(collectionName: "seat", documentName: "CancelWaiting", data: data) { (result, error) in
+            if let err = error {
+                print("Fail to addNumber \(err)")
             }
         }
     }
@@ -336,7 +347,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
         } else { // .outside
-            showNotification("已離開現場等候，到號時將自動過號!")
+            showNotification("如離開現場等候，到號時將自動過號!")
             self.saveLocation(state: "outside")
             manager.stopRangingBeacons(in: region as! CLBeaconRegion)
             
