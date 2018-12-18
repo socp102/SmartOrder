@@ -346,11 +346,15 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             self.saveLocation(state: "inside")
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
-        } else { // .outside
+        } else if state == .unknown { // .outside
             showNotification("如離開現場等候，到號時將自動過號!")
             self.saveLocation(state: "outside")
             manager.stopRangingBeacons(in: region as! CLBeaconRegion)
             
+        } else if state == .outside { // .outside
+            showNotification("目前已經開現場等候，到號時將自動過號!")
+            self.saveLocation(state: "outside")
+            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
         }
     }
     
@@ -367,7 +371,7 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             case .far:
                 proximity = "Far"
             }
-            // infoLabel.text = "\(region.identifier),\(proximity),\(beacon.rssi),\(beacon.accuracy)"
+            print("目前位置\(proximity)")
         }
     }
 
