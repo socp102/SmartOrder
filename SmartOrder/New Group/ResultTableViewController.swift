@@ -16,6 +16,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     @IBOutlet weak var totalPriceLabel: UILabel!
     var firebaseCommunicator = FirebaseCommunicator.shared
     let user = Auth.auth().currentUser?.uid
+    var tableID = ""
     
     @IBAction func resultCloseBtn(_ sender: Any) {
         
@@ -27,7 +28,24 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     @IBOutlet weak var sendToFirebaseOutlet: UIButton!
     
     @IBAction func sendOrderToFirebase(_ sender: Any) {
+       
         
+        if tableNumberOutlet.text == "配桌中" {
+            
+                        let alert = UIAlertController(title: "稍等一下", message: "請先瀏覽菜單，稍後為您配桌", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "確認", style: .default) {
+                            UIAlertAction in
+            
+                            self.dismiss(animated: true, completion: nil)
+            
+                        }
+            
+                        alert.addAction(okAction)
+                        present (alert, animated: true)
+            
+        }
+        
+   
         let alert = UIAlertController(title: "確認", message: "送出後可在會員頁面查看", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "發送", style: .default) {
             UIAlertAction in
@@ -36,12 +54,12 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             var foodData = [ "allOrder" : food] as [String : Any]
             foodData["total"] = self.getTotal()
             foodData["userID"] = self.user
+            foodData["tableID"] = self.tableID
             
 
             if self.couponUserSelectDiscount > 0 {
                 
                 foodData["coupon"] = "\(self.resultTitle) , \(self.couponUserSelectDiscount)"
-                foodData["total"] = self.withCouponResultPrice
                 
                 self.firebaseCommunicator.addData(collectionName: "order", documentName: nil, data: foodData) { (result, error) in
                     if let error = error {
@@ -81,6 +99,7 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
         present (alert, animated: true)
     }
     
+    @IBOutlet weak var tableNumberOutlet: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         
         // 如果使用者預設有資料的話，就把資料匯入到addDict字典
@@ -104,11 +123,11 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             couponUserSelectDiscount = myUserDefaults.object(forKey: "couponUserSelectDiscount") as! Double
 
         }
-        
 
         checkAddDict()  //addDict 沒資料的話按鍵設為false
         totalPriceLabel.text = getTotal()
         getCouponInfo()
+        checkHasTable()
         
     }
     
@@ -205,7 +224,8 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
                 
                 let withCouponPriceDouble = sum - couponUserSelectDiscount
                 let withCouponPriceInt = Int(withCouponPriceDouble)
-                let withCouponPriceString = String(withCouponPriceInt)
+                let ifNegativeNumber = max(withCouponPriceInt, 0)
+                let withCouponPriceString = String(ifNegativeNumber)
                 sumString = withCouponPriceString
                 
             }else {
@@ -287,6 +307,8 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
     var couponPickerView: UIPickerView = UIPickerView()
     
     @IBAction func showCouponBtnAction(_ sender: Any) {
+        
+        
         
         let alert = UIAlertController(title: "請選擇優惠卷", message: "基於使用期限，請儘速使用完畢", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確認", style: .default) {
@@ -485,6 +507,49 @@ class ResultTableViewController: UITableViewController, UIPickerViewDataSource, 
             }
             
        }
+    }
+    
+    func checkHasTable() {
+        
+        let valueOfTable = myUserDefaults.value(forKey: "tableID") as? String
+        
+        if valueOfTable == nil {
+            
+            tableNumberOutlet.text = "配桌中"
+            
+        
+        }else {
+            
+            tableID = valueOfTable!
+            let table = tableDecoder(tableID: tableID)
+            tableNumberOutlet.text = table
+            
+            
+        }
+        
+    }
+    
+    func tableDecoder(tableID: String) -> String {
+        switch tableID {
+        case "table1":
+            return "第一桌"
+        case "table2":
+            return "第二桌"
+        case "table3":
+            return "第三桌"
+        case "table4":
+            return "第四桌"
+        case "table5":
+            return "第五桌"
+        case "table6":
+            return "第六桌"
+        case "table7":
+            return "第七桌"
+        case "table8":
+            return "第八桌"
+        default:
+            return "Unkown"
+        }
     }
     
 }
