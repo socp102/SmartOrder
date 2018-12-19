@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class StarDetialViewController: UIViewController {
+    var start = StarTableViewController()
     var detialobject = Message()
     var firebase = FirebaseCommunicator.shared
     override func viewDidLoad() {
@@ -18,17 +19,29 @@ class StarDetialViewController: UIViewController {
         
     }
     
+    @IBAction func refresh(_ sender: UIBarButtonItem) {
+        
+        start.viewDidLoad()
+        start.viewWillAppear(true)
+        super.viewDidLoad()
+        super.viewWillAppear(true)
+        
+    }
     @IBAction func send(_ sender: UIButton) {
-        var text = ManagerTextField.text
+        let text = ManagerTextField.text
         let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
         let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
             let data:[String:Any] = ["manager":text]
-            self.firebase.updateData(collectionName: "message", documentName: self.detialobject.uid, data: data) { (result, error) in
+            self.firebase.updateData(collectionName: "message", documentName: self.detialobject.key, data: data) { (result, error) in
                 if let error = error {
                     print("error: \(error)")
                 }
             }
-            self.viewWillAppear(true)
+            
+            self.start.viewDidLoad()
+            self.start.viewWillAppear(true)
+            super.viewDidLoad()
+            super.viewWillAppear(true)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(action)
@@ -49,9 +62,10 @@ class StarDetialViewController: UIViewController {
     }
     
     
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-        update()
-    }
+   
+    
+    
+   
     
     func update() {
         time.text = detialobject.time

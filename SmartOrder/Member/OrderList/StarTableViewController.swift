@@ -63,17 +63,17 @@ class StarTableViewController: UITableViewController {
             }
             let finial = result as! [String:[String:Any]]
             //let total = finial as! [String:Any]
-            
             finial.forEach({ (key, total) in
-                
+                self.finalmessage.key = key
                 self.finalmessage.manager = total["manager"] as? String ?? ""
                 self.finalmessage.star = total["star"] as? Int ?? 0
                 self.finalmessage.visitor = total["visitor"] as? String ?? ""
                 self.finalmessage.time = total["time"] as? String ?? ""
                 self.finalmessage.email = total["name"] as? String ?? ""
                 self.finalmessage.uid = total["uid"] as? String ?? ""
+                self.object.append(self.finalmessage)
             })
-            self.object.append(self.finalmessage)
+            
             print("object: \(self.object)")
             self.tableView.reloadData()
         }
