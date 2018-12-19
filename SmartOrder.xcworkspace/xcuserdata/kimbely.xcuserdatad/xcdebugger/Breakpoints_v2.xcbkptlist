@@ -145,11 +145,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartOrder/Member/OrderList/MessageViewController.swift"
-            timestampString = "566904440.480386"
+            timestampString = "566905132.066887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

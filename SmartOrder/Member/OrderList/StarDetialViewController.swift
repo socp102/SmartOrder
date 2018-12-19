@@ -20,14 +20,21 @@ class StarDetialViewController: UIViewController {
     
     @IBAction func send(_ sender: UIButton) {
         var text = ManagerTextField.text
-        
-        let data:[String:Any] = ["manager":text]
-        firebase.updateData(collectionName: "message", documentName: detialobject.uid, data: data) { (result, error) in
-            if let error = error {
-                print("error: \(error)")
+        let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
+            let data:[String:Any] = ["manager":text]
+            self.firebase.updateData(collectionName: "message", documentName: self.detialobject.uid, data: data) { (result, error) in
+                if let error = error {
+                    print("error: \(error)")
+                }
             }
+            self.viewWillAppear(true)
         }
-        viewWillAppear(true)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
         
     }
     @IBOutlet weak var name: UILabel!

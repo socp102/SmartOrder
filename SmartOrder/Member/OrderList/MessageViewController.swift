@@ -22,15 +22,21 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var ordertime: UILabel!
     
     
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-        load()
-    }
+   
     
    
     
     @IBAction func send(_ sender: UIButton) {
-        update()
-        viewWillAppear(true)
+        let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
+            self.update()
+            self.viewWillAppear(true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+
     }
     @IBOutlet weak var managermessage: UITextView!
     override func viewDidLoad() {
