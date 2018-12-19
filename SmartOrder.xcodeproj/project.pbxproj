@@ -65,6 +65,8 @@
 		EB73349B21BEF38400B431D7 /* Orderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73349A21BEF38400B431D7 /* Orderlist.swift */; };
 		EB7334A121C04BDF00B431D7 /* OrderListDetialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */; };
 		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
+		EBA138CC21C9F03C005B92E5 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */; };
+		EBA138CE21C9FBAF005B92E5 /* Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138CD21C9FBAF005B92E5 /* Massage.swift */; };
 		EBB59E1021C3C1EA004B833C /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */; };
 		EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */; };
 		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
@@ -139,6 +141,8 @@
 		EB73349A21BEF38400B431D7 /* Orderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderlist.swift; sourceTree = "<group>"; };
 		EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListDetialTableViewController.swift; sourceTree = "<group>"; };
 		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
+		EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		EBA138CD21C9FBAF005B92E5 /* Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Massage.swift; sourceTree = "<group>"; };
 		EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				EB6F822821B113AC00092C91 /* OrderListTableViewController.swift */,
 				EB73349A21BEF38400B431D7 /* Orderlist.swift */,
 				EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
+				EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */,
+				EBA138CD21C9FBAF005B92E5 /* Massage.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -675,6 +681,7 @@
 				A1180E3D21B3370C0095A140 /* CouponDetailViewController.swift in Sources */,
 				A11CDB2A21B8DD40008756DF /* OrderCollectionViewCell.swift in Sources */,
 				EB52779C21BE9E2900210B15 /* Coupon.swift in Sources */,
+				EBA138CE21C9FBAF005B92E5 /* Massage.swift in Sources */,
 				0A17835B21C1208900D44AA5 /* HotNewsInfo.swift in Sources */,
 				A13B05A721BA411E001ADE36 /* SeatStatus.swift in Sources */,
 				EB52779A21BE9E0100210B15 /* CoponViewTableViewController.swift in Sources */,
@@ -686,6 +693,7 @@
 				A13B05A321BA3C05001ADE36 /* SeatSectionCollectionReusableView.swift in Sources */,
 				0A01BB5421C397590023E8F3 /* AdminPieChartViewController.swift in Sources */,
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
+				EBA138CC21C9F03C005B92E5 /* MessageViewController.swift in Sources */,
 				EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
