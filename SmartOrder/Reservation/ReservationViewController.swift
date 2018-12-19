@@ -358,13 +358,14 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
             
         } else if state == .unknown { // .outside
 //            showNotification("如離開現場等候，到號時將自動過號!")
-            inOutSide.text = "已離開店內"
-            inOutSide.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            
             self.saveLocation(state: "outside")
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
         } else if state == .outside { // .outside
-            showNotification("目前已經開現場等候，到號時將自動過號!")
+//            showNotification("目前已經開現場等候，到號時將自動過號!")
+            inOutSide.text = "已離開店內"
+            inOutSide.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             self.saveLocation(state: "outside")
             manager.stopRangingBeacons(in: region as! CLBeaconRegion)
         }
