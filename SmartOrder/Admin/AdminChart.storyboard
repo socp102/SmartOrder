@@ -182,13 +182,7 @@
                         <viewLayoutGuide key="safeArea" id="rJv-oa-exs"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="AzQ-8a-e0K">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="LNt-XS-Z3m">
-                            <connections>
-                                <action selector="refresh:" destination="p5W-Z2-sqo" id="Wn5-YZ-Shh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="AzQ-8a-e0K"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
