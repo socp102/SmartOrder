@@ -33,10 +33,6 @@ class MessageViewController: UIViewController {
         let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
         let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
             self.update(upkeys: self.keys)
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
-                self.viewWillAppear(true)
-            }
-            
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(action)
@@ -172,6 +168,7 @@ class MessageViewController: UIViewController {
                 }
             })
         }
+        print("load successful")
     }
     func starcount(finialstar:Int) {
         switch finialstar {

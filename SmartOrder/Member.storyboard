@@ -362,7 +362,7 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <slider opaque="NO" alpha="0.65000000000000002" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="y8t-N6-FB2">
+                                            <slider opaque="NO" alpha="0.20000000000000001" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="y8t-N6-FB2">
                                                 <rect key="frame" x="45" y="0.0" width="322" height="31"/>
                                                 <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
