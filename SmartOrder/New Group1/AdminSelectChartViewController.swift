@@ -57,6 +57,7 @@ class AdminSelectChartViewController: UIViewController {
     @IBAction func cancelPickViewBtn(_ sender: Any) {
         pickViewChange()
         timeTypeLabel.text = "" // 清空DatePick title
+        chartView.isHidden = false
     }
     
     // Date Pick Chack Botton 時間確認 and 起始小於結束檢查
@@ -368,13 +369,17 @@ class AdminSelectChartViewController: UIViewController {
 extension AdminSelectChartViewController {
     
     func todayData () {
+        let now = Date()
         // 設定日期顯示格式
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         // 取得現在日期
-        let timeString = dateFormatter.string(from: Date())
-        startTime = timeString
-        endTime = timeString
+        let oneBefore = now - 24*60*60
+        let oneBeforeTimeString = dateFormatter.string(from: oneBefore)
+        let sevenBefore = now - 8*24*60*60
+        let sevenBeforeTimeString = dateFormatter.string(from: sevenBefore)
+        startTime = sevenBeforeTimeString
+        endTime = oneBeforeTimeString
         getData()
         
         var tempIntArray = [Int]()
@@ -387,7 +392,7 @@ extension AdminSelectChartViewController {
             }
             // 取前五
             for (k, v) in result {
-                if tempIntArray.count < 5 {
+                if tempIntArray.count < 6 {
                     tempIntArray += [v]
                     tempStringArray += [k]
                 } else {
@@ -395,7 +400,7 @@ extension AdminSelectChartViewController {
                 }
             }
             
-            self.imageView.isHidden = true
+//            self.imageView.isHidden = true
             self.setChart(dataPoints: tempIntArray,
                           data: tempStringArray,
                           chartView: self.chartView)
@@ -413,7 +418,7 @@ extension AdminSelectChartViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "今日熱賣商品")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "近七日熱賣商品")
         let chartData = BarChartData(dataSet: chartDataSet)
         
         chartView.data = chartData
@@ -422,7 +427,8 @@ extension AdminSelectChartViewController {
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data)
         chartDataSet.colors = ChartColorTemplates.colorful()
         chartView.xAxis.labelPosition = .bottom
-        chartView.setVisibleXRangeMaximum(3)
+//        chartView.setVisibleXRangeMaximum(3)
+        chartView.setVisibleXRangeMinimum(6)
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
         
