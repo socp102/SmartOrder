@@ -57,7 +57,7 @@ class OrderListTableViewController: UITableViewController {
         
         return result
     }
-    var test:Order? = nil
+   
     
     
 
@@ -161,7 +161,7 @@ class OrderListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is OrderListDetialTableViewController {
+        if segue.identifier == "ordersegue" {
             let controller = segue.destination as! OrderListDetialTableViewController
 //            let detialobject = self.objects
 //            controller.detialobject = detialobject

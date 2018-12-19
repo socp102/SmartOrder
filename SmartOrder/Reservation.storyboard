@@ -57,7 +57,21 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-4y-8Hf">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現場候位中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rM-Z8-SNE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                        <color key="textColor" red="0.001295871567" green="0.44390481710000002" blue="0.4495092034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="5rM-Z8-SNE" secondAttribute="bottom" id="BrU-Lh-QtK"/>
+                                                    <constraint firstItem="5rM-Z8-SNE" firstAttribute="top" secondItem="dP1-4y-8Hf" secondAttribute="top" id="CUV-WQ-6ZV"/>
+                                                    <constraint firstItem="5rM-Z8-SNE" firstAttribute="leading" secondItem="dP1-4y-8Hf" secondAttribute="leading" id="MF1-Ea-jvx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5rM-Z8-SNE" secondAttribute="trailing" id="RB0-xI-Pjt"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -169,6 +183,7 @@
                         <outlet property="cancelNumberBtuuon" destination="sMr-NE-6Mo" id="cD7-pa-HXm"/>
                         <outlet property="displayNumber" destination="fE5-Gn-6NW" id="BY6-LU-vfh"/>
                         <outlet property="getNumberButton" destination="ZDJ-73-5Tz" id="D15-Bm-lh9"/>
+                        <outlet property="inOutSide" destination="5rM-Z8-SNE" id="Fsh-rx-qCG"/>
                         <outlet property="myNumber" destination="lJI-fX-pQk" id="E3q-MK-Q5B"/>
                     </connections>
                 </viewController>

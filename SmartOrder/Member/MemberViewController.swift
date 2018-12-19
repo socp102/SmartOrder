@@ -56,18 +56,19 @@ class MemberViewController: UIViewController {
     @IBOutlet weak var MembersegmentedControl: UISegmentedControl!
     @IBOutlet weak var CouponView: UIView!
     @IBOutlet weak var OrderlistView: UIView!
-    @IBOutlet weak var Photos: UIImageView!
-    @IBOutlet weak var Id: UILabel!
+   
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         OrderlistView.isHidden = false
         CouponView.isHidden = true
-        Photos.layer.masksToBounds = true
-        Photos.layer.cornerRadius = Photos.frame.width/2
-        Photos.image = get.update()
-        newaccount.new()
-        Id.text = get.showname()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        OrderlistView.isHidden = false
+        CouponView.isHidden = true
+        
     }
     
 }
