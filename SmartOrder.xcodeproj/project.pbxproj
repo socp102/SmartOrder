@@ -67,6 +67,8 @@
 		EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7334A221C07AD000B431D7 /* getPhoto.swift */; };
 		EBA138CC21C9F03C005B92E5 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */; };
 		EBA138CE21C9FBAF005B92E5 /* Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138CD21C9FBAF005B92E5 /* Massage.swift */; };
+		EBA138D021CA2C15005B92E5 /* StarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138CF21CA2C15005B92E5 /* StarTableViewController.swift */; };
+		EBA138D221CA2C38005B92E5 /* StarDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA138D121CA2C38005B92E5 /* StarDetialViewController.swift */; };
 		EBB59E1021C3C1EA004B833C /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */; };
 		EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */; };
 		EBC682C521C08F4500D70A16 /* PHOTOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */; };
@@ -143,6 +145,8 @@
 		EB7334A221C07AD000B431D7 /* getPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPhoto.swift; sourceTree = "<group>"; };
 		EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		EBA138CD21C9FBAF005B92E5 /* Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Massage.swift; sourceTree = "<group>"; };
+		EBA138CF21CA2C15005B92E5 /* StarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTableViewController.swift; sourceTree = "<group>"; };
+		EBA138D121CA2C38005B92E5 /* StarDetialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetialViewController.swift; sourceTree = "<group>"; };
 		EBB59E0F21C3C1EA004B833C /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		EBB59E1121C3C1FB004B833C /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		EBC682C421C08F4500D70A16 /* PHOTOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHOTOViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +450,8 @@
 				EB7334A021C04BDF00B431D7 /* OrderListDetialTableViewController.swift */,
 				EBA138CB21C9F03C005B92E5 /* MessageViewController.swift */,
 				EBA138CD21C9FBAF005B92E5 /* Massage.swift */,
+				EBA138CF21CA2C15005B92E5 /* StarTableViewController.swift */,
+				EBA138D121CA2C38005B92E5 /* StarDetialViewController.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -695,6 +701,7 @@
 				EB6F822921B113AC00092C91 /* OrderListTableViewController.swift in Sources */,
 				EBA138CC21C9F03C005B92E5 /* MessageViewController.swift in Sources */,
 				EBB59E1221C3C1FB004B833C /* ModifyViewController.swift in Sources */,
+				EBA138D021CA2C15005B92E5 /* StarTableViewController.swift in Sources */,
 				EB6F821421AE7A2B00092C91 /* MemberViewController.swift in Sources */,
 				0AE4450621A7967000571E17 /* MenuTableViewCell.swift in Sources */,
 				A101E6C721C3669F00B9E4D0 /* WaitingStatus.swift in Sources */,
@@ -720,6 +727,7 @@
 				9B70435A21C7474400077FB0 /* SignUpViewController.swift in Sources */,
 				9BD1EF1B218EF349004AB970 /* Common.swift in Sources */,
 				EB7334A321C07AD000B431D7 /* getPhoto.swift in Sources */,
+				EBA138D221CA2C38005B92E5 /* StarDetialViewController.swift in Sources */,
 				0A01BB5221C397590023E8F3 /* AdminLineChartViewController.swift in Sources */,
 				A108D74121B10AA400A3F290 /* HotNewsCell.swift in Sources */,
 				9B4F86D421B1227B0079C7C9 /* ReservationViewController.swift in Sources */,
@@ -880,13 +888,13 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = 6UH7D68N7N;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
@@ -903,13 +911,13 @@
 				CODE_SIGN_ENTITLEMENTS = SmartOrder/SmartOrder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68M4BPMVT8;
+				DEVELOPMENT_TEAM = 6UH7D68N7N;
 				INFOPLIST_FILE = SmartOrder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eason.SmartOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = SmartOrder/BridgeHeader.h;
