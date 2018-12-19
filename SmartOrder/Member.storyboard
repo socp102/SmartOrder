@@ -340,7 +340,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="488-iY-6mx">
-                                        <rect key="frame" x="0.0" y="106.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="106.5" width="375" height="45.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Mn-ws8">
                                                 <rect key="frame" x="107" y="0.0" width="248" height="18"/>
@@ -394,16 +394,16 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdx-b9-p1X">
-                                        <rect key="frame" x="0.0" y="184.5" width="375" height="24.5"/>
+                                        <rect key="frame" x="0.0" y="180" width="375" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店長回覆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XO-lF-T8k">
-                                                <rect key="frame" x="0.0" y="0.0" width="82" height="24.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.44400112559999999" blue="0.4524721793" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NMA-0Z-5bm">
-                                                <rect key="frame" x="82" y="0.0" width="293" height="24.5"/>
+                                                <rect key="frame" x="82" y="0.0" width="293" height="24"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="1aO-jd-Dfl"/>
@@ -415,10 +415,10 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdX-Qj-mxU">
-                                        <rect key="frame" x="0.0" y="237" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="232" width="375" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.44400112559999999" blue="0.4524721793" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="UVv-5t-nTg"/>
+                                            <constraint firstAttribute="height" constant="40" id="UVv-5t-nTg"/>
                                         </constraints>
                                         <state key="normal" title="發送">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -434,7 +434,7 @@
                         <constraints>
                             <constraint firstItem="f5I-2c-pae" firstAttribute="centerY" secondItem="CD4-Tx-cIy" secondAttribute="centerY" id="CBR-OP-yiv"/>
                             <constraint firstItem="f5I-2c-pae" firstAttribute="height" secondItem="hUz-q8-4Wi" secondAttribute="height" id="Jqi-a6-zP9"/>
-                            <constraint firstItem="f5I-2c-pae" firstAttribute="top" secondItem="CD4-Tx-cIy" secondAttribute="top" constant="65" id="Lur-o8-IlM"/>
+                            <constraint firstItem="f5I-2c-pae" firstAttribute="top" secondItem="CD4-Tx-cIy" secondAttribute="top" constant="70" id="Lur-o8-IlM"/>
                             <constraint firstItem="f5I-2c-pae" firstAttribute="trailing" secondItem="hUz-q8-4Wi" secondAttribute="trailing" id="RDX-6E-ZJb"/>
                             <constraint firstItem="f5I-2c-pae" firstAttribute="centerX" secondItem="CD4-Tx-cIy" secondAttribute="centerX" id="XCG-Jh-Abq"/>
                             <constraint firstItem="f5I-2c-pae" firstAttribute="leading" secondItem="hUz-q8-4Wi" secondAttribute="leading" id="ziA-FJ-vGl"/>
