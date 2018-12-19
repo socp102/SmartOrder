@@ -171,7 +171,7 @@ class AdminSelectChartViewController: UIViewController {
         case 2:
             chartType = "PieChartVC"
         default:
-            print("not Action")
+            print("chartStart not Action")
         }
         if chartType != "" {
             performSegue(
@@ -319,10 +319,11 @@ class AdminSelectChartViewController: UIViewController {
             }
             // 跳頁 and 關閉loadinView
             self.loadingView.stopAnimating()
-            if self.selectTypeSegmented.selectedSegmentIndex == -1 {
-                print("no Action")
+            if self.selectTypeSegmented.selectedSegmentIndex == -1 || self.selectChartSegmented.selectedSegmentIndex == -1 {
+                print("getData no Action")
             } else {
                 self.chartStart()
+                print("xxx Debug")
             }
         }
     }
@@ -381,12 +382,16 @@ extension AdminSelectChartViewController {
         startTime = sevenBeforeTimeString
         endTime = oneBeforeTimeString
         getData()
+        startTime = ""  // 清空
+        endTime = ""    // 同上
         
         var tempIntArray = [Int]()
         var tempStringArray = [String]()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.chartStart()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             // 遞減排序
+            if self.commodityCountData.count == 0 {
+                return
+            }
             let result = self.commodityCountData.sorted { (str1, str2) -> Bool in
                 return str1.1 > str2.1
             }
@@ -399,8 +404,6 @@ extension AdminSelectChartViewController {
                     break
                 }
             }
-            
-//            self.imageView.isHidden = true
             self.setChart(dataPoints: tempIntArray,
                           data: tempStringArray,
                           chartView: self.chartView)
@@ -421,13 +424,15 @@ extension AdminSelectChartViewController {
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "近七日熱賣商品")
         let chartData = BarChartData(dataSet: chartDataSet)
         
+//        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.regular)
+//        chartDataSet.formSize = 50.0
+//        chartDataSet.valueFont = UIFont.FontSize(15.0)
         chartView.data = chartData
         chartData.barWidth = 0.5
         chartDataSet.stackLabels = data
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data)
         chartDataSet.colors = ChartColorTemplates.colorful()
         chartView.xAxis.labelPosition = .bottom
-//        chartView.setVisibleXRangeMaximum(3)
         chartView.setVisibleXRangeMinimum(6)
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
