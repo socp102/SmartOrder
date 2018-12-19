@@ -12,7 +12,7 @@ import Firebase
 class OrderListDetialTableViewController: UITableViewController {
     let communicator = FirebaseCommunicator.shared
     var detialobject = Order()
-    
+    var totalTime = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,42 @@ class OrderListDetialTableViewController: UITableViewController {
         var totalitem:String = ""
         for i in 0 ..< count.count {
             print("i: \(i)")
-            let item = " 品名 ：\(name[i]) 數量: \(count[i]) 單價：\(subtotle[i]) \n"
+            var finialname = ""
+            switch name[i] {
+                case "BeefHamburger":
+                    finialname = "牛肉漢堡"
+                case "ChickenHamburger":
+                    finialname = "雞肉漢堡"
+                case "PorkHamburger":
+                    finialname = "豬肉漢堡"
+                case "TomatoSpaghetti":
+                    finialname = "紅醬義大利麵"
+                case "PestoSpaghetti":
+                    finialname = "青醬義大利麵"
+                case "CarbonaraSpaghetti":
+                    finialname = "白醬義大利麵"
+                case "CheesePizza":
+                    finialname = "起司披薩"
+                case "TomatoPizza":
+                    finialname = "番茄披薩"
+                case "OlivaPizza":
+                    finialname = "橄欖披薩"
+                case "FiletMigon":
+                    finialname = "牛菲力"
+                case "RibeyeSteak":
+                    finialname = "牛肋排"
+                case "GrilledSteak":
+                    finialname = "炙燒牛排"
+                case "Macaron":
+                    finialname = "馬卡龍"
+                case "ChocolateCake":
+                    finialname = "巧克力蛋糕"
+                case "Sundae":
+                    finialname = "聖代"
+            default:
+                finialname = "unknown"
+            }
+            let item = " 品名 ：\(finialname) 數量: \(count[i]) 單價：\(subtotle[i]) \n"
             totalitem += item
             print("item : \(item)")
             
@@ -50,8 +85,14 @@ class OrderListDetialTableViewController: UITableViewController {
         detialtime.text = self.detialobject.time
         finialtotal.text = "折扣後金額： \(self.detialobject.total) 元"
         couponDetial.text = self.detialobject.coupon
-        
+        totalTime = self.detialobject.time
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "messagesegue" {
+            let controller = segue.destination as! MessageViewController
+            let time = self.totalTime
+            controller.time = time
+        }
+    }
 }
