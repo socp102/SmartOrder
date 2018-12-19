@@ -13,4 +13,6 @@ struct Message {
     var star = 0
     var time = ""
     var visitor = ""
+    var email = ""
+    var uid = ""
 }

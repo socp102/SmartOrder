@@ -22,14 +22,21 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var ordertime: UILabel!
     
     
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-        load()
-    }
+   
     
    
     
     @IBAction func send(_ sender: UIButton) {
-        update()
+        let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
+            self.update()
+            self.viewWillAppear(true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+
     }
     @IBOutlet weak var managermessage: UITextView!
     override func viewDidLoad() {
@@ -45,25 +52,51 @@ class MessageViewController: UIViewController {
     }
     
     @IBAction func starslider(_ sender: UISlider) {
+        let value = Int(sender.value)
         
-        switch sender.value as! Int {
-        case 1:
+        switch value {
+        case 0 :
+            self.onestar.image = UIImage(named: "restar")
+            self.twostar.image = UIImage(named: "restar")
+            self.thirdstar.image = UIImage(named: "restar")
+            self.forstar.image = UIImage(named: "restar")
+            self.fifstar.image = UIImage(named: "restar")
+            star = 0
+            break
+        case 1 :
             self.onestar.image = UIImage(named: "star")
+            self.twostar.image = UIImage(named: "restar")
+            self.thirdstar.image = UIImage(named: "restar")
+            self.forstar.image = UIImage(named: "restar")
+            self.fifstar.image = UIImage(named: "restar")
+            star = 1
             break
         case 2:
             self.onestar.image = UIImage(named: "star")
             self.twostar.image = UIImage(named: "star")
+            self.thirdstar.image = UIImage(named: "restar")
+            self.forstar.image = UIImage(named: "restar")
+            self.fifstar.image = UIImage(named: "restar")
+            star = 2
+
             break
         case 3:
             self.onestar.image = UIImage(named: "star")
             self.twostar.image = UIImage(named: "star")
             self.thirdstar.image = UIImage(named: "star")
+            self.forstar.image = UIImage(named: "restar")
+            self.fifstar.image = UIImage(named: "restar")
+            star = 3
+
             break
         case 4:
             self.onestar.image = UIImage(named: "star")
             self.twostar.image = UIImage(named: "star")
             self.thirdstar.image = UIImage(named: "star")
             self.forstar.image = UIImage(named: "star")
+            self.fifstar.image = UIImage(named: "restar")
+            star = 4
+
             break
         case 5:
             self.onestar.image = UIImage(named: "star")
@@ -71,6 +104,8 @@ class MessageViewController: UIViewController {
             self.thirdstar.image = UIImage(named: "star")
             self.forstar.image = UIImage(named: "star")
             self.fifstar.image = UIImage(named: "star")
+            star = 5
+
             break
         default:
             self.onestar.image = UIImage(named: "restar")
@@ -78,6 +113,8 @@ class MessageViewController: UIViewController {
             self.thirdstar.image = UIImage(named: "restar")
             self.forstar.image = UIImage(named: "restar")
             self.fifstar.image = UIImage(named: "restar")
+            star = 0
+
             break
         }
     }
@@ -109,23 +146,48 @@ class MessageViewController: UIViewController {
             self.message.text = self.finalmessage.visitor
             let finialstar = self.finalmessage.star
             switch finialstar {
-            case 1:
+            case 0 :
+                self.onestar.image = UIImage(named: "restar")
+                self.twostar.image = UIImage(named: "restar")
+                self.thirdstar.image = UIImage(named: "restar")
+                self.forstar.image = UIImage(named: "restar")
+                self.fifstar.image = UIImage(named: "restar")
+                
+                break
+            case 1 :
                 self.onestar.image = UIImage(named: "star")
+                self.twostar.image = UIImage(named: "restar")
+                self.thirdstar.image = UIImage(named: "restar")
+                self.forstar.image = UIImage(named: "restar")
+                self.fifstar.image = UIImage(named: "restar")
+                
                 break
             case 2:
                 self.onestar.image = UIImage(named: "star")
                 self.twostar.image = UIImage(named: "star")
+                self.thirdstar.image = UIImage(named: "restar")
+                self.forstar.image = UIImage(named: "restar")
+                self.fifstar.image = UIImage(named: "restar")
+                
+                
                 break
             case 3:
                 self.onestar.image = UIImage(named: "star")
                 self.twostar.image = UIImage(named: "star")
                 self.thirdstar.image = UIImage(named: "star")
+                self.forstar.image = UIImage(named: "restar")
+                self.fifstar.image = UIImage(named: "restar")
+                
+                
                 break
             case 4:
                 self.onestar.image = UIImage(named: "star")
                 self.twostar.image = UIImage(named: "star")
                 self.thirdstar.image = UIImage(named: "star")
                 self.forstar.image = UIImage(named: "star")
+                self.fifstar.image = UIImage(named: "restar")
+                
+                
                 break
             case 5:
                 self.onestar.image = UIImage(named: "star")
@@ -133,6 +195,7 @@ class MessageViewController: UIViewController {
                 self.thirdstar.image = UIImage(named: "star")
                 self.forstar.image = UIImage(named: "star")
                 self.fifstar.image = UIImage(named: "star")
+                
                 break
             default:
                 self.onestar.image = UIImage(named: "restar")
@@ -140,6 +203,8 @@ class MessageViewController: UIViewController {
                 self.thirdstar.image = UIImage(named: "restar")
                 self.forstar.image = UIImage(named: "restar")
                 self.fifstar.image = UIImage(named: "restar")
+               
+                
                 break
             }
             
@@ -155,7 +220,7 @@ class MessageViewController: UIViewController {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        let data:[String:Any] = [ "manager":"", "star":self.star, "time":self.time ,"visitor":message.text ?? "" ]
+        let data:[String:Any] = [ "manager":"", "star":self.star, "time":self.time ,"visitor":message.text ?? "" ,"name":currentUser.email ?? currentUser.displayName ?? "","uid":currentUser.uid]
         firebase.addData(collectionName: "message", documentName: currentUser.uid, data: data) { (result, error) in
             if let error = error {
                 print("error : \(error)")
