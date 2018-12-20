@@ -65,18 +65,20 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     }
     override func viewWillDisappear(_ animated: Bool) {
         // 取消監聽器
-        if let listener = listener {
-            listener.remove()
-        }
+//        if let listener = listener {
+//            listener.remove()
+//        }
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         listenNumber() // 監聽跳號
+        manager.startMonitoring(for: beaconRegion)
+        manager.startRangingBeacons(in: beaconRegion)
         // 檢查是否已經取號
         if userDefaults.string(forKey: "documentID") == nil {
-            manager.startRangingBeacons(in: beaconRegion)
+            
         } else {
             changeButton(getNumber: false)
             myNumber.text = userDefaults.string(forKey: "MyNumber")
@@ -84,16 +86,16 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     }
     
     @IBAction func getNumber(_ sender: Any) {
+        beaconRegion.notifyOnEntry = true
+        beaconRegion.notifyOnExit = true
         getNumberButton.isUserInteractionEnabled = false
         getNumberButton.alpha = 0.3
         registration()
-        manager.startMonitoring(for: beaconRegion)
-        
     }
     
     @IBAction func testNumber(_ sender: Any) { // 取消候位按鈕
         cancelWaiting()
-        manager.stopMonitoring(for: beaconRegion)
+        manager.startMonitoring(for: beaconRegion)
         manager.startRangingBeacons(in: beaconRegion)
     }
     // 監聽目前號碼
@@ -351,23 +353,26 @@ class ReservationViewController: UIViewController , CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         if state == .inside && notificationController {
 //            showNotification("目前在現場候位中!")
+            print("locationManager===.inside")
             inOutSide.text = "現場候位中"
             inOutSide.textColor = #colorLiteral(red: 0.001295871567, green: 0.4439048171, blue: 0.4495092034, alpha: 1)
             self.saveLocation(state: "inside")
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
         } else if state == .unknown { // .outside
+            print("locationManager===.unknown")
 //            showNotification("如離開現場等候，到號時將自動過號!")
             
-            self.saveLocation(state: "outside")
-            manager.startRangingBeacons(in: region as! CLBeaconRegion)
+//            self.saveLocation(state: "outside")
+//            manager.startRangingBeacons(in: region as! CLBeaconRegion)
             
         } else if state == .outside { // .outside
 //            showNotification("目前已經開現場等候，到號時將自動過號!")
+            print("locationManager===.outside")
             inOutSide.text = "已離開店內"
             inOutSide.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             self.saveLocation(state: "outside")
-            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
         }
         notificationController = true
     }
