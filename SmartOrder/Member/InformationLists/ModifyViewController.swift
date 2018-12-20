@@ -130,7 +130,15 @@ class ModifyViewController: UIViewController {
         }
             reobjects.append(reinformation)
             print("reobject: \(reobjects)")
-            modify()
+        let alert = UIAlertController(title: "確定發送", message: "確定發送訊息", preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default) { (UIAlertAction) in
+            self.modify()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
         
         
         

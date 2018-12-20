@@ -15,4 +15,5 @@ struct Message {
     var visitor = ""
     var email = ""
     var uid = ""
+    var key = ""
 }
