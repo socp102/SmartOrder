@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X1k-SR-mDh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X1k-SR-mDh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -334,7 +334,7 @@
                                                     <constraint firstAttribute="height" constant="200" id="m1w-3z-Edh"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.0" green="0.44400112559999999" blue="0.4524721793" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -409,7 +409,7 @@
                                                     <constraint firstAttribute="height" constant="150" id="1aO-jd-Dfl"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -913,10 +913,10 @@
     </scenes>
     <resources>
         <image name="Logout" width="32" height="32"/>
-        <image name="Member" width="48" height="48"/>
+        <image name="Member" width="30" height="30"/>
         <image name="camera" width="200" height="200"/>
-        <image name="people" width="48" height="48"/>
-        <image name="restar" width="20" height="18.5"/>
+        <image name="people" width="30" height="30"/>
+        <image name="restar" width="20" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NGa-1R-seY"/>
